@@ -1,0 +1,41 @@
+.wrapper {
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .passport {
+         background-color: rgba(87, 87, 87, 0.2);
+         border-radius: 28px;
+         padding: 8px 12px;
+         max-width: fit-content;
+         color: #575757;
+         margin: 0 auto;
+      }
+
+      .title {
+         margin-top: 32px;
+         font-size: 3.75rem;
+         font-weight: 500;
+         text-align: center;
+         line-height: 100%;
+      }
+
+      .description {
+         font-size: 0.875rem;
+         text-align: center;
+         color: #0f0f0f;
+         margin-top: 44px;
+         max-width: 618px;
+      }
+   }
+}
