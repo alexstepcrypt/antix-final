@@ -7,18 +7,26 @@ import MarketLeader from "@/sections/MarketLeader/MarketLeader";
 import Why from "@/sections/Why/Why";
 import Quote from "@/sections/Quote/Quote";
 import NftPassport from '@/sections/NftPassport/NftPassport';
+import Statistics from "@/sections/Statistics/Statistics";
+import ReplacingHumans from "@/sections/ReplacingHumans/ReplacingHumans";
+import Amazon from "@/sections/Amazon/Amazon";
+import AntixFeatures from "@/sections/AntixFeatures/AntixFeatures";
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Header />
-      <HeroSection />
-      <FeaturedIn />
-      <PlatformToReplace />
-      <MarketLeader />
-      <Why />
-      <Quote />
-      <NftPassport />
-    </div>
-  );
+    return (
+        <div className={styles.container}>
+            <Header />
+            <HeroSection />
+            <FeaturedIn />
+            <PlatformToReplace />
+            <MarketLeader />
+            <Why />
+            <Quote />
+            <Statistics />
+            <ReplacingHumans />
+            <Amazon />
+            <AntixFeatures />
+            <NftPassport />
+        </div>
+    );
 }
