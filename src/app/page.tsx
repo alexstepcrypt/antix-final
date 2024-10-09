@@ -6,6 +6,7 @@ import PlatformToReplace from "@/sections/PlatformToReplace/PlatformToReplace";
 import MarketLeader from "@/sections/MarketLeader/MarketLeader";
 import Why from "@/sections/Why/Why";
 import Quote from "@/sections/Quote/Quote";
+import NftPassport from '@/sections/NftPassport/NftPassport';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <MarketLeader />
       <Why />
       <Quote />
+      <NftPassport />
     </div>
   );
 }
