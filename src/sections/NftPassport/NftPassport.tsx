@@ -20,7 +20,13 @@ const NftPassport = () => {
                </h2>
             </section>
 
-            <Image src={nft} alt="nft-passport" width={1054} height={713} />
+            <Image
+               src={nft}
+               alt="nft-passport"
+               width={1054}
+               height={713}
+               loading="lazy"
+            />
 
             <p className={s.description}>
                All your digital humans and assets are backed by blockchain,
