@@ -1,6 +1,6 @@
 .wrapperNew {
     padding: 1rem;
-    color: #fff;
+    color: #afafaf;
     margin-top: 3rem;
     margin: 9rem auto;
 }
@@ -41,6 +41,8 @@
                     text-align: center;
                     font-size: 161px;
                     line-height: 161px;
+
+                    color: #fff;
                 }
                 > p {
                     margin: 1rem 2rem 2rem;
@@ -49,8 +51,6 @@
                     font-weight: 400;
                     line-height: 21px;
                     text-align: left;
-
-                    color: #afafaf;
                 }
             }
         }
@@ -86,22 +86,23 @@
                         line-height: 64px;
                         font-weight: 500;
                         text-align: center;
+
+                        color: #fff;
                     }
                     > img {
                         width: 5px;
                     }
                 }
                 > p {
-                    font-size: 16px;
+                    font-size: 14px;
                     line-height: 20px;
-                    font-weight: 100;
+                    font-weight: 400;
                     margin-top: 3rem;
 
                     font-size: 14px;
                     font-weight: 400;
                     line-height: 21px;
                     text-align: left;
-                    color: #afafaf;
                 }
             }
         }
@@ -119,7 +120,6 @@
                     margin-bottom: 1rem;
                 }
                 > p {
-                    color: #afafaf;
                     font-size: 14px;
                     font-weight: 400;
                     line-height: 21px;
@@ -146,9 +146,9 @@
                 padding: 1rem;
                 > p {
                     max-width: 174px;
-                    font-weight: 100;
+                    font-weight: 400;
                     text-align: left;
-                    font-size: 16px;
+                    font-size: 14px;
                     line-height: 20px;
                     margin-bottom: 2rem;
                 }
@@ -176,9 +176,9 @@
                         margin-bottom: 1rem;
                     }
                     > p {
-                        font-size: 16px;
+                        font-size: 14px;
                         line-height: 20px;
-                        font-weight: 100;
+                        font-weight: 400;
                     }
                 }
                 &:nth-child(2) {
@@ -205,9 +205,9 @@
                     margin-bottom: 1rem;
                 }
                 > p {
-                    font-size: 16px;
+                    font-size: 14px;
                     line-height: 20px;
-                    font-weight: 100;
+                    font-weight: 400;
                     text-align: left;
                 }
             }
