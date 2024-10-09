@@ -1,23 +1,13 @@
-"use client"
+"use client";
 
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/scss";
 import styles from "./FeaturedIn.module.scss";
-// import { logos } from "./mocdata";
+import { logos } from "./mocdata";
 
-import Logo1 from "@/public/svg/featuredIn/1.svg";
-import Logo2 from "@/public/svg/featuredIn/2.svg";
-import Logo3 from "@/public/svg/featuredIn/3.svg";
-import Logo4 from "@/public/svg/featuredIn/4.svg";
-import Logo5 from "@/public/svg/featuredIn/5.svg";
-import Logo6 from "@/public/svg/featuredIn/6.svg";
-import Logo7 from "@/public/svg/featuredIn/7.svg";
 import Image from "next/image";
-
-export const logos = [Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7, Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7, Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7];
-
 
 const FeaturedIn: React.FC = () => {
     const swiperRef = useRef<any>(null);
@@ -34,9 +24,15 @@ const FeaturedIn: React.FC = () => {
                     ref={swiperRef}
                     modules={[Autoplay]}
                     spaceBetween={0}
-                    slidesPerView={5}
+                    slidesPerView={4}
                     loop={true}
-                    speed={typeof window === 'undefined' ? 0 : window.innerWidth > 1200 ? 2000 : 1500}
+                    speed={
+                        typeof window === "undefined"
+                            ? 0
+                            : window.innerWidth > 1200
+                            ? 2000
+                            : 1500
+                    }
                     autoplay={{
                         delay: 0,
                         disableOnInteraction: true,
@@ -44,10 +40,14 @@ const FeaturedIn: React.FC = () => {
                     allowTouchMove={false}
                     grabCursor={false}
                 >
-                    {logos.map((url, index) => (
+                    {logos.map((logo, index) => (
                         <SwiperSlide key={index} className={styles.item}>
-                            <a href="">
-                                <Image src={url} alt="Featured in" height={40} />
+                            <a href={logo.link} target="_blank">
+                                <Image
+                                    src={logo.logo}
+                                    alt="Featured in"
+                                    height={40}
+                                />
                             </a>
                         </SwiperSlide>
                     ))}
