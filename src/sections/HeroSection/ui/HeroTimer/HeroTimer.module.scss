@@ -1,0 +1,44 @@
+.container {
+    padding: 12px 22px;
+    border-radius: 8.69px;
+    background: #5757574d;
+    border: 1px solid rgba(240, 240, 240, 0.3);
+    backdrop-filter: blur(20px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.timeSegment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.time {
+    font-family: "Poppins", sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 35.2px;
+    text-align: center;
+    color: #afafaf;
+}
+
+.label {
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 13.2px;
+    text-align: center;
+    color: #afafaf;
+}
+
+.separator {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: left;
+    font-family: "Poppins", sans-serif;
+    color: #afafaf;
+}
