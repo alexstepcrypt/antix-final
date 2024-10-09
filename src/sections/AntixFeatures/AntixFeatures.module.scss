@@ -1,0 +1,35 @@
+.wrapper {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+
+    width: 100vw;
+    height: 700px;
+
+    margin: 32px 0 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+
+    .title {
+        max-width: 535px;
+
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 54px;
+        letter-spacing: -0.04em;
+        text-align: left;
+        color: #0f0f0f;
+
+        span {
+            color: #00a1b2;
+        }
+    }
+}
