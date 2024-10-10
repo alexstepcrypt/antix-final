@@ -17,6 +17,7 @@ import JoinUs from "@/sections/JoinUs/JoinUs";
 import ExclusiveOffer from "@/sections/ExclusiveOffer/ExclusiveOffer";
 import Footer from "@/sections/Footer/Footer";
 import UserFlow from "@/sections/UserFlow/UserFlow";
+import AIDriven from "@/sections/AIDriven/AIDriven";
 
 export default function Home() {
     return (
@@ -34,6 +35,7 @@ export default function Home() {
             <AntixFeatures />
             <NftPassport />
             <Creations />
+            <AIDriven />
             <UserFlow />
             <Tokenomics />
             <JoinUs />

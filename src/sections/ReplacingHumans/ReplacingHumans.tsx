@@ -5,7 +5,7 @@ import styles from "./ReplacingHumans.module.scss";
 
 import HeadImg from "@/public/images/replacing-humans-bg-avatar.png";
 import BgImg from "@/public/images/replacing-humans-bg.png";
-import Accordion from '../../components/Accordion/Accordion';
+import Accordion from "../../components/Accordion/Accordion";
 import FadeIn from "../../components/FadeIn/FadeIn";
 import Image from "next/image";
 
@@ -60,6 +60,7 @@ const ReplacingHumans = () => {
                     <div className={styles.list}>
                         {leftList.map((item) => (
                             <Accordion
+                                key={item.title}
                                 item={item}
                                 isOpen={isOpen}
                                 setIsOpen={setIsOpen}
@@ -69,6 +70,7 @@ const ReplacingHumans = () => {
                     <div className={styles.list}>
                         {rightList.map((item) => (
                             <Accordion
+                                key={item.title}
                                 item={item}
                                 isOpen={isOpen}
                                 setIsOpen={setIsOpen}
@@ -79,7 +81,7 @@ const ReplacingHumans = () => {
                 <Image src={HeadImg} alt="" className={styles.headImg} />
 
                 <span className={styles.bottomLink}>
-                *Source: Harvard business review (2024)
+                    *Source: Harvard business review (2024)
                 </span>
             </div>
         </section>
