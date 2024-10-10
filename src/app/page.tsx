@@ -18,6 +18,7 @@ import ExclusiveOffer from "@/sections/ExclusiveOffer/ExclusiveOffer";
 import Footer from "@/sections/Footer/Footer";
 import UserFlow from "@/sections/UserFlow/UserFlow";
 import AIDriven from "@/sections/AIDriven/AIDriven";
+import AntixToken from '@/sections/AntixToken/AntixToken';
 
 export default function Home() {
     return (
@@ -36,6 +37,7 @@ export default function Home() {
             <NftPassport />
             <Creations />
             <AIDriven />
+            <AntixToken />  
             <UserFlow />
             <Tokenomics />
             <JoinUs />
