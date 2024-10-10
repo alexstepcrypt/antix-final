@@ -23,7 +23,7 @@ const NftPassport = () => {
             <Image
                src={nft}
                alt="nft-passport"
-               width={1054}
+               width={1024}
                height={713}
                loading="lazy"
             />
