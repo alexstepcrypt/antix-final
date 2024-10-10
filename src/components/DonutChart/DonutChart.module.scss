@@ -1,0 +1,17 @@
+.chartWrapper {
+    width: 530px;
+    height: 530px;
+
+    svg,
+    path,
+    g {
+        outline: none;
+    }
+}
+
+.chartsLabel {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: left;
+}

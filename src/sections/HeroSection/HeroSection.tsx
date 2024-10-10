@@ -19,7 +19,7 @@ import Bg from "@/public/images/hero-timer-bg.png"
 
 const HeroSection = () => {
     return (
-        <section className={styles.wrapper}>
+        <section className={styles.wrapper} id="hero">
             <div className={styles.container}>
                 <div className={styles.leftColumn}>
                     <FadeIn direction="right" distance="50%">

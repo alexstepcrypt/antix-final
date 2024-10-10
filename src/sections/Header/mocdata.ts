@@ -1,6 +1,6 @@
 export const links = [
     {
-        title: "Team",
+        title: "Token",
         href: "Team",
     },
     {
