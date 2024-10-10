@@ -1,13 +1,11 @@
 .wrapper {
    background-repeat: no-repeat;
    background-size: cover;
-   background-position: center;
+   background-position: bottom;
    min-height: 100vh;
    display: flex;
    justify-content: center;
    align-items: center;
-
-   background-color: #F0F0F0;
 
    .content {
       display: flex;
@@ -38,6 +36,7 @@
          color: #0f0f0f;
          margin-top: 44px;
          max-width: 618px;
+         margin-bottom: 165px;
       }
    }
 }
