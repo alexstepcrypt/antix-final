@@ -32,7 +32,7 @@ const Accordion = ({ item, isOpen, setIsOpen }: AccordionProps) => {
             </p>
             <div className={styles.closeButton}>
                <span />
-               <span className={isActive ? styles.openCloseButton : ''} />
+               <span className={!isActive ? styles.openCloseButton : ''} />
             </div>
          </div>
       </button>
