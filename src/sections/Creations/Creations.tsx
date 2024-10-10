@@ -1,11 +1,11 @@
-"use client"
+'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
 
 import creationsBg from '@/public/images/creations.png';
 import s from './Creations.module.scss';
-import Accordion from '@/components/Accordion/Accordion'
+import Accordion from '@/components/Accordion/Accordion';
 
 const accordionItems = [
    {
@@ -23,35 +23,33 @@ const accordionItems = [
 ];
 
 const Creations = () => {
-   const [isOpen, setIsOpen] = useState("");
+   const [isOpen, setIsOpen] = useState('');
 
    return (
-      <div>
-         <section className={s.creations}>
-            <h2 className={s.title}>Monetize your creations</h2>
+      <section>
+         <h2 className={s.title}>Monetize your creations</h2>
 
-            <div className={s.content}>
-               <div className={s.accordions}>
-                  {accordionItems.map((item, i) => (
-                     <Accordion
-                        key={i}
-                        item={item}
-                        isOpen={isOpen}
-                        setIsOpen={setIsOpen}
-                     />
-                  ))}
-               </div>
-
-               <Image
-                  src={creationsBg}
-                  alt="creations-bg"
-                  width={683}
-                  height={291}
-                  loading='lazy'
-               />
+         <div className={s.content}>
+            <div className={s.accordions}>
+               {accordionItems.map((item, i) => (
+                  <Accordion
+                     key={i}
+                     item={item}
+                     isOpen={isOpen}
+                     setIsOpen={setIsOpen}
+                  />
+               ))}
             </div>
-         </section>
-      </div>
+
+            <Image
+               src={creationsBg}
+               alt="creations-bg"
+               width={683}
+               height={291}
+               loading="lazy"
+            />
+         </div>
+      </section>
    );
 };
 
