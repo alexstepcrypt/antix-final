@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import styles from "./JoinUs.module.scss";
 import JoinUsCard from "@/components/JoinUsCard/JoinUsCard";
@@ -5,6 +7,13 @@ import JoinUsCard from "@/components/JoinUsCard/JoinUsCard";
 const JoinUs = () => {
     return (
         <section className={styles.container}>
+            <video className={styles.backgroundVideo} autoPlay loop muted>
+                <source
+                    src={require("@/public/video/join-us-video.webm")}
+                    type="video/webm"
+                />
+                Ваш браузер не поддерживает видео.
+            </video>
             <div className={styles.content}>
                 <h4 className={styles.title}>Join Us on Our Journey</h4>
                 <div className={styles.cardsContainer}>

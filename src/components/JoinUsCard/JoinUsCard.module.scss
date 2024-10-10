@@ -14,13 +14,24 @@
     justify-content: space-between;
 
     cursor: pointer;
+
+    transition: 0.3s;
+
+    // &:hover > .PlusBtn,
+    &:hover .Icon {
+        box-shadow: 0 0 27px 0 rgba(18, 255, 241, 0.3);
+        border: 1px solid #12fff1;
+        transition: all 0.2s ease-in-out;
+    }
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .platform {
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: 0.3s;
 
     .Icon {
         width: 45px;
@@ -42,10 +53,6 @@
         line-height: 19.88px;
         text-align: left;
         color: #ffffff;
-    }
-
-    &:hover {
-        opacity: 0.8;
     }
 }
 

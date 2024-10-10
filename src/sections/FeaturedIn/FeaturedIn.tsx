@@ -46,7 +46,7 @@ const FeaturedIn: React.FC = () => {
                                 <Image
                                     src={logo.logo}
                                     alt="Featured in"
-                                    height={40}
+                                    height={60}
                                 />
                             </a>
                         </SwiperSlide>

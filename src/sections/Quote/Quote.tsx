@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import styles from "./Quote.module.scss";
 import Dots from "@/public/svg/quote-dots.svg";
 import Bg from "@/public/images/quote/quote-bg.png";
@@ -9,7 +10,6 @@ import Avatar1 from "@/public/images/quote/quote-1.png";
 import Avatar2 from "@/public/images/quote/quote-2.png";
 import Avatar3 from "@/public/images/quote/quote-3.png";
 import Avatar4 from "@/public/images/quote/quote-4.png";
-import { useEffect, useState } from "react";
 
 const authors = [
     {
@@ -32,16 +32,23 @@ const authors = [
 
 const Quote = () => {
     const [currentAuthorIndex, setCurrentAuthorIndex] = useState(0);
+    const [fadeIn, setFadeIn] = useState(true);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setCurrentAuthorIndex(
-                (prevIndex) => (prevIndex + 1) % authors.length
-            );
+            setFadeIn(false);
+
+            setTimeout(() => {
+                setCurrentAuthorIndex(
+                    (prevIndex) => (prevIndex + 1) % authors.length
+                );
+                setFadeIn(true);
+            }, 500);
         }, 4000);
 
         return () => clearInterval(intervalId);
     }, []);
+
     return (
         <div
             className={styles.container}
@@ -57,7 +64,11 @@ const Quote = () => {
                     </p>
                     <span className={styles.quoteAuthor}>Alan Kepler</span>
                 </div>
-                <div className={styles.quoteImage}>
+                <div
+                    className={`${styles.quoteImage} ${
+                        fadeIn ? styles.fadeIn : styles.fadeOut
+                    }`}
+                >
                     <Image
                         src={authors[currentAuthorIndex].avatar}
                         alt={authors[currentAuthorIndex].user}
