@@ -16,7 +16,7 @@ const leftList = [
    },
    {
       title: 'Asset Tuning',
-      description: 'Upgrade your digital assets —keep them trendy and fresh.',
+      description: 'Upgrade your digital assets — keep them trendy and fresh.',
       icon: stars.src,
    },
 ];
