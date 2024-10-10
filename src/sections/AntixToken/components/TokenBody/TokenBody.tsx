@@ -1,4 +1,4 @@
-import bg from '@/public/svg/token/BG.svg';
+import bg from '@/public/svg/token/bg.svg';
 import hummer from '@/public/svg/token/hummer.svg';
 import shop from '@/public/svg/token/shop.svg';
 import handshake from '@/public/svg/token/handshake.svg';
