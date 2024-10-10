@@ -5,6 +5,7 @@ import styles from "./ReplacingHumans.module.scss";
 
 import HeadImg from "@/public/images/replacing-humans-bg-avatar.png";
 import BgImg from "@/public/images/replacing-humans-bg.png";
+import Accordion from '../../components/Accordion/Accordion';
 import FadeIn from "../../components/FadeIn/FadeIn";
 import Image from "next/image";
 
@@ -42,48 +43,6 @@ const rightList = [
     },
 ];
 
-type ListItemProps = {
-    item: {
-        title: string;
-        text: string;
-    };
-    isOpen: string;
-    setIsOpen: React.Dispatch<React.SetStateAction<string>>;
-};
-
-const ListItem = ({ item, isOpen, setIsOpen }: ListItemProps) => {
-    const isActive = isOpen === item.title;
-
-    return (
-        <button
-            onClick={() => setIsOpen(isActive ? "" : item.title)}
-            key={item.title}
-            className={styles.item}
-        >
-            <div className={styles.itemTextWrapper}>
-                <h4
-                    className={`${styles.itemTitle} ${
-                        isActive ? styles.itemActiveTitle : ""
-                    }`}
-                >
-                    {item.title}
-                </h4>
-                <p
-                    className={`${styles.itemText} ${
-                        isActive ? styles.openItemText : ""
-                    }`}
-                >
-                    {item.text}
-                </p>
-                <div className={styles.closeButton}>
-                    <span />
-                    <span className={isActive ? styles.openCloseButton : ""} />
-                </div>
-            </div>
-        </button>
-    );
-};
-
 const ReplacingHumans = () => {
     const [isOpen, setIsOpen] = useState("");
     return (
@@ -100,7 +59,7 @@ const ReplacingHumans = () => {
                 <div className={styles.wrapper}>
                     <div className={styles.list}>
                         {leftList.map((item) => (
-                            <ListItem
+                            <Accordion
                                 item={item}
                                 isOpen={isOpen}
                                 setIsOpen={setIsOpen}
@@ -109,7 +68,7 @@ const ReplacingHumans = () => {
                     </div>
                     <div className={styles.list}>
                         {rightList.map((item) => (
-                            <ListItem
+                            <Accordion
                                 item={item}
                                 isOpen={isOpen}
                                 setIsOpen={setIsOpen}
