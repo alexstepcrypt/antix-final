@@ -1,0 +1,60 @@
+.container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+
+    width: 100vw;
+    height: 1337px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 60px;
+    text-align: center;
+    color: #0f0f0f;
+}
+
+.chartWrapper {
+    position: relative;
+    width: 1200px;
+    height: 600px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerChartText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    text-align: center;
+    color: #575757;
+
+    span {
+        margin-bottom: -8px;
+        display: block;
+        font-size: 48px;
+        font-weight: 500;
+        line-height: 72px;
+        text-align: center;
+    }
+}
+
+.bg {
+    position: absolute;
+    top: 59%;
+    left: 50.5%;
+    transform: translate(-50%, -50%);
+}

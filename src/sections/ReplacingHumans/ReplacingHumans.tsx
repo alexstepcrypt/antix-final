@@ -79,7 +79,7 @@ const ReplacingHumans = () => {
                 <Image src={HeadImg} alt="" className={styles.headImg} />
 
                 <span className={styles.bottomLink}>
-                    *courtesy of Harvard business review (2024)
+                *Source: Harvard business review (2024)
                 </span>
             </div>
         </section>
