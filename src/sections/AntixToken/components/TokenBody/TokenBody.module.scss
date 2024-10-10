@@ -1,0 +1,29 @@
+.container {
+   margin-top: 50px;
+   width: 100%;
+   max-width: 1200px;
+   background-position: center;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 150px;
+
+   .left {
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+   }
+
+   .middle {
+      display: flex;
+      flex-direction: column;
+      gap: 450px;
+   }
+
+   .right {
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+   }
+}

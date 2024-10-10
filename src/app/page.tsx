@@ -12,6 +12,7 @@ import ReplacingHumans from "@/sections/ReplacingHumans/ReplacingHumans";
 import Amazon from "@/sections/Amazon/Amazon";
 import AntixFeatures from "@/sections/AntixFeatures/AntixFeatures";
 import Creations from '@/sections/Creations/Creations';
+import AntixToken from '@/sections/AntixToken/AntixToken';
 
 export default function Home() {
     return (
@@ -29,6 +30,7 @@ export default function Home() {
             <AntixFeatures />
             <NftPassport />
             <Creations />
+            <AntixToken />
         </div>
     );
 }
