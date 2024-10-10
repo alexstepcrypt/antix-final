@@ -22,6 +22,12 @@
       font-weight: 400;
       width: 60%;
       text-align: center;
+      transition: background-color .3s ease;
+
+      &:hover {
+         background-color: rgba(255, 255, 255, .85);
+         transition: background-color .3s ease;
+      }
    }
 
    .description {
