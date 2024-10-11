@@ -5,7 +5,7 @@ import s from './AntixToken.module.scss';
 
 const AntixToken = () => {
    return (
-      <div style={{ backgroundImage: `url(${glow.src})` }} className={s.wrapper}>
+      <div style={{ backgroundImage: `url(${glow.src})` }} className={s.wrapper} id='Token'>
          <div id="ANTIXTokens">
             <TokenHead />
             <TokenBody />
