@@ -55,7 +55,9 @@ export const LogoCarousel = () => {
             }}
             speed={1750}
             modules={[Autoplay]}
-            className={s.swiper}>
+            allowTouchMove={false}
+            className={s.swiper}
+         >
             {logos.map((logo, i) => (
                <SwiperSlide key={i}>
                   <img
