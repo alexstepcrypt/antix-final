@@ -14,6 +14,32 @@
       flex-direction: column;
       background: linear-gradient(to bottom, #F0F0F0 0%, #F0F0F0 30%, transparent 100%);
 
+      .imageWrapper {
+         position: relative;
+         width: 1054px;
+         height: 713px;
+
+         .passportImageWrapper {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 586px;
+            height: 586px;
+            border-radius: 1000px;
+            background: rgba(87, 87, 87, 0.2);
+
+            // overflow: hidden;
+
+            .passportImage {
+               position: absolute;
+               bottom: 0px;
+               right: 0;
+            }
+         }
+      }
+
       .passport {
          background-color: rgba(87, 87, 87, 0.2);
          border-radius: 28px;

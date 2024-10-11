@@ -1,3 +1,5 @@
+"use client"
+
 import styles from "./HeroSection.module.scss";
 
 import Xlogo from "@/public/svg/social-x.svg";

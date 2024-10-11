@@ -12,6 +12,7 @@ import PlayImage from "@/public/images/digital-map/map-video-img.png";
 import Point1 from "@/public/images/digital-map/point-1.png";
 import Point2 from "@/public/images/digital-map/point-2.png";
 import Point3 from "@/public/images/digital-map/point-3.png";
+import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 
 const DigitalMap = () => {
     const [openVideo, setOpenVideo] = useState("");
@@ -39,58 +40,76 @@ const DigitalMap = () => {
             </div>
 
             <div className={styles.pointsWrapper}>
-                <div className={styles.point1}>
-                    <Image src={Point1} alt="" draggable={false} />
+                <FadeInNew direction="down">
+                    <div className={styles.point1}>
+                        <Image src={Point1} alt="" draggable={false} />
 
-                    <div
-                        className={styles.videoWrapper}
-                        onClick={() =>
-                            setOpenVideo(
-                                "https://www.youtube.com/embed/3FxZYSKfcE0"
-                            )
-                        }
-                    >
-                        <Image src={PlayImage} alt="" draggable={false} />
-                        <div className={styles.play}>
-                            <Image src={PlayIcon} alt="" draggable={false} />
+                        <div
+                            className={styles.videoWrapper}
+                            onClick={() =>
+                                setOpenVideo(
+                                    "https://www.youtube.com/embed/3FxZYSKfcE0"
+                                )
+                            }
+                        >
+                            <Image src={PlayImage} alt="" draggable={false} />
+                            <div className={styles.play}>
+                                <Image
+                                    src={PlayIcon}
+                                    alt=""
+                                    draggable={false}
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
+                </FadeInNew>
 
-                <div className={styles.point2}>
-                    <Image src={Point2} alt="" draggable={false} />
-                    <div
-                        className={styles.videoWrapper}
-                        onClick={() =>
-                            setOpenVideo(
-                                "https://www.youtube.com/embed/FBzkC5uFZLg"
-                            )
-                        }
-                    >
-                        <Image src={PlayImage} alt="" draggable={false} />
-                        <div className={styles.play}>
-                            <Image src={PlayIcon} alt="" draggable={false} />
+                <FadeInNew direction="down">
+                    <div className={styles.point2}>
+                        <Image src={Point2} alt="" draggable={false} />
+                        <div
+                            className={styles.videoWrapper}
+                            onClick={() =>
+                                setOpenVideo(
+                                    "https://www.youtube.com/embed/FBzkC5uFZLg"
+                                )
+                            }
+                        >
+                            <Image src={PlayImage} alt="" draggable={false} />
+                            <div className={styles.play}>
+                                <Image
+                                    src={PlayIcon}
+                                    alt=""
+                                    draggable={false}
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
+                </FadeInNew>
 
-                <div className={styles.point3}>
-                    <Image src={Point3} alt="" draggable={false} />
+                <FadeInNew direction="down">
+                    <div className={styles.point3}>
+                        <Image src={Point3} alt="" draggable={false} />
 
-                    <div
-                        className={styles.videoWrapper}
-                        onClick={() =>
-                            setOpenVideo(
-                                "https://www.youtube.com/embed/F1YDHYELweI"
-                            )
-                        }
-                    >
-                        <Image src={PlayImage} alt="" draggable={false} />
-                        <div className={styles.play}>
-                            <Image src={PlayIcon} alt="" draggable={false} />
+                        <div
+                            className={styles.videoWrapper}
+                            onClick={() =>
+                                setOpenVideo(
+                                    "https://www.youtube.com/embed/F1YDHYELweI"
+                                )
+                            }
+                        >
+                            <Image src={PlayImage} alt="" draggable={false} />
+                            <div className={styles.play}>
+                                <Image
+                                    src={PlayIcon}
+                                    alt=""
+                                    draggable={false}
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
+                </FadeInNew>
             </div>
         </section>
     );
