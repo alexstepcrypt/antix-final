@@ -19,6 +19,7 @@ import Footer from "@/sections/Footer/Footer";
 import UserFlow from "@/sections/UserFlow/UserFlow";
 import AIDriven from "@/sections/AIDriven/AIDriven";
 import AntixToken from "@/sections/AntixToken/AntixToken";
+import Team from '@/sections/Team/Team';
 import Advisors from "@/sections/Advisors/Advisors";
 
 export default function Home() {
@@ -41,6 +42,7 @@ export default function Home() {
             <AntixToken />
             <UserFlow />
             <Tokenomics />
+            <Team />
             <Advisors />
             <JoinUs />
             <ExclusiveOffer />

@@ -1,0 +1,41 @@
+.preview {
+   max-width: 404px;
+   display: flex;
+   flex-direction: column;
+   gap: 60px;
+
+   .title {
+      font-size: 3.75rem;
+      color: #f0f0f0;
+      line-height: 100%;
+      font-weight: 500;
+   }
+
+   .description {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: #afafaf;
+      margin-top: 32px;
+      max-width: 392px;
+
+      span {
+         font-weight: 600;
+      }
+   }
+
+   .statistic {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+   }
+
+   .list {
+      display: flex;
+      gap: 28px;
+
+      .logos {
+         display: flex;
+         gap: 16px;
+      }
+   }
+}
