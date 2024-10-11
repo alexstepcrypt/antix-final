@@ -8,7 +8,7 @@ export const TokenHead = () => {
          <section>
             <h2 className={s.title}>ANTIX Token</h2>
             <Link
-               href="https://antix.gitbook.io/antix-white-paper/7.-team-and-advisors"
+               href="https://antix.gitbook.io/antix-white-paper"
                target="_blank"
                className={s.link}
             >

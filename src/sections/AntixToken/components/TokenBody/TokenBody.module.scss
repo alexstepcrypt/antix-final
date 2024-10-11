@@ -37,6 +37,9 @@
          top: 55px;
          filter: drop-shadow(0 0 24px #12FFF1);
          transition: all .4s ease;
+
+         /* for other browsers */
+         -webkit-filter: drop-shadow(0 0 24px #12FFF1);
       }
    }
 }
