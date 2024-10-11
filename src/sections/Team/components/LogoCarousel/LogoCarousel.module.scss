@@ -1,9 +1,8 @@
 .container {
    position: relative;
 
+   max-width: 600px;
    .swiper {
-      max-width: 600px;
-
       .logo {
          object-position: center;
          object-fit: cover;
@@ -13,7 +12,7 @@
    &::after, &::before {
       content: "";
       position: absolute;
-      width: 15%;
+      width: 50%;
       height: 100%;
       top: 0;
       bottom: 0;
@@ -22,11 +21,19 @@
 
    &::after {
       right: 0;
-      background: linear-gradient(to left, rgba(15,15,15,1) 0%, rgba(255,255,255,0) 100%);
+      background: linear-gradient(to left, rgba(15,15,15,1) 0%, transparent 100%);
    }
 
    &::before {
       left: 0;
-      background: linear-gradient(to right, rgba(15,15,15,1) 0%, rgba(255,255,255,0) 100%);
+      background: linear-gradient(to right, rgba(15,15,15,1) 0%, transparent 100%);
    }
+}
+.slide {
+   min-width: 100px;
+   display: flex !important;
+   align-items: center;
+   justify-content: center;
+
+   height: 54px;
 }

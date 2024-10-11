@@ -1,7 +1,6 @@
 'use client';
 
-import { SwiperRef, SwiperSlide, Swiper } from 'swiper/react';
-import { useEffect, useRef } from 'react';
+import { SwiperSlide, Swiper } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 
 import logo1 from '@/public/images/team/1.png';
@@ -20,44 +19,46 @@ const logos = [
    logo1,
    logo2,
    logo3,
+   logo8,
    logo4,
-   logo5,
    logo6,
    logo7,
-   logo8,
    logo9,
+   logo5,
+   logo10,
+   logo1,
+   logo2,
+   logo3,
+   logo8,
+   logo4,
+   logo6,
+   logo7,
+   logo9,
+   logo5,
    logo10,
 ];
 
 export const LogoCarousel = () => {
-   const swiperRef = useRef<SwiperRef | null>(null);
-
-   useEffect(() => {
-      setTimeout(() => {
-         if (swiperRef.current && swiperRef.current.swiper) {
-            swiperRef.current.swiper.update();
-         }
-      }, 100);
-   }, []);
 
    return (
       <div className={s.container}>
          <Swiper
-            loop
+            loop={true}
             centeredSlides
-            ref={swiperRef}
-            slidesPerView={6}
+            slidesPerView={4}
             spaceBetween={52}
             autoplay={{
-               delay: 2000,
-               disableOnInteraction: false,
-               pauseOnMouseEnter: false,
+               delay: 1000,
+               disableOnInteraction: true,
             }}
             speed={1750}
             modules={[Autoplay]}
-            className={s.swiper}>
+            allowTouchMove={false}
+            grabCursor={false}
+            className={s.swiper}
+         >
             {logos.map((logo, i) => (
-               <SwiperSlide key={i}>
+               <SwiperSlide key={i} className={s.slide}>
                   <img
                      src={logo.src}
                      alt="team-logo"
