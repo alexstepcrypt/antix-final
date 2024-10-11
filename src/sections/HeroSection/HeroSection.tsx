@@ -10,8 +10,8 @@ import { LoaderSvg } from "./ui/LoaderSvg/LoaderSvg";
 import { HeroTimer } from "./ui/HeroTimer/HeroTimer";
 import FadeIn from "../../components/FadeIn/FadeIn";
 
-import Awords1 from "@/public/images/awords1.png";
-import Awords2 from "@/public/images/awords2.png";
+// import Awords1 from "@/public/images/awords1.png";
+// import Awords2 from "@/public/images/awords2.png";
 import Awords3 from "@/public/images/awords3.png";
 import Image from "next/image";
 
@@ -19,7 +19,7 @@ import Bg from "@/public/images/hero-timer-bg.png"
 
 const HeroSection = () => {
     return (
-        <section className={styles.wrapper} id="hero">
+        <section className={styles.wrapper} id="Hero">
             <div className={styles.container}>
                 <div className={styles.leftColumn}>
                     <FadeIn direction="right" distance="50%">
@@ -70,8 +70,8 @@ const HeroSection = () => {
                         </a>
                     </div>
                     <div className={styles.awords}>
-                        <Image src={Awords1} alt="" />
-                        <Image src={Awords2} alt="" />
+                        {/* <Image src={Awords1} alt="" /> */}
+                        {/* <Image src={Awords2} alt="" /> */}
                         <Image src={Awords3} alt="" />
                     </div>
                 </div>

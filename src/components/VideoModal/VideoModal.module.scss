@@ -1,0 +1,40 @@
+.bg {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+
+    background: #080808c7;
+    backdrop-filter: blur(18px);
+}
+
+.container {
+    position: fixed;
+    z-index: 202;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.closeButton {
+    background: transparent;
+    padding: 24px 0;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21.6px;
+    color: #ffffff;
+
+    cursor: pointer;
+}
+
+.videoWrapper {
+    width: 925px;
+    height: 554px;
+}

@@ -12,6 +12,9 @@ const Header = () => {
         if (el) {
             el.scrollIntoView({ behavior: "smooth", block: "center" });
         }
+        if(id.includes("https:")) {
+            window.open(id, '_blank')
+        }
     };
 
     return (

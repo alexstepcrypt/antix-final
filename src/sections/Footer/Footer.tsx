@@ -60,7 +60,7 @@ const Footer = () => {
                                     Advisors
                                 </button>
                                 <button
-                                    onClick={() => handleClick("ANTIXTokens")}
+                                    onClick={() => handleClick("Token")}
                                 >
                                     ANTIX Token
                                 </button>
@@ -79,7 +79,7 @@ const Footer = () => {
                                 <button onClick={() => handleClick("Team")}>
                                     Team
                                 </button>
-                                <button onClick={() => handleClick("Partners")}>
+                                <button onClick={() => handleClick("FeaturedIn")}>
                                     Partners
                                 </button>
                             </div>
@@ -89,7 +89,7 @@ const Footer = () => {
                                     Road map
                                 </button>
                                 <button
-                                    onClick={() => handleClick("Community")}
+                                    onClick={() => handleClick("JoinUs")}
                                 >
                                     Community
                                 </button>

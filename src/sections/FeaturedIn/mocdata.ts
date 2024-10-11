@@ -30,16 +30,6 @@ import Logo29 from "@/public/images/featured-in/29.png";
 import Logo30 from "@/public/images/featured-in/30.png";
 import Logo31 from "@/public/images/featured-in/31.png";
 import Logo32 from "@/public/images/featured-in/32.png";
-// import Logo33 from "@/public/images/featured-in/33.png";
-// import Logo34 from "@/public/images/featured-in/34.png";
-// import Logo35 from "@/public/images/featured-in/35.png";
-// import Logo36 from "@/public/images/featured-in/36.png";
-// import Logo37 from "@/public/images/featured-in/37.png";
-// import Logo38 from "@/public/images/featured-in/38.png";
-// import Logo39 from "@/public/images/featured-in/39.png";
-// import Logo40 from "@/public/images/featured-in/40.png";
-// import Logo41 from "@/public/images/featured-in/41.png";
-// import Logo42 from "@/public/images/featured-in/42.png";
 
 export const logos = [
     { logo: Logo1, link: "https://coinmarketcap.com/community/post/338919151/" },
@@ -74,14 +64,4 @@ export const logos = [
     { logo: Logo30, link: "https://gab.com/CoinGabbar/posts/112975620181862429" },
     { logo: Logo31, link: "https://blockchainwhispers.com/?article=antix-rolls-out-avagen-update-and-brings-crypto-and-web3-to-digital-humans" },
     { logo: Logo32, link: "https://br.tradingview.com/news/cointelegraph:f8dc5dea1bc81:0/" },
-    // { logo: Logo33, link: "https://cryptodaily.co.uk/2024/08/antix-rolls-out-avagen-update-and-brings-crypto-and-web3-to-digital-humans" },
-    // { logo: Logo34, link: "https://www.coinfi.com/news/1562463/antix-rolls-out-avagen-update-and-brings-crypto-and-web3-to-digital-humans" },
-    // { logo: Logo35, link: "https://wakelet.com/wake/Q20i-pInV30sOqAWKY5h0" },
-    // { logo: Logo36, link: "https://bitrss.com/antix-rolls-out-avagen-update-and-brings-crypto-and-web3-to-digital-humans-3480" },
-    // { logo: Logo37, link: "https://thelaststandpodcast.com/antix-rolls-out-avagen-update-and-brings-crypto-and-web3-to-digital-humans/" },
-    // { logo: Logo38, link: "https://markets.businessinsider.com/news/stocks/antix-inc-prepares-for-the-avagen-update-augmenting-its-advanced-personalization-and-multilingual-capabilities-1033715993" },
-    // { logo: Logo39, link: "https://coindesk.cc/antix-rolls-out-avagen-update-and-brings-crypto-and-web3-to-digital-humans-332435.html" },
-    // { logo: Logo40, link: "https://br.cointelegraph.com/news/bitcoin-price-today-08-16-2024-btc-bulls-fight-again-to-recover-us60-000-but-must-face-selling-pressure" },
-    // { logo: Logo41, link: "https://afnewsagency.org/antix-rolls-out-avagen-update-and-brings-crypto-and-web3-to-digital-humans/" },
-    // { logo: Logo42, link: "https://www.benzinga.com/content/40411119/antix-expands-avagen-with-hyper-realistic-digital-humans-and-cryptocurrency-in-web-3-0-revolution" },
 ];
