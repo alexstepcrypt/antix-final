@@ -1,4 +1,7 @@
-import bg from '@/public/svg/token/bg.svg';
+import Image from 'next/image';
+
+import coin from '@/public/svg/token/coin.svg';
+import bg from '@/public/svg/token/coin-bg.svg';
 import hummer from '@/public/svg/token/hummer.svg';
 import shop from '@/public/svg/token/shop.svg';
 import handshake from '@/public/svg/token/handshake.svg';
@@ -7,6 +10,7 @@ import stars from '@/public/svg/token/stars.svg';
 import subscription from '@/public/svg/token/subscription.svg';
 import { TokenCard } from '../TokenCard/TokenCard';
 import s from './TokenBody.module.scss';
+import { TweenLite } from 'gsap'
 
 const leftList = [
    {
@@ -29,8 +33,7 @@ const midList = [
    },
    {
       title: 'Marketplace',
-      description:
-         'Trade and customize your digital assets in the marketplace.',
+      description: 'Trade and customize your digital assets in the marketplace.',
       icon: shop.src,
    },
 ];
@@ -43,8 +46,7 @@ const rightList = [
    },
    {
       title: 'Staking',
-      description:
-         'Stake your tokens and boost your rewards. Higher stake, higher earnings.',
+      description: 'Stake your tokens and boost your rewards. Higher stake, higher earnings.',
       icon: lines.src,
    },
 ];
@@ -63,6 +65,14 @@ export const TokenBody = () => {
          <div className={s.right}>
             {rightList.map((item, i) => <TokenCard key={i} {...item} />)}
          </div>
+
+         <Image
+            src={coin.src}
+            alt="coin"
+            width={902}
+            height={592}
+            className={s.coin}
+         />
       </div>
    );
 };
