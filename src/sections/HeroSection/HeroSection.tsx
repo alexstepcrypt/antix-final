@@ -17,6 +17,7 @@ import Awords2 from "@/public/svg/team/ico2.svg";
 import Awords3 from "@/public/svg/team/ico3.svg";
 import Awords4 from "@/public/svg/team/ico4.svg";
 import Awords5 from "@/public/svg/team/top10.svg";
+import Awords6 from "@/public/svg/team/ico5.svg";
 import Image from "next/image";
 
 import Bg from "@/public/images/hero-timer-bg.png"
@@ -57,7 +58,7 @@ const HeroSection = () => {
                             <div className={styles.socialIcon}>
                                 <Image src={Xlogo} alt="X" />
                             </div>
-                            <span>43К</span>
+                            <span>43K</span>
                         </a>
                         <a
                             className={styles.socialLink}
@@ -67,7 +68,7 @@ const HeroSection = () => {
                             <div className={styles.socialIcon}>
                                 <Image src={Tglogo} alt="Telegram" />
                             </div>
-                            <span>75К</span>
+                            <span>75K</span>
                         </a>
                         <a
                             className={styles.socialLink}
@@ -77,7 +78,7 @@ const HeroSection = () => {
                             <div className={styles.socialIcon}>
                                 <Image src={Discordlogo} alt="Discord" />
                             </div>
-                            <span>12К</span>
+                            <span>12K</span>
                         </a>
                     </div>
                     <div className={styles.awords}>
@@ -86,6 +87,7 @@ const HeroSection = () => {
                         <Image src={Awords3} alt="" />
                         <Image src={Awords4} alt="" />
                         <Image src={Awords5} alt="" />
+                        <Image src={Awords6} alt="" />
                     </div>
                 </div>
                 <div className={styles.rightColumn} style={{backgroundImage: `url(${Bg.src})`}}>

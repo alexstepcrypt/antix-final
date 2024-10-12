@@ -3,15 +3,19 @@
     position: relative;
     overflow: hidden;
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1));
-        z-index: 2;
+    // &::before {
+    //     content: "";
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1));
+    //     z-index: 2;
+    // }
+
+    @media screen and (max-width: 1200px) {
+        padding: 110px 0 50px;
     }
 }
 
@@ -26,16 +30,30 @@
 
     position: relative;
     z-index: 2;
+
+    @media screen and (max-width: 1200px) {
+        max-width: 850px;
+    }
 }
 
 .backgroundVideo {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 120px;
+    border-radius: 16px;
+    max-width: 1400px;
     width: 100%;
-    height: 100%;
+    height: 650px;
     object-fit: cover;
     z-index: 1;
+
+    @media screen and (max-width: 1200px) {
+        margin-top: 100px;
+        border-radius: 0;
+        height: 424px;
+    }
 }
 
 .leftColumn {
@@ -131,8 +149,76 @@
         align-items: center;
         gap: 6px;
 
-        img:last-child {
-            margin-left: 20px;
+        height: 50px;
+
+        img {
+            height: 100%;
+            width: auto;
+        }
+
+        img:nth-child(5) {
+            height: 30px;
+            margin-left: 24px;
+        }
+
+        img:nth-child(6) {
+            margin-left: 24px;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        .subtitle {
+            font-size: 11px;
+            line-height: 16.5px;
+            padding: 6px 8px;
+        }
+        .title {
+            margin-top: 22px;
+            font-size: 43px;
+            line-height: 42.67px;
+        }
+        .description {
+            margin-top: 22px;
+            font-size: 10px;
+            line-height: 14.93px;
+        }
+        .actions {
+            margin-top: 38px;
+            gap: 14px;
+
+            .socialLink {
+                gap: 6px;
+
+                span {
+                    font-size: 11px;
+                    line-height: 16.5px;
+                }
+                .socialIcon {
+                    padding: 9px;
+                    width: 32px;
+                    height: 32px;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        width: 14px;
+                        height: 14px;
+                    }
+                }
+            }
+        }
+        .awords {
+            margin-top: 17px;
+            gap: 5px;
+            height: 40px;
+            img:nth-child(5) {
+                height: 25px;
+                margin-left: 20px;
+            }
+            img:nth-child(6) {
+                margin-left: 20px;
+            }
         }
     }
 }
@@ -141,6 +227,8 @@
     // background-image: url("@/public/images/hero-timer-bg.png");
     background-repeat: no-repeat;
     background-size: contain;
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
 
     width: 460px;
     height: 570px;
@@ -182,6 +270,36 @@
 
         .loader {
             margin: 30px 0;
+            width: 182px;
+            height: 187px;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        width: 328px;
+        height: 404px;
+
+        .timerWrapperTitle {
+            margin-top: 14px;
+            gap: 6px;
+            font-size: 14px;
+            line-height: 15.4px;
+            .logo {
+                width: 22px;
+                height: 22px;
+            }
+        }
+        .timer {
+            .title {
+                margin-top: 50px;
+                font-size: 26px;
+                line-height: 31.2px;
+            }
+            .loader {
+                margin: 15px 0;
+                width: 135px;
+                height: 135px;
+            }
         }
     }
 }

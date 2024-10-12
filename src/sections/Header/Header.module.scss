@@ -17,6 +17,17 @@
 
     background: rgba(87, 87, 87, 0.4);
     backdrop-filter: blur(20px);
+
+    @media screen and (max-width: 1200px) {
+        max-width: 850px;
+        padding: 8px 8px 8px 20px;
+        border-radius: 12px;
+    }
+    @media screen and (max-width: 960px) {
+        max-width: 750px;
+        padding: 9px 9px 9px 22px;
+        border-radius: 12px;
+    }
 }
 
 .logo {
@@ -26,6 +37,15 @@
     img {
         height: 100%;
         width: auto;
+    }
+
+    @media screen and (max-width: 1200px) {
+        width: 86px;
+        height: 31px;
+    }
+    @media screen and (max-width: 960px) {
+        width: 75.09px;
+        height: 27.31px;
     }
 }
 
@@ -49,6 +69,25 @@
 
         &:hover {
             opacity: 0.8;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        gap: 28px;
+        margin-right: 36px;
+
+        .link {
+            font-size: 9px;
+            line-height: 9.9px;
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        gap: 24px;
+        margin-right: 32px;
+
+        .link {
+            font-size: 7px;
+            line-height: 7.7px;
         }
     }
 }
@@ -86,11 +125,44 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 7px;
 
         cursor: pointer;
         transition: 0.3s;
         &:hover {
             opacity: 0.8;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        gap: 8px;
+        .connectButton {
+            padding: 8px 40px;
+            font-size: 10px;
+            line-height: 14px;
+        }
+        .userButton {
+            height: 34px;
+            width: 34px;
+            border-radius: 7px;
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        gap: 7px;
+        .connectButton {
+            padding: 7.45px 33px;
+            font-size: 9px;
+            line-height: 13.03px;
+        }
+        .userButton {
+            height: 30px;
+            width: 30px;
         }
     }
 }
