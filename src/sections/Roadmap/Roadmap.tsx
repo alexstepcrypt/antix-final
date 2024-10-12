@@ -14,13 +14,9 @@ const Roadmap = () => {
       >
          <h2 className={s.title}>Road Map</h2>
 
-         <Swiper slidesPerView={2} className={s.swiper}>
-            {roadmapList.map((stage, i) => (
-               <SwiperSlide className={s.slide} key={i}>
-                  <Stage {...stage} />
-               </SwiperSlide>
-            ))}
-         </Swiper>
+         <div className={s.list}>
+            {roadmapList.map((stage, i) => <Stage key={i} {...stage} />)}
+         </div>
       </div>
    );
 };
