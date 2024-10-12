@@ -12,7 +12,8 @@ import Image from "next/image";
 const FeaturedIn: React.FC = () => {
     const swiperRef = useRef<any>(null);
     let slidesPerView;
-    switch (window.innerWidth) {
+    let windowWidth = typeof window === "undefined" ? 0 : window.innerWidth;
+    switch (windowWidth) {
         case 1200:
             slidesPerView = 4;
             break;
