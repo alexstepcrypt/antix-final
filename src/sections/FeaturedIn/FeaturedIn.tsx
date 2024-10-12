@@ -13,7 +13,7 @@ const FeaturedIn: React.FC = () => {
     const swiperRef = useRef<any>(null);
 
     return (
-        <section className={styles.wrapper}>
+        <section className={styles.wrapper} id="FeaturedIn">
             <h4 className={styles.title}>Featured in</h4>
             <div
                 className={styles.container}

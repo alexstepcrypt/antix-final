@@ -1,14 +1,14 @@
 export const links = [
     {
         title: "Token",
-        href: "Team",
+        href: "Token",
     },
     {
         title: "Whitepaper",
-        href: "AboutTokens",
+        href: "https://antix.gitbook.io/antix-white-paper",
     },
     {
         title: "Buy Now",
-        href: "Footer",
+        href: "Hero",
     },
 ];

@@ -1,3 +1,5 @@
+"use client"
+
 import styles from "./HeroSection.module.scss";
 
 import Xlogo from "@/public/svg/social-x.svg";
@@ -10,16 +12,25 @@ import { LoaderSvg } from "./ui/LoaderSvg/LoaderSvg";
 import { HeroTimer } from "./ui/HeroTimer/HeroTimer";
 import FadeIn from "../../components/FadeIn/FadeIn";
 
-import Awords1 from "@/public/images/awords1.png";
-import Awords2 from "@/public/images/awords2.png";
-import Awords3 from "@/public/images/awords3.png";
+import Awords1 from "@/public/svg/team/ico1.svg";
+import Awords2 from "@/public/svg/team/ico2.svg";
+import Awords3 from "@/public/svg/team/ico3.svg";
+import Awords4 from "@/public/svg/team/ico4.svg";
+import Awords5 from "@/public/svg/team/top10.svg";
 import Image from "next/image";
 
 import Bg from "@/public/images/hero-timer-bg.png"
 
 const HeroSection = () => {
     return (
-        <section className={styles.wrapper} id="hero">
+        <section className={styles.wrapper} id="Hero">
+            <video className={styles.backgroundVideo} autoPlay loop muted>
+                <source
+                    src={require("@/public/video/hero-video.webm")}
+                    type="video/webm"
+                />
+                Ваш браузер не поддерживает видео.
+            </video>
             <div className={styles.container}>
                 <div className={styles.leftColumn}>
                     <FadeIn direction="right" distance="50%">
@@ -73,6 +84,8 @@ const HeroSection = () => {
                         <Image src={Awords1} alt="" />
                         <Image src={Awords2} alt="" />
                         <Image src={Awords3} alt="" />
+                        <Image src={Awords4} alt="" />
+                        <Image src={Awords5} alt="" />
                     </div>
                 </div>
                 <div className={styles.rightColumn} style={{backgroundImage: `url(${Bg.src})`}}>

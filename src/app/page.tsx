@@ -21,6 +21,7 @@ import AIDriven from "@/sections/AIDriven/AIDriven";
 import AntixToken from "@/sections/AntixToken/AntixToken";
 import Team from '@/sections/Team/Team';
 import Advisors from "@/sections/Advisors/Advisors";
+import DigitalMap from "@/sections/DigitalMap/DigitalMap";
 import Roadmap from '@/sections/Roadmap/Roadmap';
 
 export default function Home() {
@@ -39,6 +40,7 @@ export default function Home() {
             <AntixFeatures />
             <NftPassport />
             <Creations />
+            <DigitalMap />
             <AIDriven />
             <AntixToken />
             <UserFlow />

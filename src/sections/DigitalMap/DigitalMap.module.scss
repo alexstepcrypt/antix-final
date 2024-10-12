@@ -1,0 +1,130 @@
+.container {
+    margin-top: 150px;
+    position: relative;
+    width: 100vw;
+    height: 1100px;
+    overflow: hidden;
+}
+
+.bgMap {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+
+    width: 1920px;
+    height: 871px;
+}
+
+.topContent {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.descWrapper {
+    max-width: 320px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+
+    .desc {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        text-align: left;
+        color: #afafaf;
+
+        span {
+            font-weight: 600;
+        }
+    }
+}
+
+.title {
+    max-width: 520px;
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 60px;
+    text-align: right;
+    color: #f0f0f0;
+}
+
+.pointsWrapper {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 1920px;
+    height: 871px;
+}
+
+.point1,
+.point2,
+.point3,
+.point4,
+.point5 {
+    background: transparent;
+}
+
+.videoWrapper {
+    position: absolute;
+    bottom: 115px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.1s ease-in-out;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        .play {
+            opacity: 0.5;
+        }
+    }
+}
+
+.point1 {
+    position: absolute;
+    left: 13%;
+    bottom: 32.5%;
+}
+
+.point2 {
+    position: absolute;
+    right: 19.5%;
+    bottom: 37%;
+
+    .videoWrapper {
+        left: 0;
+        transform: translateX(0%);
+    }
+}
+
+.point3 {
+    position: absolute;
+    bottom: 31.5%;
+    right: 12.5%;
+
+    .videoWrapper {
+        left: 0;
+        transform: translateX(55%);
+    }
+}

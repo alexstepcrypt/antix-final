@@ -52,7 +52,7 @@ const advisorsList = [
 
 const Advisors = () => {
     return (
-        <section className={styles.container}>
+        <section className={styles.container} id="Advisors">
             <h3 className={styles.title}>Advisors</h3>
             <p className={styles.desc}>
                 The Antix advisory team brings{" "}
