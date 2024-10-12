@@ -22,6 +22,7 @@ import AntixToken from "@/sections/AntixToken/AntixToken";
 import Team from '@/sections/Team/Team';
 import Advisors from "@/sections/Advisors/Advisors";
 import DigitalMap from "@/sections/DigitalMap/DigitalMap";
+import Roadmap from '@/sections/Roadmap/Roadmap';
 
 export default function Home() {
     return (
@@ -46,6 +47,7 @@ export default function Home() {
             <Tokenomics />
             <Team />
             <Advisors />
+            <Roadmap />
             <JoinUs />
             <ExclusiveOffer />
             <Footer />
