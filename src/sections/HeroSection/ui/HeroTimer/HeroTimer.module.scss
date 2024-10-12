@@ -9,6 +9,10 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
+
+    @media screen and (max-width: 1200px) {
+        padding: 8px 15px;
+    }
 }
 
 .timeSegment {
@@ -22,6 +26,11 @@
     line-height: 35.2px;
     text-align: center;
     color: #afafaf;
+
+    @media screen and (max-width: 1200px) {
+        font-size: 23px;
+        line-height: 25.3px;
+    }
 }
 
 .label {
@@ -30,6 +39,11 @@
     line-height: 13.2px;
     text-align: center;
     color: #afafaf;
+
+    @media screen and (max-width: 1200px) {
+        font-size: 9px;
+        line-height: 9.9px;
+    }
 }
 
 .separator {
@@ -37,6 +51,10 @@
     font-weight: 500;
     line-height: 22px;
     text-align: left;
-
     color: #afafaf;
+
+    @media screen and (max-width: 1200px) {
+        font-size: 14px;
+        line-height: 15.4px;
+    }
 }

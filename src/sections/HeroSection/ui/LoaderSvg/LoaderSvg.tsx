@@ -1,8 +1,6 @@
 export const LoaderSvg = ({ percent }: { percent: number }) => {
   return (
     <svg
-      width="182"
-      height="187"
       viewBox="0 0 221 226"
       xmlns="http://www.w3.org/2000/svg"
     >
