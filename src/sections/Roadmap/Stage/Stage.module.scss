@@ -1,6 +1,7 @@
 .container {
    border-radius: 16px;
-   width: 520px;
+   min-width: 520px;
+   max-height: fit-content;
    backdrop-filter: blur(20px);
    border: 1px solid rgba(240, 240, 240, .1);
    background: rgba(15, 15, 15, .6);
@@ -44,19 +45,30 @@
          font-weight: 600;
       }
 
-      .list > li {
-         font-size: 0.875rem;
-         color: #F0F0F0;
-         font-weight: 400;
+      .list {
          margin-top: 8px;
-         list-style-image: url("../../../public/svg/roadmap-list-item.svg");
-         margin-left: 15px;
+         display: flex;
+         align-items: center;
+         gap: 6px;
+
+         li {
+            font-size: 0.875rem;
+            color: #F0F0F0;
+            font-weight: 400;
+            list-style: none;
+         }
       }
 
       hr {
          margin: 16px 0;
          border: 1px solid rgba(240, 240, 240, 0.1);;
       }
+   }
+
+   &:hover {
+      box-shadow: 0 0 45px 0 rgba(18, 255, 241, .3);
+      border: 1px solid #12FFF1;
+      transition: all 0.2s ease-in-out;
    }
 }
 
