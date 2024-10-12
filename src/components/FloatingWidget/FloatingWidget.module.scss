@@ -22,6 +22,15 @@
         opacity: 1;
         visibility: visible;
     }
+
+    @media screen and (max-width: 1280px) {
+        display: none;
+    }
+
+    @media screen and (max-width: 960px) {
+    }
+    @media screen and (max-width: 480px) {
+    }
 }
 
 .topButton {

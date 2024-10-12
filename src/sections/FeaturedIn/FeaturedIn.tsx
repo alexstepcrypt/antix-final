@@ -11,6 +11,15 @@ import Image from "next/image";
 
 const FeaturedIn: React.FC = () => {
     const swiperRef = useRef<any>(null);
+    let slidesPerView;
+    switch (window.innerWidth) {
+        case 1200:
+            slidesPerView = 4;
+            break;
+        case 480:
+            slidesPerView = 3;
+            break;
+    }
 
     return (
         <section className={styles.wrapper} id="FeaturedIn">
@@ -24,15 +33,15 @@ const FeaturedIn: React.FC = () => {
                     ref={swiperRef}
                     modules={[Autoplay]}
                     spaceBetween={0}
-                    slidesPerView={4}
-                    loop={true}
-                    speed={
+                    slidesPerView={
                         typeof window === "undefined"
                             ? 0
-                            : window.innerWidth > 1200
-                            ? 2000
-                            : 1500
+                            : window.innerWidth > 960
+                            ? 4
+                            : 2
                     }
+                    loop={true}
+                    speed={2000}
                     autoplay={{
                         delay: 0,
                         disableOnInteraction: true,

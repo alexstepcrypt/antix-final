@@ -1,5 +1,7 @@
+"use client";
 import styles from "./PlatformToReplace.module.scss";
 import Bg from "@/public/images/platoform-to-replace-bg.png";
+import BgMobile from "@/public/images/platoform-to-replace-bg-mobile.png";
 import VerticalCarusel from "@/components/VerticalCarusel/VerticalCarusel";
 
 const words = [
@@ -21,7 +23,11 @@ const PlatformToReplace = () => {
         <section
             className={styles.wrapper}
             id="AboutProject"
-            style={{ backgroundImage: `url(${Bg.src})` }}
+            style={{
+                backgroundImage: `url(${
+                    window.innerWidth > 960 ? Bg.src : BgMobile.src
+                })`,
+            }}
         >
             <div className={styles.container}>
                 <h4 className={styles.title}>

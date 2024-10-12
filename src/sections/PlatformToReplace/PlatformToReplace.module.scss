@@ -7,6 +7,24 @@
     height: 110vh;
 
     margin: -130px 0;
+
+    @media screen and (max-width: 1380px) {
+        height: 90vh;
+        background-position: center top;
+        background-size: cover;
+        margin: 0;
+    }
+    @media screen and (max-width: 1280px) {
+        height: 72vh;
+    }
+
+    @media screen and (max-width: 960px) {
+        height: 500px;
+        margin-top: 100px;
+        background-position: top;
+    }
+    @media screen and (max-width: 480px) {
+    }
 }
 
 .container {
@@ -25,16 +43,39 @@
         letter-spacing: -0.04em;
         text-align: left;
         color: #0f0f0f;
-
         text-wrap: nowrap;
 
         span {
-            font-size: 36px;
-            font-weight: 500;
-            line-height: 54px;
-            letter-spacing: -0.04em;
-            text-align: left;
             color: #00a1b2;
+        }
+    }
+    @media screen and (max-width: 1280px) {
+        max-width: 850px;
+        .title {
+            font-size: 20px;
+            line-height: 33.51px;
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+
+        .title {
+            max-width: 400px;
+            font-size: 29.31px;
+            line-height: 37.86px;
+            text-wrap: wrap;
+            text-align: center;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        gap: 24px;
+
+        .title {
+            font-size: 24px;
+            line-height: 31px;
         }
     }
 }

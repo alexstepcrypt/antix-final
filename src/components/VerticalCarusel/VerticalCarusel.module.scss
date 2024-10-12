@@ -20,6 +20,15 @@
         top: 0;
         background: linear-gradient(to bottom, #f0f0f0 -20%, transparent);
     }
+
+    @media screen and (max-width: 1280px) {
+        max-height: 190px;
+    }
+
+    @media screen and (max-width: 960px) {
+    }
+    @media screen and (max-width: 480px) {
+    }
 }
 
 .slide {
@@ -46,5 +55,34 @@
         line-height: 50px;
         letter-spacing: -0.04em;
         text-align: center;
+    }
+
+    @media screen and (max-width: 1280px) {
+        min-width: 250px;
+        padding: 8px 24px;
+
+        span {
+            font-size: 21px;
+            line-height: 35.56px;
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        min-width: 320px;
+        padding: 11px 44px;
+
+        span {
+            font-size: 24.43px;
+            line-height: 46.36px;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        padding: 9px 36px;
+        min-width: 260px;
+
+        span {
+            font-size: 20px;
+            line-height: 37.96px;
+        }
     }
 }
