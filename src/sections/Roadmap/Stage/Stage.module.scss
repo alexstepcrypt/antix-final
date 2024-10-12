@@ -1,0 +1,66 @@
+.container {
+   border-radius: 16px;
+   width: 520px;
+   backdrop-filter: blur(20px);
+   border: 1px solid rgba(240, 240, 240, .1);
+   background: rgba(15, 15, 15, .6);
+   padding: 48px;
+   font-weight: 500;
+
+   .badge {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 24px;
+
+      .stage {
+         border-radius: 8px;
+         padding: 0px 12px;
+         background: #F0F0F0;
+         font-size: 1.25rem;
+         color: #0f0f0f;
+      }
+   }
+
+   .title {
+      font-size: 5rem;
+      color: #12FFF1;
+      line-height: 62px;
+      font-weight: 400;
+   }
+
+   .event {
+      margin-top: 16px;
+      font-size: 1.75rem;
+      color: #fff;
+   }
+
+   .events {
+      margin-top: 40px;
+
+      .item {
+         font-size: 1rem;
+         color: #F0F0F0;
+         font-weight: 600;
+      }
+
+      .list > li {
+         font-size: 0.875rem;
+         color: #F0F0F0;
+         font-weight: 400;
+         margin-top: 8px;
+         list-style-image: url("../../../public/svg/roadmap-list-item.svg");
+         margin-left: 15px;
+      }
+
+      hr {
+         margin: 16px 0;
+         border: 1px solid rgba(240, 240, 240, 0.1);;
+      }
+   }
+}
+
+.active {
+   border: 1px solid #12FFF1;
+   box-shadow: 0 0 45px 0 rgba(18, 255, 241, .3);
+}
