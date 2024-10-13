@@ -3,6 +3,18 @@
 
     background-repeat: no-repeat;
     background-position: center;
+
+    @media screen and (max-width: 1280px) {
+        margin: 3rem auto;
+    }
+    @media screen and (max-width: 960px) {
+        background-image: none !important;
+        margin-top: 120px;
+        margin-bottom: 0;
+    }
+    @media screen and (max-width: 480px) {
+        margin-top: 100px;
+    }
 }
 
 .content {
@@ -14,6 +26,17 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 1280px) {
+        max-width: 850px;
+        height: 520px;
+    }
+    @media screen and (max-width: 960px) {
+        height: fit-content;
+        max-width: none;
+    }
+    @media screen and (max-width: 480px) {
+    }
 }
 
 .title {
@@ -27,6 +50,22 @@
     line-height: 60px;
     text-align: center;
     color: #f0f0f0;
+
+    @media screen and (max-width: 1280px) {
+        max-width: 630px;
+        font-size: 43px;
+        line-height: 42.67px;
+    }
+    @media screen and (max-width: 960px) {
+        max-width: 379.85px;
+        font-size: 48.85px;
+        line-height: 52.11px;
+    }
+    @media screen and (max-width: 480px) {
+        font-size: 40px;
+        line-height: 42.67px;
+        max-width: 310px;
+    }
 }
 
 .wrapper {
@@ -36,12 +75,38 @@
     margin-top: 150px;
     display: flex;
     justify-content: space-between;
+
+    @media screen and (max-width: 1280px) {
+        margin-top: 100px;
+    }
+    @media screen and (max-width: 960px) {
+        overflow-x: scroll;
+        padding: 20px 20%;
+        order: 3;
+        margin-top: 0px;
+        gap: 24px;
+    }
+    @media screen and (max-width: 480px) {
+        gap: 20px;
+        padding: 16px 10%;
+    }
 }
 
 .list {
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    @media screen and (max-width: 1280px) {
+        gap: 11px;
+    }
+    @media screen and (max-width: 960px) {
+        flex-direction: row;
+        gap: 24px;
+    }
+    @media screen and (max-width: 480px) {
+        gap: 20px;
+    }
 }
 
 .bottomLink {
@@ -54,6 +119,21 @@
     text-align: center;
 
     color: #575757;
+
+    @media screen and (max-width: 1280px) {
+        font-size: 10px;
+        line-height: 14.93px;
+    }
+    @media screen and (max-width: 960px) {
+        font-size: 14.66px;
+        line-height: 17.74px;
+        order: 2;
+        margin-top: 35px;
+    }
+    @media screen and (max-width: 480px) {
+        font-size: 14.66px;
+        line-height: 17.74px;
+    }
 }
 
 .headImg {
@@ -62,4 +142,12 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 0;
+
+    @media screen and (max-width: 1280px) {
+        width: 455.11px;
+        height: 425.96px;
+    }
+    @media screen and (max-width: 960px) {
+        display: none;
+    }
 }

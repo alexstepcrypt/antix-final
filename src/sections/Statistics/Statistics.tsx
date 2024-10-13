@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./Statistics.module.scss";
 
 import Img1 from "@/public/images/statistics/1.png";
@@ -15,15 +17,60 @@ import Percent90 from "@/public/svg/statistics/90.svg";
 import StickIcon from "@/public/svg/statistics/stick.svg";
 import DollarIcon from "@/public/svg/statistics/dollar.svg";
 import Icon15m from "@/public/svg/statistics/15m.svg";
-import ArrovButtom from "@/public/svg/statistics/arrovButtom.svg";
 
 import { FadeInNew } from "../../components/FadeInNew/FadeInNew";
 import { ImgBox } from "./ui/ImgBox/ImgBox";
 import Image from "next/image";
+import { mobileText } from "./data";
+
+import MobileBtn from "@/public/svg/mobile-hidden-tn.svg";
+import { useEffect, useRef, useState } from "react";
 
 const Statistics = () => {
+    const [isOpen, setIsOpen] = useState(true);
+    const contentRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        if (contentRef.current) {
+            const content = contentRef.current;
+            if (isOpen) {
+                content.style.height = `${content.scrollHeight}px`;
+            } else {
+                content.style.height = "0";
+            }
+        }
+    }, [isOpen]);
+
     return (
         <>
+            <section className={styles.mobileWrapper}>
+                <div
+                    ref={contentRef}
+                    className={`${styles.mobileContent} ${
+                        isOpen ? styles.open : ""
+                    }`}
+                >
+                    {mobileText.map((item, index) => (
+                        <div key={index} className={styles.mobileItem}>
+                            <Image src={item.img} alt="" />
+                            <p className={styles.mobileText}>{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+                <button
+                    onClick={() => setIsOpen((prev) => !prev)}
+                    className={styles.mobileBtn}
+                >
+                    {isOpen ? <p>Hide Details</p> : <p>Show Details</p>}
+                    <Image
+                        src={MobileBtn}
+                        alt=""
+                        className={`${styles.mobileBtnImg} ${
+                            !isOpen ? styles.openMobileBtnImg : ""
+                        }`}
+                    />
+                </button>
+            </section>
             <section className={styles.wrapperNew}>
                 <div className={styles.topWrapper}>
                     <FadeInNew direction="right" distance={"50%"}>
