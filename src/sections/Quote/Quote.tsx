@@ -55,14 +55,16 @@ const Quote = () => {
             style={{ backgroundImage: `url(${Bg.src})` }}
         >
             <div className={styles.content}>
-                <Image src={Dots} alt="" />
-                <div className={styles.infoWrapper}>
-                    <p className={styles.quoteText}>
-                        Thats not an issue that everyone will own their digital
-                        twin in upcoming years. The question is how we will
-                        manage their rights?
-                    </p>
-                    <span className={styles.quoteAuthor}>Alan Kepler</span>
+                <div className={styles.quote}>
+                    <Image src={Dots} alt="" />
+                    <div>
+                        <p className={styles.quoteText}>
+                            Thats not an issue that everyone will own their digital
+                            twin in upcoming years. The question is how we will
+                            manage their rights?
+                        </p>
+                        <span className={styles.quoteAuthor}>Alan Kepler</span>
+                    </div>
                 </div>
                 <div
                     className={`${styles.quoteImage} ${

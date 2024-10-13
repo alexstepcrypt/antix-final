@@ -11,10 +11,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
 
-.infoWrapper {
-    margin-left: 28px;
+    @media (max-width: 960px) {
+        background-image: url("../../public/images/quote-bg-mobile.png") !important;
+        background-size: cover;
+        background-position: center;
+        height: 1290px;
+    }
+
+    @media (max-width: 680px) {
+        height: 1000px;
+    }
 }
 
 .content {
@@ -24,27 +31,100 @@
     display: flex;
     align-items: center;
     gap: 16px;
-}
+    padding: 7px;
 
-.quoteText {
-    max-width: 783px;
+    .quote {
+        display: flex;
+        gap: 24px;
+        align-items: center;
 
-    font-size: 36px;
-    font-weight: 500;
-    line-height: 54px;
-    letter-spacing: -0.04em;
-    text-align: left;
-    color: #ffffff;
-}
+        .quoteText {
+            max-width: 783px;
+        
+            font-size: 36px;
+            font-weight: 500;
+            line-height: 54px;
+            letter-spacing: -0.04em;
+            text-align: left;
+            color: #ffffff;
+        }
+        
+        .quoteAuthor {
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 36px;
+            text-align: left;
+            color: #032a28;
+        
+            margin-top: 12px;
+        }
+    }
 
-.quoteAuthor {
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 36px;
-    text-align: left;
-    color: #032a28;
+    @media (max-width: 1280px) {
+        .quote {
+            gap: 17px;
 
-    margin-top: 12px;
+            .quoteText {
+                font-size: 22px;
+                line-height: 33.51px;
+                max-width: 485px;
+            }
+    
+            .quoteAuthor {
+                font-size: 17px;
+            }
+        }
+
+        justify-content: center;
+    }
+
+    @media (max-width: 960px) {
+        .quote {
+            order: 2;
+            flex-direction: column;
+            margin-top: 25px;
+
+            .quoteText {
+                text-align: center;
+            }
+
+            .quoteAuthor {
+                display: block;
+                text-align: center;
+            }
+
+            img {
+                width: 58px;
+                height: 58px;
+            }
+        }
+
+        flex-direction: column;
+    }
+
+    @media (max-width: 480px) {
+        .quote {
+            .quoteText {
+                font-size: 23px;
+                line-height: 32px;
+                max-width: 475px;
+            }
+
+            .quoteAuthor {
+                font-size: 20px;
+            }
+        }
+    }
+
+    @media (max-width: 400px) {
+        .quote {
+            .quoteText {
+                font-size: 20px;
+                line-height: 30px;
+                max-width: 465px;
+            }
+        }
+    }
 }
 
 .quoteImage {
@@ -79,11 +159,36 @@
         bottom: 50px;
     }
 
+    @media (max-width: 1280px) {
+        position: relative;
+        right: 0;
     }
-        .fadeIn {
-            opacity: 1;
+
+    @media (max-width: 680px) {
+        width: 316px;
+        height: 316px;
+
+        span {
+            font-size: 12px;
+            padding: 6px 16px;
         }
-    
-        .fadeOut {
-            opacity: 0;
-        }
+    }
+
+    @media (max-width: 480px) {
+        width: 305px;
+        height: 305px;
+    }
+
+    @media (max-width: 435px) {
+        width: 290px;
+        height: 290px;
+    }
+}
+
+.fadeIn {
+    opacity: 1;
+}
+
+.fadeOut {
+    opacity: 0;
+}
