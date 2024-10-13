@@ -7,7 +7,9 @@
     height: 100vh;
 
     @media (max-width: 960px) {
-        background-image: unset !important;
+        background-image: url("../../public/images/why/why-bg-mobile.png") !important;
+        background-size: cover;
+        background-position: center;
         height: fit-content;
     }
 }
@@ -21,13 +23,11 @@
 
     @media (max-width: 1280px) {
         gap: 12px;
+        padding-left: 30px;
     }
 
     @media (max-width: 960px) {
         align-items: center;
-        background-image: url("../../public/images/why/why-bg-mobile.png");
-        background-size: cover;
-        background-position: center;
         padding: 30px 0;
     }
 }
