@@ -55,10 +55,15 @@ const Header = () => {
     return (
         <>
             <div
-                className={`${styles.mobileMenuBg} ${
-                    isOpen ? styles.activeMobileMenuBg : ""
+                className={`${styles.mobile} ${
+                    isOpen ? styles.activeMobile : ""
                 }`}
             >
+                <div
+                    className={`${styles.mobileMenuBg} ${
+                        isOpen ? styles.activeMobileMenuBg : ""
+                    }`}
+                ></div>
                 <div
                     className={`${styles.mobileMenu} ${
                         isOpen ? styles.activeMobileMenu : ""

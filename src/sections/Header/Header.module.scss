@@ -238,7 +238,7 @@
         display: none;
     }
 }
-.mobileMenuBg {
+.mobile {
     position: fixed;
     z-index: 101;
     inset: 0;
@@ -251,13 +251,26 @@
         display: none;
     }
 }
+
+.mobileMenuBg {
+    position: absolute;
+    z-index: 102;
+    transition: all 1.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
 .activeMobileMenuBg {
-    background: #0f0f0fcc;
     backdrop-filter: blur(32px);
+    background: #0f0f0fcc;
+    
+}
+.activeMobile {
     transform: translateY(0%);
 }
 
 .mobileMenu {
+    position: relative;
+    z-index: 103;
     width: 100%;
     height: fit-content;
     margin: 0 16px;

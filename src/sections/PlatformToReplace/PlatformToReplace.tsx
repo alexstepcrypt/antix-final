@@ -19,10 +19,6 @@ const words = [
 ];
 
 const PlatformToReplace = () => {
-    // let bg
-    // if (typeof window !== "undefined") {
-    //     bg = typeof window === "undefined" ? 0 : window.innerWidth > 960 ? Bg : BgMobile;
-    // }
     return (
         <section
             className={styles.wrapper}
