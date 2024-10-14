@@ -38,4 +38,44 @@
          gap: 16px;
       }
    }
+
+   @media screen and (max-width: 1280px) {
+      max-width: 290px;
+      gap: 40px;
+
+      .title {
+         font-size: 43px;
+         line-height: 42.67px;
+      }
+      .description {
+         font-size: 10px;
+         line-height: 14.93px;
+      }
+      .statistic {
+         gap: 12px;
+      }
+      .list {
+         gap: 20px;
+
+         & > img {
+            width: 123.67px;
+            height: 24.73px;
+            margin: auto 0;
+         }
+   
+         .logos {
+            display: flex;
+            gap: 12px;
+
+            & > img {
+               width: 28px;
+               height: 37px;
+            }
+         }
+      }
+   }
+   @media screen and (max-width: 960px) {
+   }
+   @media screen and (max-width: 480px) {
+   }
 }

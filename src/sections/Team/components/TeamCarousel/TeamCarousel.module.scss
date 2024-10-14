@@ -14,6 +14,10 @@
     .activeBtn {
         display: none;
     }
+
+    @media screen and (max-width: 1280px) {
+        margin-top: 30px;
+    }
 }
 
 .content {
@@ -26,13 +30,22 @@
     > div {
         min-width: 280px;
     }
+
+    @media screen and (max-width: 1280px) {
+        height: 330px;
+        max-width: 440px;
+
+        > div {
+            min-width: 200px;
+        }
+    }
 }
 
 .activeContent {
     padding: 0 60px 0 0;
     margin-right: 0;
     margin-left: auto;
-    min-width: 150%;
+    min-width: 130%;
     overflow-x: scroll;
 
     &::-webkit-scrollbar {
@@ -45,5 +58,10 @@
     &::-webkit-scrollbar-thumb {
         background: #f0f0f0;
         border-radius: 6px;
+    }
+
+    @media screen and (max-width: 1280px) {
+        padding: 0;
+        min-width: 100%;
     }
 }
