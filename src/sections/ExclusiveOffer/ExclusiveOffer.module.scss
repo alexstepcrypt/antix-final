@@ -13,6 +13,10 @@
 
     backdrop-filter: blur(24px);
     box-shadow: 0px 0px 150px 0px #12fff133;
+
+    @media (max-width: 960px) {
+        margin: 150px 30px 0 30px;
+    }
 }
 
 .content {
@@ -24,6 +28,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 640px) {
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+    }
 }
 
 .left {
@@ -37,6 +47,21 @@
     letter-spacing: -0.02em;
     text-align: left;
     color: #ffffff;
+
+    @media (max-width: 960px) {
+        font-size: 22px;
+    }
+
+    @media (max-width: 640px) {
+        font-size: 43px;
+        line-height: 48px;
+        text-align: center;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 36px;
+        line-height: 40px;
+    }
 }
 
 .desc {
@@ -46,6 +71,24 @@
     line-height: 28px;
     text-align: left;
     color: #ffffff;
+
+    @media (max-width: 960px) {
+        font-size: 12px;
+        line-height: 17px;
+        max-width: 281px;
+    }
+
+    @media (max-width: 640px) {
+        max-width: fit-content;
+        font-size: 22px;
+        line-height: 34px;
+        text-align: center;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 18px;
+        line-height: 28px;
+    }
 }
 
 .button {
