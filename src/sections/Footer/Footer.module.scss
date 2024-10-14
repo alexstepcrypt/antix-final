@@ -302,6 +302,12 @@
             gap: 60px;
         }
     }
+
+    @media (max-width: 480px) {
+        .bootomLinkWrapper {
+            gap: 35px;
+        }
+    }
 }
 
 .bootomInfo, .bottomInfo {
@@ -310,6 +316,12 @@
     font-weight: 400;
     line-height: 21px;
     text-align: center;
+}
+
+@media (min-width: 960px) {
+    .bottomInfo {
+        display: none;
+    }
 }
 
 @media (max-width: 960px) {
