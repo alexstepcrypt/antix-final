@@ -17,4 +17,20 @@
       color: rgba(240, 240, 240, 0.4);
       text-align: center;
    }
+
+   @media screen and (max-width: 1280px) {
+      padding: 8px 14px;
+      border-radius: 8px;
+
+      .title {
+         font-size: 26px;
+         line-height: 38.4px;
+         letter-spacing: -0.04em;
+      }
+   
+      .description {
+         font-size: 10px;
+         line-height: 14.93px;
+      }
+   }
 }
