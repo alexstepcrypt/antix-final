@@ -48,7 +48,7 @@ export const roadmapList = [
    {
       stage: null,
       isCurrent: false,
-      year: '2021-2023',
+      year: '2023-2024',
       event: 'Diversification and Innovation',
       list: [
          {

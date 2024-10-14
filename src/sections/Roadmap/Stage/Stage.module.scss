@@ -19,6 +19,7 @@
          padding: 0px 12px;
          background: #F0F0F0;
          font-size: 1.25rem;
+         line-height: 40px;
          color: #0f0f0f;
       }
    }
@@ -56,6 +57,10 @@
             color: #F0F0F0;
             font-weight: 400;
             list-style: none;
+
+            @media (max-width: 520px) {
+               font-size: 12px;
+            }
          }
       }
 
@@ -69,6 +74,44 @@
       box-shadow: 0 0 45px 0 rgba(18, 255, 241, .3);
       border: 1px solid #12FFF1;
       transition: all 0.2s ease-in-out;
+   }
+
+   @media (max-width: 960px) {
+      padding: 29px;
+      background: rgba(49, 56, 57, .3);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(240, 240, 240, .35);
+      max-height: none;
+
+      .title {
+         font-size: 60px;
+      }
+
+      .event {
+         margin-top: 0;
+         line-height: 22.15px;
+         font-size: 17px;
+      }
+   }
+
+   @media (max-width: 640px) {
+      min-width: 450px;
+   }
+
+   @media (max-width: 560px) {
+      min-width: 400px;
+   }
+
+   @media (max-width: 510px) {
+      min-width: 350px;
+
+      .title {
+         font-size: 40px;
+      }
+   }
+
+   @media (max-width: 465px) {
+      min-width: 320px;
    }
 }
 

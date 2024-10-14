@@ -1,10 +1,12 @@
 "use client"
 
+import Image from 'next/image';
+
+import swap from '@/public/svg/swap-icon.svg';
 import bg from '@/public/images/roadmap-bg.png';
 import s from './Roadmap.module.scss';
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { roadmapList } from './mocdata'
 import { Stage } from './Stage/Stage';
+import { roadmapList } from './mocdata';
 
 const Roadmap = () => {
    return (
@@ -12,6 +14,16 @@ const Roadmap = () => {
          style={{ backgroundImage: `url(${bg.src})` }}
          className={s.container}
       >
+         {/* SWAP ICON */}
+         <Image
+            className={s.swap}
+            src={swap}
+            alt="swap-icon"
+            width={50}
+            height={50}
+            loading="lazy"
+         />
+
          <h2 className={s.title}>Road Map</h2>
 
          <div className={s.list}>
