@@ -1,3 +1,12 @@
+.container {
+    margin-top: 150px;
+
+    @media (max-width: 960px) {
+        margin-top: 120px;
+        padding: 0 10px 10px 10px;
+    }
+}
+
 .footer {
     width: 100%;
     height: 860px;
@@ -6,7 +15,6 @@
     display: flex;
     position: relative;
     overflow-x: hidden;
-    margin-top: 150px;
 
     .footerConatiner {
         max-width: 1200px;
@@ -15,6 +23,25 @@
 
         display: flex;
         flex-direction: column;
+
+        @media (max-width: 1280px) {
+            padding: 0 35px;
+        }
+    }
+
+    @media (max-width: 960px) {
+        border-radius: 25px;
+        background-image: url("../../public/svg/footer-bg-mobile.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right;
+        max-width: 100vw;
+        max-height: 834px;
+        padding: 21px 0;
+    }
+
+    @media (max-width: 330px) {
+        max-height: 683px;
     }
 }
 
@@ -72,6 +99,47 @@
             opacity: 0.8;
         }
     }
+
+    @media (max-width: 960px) {
+        flex-direction: column;
+        gap: 30px;
+        max-width: fit-content;
+
+        .socials {
+            flex-direction: column;
+            align-items: start;
+        }
+
+        .smallTitle {
+            font-size: 19px;
+        }
+
+        .mailLink {
+            font-size: 25px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .smallTitle {
+            font-size: 17px;
+        }
+
+        .mailLink {
+            font-size: 21px;
+        }
+    }
+
+    @media (max-width: 435px) {
+        gap: 20px;
+
+        .smallTitle {
+            font-size: 15px;
+        }
+
+        .mailLink {
+            font-size: 17px;
+        }
+    }
 }
 
 .centerLinksWrapper {
@@ -109,6 +177,34 @@
         &:nth-child(3) {
             margin-left: 370px;
         }
+
+        @media (max-width: 1280px) {
+            &:nth-child(2) {
+                margin-left: 270px;
+            }
+            &:nth-child(3) {
+                margin-left: 290px;
+            }
+        }
+
+        @media (max-width: 1130px) {
+            &:nth-child(2) {
+                margin-left: 200px;
+            }
+            &:nth-child(3) {
+                margin-left: 220px;
+            }
+        }
+    }
+
+    @media (max-width: 960px) {
+        margin-top: 10px;
+        flex-direction: column;
+        gap: 25px;
+
+        .linkWrapper {
+            margin-left: 0 !important;
+        }
     }
 }
 
@@ -121,6 +217,10 @@
     img {
         width: 100%;
         height: auto;
+    }
+
+    @media (max-width: 960px) {
+        display: none;
     }
 }
 
@@ -147,13 +247,102 @@
             &:hover {
                 opacity: 0.8;
             }
+
+            @media (max-width: 480px) {
+                font-size: 12px;
+            }
+
+            @media (max-width: 400px) {
+                font-size: 10px;
+            }
+
+            bootomInfo {
+                color: #686868;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 21px;
+                text-align: center;
+            
+                @media (max-width: 960px) {
+                    display: none;
+                }
+            }
+        }
+
+        .mobile {
+            color: #686868;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+            text-align: center;
+            display: none;
+
+            @media (max-width: 960px) {
+                display: initial;
+            }
+        }
+    }
+
+    @media (max-width: 1280px) {
+        .bootomLinkWrapper {
+            gap: 100px;
+        }
+
+        justify-content: center;
+        gap: 155px;
+    }
+
+    @media (max-width: 960px) {
+        flex-direction: column;
+        gap: 0 !important;
+    }
+
+    @media (max-width: 680px) {
+        .bootomLinkWrapper {
+            gap: 60px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .bootomLinkWrapper {
+            gap: 35px;
         }
     }
 }
-.bootomInfo {
+
+.bootomInfo, .bottomInfo {
     color: #686868;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
     text-align: center;
+}
+
+@media (min-width: 960px) {
+    .bottomInfo {
+        display: none;
+    }
+}
+
+@media (max-width: 960px) {
+    .bottomInfo {
+        margin-top: 15px;
+    }
+
+    .bootomInfo {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .bottomInfo {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .bottomInfo {
+        margin-top: 7px;
+        font-size: 10px;
+    }
 }

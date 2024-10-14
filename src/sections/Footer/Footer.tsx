@@ -8,118 +8,120 @@ import socialDiscord from "@/public/svg/social-discord.svg";
 
 import TitleImg from "@/public/svg/footer-bg.svg";
 import Image from "next/image";
+import { scrollToId } from '@/utils/scrollToId'
 
 const Footer = () => {
-    const handleClick = (id: string) => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.scrollIntoView({ behavior: "smooth" });
-        }
-    };
     return (
-        <footer className={styles.footer} id="Footer">
-            <div className={styles.footerConatiner}>
-                <div className={styles.topWrapper}>
-                    <div className={styles.topItem}>
-                        <span className={styles.smallTitle}>Follow us:</span>
-                        <div className={styles.socials}>
-                            <a
-                                href="https://x.com/antix_in"
-                                target="_blank"
-                                className={styles.socialLink}
-                            >
-                                <Image src={socialX} alt="X" />
-                            </a>
-                            <a
-                                href="https://discord.com/invite/bKcMXChRRT"
-                                target="_blank"
-                                className={styles.socialLink}
-                            >
-                                <Image src={socialDiscord} alt="Discord" />
-                            </a>
-                            <a
-                                href="https://t.me/antix_in"
-                                target="_blank"
-                                className={styles.socialLink}
-                            >
-                                <Image src={socialTelegram} alt="Telegram" />
-                            </a>
-                        </div>
-                    </div>
-                    <div className={styles.topItem}>
-                        <span className={styles.smallTitle}>E-mail:</span>
-                        <a
-                            href="mailto:token@antix.in"
-                            className={styles.mailLink}
-                        >
-                            token@antix.in
-                        </a>
-                        <div className={styles.centerLinksWrapper}>
-                            <div className={styles.linkWrapper}>
-                                <button onClick={() => handleClick("Advisors")}>
-                                    Advisors
-                                </button>
-                                <button
-                                    onClick={() => handleClick("Token")}
+        <div className={styles.container}>
+            <footer className={styles.footer} id="Footer">
+                <div className={styles.footerConatiner}>
+                    <div className={styles.topWrapper}>
+                        <div className={styles.topItem}>
+                            <span className={styles.smallTitle}>Follow us:</span>
+                            <div className={styles.socials}>
+                                <a
+                                    href="https://x.com/antix_in"
+                                    target="_blank"
+                                    className={styles.socialLink}
                                 >
-                                    ANTIX Token
-                                </button>
-                                <button
-                                    onClick={() => handleClick("Tokenomics")}
+                                    <Image src={socialX} alt="X" />
+                                </a>
+                                <a
+                                    href="https://discord.com/invite/bKcMXChRRT"
+                                    target="_blank"
+                                    className={styles.socialLink}
                                 >
-                                    Tokenomics
-                                </button>
-                            </div>
-                            <div className={styles.linkWrapper}>
-                                <button
-                                    onClick={() => handleClick("AboutProject")}
+                                    <Image src={socialDiscord} alt="Discord" />
+                                </a>
+                                <a
+                                    href="https://t.me/antix_in"
+                                    target="_blank"
+                                    className={styles.socialLink}
                                 >
-                                    About project
-                                </button>
-                                <button onClick={() => handleClick("Team")}>
-                                    Team
-                                </button>
-                                <button onClick={() => handleClick("FeaturedIn")}>
-                                    Partners
-                                </button>
-                            </div>
-
-                            <div className={styles.linkWrapper}>
-                                <button onClick={() => handleClick("RoadMap")}>
-                                    Road map
-                                </button>
-                                <button
-                                    onClick={() => handleClick("JoinUs")}
-                                >
-                                    Community
-                                </button>
-                                <button onClick={() => handleClick("FAQ")}>
-                                    FAQ
-                                </button>
+                                    <Image src={socialTelegram} alt="Telegram" />
+                                </a>
                             </div>
                         </div>
-                    </div>
-                </div>
+                        <div className={styles.topItem}>
+                            <span className={styles.smallTitle}>E-mail:</span>
+                            <a
+                                href="mailto:token@antix.in"
+                                className={styles.mailLink}
+                            >
+                                token@antix.in
+                            </a>
+                            <div className={styles.centerLinksWrapper}>
+                                <div className={styles.linkWrapper}>
+                                    <button onClick={() => scrollToId("Advisors")}>
+                                        Advisors
+                                    </button>
+                                    <button
+                                        onClick={() => scrollToId("Token")}
+                                    >
+                                        ANTIX Token
+                                    </button>
+                                    <button
+                                        onClick={() => scrollToId("Tokenomics")}
+                                    >
+                                        Tokenomics
+                                    </button>
+                                </div>
+                                <div className={styles.linkWrapper}>
+                                    <button
+                                        onClick={() => scrollToId("AboutProject")}
+                                    >
+                                        About project
+                                    </button>
+                                    <button onClick={() => scrollToId("Team")}>
+                                        Team
+                                    </button>
+                                    <button onClick={() => scrollToId("FeaturedIn")}>
+                                        Partners
+                                    </button>
+                                </div>
 
-                <div className={styles.bootomWrapper}>
-                    <div className={styles.bootomLinkWrapper}>
-                        <a href="#" className={styles.bootomLink}>
-                            Terms of Use
-                        </a>
-                        <a href="#" className={styles.bootomLink}>
-                            Privacy Policy
-                        </a>
-                        <p className={styles.bootomInfo}>
+                                <div className={styles.linkWrapper}>
+                                    <button onClick={() => scrollToId("RoadMap")}>
+                                        Road map
+                                    </button>
+                                    <button
+                                        onClick={() => scrollToId("JoinUs")}
+                                    >
+                                        Community
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={styles.bootomWrapper}>
+                        <div className={styles.bootomLinkWrapper}>
+                            <a href="#" className={styles.bootomLink}>
+                                Terms of Use
+                            </a>
+                            <a href="#" className={styles.bootomLink}>
+                                Privacy Policy
+                            </a>
+                            <p className={styles.bootomInfo}>
+                                Antix Interactive Inc. All Rights Reserved
+                            </p>
+
+                            {/* SHOWS ONLY AT MOBILE */}
+                            <span className={`${styles.bootomInfo} ${styles.mobile}`}>© 2024</span>
+                        </div>
+                        <span className={styles.bootomInfo}>© 2024</span>
+
+                        {/* SHOWS ONLY AT MOBILE */}
+                        <p className={`${styles.bottomInfo} ${styles.mobile}`}>
                             Antix Interactive Inc. All Rights Reserved
                         </p>
                     </div>
-                    <span className={styles.bootomInfo}>© 2024</span>
                 </div>
-            </div>
-            <div className={styles.bgTitle}>
-                <Image src={TitleImg} alt="Antix" draggable={false} />
-            </div>
-        </footer>
+                <div className={styles.bgTitle}>
+                    <Image src={TitleImg} alt="Antix" draggable={false} />
+                </div>
+            </footer>
+        </div>
     );
 };
 

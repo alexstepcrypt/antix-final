@@ -1,15 +1,10 @@
 "use client";
 
 import React from "react";
+import { scrollToId } from '@/utils/scrollToId';
 import styles from "./ExclusiveOffer.module.scss";
 
 const ExclusiveOffer = () => {
-    const scrollTo = (id: string) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-        }
-    };
     return (
         <section className={styles.container}>
             <div className={styles.content}>
@@ -21,7 +16,7 @@ const ExclusiveOffer = () => {
                     </p>
                 </div>
                 <button
-                    onClick={() => scrollTo("hero")}
+                    onClick={() => scrollToId("Hero")}
                     className={styles.button}
                 >
                     Join Now
