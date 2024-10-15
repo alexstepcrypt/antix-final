@@ -8,7 +8,7 @@ import styles from "./Tokenomics.module.scss";
 import Bg from "@/public/images/tokenomics-bg.png";
 import TokenomicsLabel from "@/public/svg/tokenomics-labels.svg";
 import TokenomicsChart from "@/public/svg/tokenomics-chart.svg";
-import TokenomicsLabelMobile from "@/public/svg/tokenomics-labels-mobile.svg";
+import TokenomicsLabelMobile from "@/public/images/tokenomics-labels-mobile.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
