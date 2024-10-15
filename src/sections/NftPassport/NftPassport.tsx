@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import mobilePassport from '@/public/images/passport-mobile.png';
 import nft from '@/public/images/nft-passport.png';
 import Passport from '@/public/images/nft.png';
 import vector from '@/public/svg/passport-vector.svg';
@@ -30,6 +31,7 @@ const NftPassport = () => {
                   height={713}
                   loading="lazy"
                   draggable={false}
+                  className={s.cards}
                />
 
                <div className={s.passportImageWrapper}>
@@ -41,18 +43,31 @@ const NftPassport = () => {
                         width={612}
                         height={680}
                         loading="lazy"
-                        // draggable={false}
                      />
                   </FadeInNew>
                </div>
             </div>
 
+            <div className={s.mobilePassport}>
+               <FadeInNew direction="up">
+                  <Image
+                     src={mobilePassport}
+                     alt="passport"
+                     width={418}
+                     height={618}
+                     loading="lazy"
+                     className={s.passImage}
+                  />
+               </FadeInNew>
+            </div>
+
             <p className={s.description}>
-               All your digital humans and assets are backed by blockchain,
-               giving you full control and intellectual property rights over
+               All your digital humans and assets are{' '}
+               <span>backed by blockchain</span>, giving you{' '}
+               <span>full control and intellectual property rights</span> over
                your creations. This NFT Passport certifies the ownership and
-               authenticity of your avatar, ensuring both security and rights to
-               your digital assets.
+               authenticity of your avatar, ensuring both{' '}
+               <span>security and rights to your digital assets.</span>
             </p>
          </div>
       </div>
