@@ -27,7 +27,7 @@ import MobileBtn from "@/public/svg/mobile-hidden-tn.svg";
 import { useEffect, useRef, useState } from "react";
 
 const Statistics = () => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
     const contentRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
