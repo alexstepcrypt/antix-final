@@ -6,18 +6,22 @@ import StarIcon from "@/public/svg/team-star.svg";
 import LinkedInIcon from "@/public/svg/linkedin-button.svg";
 import HiddenBtn from "@/public/svg/mobile-hidden-tn.svg";
 
+import ModalBg from "@/public/images/advisors/card-bg.png";
+
+type itemType = {
+    role: string;
+    name: string;
+    socialLink: string;
+    image: StaticImageData;
+    description: string[];
+};
+
 interface TabsProps {
-    data: {
-        role: string;
-        name: string;
-        socialLink: string;
-        image: StaticImageData;
-        description: string[];
-    }[];
+    data: itemType[];
 }
 
 export const Tabs: React.FC<TabsProps> = ({ data }) => {
-    const [activeTab, setActiveTab] = useState("");
+    const [activeTab, setActiveTab] = useState<itemType | null>(null);
     const [isOpen, setIsOpen] = useState(false);
     const contentRef = useRef<HTMLDivElement | null>(null);
 
@@ -38,39 +42,40 @@ export const Tabs: React.FC<TabsProps> = ({ data }) => {
         adjustHeight();
     }, [isOpen, data]);
 
-    return (
+    const handleClick = (item: itemType | null) => {
+        setActiveTab(item);
+    };
 
+    return (
         <>
-        <div className={styles.wrapper}>
-            <div
-                className={`${styles.content} ${
-                    isOpen ? styles.openContent : ""
-                }`}
-                ref={contentRef}
-            >
-                {data.map((item) => (
-                    <button key={item.name} className={styles.tabItem}>
-                        <Image
-                            src={item.image}
-                            alt={item.name}
-                            className={styles.leftImg}
-                        />
-                        <div className={styles.tabInfo}>
-                            <h5>{item.role}</h5>
+            {activeTab && (
+                <div className={styles.modal}>
+                    <div
+                        className={styles.modalBg}
+                        onClick={() => handleClick(null)}
+                    />
+                    <div className={styles.modalContainer} style={{backgroundImage: `url(${ModalBg.src})`}}>
+                        <div className={styles.modalName}>
                             <Image
-                                src={StarIcon}
-                                alt="Star"
-                                width={30}
-                                height={30}
-                                className={styles.starImg}
+                                src={activeTab.image}
+                                alt={activeTab.name}
+                                className={styles.leftImg}
                             />
-                            <p>{item.name}</p>
+                            <p>{activeTab.name}</p>
+                        </div>
+
+                        <div className={styles.modalList}>
+                            {activeTab.description.map((desc, index) => (
+                                <p key={index}>
+                                    <span /> {desc}
+                                </p>
+                            ))}
                         </div>
 
                         <a
-                            href={item.socialLink}
+                            href={activeTab.socialLink}
                             target="_blank"
-                            className={styles.linkIcon}
+                            className={styles.modalLinkIcon}
                         >
                             <Image
                                 src={LinkedInIcon}
@@ -80,23 +85,69 @@ export const Tabs: React.FC<TabsProps> = ({ data }) => {
                                 className={styles.linkedInIcon}
                             />
                         </a>
-                    </button>
-                ))}
-            </div>
-            <button
-                onClick={() => setIsOpen((prev) => !prev)}
-                className={styles.hiddenBtn}
-            >
-                {isOpen ? <p>Show Less</p> : <p>Show All</p>}
-                <Image
-                    src={HiddenBtn}
-                    alt=""
-                    className={`${styles.hiddenBtnImg} ${
-                        !isOpen ? styles.openHiddenBtnImg : ""
+                    </div>
+                </div>
+            )}
+            <div className={styles.wrapper}>
+                <div
+                    className={`${styles.content} ${
+                        isOpen ? styles.openContent : ""
                     }`}
-                />
-            </button>
-        </div>
+                    ref={contentRef}
+                >
+                    {data.map((item) => (
+                        <button
+                            key={item.name}
+                            className={styles.tabItem}
+                            onClick={() => handleClick(item)}
+                        >
+                            <Image
+                                src={item.image}
+                                alt={item.name}
+                                className={styles.leftImg}
+                            />
+                            <div className={styles.tabInfo}>
+                                <h5>{item.role}</h5>
+                                <Image
+                                    src={StarIcon}
+                                    alt="Star"
+                                    width={30}
+                                    height={30}
+                                    className={styles.starImg}
+                                />
+                                <p>{item.name}</p>
+                            </div>
+
+                            <a
+                                href={item.socialLink}
+                                target="_blank"
+                                className={styles.linkIcon}
+                            >
+                                <Image
+                                    src={LinkedInIcon}
+                                    alt="LinkedIn"
+                                    width={50}
+                                    height={50}
+                                    className={styles.linkedInIcon}
+                                />
+                            </a>
+                        </button>
+                    ))}
+                </div>
+                <button
+                    onClick={() => setIsOpen((prev) => !prev)}
+                    className={styles.hiddenBtn}
+                >
+                    {isOpen ? <p>Show Less</p> : <p>Show All</p>}
+                    <Image
+                        src={HiddenBtn}
+                        alt=""
+                        className={`${styles.hiddenBtnImg} ${
+                            !isOpen ? styles.openHiddenBtnImg : ""
+                        }`}
+                    />
+                </button>
+            </div>
         </>
     );
 };

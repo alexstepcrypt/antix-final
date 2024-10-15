@@ -20,7 +20,7 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    transition: height 1s ease-in-out; 
+    transition: height 1s ease-in-out;
 
     @media screen and (max-width: 480px) {
         gap: 24px;
@@ -48,7 +48,7 @@
         min-height: 200px;
         width: 330px;
         height: 200px;
-    
+
         gap: 23px;
     }
 }
@@ -104,13 +104,13 @@
             font-size: 20px;
             line-height: 22px;
         }
-    
+
         .starImg {
             margin-top: auto;
             width: 24px;
             height: 24px;
         }
-    
+
         p {
             max-width: 105px;
             font-size: 12px;
@@ -137,7 +137,6 @@
         width: 40px;
         height: 40px;
         border-radius: 6px;
-
 
         img {
             width: 100%;
@@ -179,11 +178,115 @@
             font-size: 20px;
             line-height: 28px;
         }
-    
+
         .hiddenBtnImg {
             width: 32px;
             height: 32px;
         }
+    }
+}
+
+.modal {
+    position: fixed;
+    z-index: 100;
+
+    width: 100%;
+    height: 100%;
+    inset: 0;
+}
+
+.modalBg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(22px);
+}
+
+.modalContainer {
+    background-repeat: no-repeat;
+    background-size: contain;
     
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 317px;
+    height: 400px;
+    padding: 24px 28px;
+    gap: 24px;
+
+    .modalName {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .leftImg {
+            width: 88px;
+            height: 88px;
+            border-radius: 1000px;
+
+            object-fit: cover;
+        }
+        p {
+            max-width: 150px;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 21.6px;
+            text-align: left;
+            color: #f0f0f0;
+        }
+    }
+
+    .modalLinkIcon {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        cursor: pointer;
+
+        box-shadow: 0px 0px 16.78px 0px #B4FFFA;
+        border-radius: 5px;
+        width: 30px;
+        height: 30px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .modalList {
+        margin-top: 18px;
+    
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16.6px;
+        text-align: left;
+        color: #f0f0f0;
+    
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    
+        p {
+            max-width: 240px;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 9px;
+            
+            span {
+                margin-top: 4px;
+                display: block;
+    
+                min-width: 12.42px;
+                height: 12.42px;
+                border-radius: 100%;
+    
+                border: 1px solid #afafaf;
+            }
+        }
     }
 }
