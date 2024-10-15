@@ -53,8 +53,8 @@ const NftPassport = () => {
                   <Image
                      src={mobilePassport}
                      alt="passport"
-                     width={418}
-                     height={618}
+                     width={414}
+                     height={585}
                      loading="lazy"
                      className={s.passImage}
                   />
