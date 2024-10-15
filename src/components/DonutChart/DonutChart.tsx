@@ -1,7 +1,7 @@
 "use client";
 
 import { PieChart, Pie, Cell } from "recharts";
-import { memo, useMemo } from "react";
+import { memo, useMemo, useEffect, useState } from "react";
 import styles from "./DonutChart.module.scss";
 
 const data = [
@@ -67,17 +67,29 @@ const renderCustomizedLabel = ({
 };
 
 const DonutChart: React.FC = memo(() => {
+    const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setScreenWidth(window.innerWidth);
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     const chartData = useMemo(() => data, []);
+
+    const innerRadius = screenWidth < 1280 ? 100 : 100;
+    const outerRadius = screenWidth < 1280 ? 260 : 265;
 
     return (
         <div className={styles.chartWrapper}>
-            <PieChart width={540} height={540}>
+            <PieChart width={540} height={540} className={styles.chart}>
                 <Pie
                     data={chartData}
                     cx="50%"
                     cy="50%"
-                    innerRadius={100}
-                    outerRadius={265}
+                    innerRadius={innerRadius}
+                    outerRadius={outerRadius}
                     dataKey="value"
                     stroke="none"
                     label={renderCustomizedLabel}
