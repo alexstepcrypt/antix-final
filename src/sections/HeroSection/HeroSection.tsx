@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "./HeroSection.module.scss";
+import Image from "next/image";
 
 import Xlogo from "@/public/svg/social-x.svg";
 import Tglogo from "@/public/svg/social-telegram.svg";
@@ -17,15 +18,21 @@ import Awords3 from "@/public/svg/team/ico3.svg";
 import Awords4 from "@/public/svg/team/ico4.svg";
 import Awords5 from "@/public/svg/team/top10.svg";
 import Awords6 from "@/public/svg/team/ico5.svg";
-import Image from "next/image";
 
 import Bg from "@/public/images/hero-timer-bg.png";
+import BgHead from "@/public/images/hero-timer-bg-head.png";
 import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 
 const HeroSection = () => {
     return (
         <section className={styles.wrapper} id="Hero">
-            <video className={styles.backgroundVideo} autoPlay loop muted playsInline>
+            <video
+                className={styles.backgroundVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+            >
                 <source
                     src={require("@/public/video/hero-video.webm")}
                     type="video/webm"
@@ -92,28 +99,40 @@ const HeroSection = () => {
                         <Image src={Awords6} alt="" />
                     </div>
                 </div>
-                <video className={styles.mobileVideo} autoPlay loop muted playsInline>
+                <video
+                    className={styles.mobileVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                >
                     <source
                         src={require("@/public/video/hero-video.webm")}
                         type="video/webm"
                     />
                     Ваш браузер не поддерживает видео.
                 </video>
-                <div
-                    className={styles.rightColumn}
-                    style={{ backgroundImage: `url(${Bg.src})` }}
-                >
-                    <div className={styles.timerWrapperTitle}>
-                        <Image
-                            src={LogoSmall}
-                            width={30}
-                            height={30}
-                            alt="Logo"
-                            className={styles.logo}
-                        />
-                        ANTIX Presale
+                <div className={styles.rightColumn}>
+                    <div
+                        className={styles.timerHead}
+                        style={{ backgroundImage: `url(${BgHead.src})` }}
+                    >
+                        <div className={styles.timerWrapperTitle}>
+                            <Image
+                                src={LogoSmall}
+                                width={30}
+                                height={30}
+                                alt="Logo"
+                                className={styles.logo}
+                            />
+                            ANTIX Presale
+                        </div>
                     </div>
-                    <div className={styles.timer}>
+
+                    <div
+                        className={styles.timer}
+                        style={{ backgroundImage: `url(${Bg.src})` }}
+                    >
                         <span className={styles.title}>Coming Soon</span>
                         <div className={styles.loader}>
                             <LoaderSvg percent={30} />
