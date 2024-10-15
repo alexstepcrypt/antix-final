@@ -30,6 +30,8 @@
         align-items: center;
         padding: 30px 0;
     }
+
+    
 }
 
 .item {
@@ -79,6 +81,20 @@
         padding-left: 31px;
         width: 309px;
         height: 162px;
+    }
+
+    @media (max-width: 960px) {
+        &:nth-child(1) {
+            background-image: url("../../public/images/why/why-item-mobile-bg1.png") !important;
+        }
+
+        &:nth-child(2) {
+            background-image: url("../../public/images/why/why-item-mobile-bg2.png") !important;
+        }
+
+        &:nth-child(3) {
+            background-image: url("../../public/images/why/why-item-mobile-bg3.png") !important;
+        }
     }
 
     @media (max-width: 325px) {
