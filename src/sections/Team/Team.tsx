@@ -7,6 +7,7 @@ import s from './Team.module.scss';
 const Team = () => {
    return (
       <div
+         id="Team"
          className={s.team}
          style={{ backgroundImage: `url(${bg.src})` }}
       >
