@@ -87,7 +87,7 @@ export const Tabs: React.FC<TabsProps> = ({ data }) => {
                 onClick={() => setIsOpen((prev) => !prev)}
                 className={styles.hiddenBtn}
             >
-                {isOpen ? <p>Hide Details</p> : <p>Show Details</p>}
+                {isOpen ? <p>Show Less</p> : <p>Show All</p>}
                 <Image
                     src={HiddenBtn}
                     alt=""
