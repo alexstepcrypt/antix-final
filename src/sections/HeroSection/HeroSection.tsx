@@ -25,7 +25,7 @@ import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 const HeroSection = () => {
     return (
         <section className={styles.wrapper} id="Hero">
-            <video className={styles.backgroundVideo} autoPlay loop muted>
+            <video className={styles.backgroundVideo} autoPlay loop muted playsInline>
                 <source
                     src={require("@/public/video/hero-video.webm")}
                     type="video/webm"

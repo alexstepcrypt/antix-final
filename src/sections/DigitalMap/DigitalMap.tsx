@@ -7,6 +7,7 @@ import Image from "next/image";
 import VideoModal from "@/components/VideoModal/VideoModal";
 
 import Bg from "@/public/images/digital-map/digital-map-bg.png";
+import MobileMap from "@/public/images/digital-map-mobile.png";
 import PlayIcon from "@/public/svg/play-video.svg";
 import PlayImage from "@/public/images/digital-map/map-video-img.png";
 import Point1 from "@/public/images/digital-map/point-1.png";
@@ -37,6 +38,10 @@ const DigitalMap = () => {
                     </p>
                 </div>
                 <h4 className={styles.title}>Digital humans everywhere</h4>
+            </div>
+
+            <div className={styles.mobileMap}>
+                <Image src={MobileMap} alt="Mobile Map" width={1866} height={846} />
             </div>
 
             <div className={styles.pointsWrapper}>

@@ -6,7 +6,7 @@ import styles from "./AIDriven.module.scss";
 const AIDriven = () => {
     return (
         <section className={styles.container}>
-            <video className={styles.backgroundVideo} autoPlay loop muted>
+            <video className={styles.backgroundVideo} autoPlay loop muted playsInline>
                 <source
                     src={require("@/public/video/ai-driven.webm")}
                     type="video/webm"

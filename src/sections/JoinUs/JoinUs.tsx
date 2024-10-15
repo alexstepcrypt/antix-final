@@ -7,7 +7,7 @@ import JoinUsCard from "@/components/JoinUsCard/JoinUsCard";
 const JoinUs = () => {
     return (
         <section className={styles.container} id="JoinUs">
-            <video className={styles.backgroundVideo} autoPlay loop muted>
+            <video className={styles.backgroundVideo} autoPlay loop muted playsInline>
                 <source
                     src={require("@/public/video/join-us-video.webm")}
                     type="video/webm"
