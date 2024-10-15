@@ -70,12 +70,6 @@
       }
    }
 
-   &:hover {
-      box-shadow: 0 0 45px 0 rgba(18, 255, 241, .3);
-      border: 1px solid #12FFF1;
-      transition: all 0.2s ease-in-out;
-   }
-
    @media (max-width: 960px) {
       padding: 29px;
       background: rgba(49, 56, 57, .3);
@@ -112,6 +106,14 @@
 
    @media (max-width: 465px) {
       min-width: 320px;
+   }
+
+   @media (min-width: 961px) {
+      &:hover {
+         box-shadow: 0 0 45px 0 rgba(18, 255, 241, .3);
+         border: 1px solid #12FFF1;
+         transition: all 0.2s ease-in-out;
+      }
    }
 }
 
