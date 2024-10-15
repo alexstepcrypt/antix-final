@@ -38,6 +38,7 @@ const Team = () => {
             <Tabs data={activeBtn === "team" ? commandList : advisorsList} />
          </div>
          <div
+            id="Team"
             className={s.team}
             style={{ backgroundImage: `url(${bg.src})` }}
          >
@@ -46,6 +47,7 @@ const Team = () => {
                <LogoCarousel />
                <TeamCarousel />
             </div>
+
          </div>
       </>
    );

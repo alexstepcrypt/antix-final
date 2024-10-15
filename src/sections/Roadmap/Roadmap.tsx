@@ -24,7 +24,12 @@ const Roadmap = () => {
             loading="lazy"
          />
 
-         <h2 className={s.title}>Road Map</h2>
+         <h2
+            id="RoadMap"
+            className={s.title}
+         >
+            Road Map
+         </h2>
 
          <div className={s.list}>
             {roadmapList.map((stage, i) => <Stage key={i} {...stage} />)}
