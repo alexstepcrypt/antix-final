@@ -26,7 +26,7 @@ const Creations = () => {
    const [isOpen, setIsOpen] = useState('');
 
    return (
-      <section>
+      <section className={s.wrapper}>
          <h2 className={s.title}>Monetize your creations</h2>
 
          <div className={s.content}>
@@ -47,6 +47,7 @@ const Creations = () => {
                width={683}
                height={291}
                loading="lazy"
+               className={s.img}
             />
          </div>
       </section>
