@@ -11,10 +11,9 @@ const MarketLeader = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const hasAnimated = useRef(false);
 
-    const leftGroup = [0, 1, 2, 3, 4];
-    const rightGroup = [5, 6, 7, 8, 9];
-    const centerGroup = [10, 11, 12, 13, 14];
-    const remainingGroup = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+    const leftGroup = [0, 1, 3];
+    const rightGroup = [2, 4, 5];
+    const remainingGroup = [6, 7];
 
     useEffect(() => {
         const animateLogos = (indexes: number[], delayStart: number) => {
@@ -26,7 +25,7 @@ const MarketLeader = () => {
                         opacity: 1,
                         scale: 1,
                         duration: 1,
-                        delay: delayStart + i * 0.2,
+                        delay: delayStart + i * 0.1,
                         ease: "power3.out",
                     }
                 );
@@ -35,9 +34,9 @@ const MarketLeader = () => {
 
         const observerCallback = (entries: IntersectionObserverEntry[]) => {
             if (entries[0].isIntersecting && !hasAnimated.current) {
-                animateLogos(leftGroup, 2);
-                animateLogos(rightGroup, 1);
-                animateLogos(centerGroup, 3);
+                animateLogos(leftGroup, 1);
+                animateLogos(rightGroup, 0.5);
+                // animateLogos(centerGroup, 3);
                 animateLogos(remainingGroup, 0);
                 hasAnimated.current = true;
             }
@@ -61,7 +60,8 @@ const MarketLeader = () => {
 
     return (
         <section className={styles.wrapper} id="Partners" ref={sectionRef}>
-            <h4 className={styles.title}>Giants tested our skills</h4>
+            <div className={styles.mobileBg} />
+            <h4 className={styles.title}>Giants approve our talent</h4>
             <div className={styles.container}>
                 {allLogos.map((url, index) => (
                     <div
@@ -70,14 +70,6 @@ const MarketLeader = () => {
                         ref={(el) => {
                             if (el) logoRefs.current[index] = el;
                         }}
-                        style={
-                            index === 9 ||
-                            index === 17 ||
-                            index === 19 ||
-                            index === 21
-                                ? { width: 258, padding: 40 }
-                                : {}
-                        }
                     >
                         <Image src={url} alt="Logo" />
                     </div>

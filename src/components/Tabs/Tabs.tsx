@@ -7,6 +7,7 @@ import LinkedInIcon from "@/public/svg/linkedin-button.svg";
 import HiddenBtn from "@/public/svg/mobile-hidden-tn.svg";
 
 import ModalBg from "@/public/images/advisors/card-bg.png";
+import XMark from "@/public/svg/xmark.svg";
 
 type itemType = {
     role: string;
@@ -54,7 +55,21 @@ export const Tabs: React.FC<TabsProps> = ({ data }) => {
                         className={styles.modalBg}
                         onClick={() => handleClick(null)}
                     />
-                    <div className={styles.modalContainer} style={{backgroundImage: `url(${ModalBg.src})`}}>
+                    <div
+                        className={styles.modalContainer}
+                        style={{ backgroundImage: `url(${ModalBg.src})` }}
+                    >
+                        <button
+                            className={styles.modalClose}
+                            onClick={() => handleClick(null)}
+                        >
+                            <Image
+                                src={XMark}
+                                alt="Close"
+                                width={24}
+                                height={24}
+                            />
+                        </button>
                         <div className={styles.modalName}>
                             <Image
                                 src={activeTab.image}

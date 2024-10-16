@@ -18,7 +18,7 @@ import MyAccountIcon from "@/public/svg/mobile-menu/my-account.svg";
 const mobileLinks = [
     {
         label: "Token",
-        href: "Token",
+        href: "ANTIXTokens",
         icon: TokenIcon,
     },
     {
@@ -28,7 +28,7 @@ const mobileLinks = [
     },
     {
         label: "Buy Now",
-        href: "#",
+        href: "Hero",
         icon: BuyNowIcon,
     },
     {
