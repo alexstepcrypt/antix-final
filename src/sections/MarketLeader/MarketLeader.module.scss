@@ -1,29 +1,99 @@
 .wrapper {
+    position: relative;
     max-width: 1200px;
     margin: 0 auto;
+
+    @media screen and (max-width: 1280px) {
+        max-width: 850px;
+    }
+    @media screen and (max-width: 960px) {
+        max-width: 420px;
+    }
+    @media screen and (max-width: 480px) {
+        max-width: 345px;
+    }
+}
+
+.mobileBg {
+    display: none;
+
+    @media screen and (max-width: 1280px) {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 23px;
+        z-index: 0;
+
+        width: 250px;
+        height: 250px;
+        opacity: 0.16px;
+
+        background: #00a1b2;
+        filter: blur(183px);
+    }
+    @media screen and (max-width: 480px) {
+        width: 200px;
+        height: 200px;
+        right: -75px;
+    }
 }
 
 .title {
-    
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+
     font-size: 60px;
     font-weight: 500;
     line-height: 60px;
     text-align: left;
     color: #f0f0f0;
+    text-align: center;
+
+    @media screen and (max-width: 1280px) {
+        font-size: 42.67px;
+        line-height: 42.67px;
+    }
+    @media screen and (max-width: 960px) {
+        font-size: 48.85px;
+        line-height: 52.11px;
+        max-width: 380px;
+    }
+    @media screen and (max-width: 480px) {
+        font-size: 40px;
+        line-height: 42.67px;
+        max-width: 312px;
+    }
 }
 
 .container {
+    position: relative;
+    z-index: 1;
+
     margin-top: 52px;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    justify-content: center;
+
+    @media screen and (max-width: 1280px) {
+        margin-top: 36px;
+        gap: 7px;
+    }
+    @media screen and (max-width: 960px) {
+        margin-top: 44px;
+    }
+    @media screen and (max-width: 480px) {
+        margin-top: 36px;
+        gap: 5px;
+    }
 }
 
 .item {
-    width: 124px;
-    height: 124px;
-    padding: 30px 20px;
-    border-radius: 17.41px;
+    width: 200px;
+    height: 200px;
+    padding: 40px;
+    border-radius: 14px;
     border: 1px solid #575757;
 
     display: flex;
@@ -33,5 +103,22 @@
     img {
         width: 100%;
         height: 100%;
+    }
+
+    @media screen and (max-width: 1280px) {
+        width: 140px;
+        height: 140px;
+        padding: 30px;
+    }
+    @media screen and (max-width: 960px) {
+        width: 134px;
+        height: 134px;
+        border-radius: 10px;
+    }
+    @media screen and (max-width: 480px) {
+        width: 110px;
+        height: 110px;
+        border-radius: 7px;
+        padding: 20px;
     }
 }

@@ -395,7 +395,7 @@
         gap: 44px;
 
         overflow-y: hidden;
-        min-height: 300px;
+        min-height: 620px;
         transition: height 1s ease-in-out;
 
         .mobileItem {
@@ -466,7 +466,7 @@
 @media screen and (max-width: 480px) {
     .mobileContent {
         gap: 36px;
-        min-height: 240px;
+        min-height: 520px;
 
         .mobileItem {
             min-width: 240px;
@@ -506,13 +506,8 @@
         background: none;
 
         p {
-            font-size: 24.43px;
-            font-weight: 300;
-            line-height: 34.2px;
-            letter-spacing: -0.02em;
-            text-align: center;
-            color: #f0f0f0;
-            transition: transform 0.3s ease-in-out;
+            font-size: 20px;
+            line-height: 28px;
         }
 
         .mobileBtnImg {

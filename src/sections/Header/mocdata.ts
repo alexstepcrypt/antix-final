@@ -1,7 +1,7 @@
 export const links = [
     {
         title: "Token",
-        href: "Token",
+        href: "ANTIXTokens",
     },
     {
         title: "Whitepaper",
