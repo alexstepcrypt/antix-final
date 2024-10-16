@@ -80,29 +80,29 @@
 
          .coin {
             width: 490px;
-            height: 290px;
+            height: 390px;
          }
       }
    }
 
    @media (max-width: 540px) {
       .mobileToken {
-         height: 360px;
+         height: 390px;
 
          .coin {
-            width: 418px;
-            height: 240px;
+            width: 450px;
+            height: 365px;
          }
       }
    }
 
    @media (max-width: 480px) {
       .mobileToken {
-         height: 305px;
+         height: 340px;
 
          .coin {
-            width: 350px;
-            height: 230px;
+            width: 418px;
+            height: 298px;
          }
       }
 
