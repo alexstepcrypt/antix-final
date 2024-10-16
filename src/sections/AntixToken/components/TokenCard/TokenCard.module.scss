@@ -34,10 +34,12 @@
       text-align: center;
    }
 
-   &:hover {
-      box-shadow: 0 0 27px 0 rgba(18, 255, 241, .3);
-      border: 1px solid #12FFF1;
-      transition: all 0.2s ease-in-out;
+   @media (min-width: 961px) {
+      &:hover {
+         box-shadow: 0 0 27px 0 rgba(18, 255, 241, .3);
+         border: 1px solid #12FFF1;
+         transition: all 0.2s ease-in-out;
+      }
    }
 
    @media (max-width: 1280px) {
