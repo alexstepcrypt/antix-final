@@ -7,6 +7,7 @@ const Amazon = () => {
     return (
         <section className={styles.container}>
             <Image src={Img} alt={"Amazon"} className={styles.img} />
+            <div className={styles.mobileBg} />
             <div className={styles.textWrapper}>
                 <h3 className={styles.title}>
                     Amazon of

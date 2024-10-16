@@ -19,7 +19,7 @@ const Team = () => {
 
    return (
       <>
-         <div className={s.teamAdvisorsMobile}>
+         <div className={s.teamAdvisorsMobile} id='Team'>
             <div className={s.mobileBtns}>
                <button
                   className={activeBtn === 'team'? s.mobileActive : ''}

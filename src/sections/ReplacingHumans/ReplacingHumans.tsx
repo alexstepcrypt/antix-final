@@ -51,6 +51,7 @@ const ReplacingHumans = () => {
             style={{ backgroundImage: `url(${BgImg.src})` }}
         >
             <div className={styles.content}>
+                <div className={styles.mobileBg} />
                 <FadeIn direction="up" distance={"100%"}>
                     <h3 className={styles.title}>
                         Antix avatars are replacing humans in

@@ -16,6 +16,14 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+
+    @media screen and (max-width: 960px) {
+        left: 40px;
+        right: 40px;
+        transform: translate(0, -50%);
+    }
+    @media screen and (max-width: 480px) {
+    }
 }
 
 .closeButton {
@@ -32,9 +40,65 @@
     color: #ffffff;
 
     cursor: pointer;
+
+    @media screen and (max-width: 480px) {
+        position: fixed;
+        top: 50vh;
+        right: -40px;
+        transform: rotate(90deg);
+        transform-origin: top right;
+        padding: 16px;
+        font-size: 16px;
+        gap: 8px;
+        z-index: 203;
+
+        background: #000;
+
+        }
+            @media screen and (max-height: 480px) {
+                position: fixed;
+                top: -50vh;
+                right: -40px;
+                padding: 16px;
+                font-size: 16px;
+                gap: 8px;
+                z-index: 203;
+    
+                background: #000;
+            }
 }
 
 .videoWrapper {
     width: 925px;
     height: 554px;
+
+    @media screen and (max-width: 960px) {
+        width: 100%;
+        height: 350px;
+    }
+    @media screen and (max-width: 650px) {
+        height: 250px;
+    }
+    @media screen and (max-width: 480px) {
+        width: 100vh;
+        height: 100vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    }
+    @media screen and (max-height: 480px) {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }

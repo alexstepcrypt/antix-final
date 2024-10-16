@@ -9,11 +9,11 @@
     }
     @media screen and (max-width: 960px) {
         background-image: none !important;
-        margin-top: 120px;
+        margin-top: 20px;
         margin-bottom: 0;
     }
     @media screen and (max-width: 480px) {
-        margin-top: 100px;
+        margin-top: 20px;
     }
 }
 
@@ -34,8 +34,25 @@
     @media screen and (max-width: 960px) {
         height: fit-content;
         max-width: none;
+        padding: 100px 0 20px;
     }
     @media screen and (max-width: 480px) {
+    }
+}
+
+.mobileBg {
+    display: none;
+    @media screen and (max-width: 960px) {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        background: rgba(0, 161, 178, 1);
+        width: 200px;
+        height: 200px;
+        opacity: 0.6;
+        left: -60px;
+        top: 200px;
+        filter: blur(150px)
     }
 }
 
