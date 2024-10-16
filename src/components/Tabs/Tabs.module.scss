@@ -232,13 +232,20 @@
             object-fit: cover;
         }
         p {
-            max-width: 150px;
+            max-width: 140px;
             font-size: 18px;
             font-weight: 400;
             line-height: 21.6px;
             text-align: left;
             color: #f0f0f0;
         }
+    }
+
+    .modalClose {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: transparent;  
     }
 
     .modalLinkIcon {
