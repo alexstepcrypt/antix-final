@@ -7,4 +7,107 @@
    justify-content: center;
    align-items: center;
    margin-top: 152px;
+
+   .mobileList, .mobileToken {
+      display: none;
+   }
+
+   @media (max-width: 1280px) {
+      margin-top: 0;
+   }
+
+   @media (max-width: 960px) {
+      background-image: unset !important;
+      height: fit-content;
+      margin-top: 100px;
+      display: block;
+
+      .mobileList {
+         padding: 20px;
+         display: flex;
+         gap: 20px;
+         overflow-x: auto;
+         margin-top: 30px;
+      }
+
+      .mobileToken {
+         height: 620px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background: url("../../public/svg/token/coin-bg.svg") no-repeat;
+         background-size: cover;
+         background-position: center;
+      }
+   }
+
+   @media (max-width: 920px) {
+      .mobileToken {
+         height: 585px;
+
+         .coin {
+            width: 680px;
+            height: 470px;
+         }
+      }
+   }
+
+   @media (max-width: 800px) {
+      .mobileToken {
+         height: 510px;
+
+         .coin {
+            width: 605px;
+            height: 405px;
+         }
+      }
+   }
+
+   @media (max-width: 700px) {
+      .mobileToken {
+         height: 460px;
+
+         .coin {
+            width: 550px;
+            height: 355px;
+         }
+      }
+   }
+
+   @media (max-width: 615px) {
+      .mobileToken {
+         height: 410px;
+
+         .coin {
+            width: 490px;
+            height: 290px;
+         }
+      }
+   }
+
+   @media (max-width: 540px) {
+      .mobileToken {
+         height: 360px;
+
+         .coin {
+            width: 418px;
+            height: 240px;
+         }
+      }
+   }
+
+   @media (max-width: 480px) {
+      .mobileToken {
+         height: 305px;
+
+         .coin {
+            width: 350px;
+            height: 230px;
+         }
+      }
+
+      .mobileList {
+         margin-top: 0;
+      }
+   }
 }

@@ -10,6 +10,10 @@
    justify-content: center;
    gap: 150px;
 
+   @media (max-width: 960px) {
+      display: none;
+   }
+
    .left {
       display: flex;
       flex-direction: column;
@@ -40,6 +44,33 @@
 
          /* for other browsers */
          -webkit-filter: drop-shadow(0 0 24px #12FFF1);
+      }
+   }
+
+   @media (max-width: 1280px) {
+      gap: 80px;
+
+      .left, .right {
+         gap: 95px;
+      }
+
+      .middle {
+         gap: 270px;
+      }
+
+      .coin {
+         width: 600px;
+         height: 394px;
+         top: 50px;
+
+         &:hover {
+            top: 40px;
+            filter: drop-shadow(0 0 24px #12FFF1);
+            transition: all .4s ease;
+   
+            /* for other browsers */
+            -webkit-filter: drop-shadow(0 0 24px #12FFF1);
+         }
       }
    }
 }
