@@ -40,6 +40,8 @@ const HeroSection = () => {
                 Ваш браузер не поддерживает видео.
             </video>
             <div className={styles.container}>
+                <div className={styles.mobileBg1} />
+                <div className={styles.mobileBg2} />
                 <div className={styles.leftColumn}>
                     <FadeInNew direction="right" distance="50%">
                         <>

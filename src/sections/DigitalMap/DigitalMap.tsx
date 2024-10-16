@@ -5,6 +5,7 @@ import styles from "./DigitalMap.module.scss";
 import Image from "next/image";
 
 import VideoModal from "@/components/VideoModal/VideoModal";
+import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 
 import Bg from "@/public/images/digital-map/digital-map-bg.png";
 import MobileMap from "@/public/images/digital-map-mobile.png";
@@ -13,7 +14,8 @@ import PlayImage from "@/public/images/digital-map/map-video-img.png";
 import Point1 from "@/public/images/digital-map/point-1.png";
 import Point2 from "@/public/images/digital-map/point-2.png";
 import Point3 from "@/public/images/digital-map/point-3.png";
-import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
+
+import HandIcon from "@/public/svg/swap-icon.svg";
 
 const DigitalMap = () => {
     const [openVideo, setOpenVideo] = useState("");
@@ -38,6 +40,7 @@ const DigitalMap = () => {
                     </p>
                 </div>
                 <h4 className={styles.title}>Digital humans everywhere</h4>
+                <Image className={styles.hand} src={HandIcon} alt="Handle Icon" width={60} height={60} />
             </div>
 
             <div className={styles.mobileMap}>
