@@ -9,31 +9,6 @@
 
     @media screen and (max-width: 960px) {
         padding: 160px 100px 0;
-
-        &::before {
-            content: "";
-            position: absolute;
-            top: -57px;
-            left: -240px;
-            opacity: 0.3;
-            width: 430px;
-            height: 430px;
-            background: rgba(0, 161, 178, 1);
-            filter: blur(183px);
-            z-index: 1;
-        }
-        &::after {
-            content: "";
-            position: absolute;
-            top: 600px;
-            right: 0px;
-            opacity: 0.3;
-            width: 430px;
-            height: 430px;
-            background: rgba(0, 161, 178, 1);
-            filter: blur(183px);
-            z-index: 1;
-        }
     }
     @media screen and (max-width: 480px) {
         padding: 130px 17px 0;
@@ -41,6 +16,7 @@
 }
 
 .container {
+    position: relative;
     margin: 0px auto;
     max-width: 1200px;
     width: 100%;
@@ -62,6 +38,52 @@
     @media screen and (max-width: 480px) {
     }
 }
+.mobileBg1 {
+    display: none;
+
+    @media screen and (max-width: 960px) {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: -100px;
+        left: -240px;
+        opacity: 0.3;
+        width: 430px;
+        height: 430px;
+        background: rgba(0, 161, 178, 1);
+        filter: blur(183px);
+    }
+    @media screen and (max-width: 480px) {
+        width: 355px;
+        height: 355px;
+        left: -160px;
+        filter: blur(150px)
+    }
+}
+
+.mobileBg2 {
+    display: none;
+
+    @media screen and (max-width: 960px) {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 600px;
+        right: 35px;
+        opacity: 0.3;
+        width: 400px;
+        height: 400px;
+        background: rgba(0, 161, 178, 1);
+        filter: blur(183px);
+    }
+    @media screen and (max-width: 480px) {
+        width: 330px;
+        height: 330px;
+        right: -140px;
+        filter: blur(150px)
+    }
+}
+
 .mobileVideo {
     display: none;
     transition: 0.3s;
@@ -387,7 +409,7 @@
             font-weight: 500;
             line-height: 22px;
             text-align: left;
-            color: #F0F0F0;
+            color: #f0f0f0;
 
             .logo {
                 width: 32px;
@@ -401,7 +423,7 @@
         background-repeat: no-repeat;
         background-size: contain;
         backdrop-filter: blur(20px);
-        
+
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -432,14 +454,14 @@
 
         .timerHead {
             height: 52px;
-    
+
             .timerWrapperTitle {
                 margin: 14px 62px 14px auto;
                 gap: 6px;
-    
+
                 font-size: 14.22px;
                 line-height: 15.64px;
-    
+
                 .logo {
                     width: 22px;
                     height: 22px;
@@ -449,7 +471,7 @@
 
         .timer {
             border-radius: 3px;
-    
+
             .title {
                 margin-top: 36px;
                 font-size: 25.6px;
@@ -457,7 +479,7 @@
                 line-height: 30.72px;
                 text-align: center;
             }
-    
+
             .loader {
                 margin: 20px 0;
                 width: 135px;
@@ -473,14 +495,14 @@
 
         .timerHead {
             height: 62px;
-    
+
             .timerWrapperTitle {
                 margin: 20px 76px 20px auto;
                 gap: 6px;
-    
+
                 font-size: 17.37px;
                 line-height: 19.11px;
-    
+
                 .logo {
                     width: 27px;
                     height: 27px;
@@ -490,12 +512,12 @@
 
         .timer {
             border-radius: 3px;
-    
+
             .title {
                 font-size: 31.27px;
                 line-height: 37.52px;
             }
-    
+
             .loader {
                 margin: 20px 0 30px;
                 width: 165px;
@@ -509,14 +531,14 @@
 
         .timerHead {
             height: 50px;
-    
+
             .timerWrapperTitle {
                 margin: 14px 65px 14px auto;
                 gap: 6px;
 
                 font-size: 14.22px;
                 line-height: 15.64px;
-    
+
                 .logo {
                     width: 22px;
                     height: 22px;
@@ -530,7 +552,7 @@
                 font-size: 25.6px;
                 line-height: 30.72px;
             }
-    
+
             .loader {
                 margin: 16px 0 30px;
                 width: 135px;
