@@ -22,7 +22,7 @@
       top: 12px;
       right: 12px;
 
-      animation: swapRotate .65s linear infinite;
+      animation: swapAnim .65s ease infinite;
    }
 
    .list {
@@ -72,11 +72,9 @@
       }
    }
 
-   @keyframes swapRotate {
-      0% { transform: rotate(0deg) }
-      25% { transform: rotate(-6deg) }
-      50% { transform: rotate(0deg) }
-      75% { transform: rotate(6deg) }
-      100% { transform: rotate(0deg) }
+   @keyframes swapAnim {
+      0% { right: 12px }
+      50% { right: 16px }
+      100% { right: 12px }
    }
 }
