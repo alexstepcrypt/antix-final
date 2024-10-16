@@ -48,7 +48,7 @@ const Footer = () => {
                                 href="mailto:token@antix.in"
                                 className={styles.mailLink}
                             >
-                                token@antix.in
+                                hello@antix.in
                             </a>
                             <div className={styles.centerLinksWrapper}>
                                 <div className={styles.linkWrapper}>
@@ -56,7 +56,7 @@ const Footer = () => {
                                         Advisors
                                     </button>
                                     <button
-                                        onClick={() => scrollToId("Token")}
+                                        onClick={() => scrollToId("ANTIXTokens")}
                                     >
                                         ANTIX Token
                                     </button>

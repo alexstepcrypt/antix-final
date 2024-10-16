@@ -24,10 +24,6 @@ const DigitalMap = () => {
             {openVideo && (
                 <VideoModal videoUrl={openVideo} onClose={setOpenVideo} />
             )}
-            <div
-                className={styles.bgMap}
-                style={{ backgroundImage: `url(${Bg.src})` }}
-            />
             <div className={styles.topContent}>
                 <div className={styles.descWrapper}>
                     <p className={styles.desc}>
@@ -40,84 +36,105 @@ const DigitalMap = () => {
                     </p>
                 </div>
                 <h4 className={styles.title}>Digital humans everywhere</h4>
-                <Image className={styles.hand} src={HandIcon} alt="Handle Icon" width={60} height={60} />
+                <Image
+                    className={styles.hand}
+                    src={HandIcon}
+                    alt="Handle Icon"
+                    width={60}
+                    height={60}
+                />
             </div>
+            <div className={styles.map}>
+            <div className={styles.MapWrapper}>
+                <div
+                    className={styles.bgMap}
+                    style={{ backgroundImage: `url(${Bg.src})` }}
+                />
+                <div className={styles.pointsWrapper}>
+                    <FadeInNew direction="down">
+                        <div className={styles.point1}>
+                            <Image src={Point1} alt="" draggable={false} />
 
-            <div className={styles.mobileMap}>
-                <Image src={MobileMap} alt="Mobile Map" width={1866} height={846} />
+                            <div
+                                className={styles.videoWrapper}
+                                onClick={() =>
+                                    setOpenVideo(
+                                        "https://www.youtube.com/embed/3FxZYSKfcE0"
+                                    )
+                                }
+                            >
+                                <Image
+                                    src={PlayImage}
+                                    alt=""
+                                    draggable={false}
+                                />
+                                <div className={styles.play}>
+                                    <Image
+                                        src={PlayIcon}
+                                        alt=""
+                                        draggable={false}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </FadeInNew>
+
+                    <FadeInNew direction="down">
+                        <div className={styles.point2}>
+                            <Image src={Point2} alt="" draggable={false} />
+                            <div
+                                className={styles.videoWrapper}
+                                onClick={() =>
+                                    setOpenVideo(
+                                        "https://www.youtube.com/embed/FBzkC5uFZLg"
+                                    )
+                                }
+                            >
+                                <Image
+                                    src={PlayImage}
+                                    alt=""
+                                    draggable={false}
+                                />
+                                <div className={styles.play}>
+                                    <Image
+                                        src={PlayIcon}
+                                        alt=""
+                                        draggable={false}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </FadeInNew>
+
+                    <FadeInNew direction="down">
+                        <div className={styles.point3}>
+                            <Image src={Point3} alt="" draggable={false} />
+
+                            <div
+                                className={styles.videoWrapper}
+                                onClick={() =>
+                                    setOpenVideo(
+                                        "https://www.youtube.com/embed/F1YDHYELweI"
+                                    )
+                                }
+                            >
+                                <Image
+                                    src={PlayImage}
+                                    alt=""
+                                    draggable={false}
+                                />
+                                <div className={styles.play}>
+                                    <Image
+                                        src={PlayIcon}
+                                        alt=""
+                                        draggable={false}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </FadeInNew>
+                </div>
             </div>
-
-            <div className={styles.pointsWrapper}>
-                <FadeInNew direction="down">
-                    <div className={styles.point1}>
-                        <Image src={Point1} alt="" draggable={false} />
-
-                        <div
-                            className={styles.videoWrapper}
-                            onClick={() =>
-                                setOpenVideo(
-                                    "https://www.youtube.com/embed/3FxZYSKfcE0"
-                                )
-                            }
-                        >
-                            <Image src={PlayImage} alt="" draggable={false} />
-                            <div className={styles.play}>
-                                <Image
-                                    src={PlayIcon}
-                                    alt=""
-                                    draggable={false}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </FadeInNew>
-
-                <FadeInNew direction="down">
-                    <div className={styles.point2}>
-                        <Image src={Point2} alt="" draggable={false} />
-                        <div
-                            className={styles.videoWrapper}
-                            onClick={() =>
-                                setOpenVideo(
-                                    "https://www.youtube.com/embed/FBzkC5uFZLg"
-                                )
-                            }
-                        >
-                            <Image src={PlayImage} alt="" draggable={false} />
-                            <div className={styles.play}>
-                                <Image
-                                    src={PlayIcon}
-                                    alt=""
-                                    draggable={false}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </FadeInNew>
-
-                <FadeInNew direction="down">
-                    <div className={styles.point3}>
-                        <Image src={Point3} alt="" draggable={false} />
-
-                        <div
-                            className={styles.videoWrapper}
-                            onClick={() =>
-                                setOpenVideo(
-                                    "https://www.youtube.com/embed/F1YDHYELweI"
-                                )
-                            }
-                        >
-                            <Image src={PlayImage} alt="" draggable={false} />
-                            <div className={styles.play}>
-                                <Image
-                                    src={PlayIcon}
-                                    alt=""
-                                    draggable={false}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </FadeInNew>
             </div>
         </section>
     );

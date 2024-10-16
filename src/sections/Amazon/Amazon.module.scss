@@ -2,6 +2,8 @@
     margin: 150px auto 0;
     max-width: 1200px;
 
+    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,7 +23,27 @@
     }
 }
 
+.mobileBg {
+    display: none;
+
+    @media screen and (max-width: 960px) {
+        display: block;
+        position: absolute;
+        z-index: 0;
+        background: rgba(0, 161, 178, 1);
+        width: 300px;
+        height: 300px;
+        opacity: 0.6;
+        left: -60px;
+        top: 100px;
+        filter: blur(150px)
+    }
+}
+
 .img {
+    position: relative;
+    z-index: 1;
+
     width: 520px;
     height: 360px;
     border-radius: 12px;
@@ -46,6 +68,9 @@
 }
 
 .textWrapper {
+    position: relative;
+    z-index: 1;
+    
     display: flex;
     flex-direction: column;
     gap: 32px;
