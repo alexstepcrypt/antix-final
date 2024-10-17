@@ -13,8 +13,10 @@ export default function Home() {
             style={{ backgroundImage: `url(${Bg.src})` }}
         >
             <DashboardHeader />
-            <DashboardTop />
-            <DashboardBottom />
+            <main>
+                <DashboardTop />
+                <DashboardBottom />
+            </main>
         </div>
     );
 }
