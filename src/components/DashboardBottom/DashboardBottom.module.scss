@@ -1,0 +1,53 @@
+.container {
+   margin: 0 auto;
+   max-width: 1200px;
+
+   .cards {
+      display: flex;
+      gap: 20px;
+      margin-top: 28px;
+
+      /* ==================== FIRST CARD =================== */
+
+      .title {
+         font-size: 14px;
+         color: #FFFFFF;
+         line-height: 21px;
+         font-weight: 500;
+      }
+
+      .guide {
+         margin-top: 15px;
+         padding-left: 20px;
+         display: flex;
+         flex-direction: column;
+         gap: 15px;
+
+         li {
+            color: rgba(255, 255, 255, .6);
+            font-size: 12px;
+            line-height: 16px;
+         }
+      }
+
+      /* ================================================= */
+
+      /* ===================== SECOND CARD ====================== */
+
+      .popup {
+         position: absolute;
+         top: 5px;
+         right: 5px;
+         max-width: fit-content;
+         padding: 5px;
+         background: transparent
+      }
+
+      .statistic {
+         display: flex;
+         justify-content: space-between;
+      }
+
+      /* ======================================================== */
+   }
+}
