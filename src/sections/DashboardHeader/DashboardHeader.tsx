@@ -9,6 +9,7 @@ import LogoFull from "@/public/svg/logo-full.svg";
 import { useState } from "react";
 
 import { BurgerButton } from "./BurgerButton/BurgerButton";
+import Link from "next/link";
 
 const DashboardHeader = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -39,9 +40,9 @@ const DashboardHeader = () => {
                             isOpen ? styles.openLogoFull : ""
                         }`}
                     />
-                    <button className={styles.backToMainButton}>
+                    <Link href={"/"} className={styles.backToMainButton}>
                         Back to the Main Page
-                    </button>
+                    </Link>
                 </div>
                 <div className={styles.linksContainer}>
                     {linksAfter.map((link) => (
