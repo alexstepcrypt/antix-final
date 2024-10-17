@@ -1,0 +1,247 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 160px 0 28px;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 54px;
+    letter-spacing: -0.04em;
+    text-align: left;
+    color: #ffffff;
+
+    width: 100%;
+}
+
+.leftCol {
+    max-width: calc(50% - 10px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .info {
+        padding: 30px 32px;
+        gap: 8px;
+        border-radius: 8px;
+        background: #57575766;
+        backdrop-filter: blur(30px);
+
+        .infoTitle {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 21px;
+            text-align: left;
+            color: #12fff1;
+        }
+
+        .infoText {
+            margin-top: 8px;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 22px;
+            text-align: left;
+            color: rgba(255, 255, 255, 0.6);
+
+            span {
+                color: #12fff1;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .timer {
+        padding: 28px;
+        gap: 36px;
+        border-radius: 12px;
+        background: #141415;
+        backdrop-filter: blur(22px);
+
+        .timerTitle {
+            margin-bottom: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 21px;
+            text-align: left;
+            color: #ffffff;
+        }
+    }
+}
+
+.rightCol {
+    max-width: calc(50% - 10px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+
+    background: #141415;
+    backdrop-filter: blur(22px);
+    padding: 30px 28px;
+    border-radius: 12px;
+
+    .balanceWrapper {
+        .balanceTitle {
+            width: 100%;
+
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 36px;
+            text-align: left;
+            color: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            span {
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 27px;
+                text-align: center;
+                color: #0f0e14;
+
+                background: #12fff1;
+                padding: 6px 8px;
+                border-radius: 4px;
+            }
+        }
+
+        .balance {
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            span {
+                font-size: 28px;
+                font-weight: 500;
+                line-height: 36px;
+                text-align: left;
+                color: #ffffff;
+            }
+        }
+    }
+
+    .sendingWrapepr {
+        // margin-top: 36px;
+        width: 100%;
+
+        .sending {
+            padding: 12px 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(22px);
+            background: rgba(255, 255, 255, 0.04);
+
+            .sendingTop {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .sendingTitle {
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 21px;
+                    text-align: center;
+                    color: #ffffff;
+                }
+
+                .sendingBalance {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+
+                    span {
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 21px;
+                        text-align: center;
+                        color: #afafaf;
+                    }
+
+                    .sendingBalanceBtn {
+                        background: transparent;
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 21px;
+                        text-align: center;
+                        color: #12fff1;
+                    }
+                }
+            }
+
+            .sendingBottom {
+                margin-top: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .sendingInput {
+                    max-width: 50%;
+                    font-size: 20px;
+                    font-weight: 500;
+                    line-height: 36px;
+                    text-align: left;
+                    color: rgba(255, 255, 255, 0.4);
+
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                    }
+                    -moz-appearance: textfield;
+                }
+
+                .sendingChooseCurr {
+                    padding: 8px 12px;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+
+                    background: transparent;
+                    border-radius: 8px;
+                    border: 1px solid rgba(87, 87, 87, 0.2);
+
+                    span {
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 21px;
+                        text-align: left;
+                        color: rgba(255, 255, 255, 0.4);
+                    }
+                }
+            }
+        }
+        .depositBtn {
+            width: 100%;
+            margin-top: 12px;
+            padding: 12px 52px 12px 52px;
+
+            border-radius: 50px;
+            background: linear-gradient(
+                89.59deg,
+                #12fff1 14.83%,
+                #99fff9 85.17%
+            );
+            box-shadow: 0px 0px 29.77px 0px rgba(18, 255, 241, 0.3);
+
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 19.69px;
+            text-align: center;
+            color: #0f0f0f;
+        }
+    }
+}
