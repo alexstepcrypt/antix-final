@@ -20,13 +20,15 @@ const words = [
 
 const PlatformToReplace = () => {
     return (
-        <section
-            className={styles.wrapper}
-            id="AboutProject"
-            style={{
-                backgroundImage: `url(${Bg.src})`,
-            }}
-        >
+        <section className={styles.wrapper} id="AboutProject">
+            <div
+                className={styles.bg}
+                style={{ backgroundImage: `url(${Bg.src})` }}
+            />
+            <div
+                className={styles.mobileBg}
+                style={{ backgroundImage: `url(${BgMobile.src})` }}
+            />
             <div className={styles.container}>
                 <h4 className={styles.title}>
                     Build and monetize AI digital characters that{" "}

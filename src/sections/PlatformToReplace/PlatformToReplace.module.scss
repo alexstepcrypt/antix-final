@@ -1,28 +1,64 @@
 .wrapper {
+    position: relative;
+    width: 100vw;
+    height: 440px;
+
+    margin: 150px 0;
+
+    @media screen and (max-width: 1280px) {
+        margin: 80px 0;
+    }
+
+    @media screen and (max-width: 960px) {
+
+    }
+    @media screen and (max-width: 480px) {
+    }
+}
+
+.bg {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
 
-    width: 100vw;
-    height: 110vh;
+    position: absolute;
+    width: 1920px;
+    height: 1019px;
+    z-index: 0;
 
-    margin: -130px 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
-    @media screen and (max-width: 1380px) {
-        height: 90vh;
-        background-position: center top;
-        background-size: cover;
+    @media screen and (max-width: 1280px) {
+        width: 1365.33px;
+        height: 724.62px;
     }
 
     @media screen and (max-width: 960px) {
-        background-position: top;
+        display: none;
     }
-    @media screen and (max-width: 480px) {
-        height: 105vh;
+}
+
+.mobileBg {
+    display: none;
+
+    @media screen and (max-width: 960px) {
+        display: block;
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        position: absolute;
+        inset: 0;
+        z-index: 0;
     }
 }
 
 .container {
+    position: relative;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
