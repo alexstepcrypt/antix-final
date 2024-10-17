@@ -58,32 +58,50 @@
 }
 .openLogoSmall {
     display: block;
+    width: 30px !important;
+    height: 30px !important;
 }
 
 .logo {
-    width: 121px;
-    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
 
     img {
-        height: 100%;
-        width: auto;
+        width: 121px;
+        height: 44px;
+    }
+
+    .backToMainButton {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 13.2px;
+        text-align: center;
+        color: #575757;
+        background: transparent;
+
+        @media screen and (max-width: 960px) {
+            display: none;
+        }
     }
 
     @media screen and (max-width: 1280px) {
-        width: 86px;
-        height: 31px;
+        img {
+            width: 86px;
+            height: 31px;
+        }
     }
-    // @media screen and (max-width: 960px) {
-    //     width: 75.09px;
-    //     height: 27.31px;
-    // }
     @media screen and (max-width: 960px) {
-        width: 98.93px;
-        height: 35.98px;
+        img {
+            width: 98.93px;
+            height: 35.98px;
+        }
     }
     @media screen and (max-width: 480px) {
-        width: 81px;
-        height: 29.45px;
+        img {
+            width: 81px;
+            height: 29.45px;
+        }
     }
 }
 
@@ -157,6 +175,17 @@
         }
     }
 
+    .walletButton {
+        padding: 14px 16px;
+        gap: 8px;
+        border-radius: 12px;
+        background: #f0f0f0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .userButton {
         width: 48px;
         height: 48px;
@@ -195,18 +224,6 @@
         }
     }
 
-    // @media screen and (max-width: 960px) {
-    //     gap: 7px;
-    //     .connectButton {
-    //         padding: 7.45px 33px;
-    //         font-size: 9px;
-    //         line-height: 13.03px;
-    //     }
-    //     .userButton {
-    //         height: 30px;
-    //         width: 30px;
-    //     }
-    // }
     @media screen and (max-width: 960px) {
         gap: 24px;
         .connectButton {
@@ -216,6 +233,16 @@
         }
         .userButton {
             display: none;
+        }
+        .walletButton {
+            padding: 8px 12px;
+            gap: 5px;
+            border-radius: 8px;
+
+            img {
+                width: 14px;
+                height: 14px;
+            }
         }
     }
     @media screen and (max-width: 480px) {

@@ -13,6 +13,14 @@
     );
     backdrop-filter: blur(20px);
     border: 1px solid rgba(15, 15, 15, 0.3);
+
+    @media screen and (max-width: 960px) {
+        padding: 10px 24px;
+    }
+    @media screen and (max-width: 650px) {
+        justify-content: center;
+        gap: 20px;
+    }
 }
 
 .timeSegment {
@@ -26,6 +34,11 @@
     line-height: 35.2px;
     text-align: center;
     color: #f0f0f0;
+
+    @media screen and (max-width: 960px) {
+        font-size: 22px;
+        line-height: 24.2px;
+    }
 }
 
 .label {
@@ -34,6 +47,11 @@
     line-height: 13.2px;
     text-align: center;
     color: #f0f0f0;
+
+    @media screen and (max-width: 960px) {
+        font-size: 10px;
+        line-height: 11px;
+    }
 }
 
 .separator {
@@ -42,4 +60,9 @@
     line-height: 22px;
     text-align: left;
     color: #f0f0f0;
+
+    @media screen and (max-width: 960px) {
+        font-size: 20px;
+        line-height: 22px;
+    }
 }

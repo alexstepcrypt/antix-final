@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styles from "./Header.module.scss";
-import { links } from "./mocdata";
+import { links, linksDashboard, mobileLinks, mobileLinksDashboard } from "./mocdata";
 import UserIcon from "@/public/svg/user-icon.svg";
 
 import LogoFull from "@/public/svg/logo-full.svg";
@@ -10,34 +10,12 @@ import LogoSmall from "@/public/svg/logo-small.svg";
 import { BurgerButton } from "../AntixToken/components/BurgerButton/BurgerButton";
 import { useState } from "react";
 
-import TokenIcon from "@/public/svg/mobile-menu/token.svg";
-import WhitepaperIcon from "@/public/svg/mobile-menu/whitepaper.svg";
-import BuyNowIcon from "@/public/svg/mobile-menu/buy-now.svg";
-import MyAccountIcon from "@/public/svg/mobile-menu/my-account.svg";
-import Link from "next/link";
 
-const mobileLinks = [
-    {
-        label: "Token",
-        href: "ANTIXTokens",
-        icon: TokenIcon,
-    },
-    {
-        label: "Whitepaper",
-        href: "https://antix.io/whitepaper",
-        icon: WhitepaperIcon,
-    },
-    {
-        label: "Buy Now",
-        href: "Hero",
-        icon: BuyNowIcon,
-    },
-    {
-        label: "My Account",
-        href: "#",
-        icon: MyAccountIcon,
-    },
-];
+import WalletIcon from "@/public/svg/wallet-icon.svg";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -50,8 +28,17 @@ const Header = () => {
         if (id.includes("https:")) {
             window.open(id, "_blank");
         }
+        if (id === "/") {
+            window.open(id, "_parent");
+        }
         setIsOpen(false);
     };
+
+    const pathname = usePathname();
+    const isDashboard = pathname === "/dashboard";
+
+    const linksList = isDashboard ? linksDashboard : links
+    const mobileLinksList = isDashboard ? mobileLinksDashboard : mobileLinks
 
     return (
         <>
@@ -70,20 +57,23 @@ const Header = () => {
                         isOpen ? styles.activeMobileMenu : ""
                     }`}
                 >
-                    {mobileLinks.map((link) => (
+                    {mobileLinksList.map((link) => (
                         <button
                             onClick={() => handleClick(link.href)}
                             key={link.label}
                             className={styles.mobileLink}
+                            style={{justifyContent: link.icon ? "" : "center"}}
                         >
-                            <div className={styles.mobileLinkImg}>
-                                <Image
-                                    src={link.icon}
-                                    alt={link.label}
-                                    width={24}
-                                    height={24}
-                                />
-                            </div>
+                            {link.icon && (
+                                <div className={styles.mobileLinkImg}>
+                                    <Image
+                                        src={link.icon}
+                                        alt={link.label}
+                                        width={24}
+                                        height={24}
+                                    />
+                                </div>
+                            )}
                             {link.label}
                         </button>
                     ))}
@@ -102,6 +92,11 @@ const Header = () => {
                             isOpen ? styles.openLogoFull : ""
                         }`}
                     />
+                    {isDashboard && (
+                        <Link href={"/"} className={styles.backToMainButton}>
+                            Back to the Main Page
+                        </Link>
+                    )}
                     <Image
                         src={LogoSmall}
                         alt="Logo"
@@ -111,7 +106,7 @@ const Header = () => {
                     />
                 </div>
                 <div className={styles.linksContainer}>
-                    {links.map((link) => (
+                    {linksList.map((link) => (
                         <button
                             className={styles.link}
                             key={link.title}
@@ -122,12 +117,24 @@ const Header = () => {
                     ))}
                 </div>
                 <div className={styles.connectContainer}>
-                    <Link href={"/dashboard"} className={styles.connectButton}>
-                        Connect Wallet
-                    </Link>
-                    <button className={styles.userButton}>
-                        <Image src={UserIcon} alt="User" />
-                    </button>
+                    {isDashboard ? (
+                        <button className={styles.walletButton}>
+                            <Image src={WalletIcon} alt="User" />
+                            0xae89B…..87D
+                        </button>
+                    ) : (
+                        <>
+                            <Link
+                                href={"/dashboard"}
+                                className={styles.connectButton}
+                            >
+                                Connect Wallet
+                            </Link>
+                            <button className={styles.userButton}>
+                                <Image src={UserIcon} alt="User" />
+                            </button>
+                        </>
+                    )}
                     <div className={styles.mobileButton}>
                         <BurgerButton
                             isOpen={isOpen}
