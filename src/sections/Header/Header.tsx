@@ -14,6 +14,7 @@ import TokenIcon from "@/public/svg/mobile-menu/token.svg";
 import WhitepaperIcon from "@/public/svg/mobile-menu/whitepaper.svg";
 import BuyNowIcon from "@/public/svg/mobile-menu/buy-now.svg";
 import MyAccountIcon from "@/public/svg/mobile-menu/my-account.svg";
+import Link from "next/link";
 
 const mobileLinks = [
     {
@@ -121,9 +122,9 @@ const Header = () => {
                     ))}
                 </div>
                 <div className={styles.connectContainer}>
-                    <button className={styles.connectButton}>
+                    <Link href={"/dashboard"} className={styles.connectButton}>
                         Connect Wallet
-                    </button>
+                    </Link>
                     <button className={styles.userButton}>
                         <Image src={UserIcon} alt="User" />
                     </button>
