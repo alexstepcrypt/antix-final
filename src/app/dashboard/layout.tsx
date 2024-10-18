@@ -9,8 +9,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Antix",
-  description: "Antix",
+  title: "Antix: Tokensale Platform",
+  description: "Antix: Tokensale Platform",
+  keywords: ["antix", "tokensale", "ico", "platform", "investment"],
 };
 
 export default function RootLayout({

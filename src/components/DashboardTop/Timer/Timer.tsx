@@ -40,32 +40,34 @@ export const Timer: React.FC<{ targetDate: Date }> = ({ targetDate }) => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.timeSegment}>
-                <span className={styles.time}>
-                    {timeLeft.days.toString().padStart(2, "0")}
-                </span>
-                <span className={styles.label}>days</span>
-            </div>
-            <span className={styles.separator}>:</span>
-            <div className={styles.timeSegment}>
-                <span className={styles.time}>
-                    {timeLeft.hours.toString().padStart(2, "0")}
-                </span>
-                <span className={styles.label}>hours</span>
-            </div>
-            <span className={styles.separator}>:</span>
-            <div className={styles.timeSegment}>
-                <span className={styles.time}>
-                    {timeLeft.minutes.toString().padStart(2, "0")}
-                </span>
-                <span className={styles.label}>min</span>
-            </div>
-            <span className={styles.separator}>:</span>
-            <div className={styles.timeSegment}>
-                <span className={styles.time}>
-                    {timeLeft.seconds.toString().padStart(2, "0")}
-                </span>
-                <span className={styles.label}>sec</span>
+            <div className={styles.timerContent}>
+                <div className={styles.timeSegment}>
+                    <span className={styles.time}>
+                        {timeLeft.days.toString().padStart(2, "0")}
+                    </span>
+                    <span className={styles.label}>days</span>
+                </div>
+                <span className={styles.separator}>:</span>
+                <div className={styles.timeSegment}>
+                    <span className={styles.time}>
+                        {timeLeft.hours.toString().padStart(2, "0")}
+                    </span>
+                    <span className={styles.label}>hours</span>
+                </div>
+                <span className={styles.separator}>:</span>
+                <div className={styles.timeSegment}>
+                    <span className={styles.time}>
+                        {timeLeft.minutes.toString().padStart(2, "0")}
+                    </span>
+                    <span className={styles.label}>min</span>
+                </div>
+                <span className={styles.separator}>:</span>
+                <div className={styles.timeSegment}>
+                    <span className={styles.time}>
+                        {timeLeft.seconds.toString().padStart(2, "0")}
+                    </span>
+                    <span className={styles.label}>sec</span>
+                </div>
             </div>
         </div>
     );
