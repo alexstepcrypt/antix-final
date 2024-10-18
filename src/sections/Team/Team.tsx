@@ -1,6 +1,6 @@
 "use client"
 
-import bg from '@/public/images/team-bg.png';
+import bg from '/public/images/team-bg.png';
 import { TeamPreview } from './components/TeamPreview/TeamPreview';
 import { LogoCarousel } from './components/LogoCarousel/LogoCarousel';
 import { TeamCarousel } from './components/TeamCarousel/TeamCarousel';

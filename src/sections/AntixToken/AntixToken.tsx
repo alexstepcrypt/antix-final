@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import coin from '@/public/svg/token/coin.svg';
-import glow from '@/public/images/token-glow.png';
+import coin from '/public/svg/token/coin.svg';
+import glow from '/public/images/token-glow.png';
 import { FadeInNew } from '@/components/FadeInNew/FadeInNew';
 import { TokenCard } from './components/TokenCard/TokenCard';
 import { TokenHead } from './components/TokenHead/TokenHead';

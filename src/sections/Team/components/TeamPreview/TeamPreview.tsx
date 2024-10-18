@@ -1,10 +1,10 @@
 import Image from 'next/image';
 
-import top10 from '@/public/svg/team/top10.svg';
-import logo1 from '@/public/svg/team/ico1.svg';
-import logo2 from '@/public/svg/team/ico2.svg';
-import logo3 from '@/public/svg/team/ico3.svg';
-import logo4 from '@/public/svg/team/ico4.svg';
+import top10 from '/public/svg/team/top10.svg';
+import logo1 from '/public/svg/team/ico1.svg';
+import logo2 from '/public/svg/team/ico2.svg';
+import logo3 from '/public/svg/team/ico3.svg';
+import logo4 from '/public/svg/team/ico4.svg';
 import { StatisticCard } from '../StatisticCard/StatisticCard';
 import s from './TeamPreview.module.scss';
 

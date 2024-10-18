@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 
-import swap from '@/public/svg/swap-icon.svg';
-import bg from '@/public/images/roadmap-bg.png';
+import swap from '/public/svg/swap-icon.svg';
+import bg from '/public/images/roadmap-bg.png';
 import s from './Roadmap.module.scss';
 import { Stage } from './Stage/Stage';
 import { roadmapList } from './mocdata';

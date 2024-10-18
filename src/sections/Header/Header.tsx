@@ -3,15 +3,15 @@
 import Image from "next/image";
 import styles from "./Header.module.scss";
 import { links, linksDashboard, mobileLinks, mobileLinksDashboard } from "./mocdata";
-import UserIcon from "@/public/svg/user-icon.svg";
+import UserIcon from "/public/svg/user-icon.svg";
 
-import LogoFull from "@/public/svg/logo-full.svg";
-import LogoSmall from "@/public/svg/logo-small.svg";
+import LogoFull from "/public/svg/logo-full.svg";
+import LogoSmall from "/public/svg/logo-small.svg";
 import { BurgerButton } from "../AntixToken/components/BurgerButton/BurgerButton";
 import { useState } from "react";
 
 
-import WalletIcon from "@/public/svg/wallet-icon.svg";
+import WalletIcon from "/public/svg/wallet-icon.svg";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";

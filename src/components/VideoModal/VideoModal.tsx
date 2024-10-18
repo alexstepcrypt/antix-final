@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./VideoModal.module.scss";
 
-import CloseIcon from "@/public/svg/close-icon.svg";
+import CloseIcon from "/public/svg/close-icon.svg";
 import Image from "next/image";
 
 interface VideoModalProps {

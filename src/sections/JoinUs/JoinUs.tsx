@@ -9,7 +9,7 @@ const JoinUs = () => {
         <section className={styles.container} id="JoinUs">
             <video className={styles.backgroundVideo} autoPlay loop muted playsInline>
                 <source
-                    src={require("@/public/video/join-us-video.webm")}
+                    src={require("/public/video/join-us-video.webm")}
                     type="video/webm"
                 />
                 Ваш браузер не поддерживает видео.

@@ -3,8 +3,8 @@
 import { useState } from "react";
 import styles from "./ReplacingHumans.module.scss";
 
-import HeadImg from "@/public/images/replacing-humans-bg-avatar.png";
-import BgImg from "@/public/images/replacing-humans-bg.png";
+import HeadImg from "/public/images/replacing-humans-bg-avatar.png";
+import BgImg from "/public/images/replacing-humans-bg.png";
 import Accordion from "../../components/Accordion/Accordion";
 import FadeIn from "../../components/FadeIn/FadeIn";
 import Image from "next/image";

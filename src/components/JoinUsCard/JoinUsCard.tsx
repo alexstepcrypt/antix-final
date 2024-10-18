@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 import styles from "./JoinUsCard.module.scss";
 import Image, { StaticImageData } from "next/image";
 
-import Bg from "@/public/images/join-us-card-bg.png";
-import BgMobile from "@/public/images/join-us-card-bg-mobile.png";
-import XIcon from "@/public/svg/social-x.svg";
-import TgIcon from "@/public/svg/social-telegram.svg";
-import DiscordIcon from "@/public/svg/social-discord.svg";
+import Bg from "/public/images/join-us-card-bg.png";
+import BgMobile from "/public/images/join-us-card-bg-mobile.png";
+import XIcon from "/public/svg/social-x.svg";
+import TgIcon from "/public/svg/social-telegram.svg";
+import DiscordIcon from "/public/svg/social-discord.svg";
 
 interface JoinUsCardProps {
     platform: "x" | "discord" | "telegram";

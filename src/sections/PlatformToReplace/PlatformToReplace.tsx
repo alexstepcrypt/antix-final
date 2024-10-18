@@ -1,7 +1,7 @@
 "use client";
 import styles from "./PlatformToReplace.module.scss";
-import Bg from "@/public/images/platoform-to-replace-bg.png";
-import BgMobile from "@/public/images/platoform-to-replace-bg-mobile.png";
+import Bg from "/public/images/platoform-to-replace-bg.png";
+import BgMobile from "/public/images/platoform-to-replace-bg-mobile.png";
 import VerticalCarusel from "@/components/VerticalCarusel/VerticalCarusel";
 
 const words = [

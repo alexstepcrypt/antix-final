@@ -2,11 +2,11 @@
 
 import styles from "./Footer.module.scss";
 
-import socialX from "@/public/svg/social-x.svg";
-import socialTelegram from "@/public/svg/social-telegram.svg";
-import socialDiscord from "@/public/svg/social-discord.svg";
+import socialX from "/public/svg/social-x.svg";
+import socialTelegram from "/public/svg/social-telegram.svg";
+import socialDiscord from "/public/svg/social-discord.svg";
 
-import TitleImg from "@/public/svg/footer-bg.svg";
+import TitleImg from "/public/svg/footer-bg.svg";
 import Image from "next/image";
 import { scrollToId } from '@/utils/scrollToId'
 

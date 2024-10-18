@@ -3,13 +3,13 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./Quote.module.scss";
-import Dots from "@/public/svg/quote-dots.svg";
-import Bg from "@/public/images/quote/quote-bg.png";
+import Dots from "/public/svg/quote-dots.svg";
+import Bg from "/public/images/quote/quote-bg.png";
 
-import Avatar1 from "@/public/images/quote/quote-1.png";
-import Avatar2 from "@/public/images/quote/quote-2.png";
-import Avatar3 from "@/public/images/quote/quote-3.png";
-import Avatar4 from "@/public/images/quote/quote-4.png";
+import Avatar1 from "/public/images/quote/quote-1.png";
+import Avatar2 from "/public/images/quote/quote-2.png";
+import Avatar3 from "/public/images/quote/quote-3.png";
+import Avatar4 from "/public/images/quote/quote-4.png";
 
 const authors = [
     {
@@ -74,6 +74,8 @@ const Quote = () => {
                     <Image
                         src={authors[currentAuthorIndex].avatar}
                         alt={authors[currentAuthorIndex].user}
+                        width={400}
+                        height={400}
                     />
                     <span>{authors[currentAuthorIndex].user}</span>
                 </div>

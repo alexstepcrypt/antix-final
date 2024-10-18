@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import styles from "./Tabs.module.scss";
 
-import StarIcon from "@/public/svg/team-star.svg";
-import LinkedInIcon from "@/public/svg/linkedin-button.svg";
-import HiddenBtn from "@/public/svg/mobile-hidden-tn.svg";
+import StarIcon from "/public/svg/team-star.svg";
+import LinkedInIcon from "/public/svg/linkedin-button.svg";
+import HiddenBtn from "/public/svg/mobile-hidden-tn.svg";
 
-import ModalBg from "@/public/images/advisors/card-bg.png";
-import XMark from "@/public/svg/xmark.svg";
+import ModalBg from "/public/images/advisors/card-bg.png";
+import XMark from "/public/svg/xmark.svg";
 
 type itemType = {
     role: string;

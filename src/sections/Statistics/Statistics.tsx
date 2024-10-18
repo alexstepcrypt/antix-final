@@ -2,28 +2,28 @@
 
 import styles from "./Statistics.module.scss";
 
-import Img1 from "@/public/images/statistics/1.png";
-import Img2 from "@/public/images/statistics/2.png";
-import Img3 from "@/public/images/statistics/3.png";
-import Img4 from "@/public/images/statistics/4.png";
-import Img5 from "@/public/images/statistics/5.png";
-import Img6 from "@/public/images/statistics/6.png";
-import Img7 from "@/public/images/statistics/7.png";
-import Img8 from "@/public/images/statistics/8.png";
+import Img1 from "/public/images/statistics/1.png";
+import Img2 from "/public/images/statistics/2.png";
+import Img3 from "/public/images/statistics/3.png";
+import Img4 from "/public/images/statistics/4.png";
+import Img5 from "/public/images/statistics/5.png";
+import Img6 from "/public/images/statistics/6.png";
+import Img7 from "/public/images/statistics/7.png";
+import Img8 from "/public/images/statistics/8.png";
 
-import Percent20 from "@/public/svg/statistics/20.svg";
-import Percent50 from "@/public/svg/statistics/50.svg";
-import Percent90 from "@/public/svg/statistics/90.svg";
-import StickIcon from "@/public/svg/statistics/stick.svg";
-import DollarIcon from "@/public/svg/statistics/dollar.svg";
-import Icon15m from "@/public/svg/statistics/15m.svg";
+import Percent20 from "/public/svg/statistics/20.svg";
+import Percent50 from "/public/svg/statistics/50.svg";
+import Percent90 from "/public/svg/statistics/90.svg";
+import StickIcon from "/public/svg/statistics/stick.svg";
+import DollarIcon from "/public/svg/statistics/dollar.svg";
+import Icon15m from "/public/svg/statistics/15m.svg";
 
 import { FadeInNew } from "../../components/FadeInNew/FadeInNew";
 import { ImgBox } from "./ui/ImgBox/ImgBox";
 import Image from "next/image";
 import { mobileText } from "./data";
 
-import MobileBtn from "@/public/svg/mobile-hidden-tn.svg";
+import MobileBtn from "/public/svg/mobile-hidden-tn.svg";
 import { useEffect, useRef, useState } from "react";
 
 const Statistics = () => {

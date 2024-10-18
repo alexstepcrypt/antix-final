@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./AntixFeatures.module.scss";
 
-import Bg from "@/public/images/antix-features-bg.png";
+import Bg from "/public/images/antix-features-bg.png";
 import VerticalCarusel from "@/components/VerticalCarusel/VerticalCarusel";
 
 const words = [
