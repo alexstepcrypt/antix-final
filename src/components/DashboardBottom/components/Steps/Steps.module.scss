@@ -29,4 +29,20 @@
    .active {
       border-color: #12FFF1;
    }
+
+   @media (max-width: 1135px) {
+      .step {
+         max-width: 200px;
+      }
+   }
+
+   @media (max-width: 1020px) {
+      .step {
+         max-width: 160px;
+      }
+   }
+
+   @media (max-width: 960px) {
+      display: none;
+   }
 }

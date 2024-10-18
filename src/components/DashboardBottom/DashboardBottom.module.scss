@@ -50,4 +50,48 @@
 
       /* ======================================================== */
    }
+
+   @media (max-width: 1220px) {
+      padding: 0 32px;
+   }
+
+   @media (max-width: 960px) {
+      .cards {
+         margin-top: 0;
+         flex-direction: column-reverse;
+         gap: 28px;
+
+         .popup {
+            top: auto;
+            bottom: 5px;
+            max-height: fit-content;
+         }
+
+         .statistic > * > li {
+            display: flex;
+            gap: 8px;
+         }
+
+         & > * {
+            width: 100%;
+         }
+      }
+   }
+
+   @media (max-width: 650px) {
+      .cards {
+         padding-bottom: 20px;
+         .statistic > * > li {
+            display: block;
+         }
+
+         & > * {
+            margin-top: 15px;
+         }
+      }
+   }
+
+   @media (max-width: 480px) {
+      padding: 0 16px;
+   }
 }
