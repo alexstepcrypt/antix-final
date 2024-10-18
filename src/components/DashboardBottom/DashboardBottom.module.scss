@@ -34,15 +34,6 @@
 
       /* ===================== SECOND CARD ====================== */
 
-      .popup {
-         position: absolute;
-         top: 5px;
-         right: 5px;
-         max-width: fit-content;
-         padding: 5px;
-         background: transparent
-      }
-
       .statistic {
          display: flex;
          justify-content: space-between;
@@ -60,12 +51,6 @@
          margin-top: 0;
          flex-direction: column-reverse;
          gap: 28px;
-
-         .popup {
-            top: auto;
-            bottom: 5px;
-            max-height: fit-content;
-         }
 
          .statistic > * > li {
             display: flex;

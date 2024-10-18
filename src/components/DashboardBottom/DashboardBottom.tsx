@@ -1,11 +1,11 @@
-import { InfoIcon } from '@/icons/InfoIcon';
 import { DashboardCard } from './components/Card/Card'
 import { DashboardList } from './components/List/List'
 import { firstList, secondList, thirdList } from './constants/list-values';
 import { Transactions } from './components/Transactions/Transactions';
-import s from './DashboardBottom.module.scss';
-import { Steps } from './components/Steps/Steps'
+import { DashboardPopover } from './components/Popover/Popover';
+import { Steps } from './components/Steps/Steps';
 import { steps } from './constants/steps';
+import s from './DashboardBottom.module.scss';
 
 export const DashboardBottom = () => {
    return (
@@ -23,9 +23,7 @@ export const DashboardBottom = () => {
                </ol>
             </DashboardCard>
             <DashboardCard>
-               <button className={s.popup}>
-                  <InfoIcon />
-               </button>
+               <DashboardPopover />
                <div className={s.statistic}>
                   <DashboardList values={firstList} />
                   <DashboardList values={secondList} />
