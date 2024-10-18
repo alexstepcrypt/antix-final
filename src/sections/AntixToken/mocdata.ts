@@ -1,9 +1,9 @@
-import hummer from '@/public/svg/token/hummer.svg';
-import shop from '@/public/svg/token/shop.svg';
-import handshake from '@/public/svg/token/handshake.svg';
-import lines from '@/public/svg/token/lines.svg';
-import stars from '@/public/svg/token/stars.svg';
-import subscription from '@/public/svg/token/subscription.svg';
+import hummer from '/public/svg/token/hummer.svg';
+import shop from '/public/svg/token/shop.svg';
+import handshake from '/public/svg/token/handshake.svg';
+import lines from '/public/svg/token/lines.svg';
+import stars from '/public/svg/token/stars.svg';
+import subscription from '/public/svg/token/subscription.svg';
 
 export const leftList = [
    {

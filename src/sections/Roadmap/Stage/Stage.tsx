@@ -1,9 +1,9 @@
 import { Fragment } from 'react';
 import Image from 'next/image';
 
-import checked from '@/public/svg/roadmap-check.svg';
-import notChecked from '@/public/svg/roadmap-list-item.svg';
-import tracker from '@/public/svg/tracker.svg';
+import checked from '/public/svg/roadmap-check.svg';
+import notChecked from '/public/svg/roadmap-list-item.svg';
+import tracker from '/public/svg/tracker.svg';
 import s from './Stage.module.scss';
 
 interface List {

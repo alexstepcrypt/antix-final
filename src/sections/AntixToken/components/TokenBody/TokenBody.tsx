@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 
-import coin from '@/public/svg/token/coin.svg';
-import bg from '@/public/svg/token/coin-bg.svg';
+import coin from '/public/svg/token/coin.svg';
+import bg from '/public/svg/token/coin-bg.svg';
 import { TokenCard } from '../TokenCard/TokenCard';
 import s from './TokenBody.module.scss';
 import { leftList, midList, rightList } from '../../mocdata'

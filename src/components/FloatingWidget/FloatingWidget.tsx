@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./FloatingWidget.module.scss";
 import Image from "next/image";
 
-import TopArrow from "@/public/svg/top-arrow.svg";
+import TopArrow from "/public/svg/top-arrow.svg";
 
 interface TimeLeft {
     days: number;

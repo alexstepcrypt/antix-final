@@ -7,7 +7,7 @@
     height: 100vh;
 
     @media (max-width: 960px) {
-        background-image: url("../../public/images/why/why-bg-mobile.png") !important;
+        background-image: url("/public/images/why/why-bg-mobile.png") !important;
         background-size: cover;
         background-position: center;
         height: 85vh;
@@ -83,15 +83,15 @@
 
     @media (max-width: 960px) {
         &:nth-child(1) {
-            background-image: url("../../public/images/why/why-item-mobile-bg1.png") !important;
+            background-image: url("/public/images/why/why-item-mobile-bg1.png") !important;
         }
 
         &:nth-child(2) {
-            background-image: url("../../public/images/why/why-item-mobile-bg2.png") !important;
+            background-image: url("/public/images/why/why-item-mobile-bg2.png") !important;
         }
 
         &:nth-child(3) {
-            background-image: url("../../public/images/why/why-item-mobile-bg3.png") !important;
+            background-image: url("/public/images/why/why-item-mobile-bg3.png") !important;
         }
     }
 

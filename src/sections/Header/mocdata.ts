@@ -1,7 +1,7 @@
-import TokenIcon from "@/public/svg/mobile-menu/token.svg";
-import WhitepaperIcon from "@/public/svg/mobile-menu/whitepaper.svg";
-import BuyNowIcon from "@/public/svg/mobile-menu/buy-now.svg";
-import MyAccountIcon from "@/public/svg/mobile-menu/my-account.svg";
+import TokenIcon from "/public/svg/mobile-menu/token.svg";
+import WhitepaperIcon from "/public/svg/mobile-menu/whitepaper.svg";
+import BuyNowIcon from "/public/svg/mobile-menu/buy-now.svg";
+import MyAccountIcon from "/public/svg/mobile-menu/my-account.svg";
 
 export const links = [
     {

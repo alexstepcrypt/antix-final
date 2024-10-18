@@ -3,9 +3,9 @@
 import Image from "next/image";
 import styles from "./DashboardHeader.module.scss";
 import { linksAfter } from "./mocdata";
-import WalletIcon from "@/public/svg/wallet-icon.svg";
+import WalletIcon from "/public/svg/wallet-icon.svg";
 
-import LogoFull from "@/public/svg/logo-full.svg";
+import LogoFull from "/public/svg/logo-full.svg";
 import { useState } from "react";
 
 import { BurgerButton } from "./BurgerButton/BurgerButton";

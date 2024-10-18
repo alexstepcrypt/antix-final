@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Amazon.module.scss";
-import Img from "@/public/images/amazon.png";
+import Img from "/public/images/amazon.png";
 import Image from "next/image";
 
 const Amazon = () => {

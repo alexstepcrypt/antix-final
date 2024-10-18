@@ -1,9 +1,9 @@
-import maria from '@/public/images/team/command/marina.png';
-import roman from '@/public/images/team/command/roman.png';
-import yulia from '@/public/images/team/command/yulia.png';
-import anton from '@/public/images/team/command/anton.png';
-import dmitri from '@/public/images/team/command/dmitri.png';
-import rafal from '@/public/images/team/command/rafal.png';
+import maria from '/public/images/team/command/marina.png';
+import roman from '/public/images/team/command/roman.png';
+import yulia from '/public/images/team/command/yulia.png';
+import anton from '/public/images/team/command/anton.png';
+import dmitri from '/public/images/team/command/dmitri.png';
+import rafal from '/public/images/team/command/rafal.png';
 
 export const commandList = [
    {

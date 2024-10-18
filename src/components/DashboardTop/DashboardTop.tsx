@@ -5,7 +5,7 @@ import styles from "./DashboardTop.module.scss";
 import { Timer } from "./Timer/Timer";
 import Image from "next/image";
 
-import TetherIcon from "@/public/svg/tether-icon.svg";
+import TetherIcon from "/public/svg/tether-icon.svg";
 
 const DashboardTop = () => {
     const [sendingValue, setSendingValue] = useState(0);

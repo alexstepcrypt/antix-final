@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-import creationsBg from '@/public/images/creations.png';
+import creationsBg from '/public/images/creations.png';
 import s from './Creations.module.scss';
 import Accordion from '@/components/Accordion/Accordion';
 

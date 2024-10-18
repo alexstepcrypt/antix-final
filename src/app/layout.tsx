@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import "./globals.scss";
 
 export const metadata: Metadata = {
-    title: "Antix: Tokensale Platform",
-    description: "Antix: Tokensale Platform",
+    title: "Antix: Tokensale",
+    description: "Antix: Tokensale",
+    keywords: ["antix", "tokensale", "ico", "platform", "investment"]
 };
 
 const poppins = Poppins({

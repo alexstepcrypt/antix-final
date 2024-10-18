@@ -8,7 +8,7 @@ const AIDriven = () => {
         <section className={styles.container}>
             <video className={styles.backgroundVideo} autoPlay loop muted playsInline>
                 <source
-                    src={require("@/public/video/ai-driven.webm")}
+                    src={require("/public/video/ai-driven.webm")}
                     type="video/webm"
                 />
                 Ваш браузер не поддерживает видео.

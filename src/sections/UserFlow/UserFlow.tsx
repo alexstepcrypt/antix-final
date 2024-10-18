@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./UserFlow.module.scss";
 import Image from "next/image";
 
-import UserFlowImage from "@/public/svg/user-flow.svg";
-import UserFlowImageMobile from "@/public/svg/user-flow-mobile.svg";
-import Legend from "@/public/images/user-flow-legend.png";
-import HandIcon from "@/public/svg/swap-icon.svg";
+import UserFlowImage from "/public/svg/user-flow.svg";
+import UserFlowImageMobile from "/public/svg/user-flow-mobile.svg";
+import Legend from "/public/images/user-flow-legend.png";
+import HandIcon from "/public/svg/swap-icon.svg";
 
 const UserFlow = () => {
     return (

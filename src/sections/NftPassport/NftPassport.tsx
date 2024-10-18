@@ -1,10 +1,10 @@
 import Image from 'next/image';
 
-import mobilePassport from '@/public/images/passport-mobile.png';
-import nft from '@/public/images/nft-passport.png';
-import Passport from '@/public/images/nft.png';
-import vector from '@/public/svg/passport-vector.svg';
-import bg from '@/public/images/nft-passport-bg.png';
+import mobilePassport from '/public/images/passport-mobile.png';
+import nft from '/public/images/nft-passport.png';
+import Passport from '/public/images/nft.png';
+import vector from '/public/svg/passport-vector.svg';
+import bg from '/public/images/nft-passport-bg.png';
 import s from './NftPassport.module.scss';
 import { FadeInNew } from '@/components/FadeInNew/FadeInNew';
 

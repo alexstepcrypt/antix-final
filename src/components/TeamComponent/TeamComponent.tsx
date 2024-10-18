@@ -3,9 +3,9 @@
 import React from "react";
 import styles from "./TeamComponent.module.scss";
 import Image, { StaticImageData } from "next/image";
-import StarIcon from "@/public/svg/team-star.svg";
-import LinkedInIcon from "@/public/svg/linkedin-button.svg";
-import HoverImage from "@/public/images/advisors/card-bg.png";
+import StarIcon from "/public/svg/team-star.svg";
+import LinkedInIcon from "/public/svg/linkedin-button.svg";
+import HoverImage from "/public/images/advisors/card-bg.png";
 
 interface TeamComponentProps {
     role: string;

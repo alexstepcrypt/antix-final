@@ -3,24 +3,24 @@
 import styles from "./HeroSection.module.scss";
 import Image from "next/image";
 
-import Xlogo from "@/public/svg/social-x.svg";
-import Tglogo from "@/public/svg/social-telegram.svg";
-import Discordlogo from "@/public/svg/social-discord.svg";
+import Xlogo from "/public/svg/social-x.svg";
+import Tglogo from "/public/svg/social-telegram.svg";
+import Discordlogo from "/public/svg/social-discord.svg";
 
-import LogoSmall from "@/public/svg/logo-small.svg";
+import LogoSmall from "/public/svg/logo-small.svg";
 
 import { LoaderSvg } from "./ui/LoaderSvg/LoaderSvg";
 import { HeroTimer } from "./ui/HeroTimer/HeroTimer";
 
-import Awords1 from "@/public/svg/team/ico1.svg";
-import Awords2 from "@/public/svg/team/ico2.svg";
-import Awords3 from "@/public/svg/team/ico3.svg";
-import Awords4 from "@/public/svg/team/ico4.svg";
-import Awords5 from "@/public/svg/team/top10.svg";
-import Awords6 from "@/public/svg/team/ico5.svg";
+import Awords1 from "/public/svg/team/ico1.svg";
+import Awords2 from "/public/svg/team/ico2.svg";
+import Awords3 from "/public/svg/team/ico3.svg";
+import Awords4 from "/public/svg/team/ico4.svg";
+import Awords5 from "/public/svg/team/top10.svg";
+import Awords6 from "/public/svg/team/ico5.svg";
 
-import Bg from "@/public/images/hero-timer-bg.png";
-import BgHead from "@/public/images/hero-timer-bg-head.png";
+import Bg from "/public/images/hero-timer-bg.png";
+import BgHead from "/public/images/hero-timer-bg-head.png";
 import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 
 const HeroSection = () => {
@@ -34,7 +34,7 @@ const HeroSection = () => {
                 playsInline
             >
                 <source
-                    src={require("@/public/video/hero-video.webm")}
+                    src={require("/public/video/hero-video.webm")}
                     type="video/webm"
                 />
                 Ваш браузер не поддерживает видео.
@@ -109,7 +109,7 @@ const HeroSection = () => {
                     playsInline
                 >
                     <source
-                        src={require("@/public/video/hero-video.webm")}
+                        src={require("/public/video/hero-video.webm")}
                         type="video/webm"
                     />
                     Ваш браузер не поддерживает видео.

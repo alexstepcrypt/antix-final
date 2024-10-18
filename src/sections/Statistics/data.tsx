@@ -1,9 +1,9 @@
-import Img1 from "@/public/images/mobile-statistics/1.png";
-import Img2 from "@/public/images/mobile-statistics/2.png";
-import Img3 from "@/public/images/mobile-statistics/3.png";
-import Img4 from "@/public/images/mobile-statistics/4.png";
-import Img5 from "@/public/images/mobile-statistics/5.png";
-import Img6 from "@/public/images/mobile-statistics/6.png";
+import Img1 from "/public/images/mobile-statistics/1.png";
+import Img2 from "/public/images/mobile-statistics/2.png";
+import Img3 from "/public/images/mobile-statistics/3.png";
+import Img4 from "/public/images/mobile-statistics/4.png";
+import Img5 from "/public/images/mobile-statistics/5.png";
+import Img6 from "/public/images/mobile-statistics/6.png";
 
 export const mobileText = [
     {

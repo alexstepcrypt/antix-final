@@ -1,7 +1,7 @@
-import Img1 from "@/public/images/advisors/1.png";
-import Img2 from "@/public/images/advisors/2.png";
-import Img3 from "@/public/images/advisors/3.png";
-import Img4 from "@/public/images/advisors/4.png";
+import Img1 from "/public/images/advisors/1.png";
+import Img2 from "/public/images/advisors/2.png";
+import Img3 from "/public/images/advisors/3.png";
+import Img4 from "/public/images/advisors/4.png";
 
 export const advisorsList = [
     {
