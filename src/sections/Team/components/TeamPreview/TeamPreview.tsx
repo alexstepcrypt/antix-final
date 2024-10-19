@@ -7,6 +7,7 @@ import logo3 from '/public/svg/team/ico3.svg';
 import logo4 from '/public/svg/team/ico4.svg';
 import { StatisticCard } from '../StatisticCard/StatisticCard';
 import s from './TeamPreview.module.scss';
+import Link from 'next/link'
 
 const statisticList = [
    { title: '20+', description: 'Existing Clients' },
@@ -37,17 +38,20 @@ export const TeamPreview = () => {
          </div>
 
          <div className={s.list}>
-            <Image src={top10.src} alt="top10-icon" width={174} height={35} />
+            <Link href="https://www.instagram.com/p/CiUgU4cK0YG/" target="_blank">
+               <Image src={top10.src} alt="top10-icon" width={174} height={35} />
+            </Link>
 
             <div className={s.logos}>
                {logosList.map((logo, i) => (
-                  <Image
-                     key={i}
-                     src={logo.src}
-                     alt="logo"
-                     width={40}
-                     height={53}
-                  />
+                  <Link key={i} href="https://antix.in/about-company" target="_blank">
+                     <Image
+                        src={logo.src}
+                        alt="logo"
+                        width={40}
+                        height={53}
+                     />
+                  </Link>
                ))}
             </div>
          </div>

@@ -2,9 +2,9 @@ import { FadeInNew } from "../../components/FadeInNew/FadeInNew";
 import styles from "./Why.module.scss";
 
 import Bg from "/public/images/why/why-bg.png";
-import Bg1 from "/public/images/why/why-item-bg1.png";
-import Bg2 from "/public/images/why/why-item-bg2.png";
-import Bg3 from "/public/images/why/why-item-bg3.png";
+import Bg1 from "/public/svg/why/why-item-bg1.svg";
+import Bg2 from "/public/svg/why/why-item-bg2.svg";
+import Bg3 from "/public/svg/why/why-item-bg3.svg";
 
 const Why = () => {
     return (

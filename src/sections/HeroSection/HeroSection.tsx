@@ -22,6 +22,7 @@ import Awords6 from "/public/svg/team/ico5.svg";
 import Bg from "/public/images/hero-timer-bg.png";
 import BgHead from "/public/images/hero-timer-bg-head.png";
 import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
+import Link from 'next/link';
 
 const HeroSection = () => {
     return (
@@ -61,7 +62,7 @@ const HeroSection = () => {
                         </>
                     </FadeInNew>
                     <div className={styles.actions}>
-                        <a
+                        <Link
                             className={styles.socialLink}
                             href="https://x.com/antix_in"
                             target="_blank"
@@ -70,8 +71,8 @@ const HeroSection = () => {
                                 <Image src={Xlogo} alt="X" />
                             </div>
                             <span>43K</span>
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             className={styles.socialLink}
                             href="https://t.me/antix_in"
                             target="_blank"
@@ -80,8 +81,8 @@ const HeroSection = () => {
                                 <Image src={Tglogo} alt="Telegram" />
                             </div>
                             <span>75K</span>
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             className={styles.socialLink}
                             href="https://discord.com/invite/bKcMXChRRT"
                             target="_blank"
@@ -90,15 +91,39 @@ const HeroSection = () => {
                                 <Image src={Discordlogo} alt="Discord" />
                             </div>
                             <span>12K</span>
-                        </a>
+                        </Link>
                     </div>
                     <div className={styles.awords}>
-                        <Image src={Awords1} alt="" />
-                        <Image src={Awords2} alt="" />
-                        <Image src={Awords3} alt="" />
-                        <Image src={Awords4} alt="" />
-                        <Image src={Awords5} alt="" />
-                        <Image src={Awords6} alt="" />
+                        <Image
+                            onClick={() => window.open("https://antix.in/about-company", "_blank")}
+                            src={Awords1}
+                            alt=""
+                        />
+                        <Image
+                            onClick={() => window.open("https://antix.in/about-company", "_blank")}
+                            src={Awords2}
+                            alt=""
+                        />
+                        <Image
+                            onClick={() => window.open("https://antix.in/about-company", "_blank")}
+                            src={Awords3}
+                            alt=""
+                        />
+                        <Image
+                            onClick={() => window.open("https://antix.in/about-company", "_blank")}
+                            src={Awords4}
+                            alt=""
+                        />
+                        <Image
+                            onClick={() => window.open("https://www.instagram.com/p/CiUgU4cK0YG/", "_blank")}
+                            src={Awords5}
+                            alt=""
+                        />
+                        <Image
+                            onClick={() => window.open("https://skynet.certik.com/projects/antix#fundamental-health", "_blank")}
+                            src={Awords6}
+                            alt=""
+                        />
                     </div>
                 </div>
                 <video
