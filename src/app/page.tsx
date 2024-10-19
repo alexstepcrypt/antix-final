@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+
 import Header from "@/sections/Header/Header";
 import styles from "./page.module.scss";
 import HeroSection from "@/sections/HeroSection/HeroSection";
@@ -24,6 +26,11 @@ import Advisors from "@/sections/Advisors/Advisors";
 import DigitalMap from "@/sections/DigitalMap/DigitalMap";
 import Roadmap from '@/sections/Roadmap/Roadmap';
 import FloatingWidget from "@/components/FloatingWidget/FloatingWidget";
+
+export const metadata: Metadata = {
+    title: 'Antix Digital Twins',
+    description: 'Antix Digital Twins',
+};
 
 export default function Home() {
     return (
