@@ -91,7 +91,7 @@
             line-height: 25.65px;
 
             span {
-                color: #F0F0F0;
+                color: #f0f0f0;
             }
         }
     }
@@ -223,9 +223,18 @@
 
 .videoWrapper {
     position: absolute;
-    bottom: 115px;
+    bottom: 35%;
     left: 50%;
     transform: translateX(-50%);
+
+    width: 110px;
+    height: 110px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
     .play {
         position: absolute;
@@ -233,6 +242,15 @@
         left: 50%;
         transform: translate(-50%, -50%);
         transition: all 0.1s ease-in-out;
+
+        width: 30px;
+        height: 30px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
     }
 
     &:hover {
@@ -242,87 +260,76 @@
             opacity: 0.5;
         }
     }
-
-    @media screen and (max-width: 1280px) {
-        width: 110px;
-        height: 110px;
-        img {
-            width: 100%;
-            height: 100%;
-        }
-
-        .play {
-            width: 30px;
-            height: 30px;
-        }
-    }
 }
 
 .point1 {
     position: absolute;
-    left: 13%;
-    bottom: 32.5%;
+    left: 17.8%;
+    bottom: 33%;
 
     @media screen and (max-width: 1280px) {
-        width: 217.59px;
-        height: 326.47px;
-
-        img {
-            width: 100%;
-            height: 100%;
-        }
-
-        .videoWrapper {
-            bottom: 25%;
-        }
+        left: 17%;
+        bottom: 32%;
     }
 }
 
 .point2 {
     position: absolute;
-    right: 19.5%;
-    bottom: 37%;
-
-    .videoWrapper {
-        left: 0;
-        transform: translateX(0%);
-    }
+    left: 40.5%;
+    bottom: 55%;
 
     @media screen and (max-width: 1280px) {
-        width: 170.01px;
-        height: 388.64px;
-
-        img {
-            width: 100%;
-            height: 100%;
-        }
-        .videoWrapper {
-            bottom: 25%;
-        }
+        left: 38%;
     }
 }
 
 .point3 {
     position: absolute;
-    bottom: 31.5%;
-    right: 12.5%;
+    bottom: 32%;
+    right: 14.5%;
 
     .videoWrapper {
         left: 0;
         transform: translateX(55%);
+        bottom: 25%;
     }
 
     @media screen and (max-width: 1280px) {
-        width: 170.19px;
-        height: 360.55px;
-
-        img {
-            width: 100%;
-            height: 100%;
-        }
-
-        .videoWrapper {
-            bottom: 25%;
-        }
+        right: 13.8%;
+        bottom: 31.2%;
     }
+}
+
+.point4 {
+    position: absolute;
+    bottom: 38.5%;
+    right: 22%;
+
+    .videoWrapper {
+        left: 0;
+        transform: translateX(-15%);
+        bottom: 25%;
+    }
+
+    @media screen and (max-width: 1280px) {
+        right: 19.5%;
+        bottom: 37%;
+    }
+}
+
+.point5 {
+    position: absolute;
+    bottom: 37%;
+    right: 17.5%;
+
+    @media screen and (max-width: 1280px) {
+        bottom: 37%;
+        right: 17%;
+    }
+}
+
+.point6 {
+    position: absolute;
+    bottom: 16%;
+    right: 20%;
 }
