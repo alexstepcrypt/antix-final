@@ -8,12 +8,20 @@ import VideoModal from "@/components/VideoModal/VideoModal";
 import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 
 import Bg from "/public/images/digital-map/digital-map-bg.png";
-import MobileMap from "/public/images/digital-map-mobile.png";
 import PlayIcon from "/public/svg/play-video.svg";
 import PlayImage from "/public/images/digital-map/map-video-img.png";
+
 import Point1 from "/public/images/digital-map/point-1.png";
 import Point2 from "/public/images/digital-map/point-2.png";
 import Point3 from "/public/images/digital-map/point-3.png";
+
+
+import USAPoint from "/public/images/digital-map/usa-point.png";
+import EuropePoint from "/public/images/digital-map/europe-point.png";
+import JapanPoint from "/public/images/digital-map/japan-point.png";
+import ChinaPoint from "/public/images/digital-map/china-point.png";
+import SouthKoreaPoint from "/public/images/digital-map/south-korea-point.png";
+import AustraliaPoint from "/public/images/digital-map/australia-point.png";
 
 import HandIcon from "/public/svg/swap-icon.svg";
 
@@ -53,7 +61,7 @@ const DigitalMap = () => {
                 <div className={styles.pointsWrapper}>
                     <FadeInNew direction="down">
                         <div className={styles.point1}>
-                            <Image src={Point1} alt="" draggable={false} />
+                            <Image src={USAPoint} alt="USA" draggable={false} />
 
                             <div
                                 className={styles.videoWrapper}
@@ -81,7 +89,48 @@ const DigitalMap = () => {
 
                     <FadeInNew direction="down">
                         <div className={styles.point2}>
-                            <Image src={Point2} alt="" draggable={false} />
+                            <Image src={EuropePoint} alt="Europe" draggable={false} />
+                        </div>
+                    </FadeInNew>
+
+                    <FadeInNew direction="down">
+                        <div className={styles.point5}>
+                            <Image src={SouthKoreaPoint} alt="South Korea" draggable={false} />
+                        </div>
+                    </FadeInNew>
+
+                    <FadeInNew direction="down">
+                        <div className={styles.point3}>
+                            <Image src={JapanPoint} alt="Japan" draggable={false} />
+
+                            <div
+                                className={styles.videoWrapper}
+                                onClick={() =>
+                                    setOpenVideo(
+                                        "https://www.youtube.com/embed/F1YDHYELweI"
+                                    )
+                                }
+                            >
+                                <Image
+                                    src={PlayImage}
+                                    alt=""
+                                    draggable={false}
+                                />
+                                <div className={styles.play}>
+                                    <Image
+                                        src={PlayIcon}
+                                        alt=""
+                                        draggable={false}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </FadeInNew>
+
+                    <FadeInNew direction="down">
+                        <div className={styles.point4}>
+                            <Image src={ChinaPoint} alt="China" draggable={false} />
+
                             <div
                                 className={styles.videoWrapper}
                                 onClick={() =>
@@ -107,30 +156,8 @@ const DigitalMap = () => {
                     </FadeInNew>
 
                     <FadeInNew direction="down">
-                        <div className={styles.point3}>
-                            <Image src={Point3} alt="" draggable={false} />
-
-                            <div
-                                className={styles.videoWrapper}
-                                onClick={() =>
-                                    setOpenVideo(
-                                        "https://www.youtube.com/embed/F1YDHYELweI"
-                                    )
-                                }
-                            >
-                                <Image
-                                    src={PlayImage}
-                                    alt=""
-                                    draggable={false}
-                                />
-                                <div className={styles.play}>
-                                    <Image
-                                        src={PlayIcon}
-                                        alt=""
-                                        draggable={false}
-                                    />
-                                </div>
-                            </div>
+                        <div className={styles.point6}>
+                            <Image src={AustraliaPoint} alt="Australia" draggable={false} />
                         </div>
                     </FadeInNew>
                 </div>
