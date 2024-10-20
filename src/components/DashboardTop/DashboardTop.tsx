@@ -8,7 +8,13 @@ import Image from "next/image";
 import TetherIcon from "/public/svg/tether-icon.svg";
 
 const DashboardTop = () => {
-    const [sendingValue, setSendingValue] = useState(0);
+    const [sendingValue, setSendingValue] = useState("0");
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        const cleanedValue = value.replace(/\D/g, "").replace(/^0+/, "");
+        setSendingValue(cleanedValue === "" ? "0" : cleanedValue);
+    };
 
     return (
         <div className={styles.container}>
@@ -64,12 +70,10 @@ const DashboardTop = () => {
                         </div>
                         <div className={styles.sendingBottom}>
                             <input
-                                type="number"
+                                type="text"
                                 className={styles.sendingInput}
                                 value={sendingValue}
-                                onChange={(e) =>
-                                    setSendingValue(Number(e.target.value))
-                                }
+                                onChange={handleInputChange}
                             />
                             <button className={styles.sendingChooseCurr}>
                                 <Image
