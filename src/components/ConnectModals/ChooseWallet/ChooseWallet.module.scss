@@ -1,9 +1,3 @@
-.page {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .bg {
     position: fixed;
     inset: 0;
@@ -13,8 +7,11 @@
 }
 
 .modal {
-    max-width: 400px;
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 
     position: fixed;
     z-index: 2;
@@ -26,10 +23,16 @@
     background: rgba(87, 87, 87, 0.4);
     backdrop-filter: blur(20px);
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    width: 400px;
+
+    @media screen and (max-width: 480px) {
+        width: auto;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        top: auto;
+        transform: translate(0, 0);
+    }
 
     .modalTitle {
         font-size: 20px;
@@ -44,10 +47,10 @@
         flex-direction: column;
         // align-items: center;
         gap: 6px;
+        width: 100%;
     }
 
     .modalBtn {
-        width: 350px;
         display: flex;
         align-items: center;
         justify-content: space-between;

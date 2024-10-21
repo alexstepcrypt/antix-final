@@ -25,7 +25,7 @@ import Team from '@/sections/Team/Team';
 import Advisors from "@/sections/Advisors/Advisors";
 import DigitalMap from "@/sections/DigitalMap/DigitalMap";
 import Roadmap from '@/sections/Roadmap/Roadmap';
-import FloatingWidget from "@/components/FloatingWidget/FloatingWidget";
+// import FloatingWidget from "@/components/FloatingWidget/FloatingWidget";
 
 export const metadata: Metadata = {
     title: 'Antix Digital Twins',
@@ -39,7 +39,7 @@ export default function Home() {
             <HeroSection />
             <FeaturedIn />
             <PlatformToReplace />
-            <FloatingWidget />
+            {/* <FloatingWidget /> */}
             <MarketLeader />
             <Why />
             <Quote />

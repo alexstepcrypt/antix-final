@@ -10,7 +10,7 @@ import Discordlogo from "/public/svg/social-discord.svg";
 import LogoSmall from "/public/svg/logo-small.svg";
 
 import { LoaderSvg } from "./ui/LoaderSvg/LoaderSvg";
-import { HeroTimer } from "./ui/HeroTimer/HeroTimer";
+// import { HeroTimer } from "./ui/HeroTimer/HeroTimer";
 
 import Awords1 from "/public/svg/team/ico1.svg";
 import Awords2 from "/public/svg/team/ico2.svg";
@@ -162,11 +162,11 @@ const HeroSection = () => {
                     >
                         <span className={styles.title}>Coming Soon</span>
                         <div className={styles.loader}>
-                            <LoaderSvg percent={30} />
+                            <LoaderSvg percent={0} />
                         </div>
-                        <HeroTimer
+                        {/* <HeroTimer
                             targetDate={new Date("2024-12-31T23:59:59")}
-                        />
+                        /> */}
                     </div>
                 </div>
             </div>

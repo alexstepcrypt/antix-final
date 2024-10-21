@@ -14,10 +14,14 @@ import { useState } from "react";
 import WalletIcon from "/public/svg/wallet-icon.svg";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 
+interface HeaderProps {
+    isDashboard?: boolean;
+    disconnectClick?: () => void;
+}
 
-const Header = () => {
+const Header: React.FC<HeaderProps> = ({isDashboard, disconnectClick}) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = (id: string) => {
@@ -34,8 +38,8 @@ const Header = () => {
         setIsOpen(false);
     };
 
-    const pathname = usePathname();
-    const isDashboard = pathname === "/dashboard";
+    // const pathname = usePathname();
+    // const isDashboard = pathname === "/dashboard";
 
     const linksList = isDashboard ? linksDashboard : links
     const mobileLinksList = isDashboard ? mobileLinksDashboard : mobileLinks
@@ -118,7 +122,7 @@ const Header = () => {
                 </div>
                 <div className={styles.connectContainer}>
                     {isDashboard ? (
-                        <button className={styles.walletButton}>
+                        <button className={styles.walletButton} onClick={disconnectClick}>
                             <Image src={WalletIcon} alt="User" />
                             0xae89B…..87D
                         </button>
