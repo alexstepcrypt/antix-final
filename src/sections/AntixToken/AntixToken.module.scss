@@ -1,5 +1,4 @@
 .wrapper {
-   height: 1146px;
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
@@ -7,6 +6,7 @@
    justify-content: center;
    align-items: center;
    margin-top: 152px;
+   padding: 35px 0;
 
    .mobileList, .mobileToken {
       display: none;
