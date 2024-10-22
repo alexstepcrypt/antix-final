@@ -8,13 +8,13 @@ import UserIcon from "/public/svg/user-icon.svg";
 import LogoFull from "/public/svg/logo-full.svg";
 import LogoSmall from "/public/svg/logo-small.svg";
 import { BurgerButton } from "../AntixToken/components/BurgerButton/BurgerButton";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
 
 import WalletIcon from "/public/svg/wallet-icon.svg";
 
 import Link from "next/link";
-// import { usePathname } from "next/navigation";
 
 interface HeaderProps {
     isDashboard?: boolean;
@@ -23,6 +23,29 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({isDashboard, disconnectClick}) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const headerRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (headerRef.current) {
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    gsap.to(headerRef.current, { y: -200, duration: 0.1 });
+                } else if (currentScrollY < lastScrollY) {
+                    gsap.to(headerRef.current, { y: 0, duration: 0.1 });
+                }
+            }
+
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [lastScrollY]);
 
     const handleClick = (id: string) => {
         const el = document.getElementById(id);
@@ -37,9 +60,6 @@ const Header: React.FC<HeaderProps> = ({isDashboard, disconnectClick}) => {
         }
         setIsOpen(false);
     };
-
-    // const pathname = usePathname();
-    // const isDashboard = pathname === "/dashboard";
 
     const linksList = isDashboard ? linksDashboard : links
     const mobileLinksList = isDashboard ? mobileLinksDashboard : mobileLinks
@@ -87,6 +107,7 @@ const Header: React.FC<HeaderProps> = ({isDashboard, disconnectClick}) => {
                 className={`${styles.wrapper} ${
                     isOpen ? styles.openWrapper : ""
                 }`}
+                ref={headerRef}
             >
                 <div className={styles.logo}>
                     <Image

@@ -30,6 +30,10 @@ import Roadmap from '@/sections/Roadmap/Roadmap';
 export const metadata: Metadata = {
     title: 'Antix Digital Twins',
     description: 'Antix Digital Twins',
+    openGraph: {
+        title: "Antix Digital Twins",
+        description: "Antix Digital Twins",
+    }
 };
 
 export default function Home() {
