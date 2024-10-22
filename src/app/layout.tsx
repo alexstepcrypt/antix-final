@@ -5,7 +5,14 @@ import "./globals.scss";
 export const metadata: Metadata = {
     title: "Antix: Tokensale",
     description: "Antix: Tokensale",
-    keywords: ["antix", "tokensale", "ico", "platform", "investment"]
+    keywords: ["antix", "tokensale", "ico", "platform", "investment"],
+    openGraph: {
+        title: "Antix: Tokensale",
+        description: "Antix: Tokensale",
+        images: "",
+        type: "website",
+        url: "https://token.antix.in",
+    }
 };
 
 const poppins = Poppins({
@@ -21,6 +28,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head>
+                <link rel="icon" href="/svg/logo-small.svg" />
+            </head>
             <body className={`${poppins.className}`}>{children}</body>
         </html>
     );
