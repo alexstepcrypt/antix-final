@@ -2,7 +2,12 @@
 
 import Image from "next/image";
 import styles from "./Header.module.scss";
-import { links, linksDashboard, mobileLinks, mobileLinksDashboard } from "./mocdata";
+import {
+    links,
+    linksDashboard,
+    mobileLinks,
+    mobileLinksDashboard,
+} from "./mocdata";
 import UserIcon from "/public/svg/user-icon.svg";
 
 import LogoFull from "/public/svg/logo-full.svg";
@@ -11,20 +16,21 @@ import { BurgerButton } from "../AntixToken/components/BurgerButton/BurgerButton
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
-
 import WalletIcon from "/public/svg/wallet-icon.svg";
 
 import Link from "next/link";
+import { useSDK } from "@metamask/sdk-react";
+import { formatAddress } from "@/utils/utils";
+import DisConnect from "@/components/ConnectModals/DisConnect/DisConnect";
 
-interface HeaderProps {
-    isDashboard?: boolean;
-    disconnectClick?: () => void;
-}
-
-const Header: React.FC<HeaderProps> = ({isDashboard, disconnectClick}) => {
+const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
     const headerRef = useRef<HTMLDivElement | null>(null);
+
+    const { connected, account } = useSDK();
+
+    const [isDisconnectModal, setIsDisconnectModal] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -61,11 +67,13 @@ const Header: React.FC<HeaderProps> = ({isDashboard, disconnectClick}) => {
         setIsOpen(false);
     };
 
-    const linksList = isDashboard ? linksDashboard : links
-    const mobileLinksList = isDashboard ? mobileLinksDashboard : mobileLinks
+    const linksList = connected && account ? linksDashboard : links;
+    const mobileLinksList =
+        connected && account ? mobileLinksDashboard : mobileLinks;
 
     return (
         <>
+            {isDisconnectModal && connected && account && <DisConnect setIsOpen={setIsDisconnectModal} />}
             <div
                 className={`${styles.mobile} ${
                     isOpen ? styles.activeMobile : ""
@@ -86,7 +94,9 @@ const Header: React.FC<HeaderProps> = ({isDashboard, disconnectClick}) => {
                             onClick={() => handleClick(link.href)}
                             key={link.label}
                             className={styles.mobileLink}
-                            style={{justifyContent: link.icon ? "" : "center"}}
+                            style={{
+                                justifyContent: link.icon ? "" : "center",
+                            }}
                         >
                             {link.icon && (
                                 <div className={styles.mobileLinkImg}>
@@ -117,7 +127,7 @@ const Header: React.FC<HeaderProps> = ({isDashboard, disconnectClick}) => {
                             isOpen ? styles.openLogoFull : ""
                         }`}
                     />
-                    {isDashboard && (
+                    {connected && account && (
                         <Link href={"/"} className={styles.backToMainButton}>
                             Back to the Main Page
                         </Link>
@@ -142,19 +152,22 @@ const Header: React.FC<HeaderProps> = ({isDashboard, disconnectClick}) => {
                     ))}
                 </div>
                 <div className={styles.connectContainer}>
-                    {isDashboard ? (
-                        <button className={styles.walletButton} onClick={disconnectClick}>
+                    {connected && account ? (
+                        <button
+                            className={styles.walletButton}
+                            onClick={() => setIsDisconnectModal(true)}
+                        >
                             <Image src={WalletIcon} alt="User" />
-                            0xae89B…..87D
+                            {account ? formatAddress(account) : ""}
                         </button>
                     ) : (
                         <>
-                            <Link
-                                href={"/dashboard"}
+                            <button
+                                onClick={() => window.open("/dashboard", "_parent")}
                                 className={styles.connectButton}
                             >
                                 Connect Wallet
-                            </Link>
+                            </button>
                             <button className={styles.userButton}>
                                 <Image src={UserIcon} alt="User" />
                             </button>
