@@ -14,7 +14,6 @@ import MataMaskIcon from "/public/dashboard/svg/meta-mask.svg";
 import WalletConnectIcon from "/public/dashboard/svg/wallet-connect.svg";
 import TrustWalletIcon from "/public/dashboard/svg/trust-wallet.svg";
 import CoinbaseWalletIcon from "/public/dashboard/svg/coinbase-wallet.svg";
-import Image from "next/image";
 import ChooseWallet from "@/components/ConnectModals/ChooseWallet/ChooseWallet";
 import DisConnect from "@/components/ConnectModals/DisConnect/DisConnect";
 
