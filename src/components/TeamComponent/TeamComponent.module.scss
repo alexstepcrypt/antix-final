@@ -1,0 +1,250 @@
+.container {
+    position: relative;
+
+    width: 282px;
+    height: 361px;
+
+    border-radius: 10px;
+
+    &:hover .content {
+        opacity: 0;
+    }
+    &:hover .hoverContent {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    @media screen and (max-width: 1280px) {
+        width: 200px;
+        height: 256px;
+    }
+    @media screen and (max-width: 960px) {
+    }
+    @media screen and (max-width: 480px) {
+    }
+}
+
+.content,
+.hoverContent {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 25px;
+    transition: opacity 0.5s ease;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @media screen and (max-width: 1280px) {
+        padding: 15px;
+    }
+    @media screen and (max-width: 960px) {
+    }
+    @media screen and (max-width: 480px) {
+    }
+}
+.content {
+    opacity: 1;
+}
+.hoverContent {
+    opacity: 0;
+    pointer-events: none;
+    justify-content: flex-start;
+    padding: 20px 43px 20px 20px;
+
+    @media screen and (max-width: 1280px) {
+        padding: 15px;
+    }
+    @media screen and (max-width: 960px) {
+    }
+    @media screen and (max-width: 480px) {
+    }
+}
+
+.role {
+    position: relative;
+    color: white;
+    z-index: 2;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25.82px;
+    text-align: left;
+    color: #f0f0f0;
+
+    @media screen and (max-width: 1280px) {
+        font-size: 13px;
+        line-height: 18.36px;
+    }
+    @media screen and (max-width: 960px) {
+    }
+    @media screen and (max-width: 480px) {
+    }
+}
+
+.bottom {
+    position: relative;
+    z-index: 2;
+
+    .name {
+        max-width: 170px;
+        display: block;
+        margin-top: 12px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.36px;
+        text-align: left;
+        color: #f0f0f0;
+    }
+
+    @media screen and (max-width: 1280px) {
+        .name {
+            margin-top: 8px;
+            font-size: 10px;
+            line-height: 13.77px;
+        }
+    }
+    @media screen and (max-width: 960px) {
+    }
+    @media screen and (max-width: 480px) {
+    }
+}
+
+.socialButton {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+
+    width: 33px;
+    height: 33px;
+    border-radius: 5px;
+
+    box-shadow: 0px 0px 17.94px 0px #b4fffa;
+    transition: 0.3s;
+
+    overflow: hidden;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    @media screen and (max-width: 1280px) {
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+
+        > img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    @media screen and (max-width: 960px) {
+    }
+    @media screen and (max-width: 480px) {
+    }
+}
+
+.description {
+    margin-top: 18px;
+    position: relative;
+    z-index: 2;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.6px;
+    text-align: left;
+    color: #f0f0f0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    p {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 9px;
+        span {
+            margin-top: 4px;
+            display: block;
+
+            min-width: 12.42px;
+            height: 12.42px;
+            border-radius: 100%;
+
+            border: 1px solid #afafaf;
+        }
+    }
+
+    @media screen and (max-width: 1280px) {
+        margin-top: 13px;
+
+        font-size: 9px;
+        line-height: 11.8px;
+        gap: 8px;
+
+        p {
+            gap: 6px;
+
+            span {
+                margin-top: 0px;
+
+                min-width: 8px;
+                height: 8px;
+            }
+        }
+    }
+    @media screen and (max-width: 960px) {
+    }
+    @media screen and (max-width: 480px) {
+    }
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    img {
+        width: 68.32px;
+        height: 68.32px;
+        border-radius: 100%;
+
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .name {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.6px;
+        text-align: left;
+        color: #f0f0f0;
+    }
+
+    @media screen and (max-width: 1280px) {
+        gap: 8px;
+
+        img {
+            width: 48.58px;
+            height: 48.58px;
+        }
+        .name {
+            font-size: 13px;
+            line-height: 15.6px;
+        }
+    }
+    @media screen and (max-width: 960px) {
+    }
+    @media screen and (max-width: 480px) {
+    }
+}

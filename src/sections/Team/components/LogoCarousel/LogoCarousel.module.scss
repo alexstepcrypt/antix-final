@@ -1,0 +1,60 @@
+.container {
+   position: relative;
+
+   max-width: 600px;
+   .swiper {
+      .logo {
+         object-position: center;
+         object-fit: cover;
+      }
+   }
+
+   &::after, &::before {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      z-index: 3;
+   }
+
+   &::after {
+      right: 0;
+      background: linear-gradient(to left, rgba(15,15,15,1) 0%, transparent 100%);
+   }
+
+   &::before {
+      left: 0;
+      background: linear-gradient(to right, rgba(15,15,15,1) 0%, transparent 100%);
+   }
+
+   @media screen and (max-width: 1280px) {
+      max-width: 530px;
+
+      .swiper {
+         .logo {
+            object-fit: contain;
+         }
+      }
+   }
+}
+.slide {
+   min-width: 100px;
+   display: flex !important;
+   align-items: center;
+   justify-content: center;
+
+   height: 54px;
+
+   @media screen and (max-width: 1280px) {
+      height: 38px;
+      // min-width: 80px;
+      padding: 5px;
+
+      img {
+         height: 100%;
+         width: auto;
+      }
+   }
+}

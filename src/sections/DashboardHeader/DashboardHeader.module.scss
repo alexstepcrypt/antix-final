@@ -1,0 +1,211 @@
+.wrapper {
+    position: fixed;
+    top: 28px;
+    left: 50%;
+    z-index: 102;
+
+    transform: translateX(-50%);
+    max-width: 1200px;
+    width: 100%;
+
+    padding: 12px 12px 12px 32px;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(87, 87, 87, 0.4);
+    backdrop-filter: blur(20px);
+    transition: 0.3s;
+
+    @media screen and (max-width: 1280px) {
+        max-width: 850px;
+        padding: 8px 8px 8px 20px;
+        border-radius: 12px;
+    }
+    @media screen and (max-width: 960px) {
+        padding: 20px 30px;
+        border-radius: 24px;
+        max-width: none;
+        width: auto;
+        transform: translateX(0);
+        top: 20px;
+        left: 32px;
+        right: 32px;
+    }
+    @media screen and (max-width: 480px) {
+        padding: 12px 24px;
+        border-radius: 20px;
+
+        top: 16px;
+        left: 16px;
+        right: 16px;
+    }
+}
+.openWrapper {
+    @media screen and (max-width: 480px) {
+        left: 32px;
+        right: 32px;
+    }
+}
+
+.openLogoFull {
+    display: none;
+}
+.logoSmall {
+    display: none;
+}
+.openLogoSmall {
+    display: block;
+}
+
+.logoWrapper {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    img {
+        width: 121px;
+        height: 44px;
+    }
+    @media screen and (max-width: 1280px) {
+        img {
+            width: 86px;
+            height: 31px;
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        img {
+            width: 98.93px;
+            height: 35.98px;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        img {
+            width: 81px;
+            height: 29.45px;
+        }
+    }
+}
+
+.backToMainButton {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 13.2px;
+    text-align: center;
+    color: #575757;
+    background: transparent;
+}
+
+.linksContainer {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 0 52px 0 auto;
+
+    .link {
+        cursor: pointer;
+        transition: 0.3s;
+        background: transparent;
+        border: none;
+
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 13.2px;
+        text-align: center;
+        color: #f0f0f0;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    @media screen and (max-width: 1280px) {
+        gap: 28px;
+        margin-right: 36px;
+
+        .link {
+            font-size: 9px;
+            line-height: 9.9px;
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        display: none;
+    }
+}
+
+.connectContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .connectButton {
+        padding: 12px 56px;
+        border-radius: 44.72px;
+        background: #ffffff;
+
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        text-align: center;
+        color: #0f0f0f;
+        text-wrap: nowrap;
+
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .walletButton {
+        padding: 14px 16px;
+        gap: 8px;
+        border-radius: 12px;
+        background: #f0f0f0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media screen and (max-width: 1280px) {
+        gap: 8px;
+        .connectButton {
+            padding: 8px 40px;
+            font-size: 10px;
+            line-height: 14px;
+        }
+        .userButton {
+            height: 34px;
+            width: 34px;
+            border-radius: 7px;
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        gap: 24px;
+        .connectButton {
+            padding: 10px 42px;
+            font-size: 14.66px;
+            line-height: 25.65px;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        gap: 20px;
+        .connectButton {
+            padding: 8px 33px;
+            font-size: 12px;
+            line-height: 21px;
+        }
+    }
+}
+.mobileButton {
+    background: transparent;
+
+    @media screen and (min-width: 960px) {
+        display: none;
+    }
+}

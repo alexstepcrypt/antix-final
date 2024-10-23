@@ -1,0 +1,335 @@
+.container {
+    margin-top: 150px;
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+
+    @media screen and (max-width: 1280px) {
+        margin-top: 100px;
+    }
+    @media screen and (max-width: 960px) {
+    }
+    @media screen and (max-width: 480px) {
+    }
+}
+
+.topContent {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (max-width: 1280px) {
+        max-width: 850px;
+    }
+    @media screen and (max-width: 960px) {
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 30px;
+    }
+    @media screen and (max-width: 480px) {
+        gap: 26px;
+    }
+}
+
+.hand {
+    display: none;
+
+    @media screen and (max-width: 1280px) {
+    }
+    @media screen and (max-width: 960px) {
+        display: block;
+        position: absolute;
+        bottom: -70px;
+        right: 20px;
+    }
+    @media screen and (max-width: 480px) {
+        width: 50px;
+        height: 50px;
+        right: 15px;
+    }
+}
+
+.descWrapper {
+    max-width: 320px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+
+    .desc {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        text-align: left;
+        color: #afafaf;
+
+        span {
+            font-weight: 600;
+        }
+    }
+
+    @media screen and (max-width: 1280px) {
+        max-width: 230px;
+        gap: 16px;
+
+        .desc {
+            font-size: 10px;
+            line-height: 14.93px;
+        }
+    }
+    @media screen and (max-width: 960px) {
+        align-items: center;
+        max-width: 400px;
+
+        .desc {
+            font-size: 17.1px;
+            line-height: 25.65px;
+            text-align: center;
+
+            span {
+                color: #f0f0f0;
+            }
+        }
+    }
+    @media screen and (max-width: 480px) {
+        max-width: 330px;
+        gap: 12px;
+
+        .desc {
+            font-size: 14px;
+            line-height: 21px;
+        }
+    }
+}
+
+.title {
+    max-width: 520px;
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 60px;
+    text-align: right;
+    color: #f0f0f0;
+
+    @media screen and (max-width: 1280px) {
+        max-width: 370px;
+        font-size: 43px;
+        line-height: 42.67px;
+    }
+    @media screen and (max-width: 960px) {
+        font-size: 48.85px;
+        line-height: 52.11px;
+        text-align: center;
+        max-width: 480px;
+    }
+    @media screen and (max-width: 480px) {
+        font-size: 40px;
+        line-height: 42.67px;
+        text-align: center;
+        width: 390px;
+    }
+}
+
+.map {
+    width: 100%;
+    height: 871px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 1280px) {
+        max-width: 100vw;
+        height: 620px;
+    }
+
+    @media screen and (max-width: 960px) {
+        overflow: scroll;
+        height: 700px;
+        display: block;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+.MapWrapper {
+    position: relative;
+
+    width: 1920px;
+    height: 871px;
+
+    @media screen and (max-width: 960px) {
+        min-width: 1365px;
+        width: 100%;
+        height: 700px;
+
+        margin: 0 -50px;
+    }
+}
+
+.bgMap {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+
+    width: 1920px;
+    height: 871px;
+
+    @media screen and (max-width: 1280px) {
+        width: 1365px;
+        height: 620px;
+    }
+    @media screen and (max-width: 960px) {
+    }
+}
+
+.pointsWrapper {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 1920px;
+    height: 871px;
+
+    @media screen and (max-width: 1280px) {
+        width: 1365px;
+        height: 620px;
+    }
+    @media screen and (max-width: 960px) {
+    }
+}
+
+.point1,
+.point2,
+.point3,
+.point4,
+.point5 {
+    background: transparent;
+}
+
+.videoWrapper {
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 110px;
+    height: 110px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.1s ease-in-out;
+
+        width: 30px;
+        height: 30px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        .play {
+            opacity: 0.5;
+        }
+    }
+}
+
+.point1 {
+    position: absolute;
+    left: 17.8%;
+    bottom: 33%;
+
+    @media screen and (max-width: 1280px) {
+        left: 17%;
+        bottom: 32%;
+    }
+}
+
+.point2 {
+    position: absolute;
+    left: 40.5%;
+    bottom: 55%;
+
+    @media screen and (max-width: 1280px) {
+        left: 38%;
+    }
+}
+
+.point3 {
+    position: absolute;
+    bottom: 32%;
+    right: 14.5%;
+
+    .videoWrapper {
+        left: 0;
+        transform: translateX(55%);
+        bottom: 25%;
+    }
+
+    @media screen and (max-width: 1280px) {
+        right: 13.8%;
+        bottom: 31.2%;
+    }
+}
+
+.point4 {
+    position: absolute;
+    bottom: 38.5%;
+    right: 22%;
+
+    .videoWrapper {
+        left: 0;
+        transform: translateX(-15%);
+        bottom: 25%;
+    }
+
+    @media screen and (max-width: 1280px) {
+        right: 19.5%;
+        bottom: 37%;
+    }
+}
+
+.point5 {
+    position: absolute;
+    bottom: 37%;
+    right: 17.5%;
+
+    @media screen and (max-width: 1280px) {
+        bottom: 37%;
+        right: 17%;
+    }
+}
+
+.point6 {
+    position: absolute;
+    bottom: 16%;
+    right: 20%;
+}

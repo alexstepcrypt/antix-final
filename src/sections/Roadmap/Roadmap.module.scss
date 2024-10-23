@@ -1,0 +1,81 @@
+.container {
+   position: relative;
+   margin-top: 80px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   box-shadow: 4px 4px 64px 36px rgba(0, 0, 0, 0.8) inset;
+
+   .title {
+      font-weight: 500;
+      font-size: 3.75rem;
+      text-align: center;
+      color: #F0F0F0;
+   }
+
+   .swap {
+      position: absolute;
+      display: none;
+      top: 12px;
+      right: 12px;
+
+      animation: swapAnim .65s ease infinite;
+   }
+
+   .list {
+      margin-top: 15px;
+      display: flex;
+      gap: 48px;
+      overflow-x: auto;
+      padding: 40px 10px;
+
+      &::-webkit-scrollbar {
+         background: transparent;
+         height: 8px;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+         background-color: #F0F0F0;
+         border-radius: 20px;
+      }
+   }
+
+   @media (max-width: 960px) {
+      background-image: unset !important;
+      background: #131314;
+      border: 1px solid rgba(240, 240, 240, .15);
+      margin-left: 30px;
+      margin-right: 30px;
+      border-radius: 10px;
+      box-shadow: none;
+      
+      .title {
+         margin-top: 60px;
+      }
+      .list {
+         gap: 29px;
+         margin-top: 0;
+         padding-left: 25px;
+         padding-right: 25px;
+      }
+   }
+
+   @media (max-width: 480px) {
+      .swap {
+         display: block;
+      }
+
+      .title {
+         font-size: 42px;
+      }
+   }
+
+   @keyframes swapAnim {
+      0% { right: 12px }
+      50% { right: 16px }
+      100% { right: 12px }
+   }
+}

@@ -1,0 +1,125 @@
+.wrapper {
+    position: relative;
+    width: 100vw;
+    height: 440px;
+
+    margin: 150px 0;
+
+    @media screen and (max-width: 1280px) {
+        margin: 80px 0;
+    }
+
+    @media screen and (max-width: 960px) {
+
+    }
+    @media screen and (max-width: 480px) {
+    }
+}
+
+.bg {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    position: absolute;
+    width: 1920px;
+    height: 1019px;
+    z-index: 0;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    @media screen and (max-width: 1280px) {
+        width: 1365.33px;
+        height: 724.62px;
+    }
+
+    @media screen and (max-width: 960px) {
+        display: none;
+    }
+}
+
+.mobileBg {
+    display: none;
+
+    @media screen and (max-width: 960px) {
+        display: block;
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+
+    .title {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 54px;
+        letter-spacing: -0.04em;
+        text-align: left;
+        color: #0f0f0f;
+        text-wrap: nowrap;
+
+        span {
+            color: #00a1b2;
+        }
+    }
+    @media screen and (max-width: 1280px) {
+        max-width: 850px;
+        .title {
+            font-size: 20px;
+            line-height: 33.51px;
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+
+        .title {
+            max-width: 400px;
+            font-size: 29.31px;
+            line-height: 37.86px;
+            text-wrap: wrap;
+            text-align: center;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            background: transparent;
+            width: 100%;
+            height: 60%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        gap: 24px;
+
+        .title {
+            font-size: 24px;
+            line-height: 31px;
+        }
+    }
+}

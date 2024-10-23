@@ -1,0 +1,169 @@
+.item {
+    position: relative;
+    padding: 12px 32px;
+
+    background: rgba(87, 87, 87, 0.2);
+    border-radius: 8px;
+    border: 1px solid rgba(240, 240, 240, 0.1);
+    backdrop-filter: blur(46.954689025878906px);
+
+    display: flex;
+    gap: 12px;
+
+    width: 344px;
+    cursor: pointer;
+
+    .itemTextWrapper {
+        transition: all 0.3s ease;
+
+        .itemTitle {
+            transition: all 0.1s linear;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 36px;
+            text-align: left;
+            color: #f0f0f0;
+        }
+
+        .itemActiveTitle {
+            color: #12fff1;
+            margin-bottom: 10px;
+        }
+
+        .itemText {
+            margin: 0;
+            width: 100%;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.4s ease;
+
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+            text-align: left;
+            color: #afafaf;
+        }
+
+        .openItemText {
+            max-height: 300px;
+            opacity: 1;
+        }
+
+        .closeButton {
+            width: 60px;
+            height: 60px;
+            padding: 20px;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                display: block;
+                width: 20px;
+                height: 2px;
+                background: #777777;
+                transition: 0.3s;
+
+                border-radius: 10px;
+            }
+
+            .openCloseButton {
+                width: 2px;
+                height: 20px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1280px) {
+        padding: 8px 40px 8px 22px;
+        border-radius: 5px;
+        gap: 7px;
+
+        .itemTextWrapper {
+            .itemTitle {
+                font-size: 14px;
+                line-height: 25.6px;
+            }
+            .itemActiveTitle {
+                margin-bottom: 7px;
+            }
+
+            .itemText {
+                font-size: 9.96px;
+                line-height: 14.93px;
+            }
+            .closeButton {
+                width: 42px;
+                height: 42px;
+                padding: 14px;
+                span {
+                    width: 14px;
+                    height: 1px;
+                }
+
+                .openCloseButton {
+                    width: 1px;
+                    height: 14px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 960px) {
+        padding: 34px 40px;
+        width: 390px;
+        height: fit-content;
+        gap: 10px;
+        border-radius: 10px;
+        .itemTextWrapper {
+            .itemTitle,
+            .itemActiveTitle {
+                color: #12fff1;
+                font-size: 24.43px;
+                line-height: 43.97px;
+                margin: 0;
+            }
+
+            .itemText,
+            .openItemText {
+                font-size: 17.1px;
+                line-height: 25.65px;
+                max-height: none;
+                opacity: 1;
+                height: 100%;
+            }
+
+            .closeButton {
+                display: none;
+            }
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        gap: 8px;
+        padding: 28px 32px;
+        width: 320px;
+        .itemTextWrapper {
+            .itemTitle,
+            .itemActiveTitle {
+                font-size: 20px;
+                line-height: 36px;
+            }
+
+            .itemText,
+            .openItemText {
+                font-size: 14px;
+                line-height: 21px;
+            }
+        }
+    }
+}

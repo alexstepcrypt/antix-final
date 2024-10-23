@@ -1,0 +1,146 @@
+.card {
+   z-index: 1;
+   width: 320px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   border-radius: 8px;
+   padding: 16px 24px;
+   background: rgba(87, 87, 87, 0.2);
+   border: 1px solid rgba(240, 240, 240, 0.1);
+   backdrop-filter: blur(47px);
+   transition: all 0.2s ease-in-out;
+
+   .icon {
+      margin: 0 auto;
+      filter: drop-shadow(0 0 18px #12FFF1);
+   }
+
+   .title {
+      margin-top: 5px;
+      color: #12FFF1;
+      font-size: 1.25rem;
+      font-weight: 500;
+      text-align: center;
+      line-height: 36px;
+   }
+
+   .description {
+      font-size: 0.870rem;
+      line-height: 21px;
+      color: #AFAFAF;
+      margin-top: 5px;
+      max-width: 280px;
+      text-align: center;
+   }
+
+   @media (min-width: 961px) {
+      &:hover {
+         box-shadow: 0 0 27px 0 rgba(18, 255, 241, .3);
+         border: 1px solid #12FFF1;
+         transition: all 0.2s ease-in-out;
+      }
+   }
+
+   @media (max-width: 1280px) {
+      width: 227px;
+      border-radius: 6px;
+      padding: 11.38px 22.76px;
+
+      .icon {
+         width: 31px;
+         height: 31px;
+      }
+
+      .title {
+         font-size: 14px;
+         margin-top: 0;
+         line-height: 25.6px;
+      }
+
+      .description {
+         font-size: 10px;
+         line-height: 14.93px;
+         max-width: 199px;
+         text-align: center;
+      }
+   }
+
+   @media (max-width: 960px) {
+      min-width: 390px;
+      padding: 19px 39px;
+
+      .icon {
+         width: 43px;
+         height: 43px;
+      }
+
+      .title {
+         font-size: 24.43px;
+         line-height: 43px;
+         margin-top: 10px;
+      }
+
+      .description {
+         margin-top: 7px;
+         font-size: 17.1px;
+         line-height: 25px;
+         max-width: 100%;
+      }
+   }
+
+   @media (max-width: 480px) {
+      min-width: 350px;
+      padding: 16px 32px;
+
+      .title {
+         font-size: 20px;
+         line-height: 36px;
+      }
+
+      .description {
+         margin-top: 5px;
+         font-size: 15px;
+         line-height: 23px;
+         max-width: 100%;
+      }
+   }
+
+   @media (max-width: 390px) {
+      min-width: 320px;
+      padding: 13px 28px;
+
+      .icon {
+         width: 37px;
+         height: 37px;
+      }
+
+      .title {
+         font-size: 18px;
+         line-height: 34px;
+      }
+
+      .description {
+         margin-top: 4px;
+         font-size: 14px;
+         line-height: 22px;
+         max-width: 100%;
+      }
+   }
+
+   @media (max-width: 360px) {
+      min-width: 290px;
+      padding: 12px 20px;
+
+      .title {
+         font-size: 16px;
+         line-height: 31px;
+      }
+
+      .description {
+         font-size: 13px;
+         line-height: 20px;
+         max-width: 100%;
+      }
+   }
+}

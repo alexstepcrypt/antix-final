@@ -1,0 +1,33 @@
+.chartWrapper {
+    width: 530px;
+    height: 530px;
+
+    svg,
+    path,
+    g {
+        outline: none;
+    }
+
+    @media screen and (max-width: 1280px) {
+        width: 380px;
+        height: 380px;
+    }
+    @media screen and (max-width: 960px) {
+    }
+    @media screen and (max-width: 480px) {
+    }
+}
+
+.chartsLabel {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: left;
+}
+
+.chart {
+    @media screen and (max-width: 1280px) {
+        width: 380px !important;
+        height: 380px !important;
+    }
+}

@@ -1,0 +1,39 @@
+.popover {
+   top: 5px;
+   right: 5px;
+   position: absolute;
+   display: flex;
+   align-items: center;
+
+   .popup {
+      max-width: fit-content;
+      padding: 5px;
+      background: transparent
+   }
+
+   .content {
+      width: 212px;
+      position: absolute;
+      background: #575757;
+      color: #F0F0F0;
+      padding: 24px;
+      border-radius: 8px;
+      right: 35px;
+      animation: fadeout .4s ease;
+
+      .list {
+         font-weight: 400;
+         font-size: 12px;
+         list-style-type: none;
+
+         * { line-height: 22px }
+         span { font-weight: 600 }
+      }
+   }
+
+   @media (max-width: 960px) {
+      top: auto;
+      bottom: 5px;
+      max-height: fit-content;
+   }
+}

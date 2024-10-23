@@ -1,0 +1,36 @@
+.card {
+   padding: 12px 20px;
+   border: 1px solid rgba(240, 240, 240, 0.1);
+   border-radius: 12px;
+   backdrop-filter: blur(20px);
+   background: rgba(87, 87, 87, 0.2);;
+
+   .title {
+      color: #f0f0f0;
+      font-size: 2.25rem;
+      font-weight: 500;
+      text-align: center;
+   }
+
+   .description {
+      font-weight: 300;
+      color: rgba(240, 240, 240, 0.4);
+      text-align: center;
+   }
+
+   @media screen and (max-width: 1280px) {
+      padding: 8px 14px;
+      border-radius: 8px;
+
+      .title {
+         font-size: 26px;
+         line-height: 38.4px;
+         letter-spacing: -0.04em;
+      }
+   
+      .description {
+         font-size: 10px;
+         line-height: 14.93px;
+      }
+   }
+}

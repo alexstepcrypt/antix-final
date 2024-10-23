@@ -1,0 +1,250 @@
+.container {
+   border-radius: 16px;
+   min-width: 520px;
+   max-height: fit-content;
+   backdrop-filter: blur(20px);
+   border: 1px solid rgba(240, 240, 240, .1);
+   background: rgba(15, 15, 15, .6);
+   padding: 48px;
+   font-weight: 500;
+
+   .badge {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 24px;
+
+      .stage {
+         border-radius: 8px;
+         padding: 0px 12px;
+         background: #F0F0F0;
+         font-size: 1.25rem;
+         line-height: 40px;
+         color: #0f0f0f;
+      }
+   }
+
+   .title {
+      font-size: 4.8rem;
+      color: #12FFF1;
+      line-height: 62px;
+      font-weight: 400;
+   }
+
+   .event {
+      margin-top: 16px;
+      font-size: 1.75rem;
+      color: #fff;
+   }
+
+   .events {
+      margin-top: 40px;
+
+      .item {
+         font-size: 1rem;
+         color: #F0F0F0;
+         font-weight: 600;
+      }
+
+      .list {
+         margin-top: 8px;
+         display: flex;
+         align-items: center;
+         gap: 6px;
+
+         li {
+            font-size: 0.875rem;
+            color: #F0F0F0;
+            font-weight: 400;
+            list-style: none;
+
+            @media (max-width: 520px) {
+               font-size: 12px;
+            }
+         }
+      }
+
+      hr {
+         margin: 16px 0;
+         border: 1px solid rgba(240, 240, 240, 0.1);;
+      }
+   }
+
+   @media (max-width: 1280px) {
+      padding: 34px;
+      border-radius: 11px;
+
+      .badge > .stage {
+         font-size: 14px;
+         line-height: 25.6px;
+         padding: 0 8.5px;
+      }
+
+      .badge > img {
+         width: 22px;
+         height: 33px;
+      }
+
+      .title {
+         font-size: 57px;
+         line-height: 44px;
+      }
+
+      .event {
+         font-size: 20px;
+         line-height: 25.6px;
+      }
+
+      .events {
+         .item {
+            line-height: 16.5px;
+            font-size: 11px;
+         }
+
+         .list {
+            margin-top: 5px;
+
+            li {
+               line-height: 14.93px;
+               font-size: 10px;
+            }
+         }
+
+         hr {
+            margin: 12px 0;
+         }
+      }
+   }
+
+   @media (max-width: 960px) {
+      padding: 29px;
+      background: rgba(49, 56, 57, .3);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(240, 240, 240, .35);
+      min-width: 390px;
+      max-height: none;
+
+      .badge > .stage {
+         font-size: 15px;
+         line-height: 27px;
+         padding: 0 9px;
+      }
+
+      .badge > img {
+         width: 20px;
+         height: 27px;
+      }
+
+      .title {
+         font-size: 60px;
+         line-height: 46.6px;
+      }
+
+      .event {
+         margin-top: 7px;
+         line-height: 27px;
+         font-size: 21px;
+      }
+
+      .events {
+         .item {
+            line-height: 24px;
+            font-size: 14px;
+         }
+
+         .list {
+            margin-top: 5px;
+
+            li {
+               line-height: 24px;
+               font-size: 14px;
+            }
+         }
+
+         hr {
+            margin: 15px 0;
+         }
+      }
+   }
+
+   @media (max-width: 480px) {
+      min-width: 240px;
+      padding: 22px;
+
+
+      .badge {
+         gap: 5px;
+         margin-bottom: 10px;
+
+         .stage {
+            font-size: 9px;
+            line-height: 16px;
+            padding: 0 5.5px;
+            border-radius: 4px;
+         }
+
+         img {
+            width: 12px;
+            height: 17px;
+         }
+      }
+
+      .title {
+         font-size: 35px;
+         line-height: 28px;
+      }
+
+      .event {
+         margin-top: 9px;
+         line-height: 16px;
+         font-size: 13px;
+      }
+
+      .events {
+         margin-top: 20px;
+
+         .item {
+            line-height: 15px;
+            font-size: 9px;
+         }
+
+         .list {
+            margin-top: 3.5px;
+            gap: 5px;
+
+            img {
+               width: 6px;
+               height: 6px;
+            }
+
+            li {
+               line-height: 15px;
+               font-size: 9px;
+            }
+         }
+
+         hr {
+            margin: 8px 0;
+         }
+      }
+   }
+
+   @media (min-width: 961px) {
+      &:hover {
+         box-shadow: 0 0 45px 0 rgba(18, 255, 241, .3);
+         border: 1px solid #12FFF1;
+         transition: all 0.2s ease-in-out;
+      }
+   }
+}
+
+.active {
+   border: 1px solid #12FFF1;
+   box-shadow: 0 0 45px 0 rgba(18, 255, 241, .3);
+}
+
+@media (max-width: 480px) {
+   .active {
+      box-shadow: 0 0 35px 0 rgba(18, 255, 241, .3);
+   }
+}

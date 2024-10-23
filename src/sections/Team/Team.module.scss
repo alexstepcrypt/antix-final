@@ -1,0 +1,130 @@
+.team {
+   height: 888px;
+   padding: 120px 0;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+
+   display: flex;
+   justify-content: center;
+   gap: 114px;
+   margin-top: -100px;
+   
+   @media screen and (max-width: 1280px) {
+      height: fit-content;
+      padding-left: 80px;
+  }
+   
+   @media screen and (max-width: 960px) {
+      display: none;
+   }
+}
+
+.teamAdvisorsMobile {
+   display: none;
+
+   @media screen and (max-width: 960px) {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+      align-items: center;
+      position: relative;
+
+      &::after, &::before {
+         content: "";
+         position: absolute;
+         display: block;
+         width: 300px;
+         height: 300px;
+         opacity: 0.2px;
+         background: #00A1B2;
+         filter: blur(180px);
+      }
+
+      &::after {
+         top: -300px;
+         left: -60px;
+      }
+
+      &::before {
+         top: 300px;
+         left: -160px;
+      }
+      .mobileBtns {
+         position: relative;
+         z-index: 1;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: 18px;
+
+         button {
+            width: 210px;
+            padding: 5px 50px;
+            background: rgba(240, 240, 240, 0.1);
+            border-radius: 100px;
+
+            font-size: 24.43px;
+            font-weight: 400;
+            line-height: 51.3px;
+            text-align: center;
+            color: #F0F0F0;
+
+            }
+            .mobileActive {
+               background: #F0F0F0;
+               color: #0F0F0F;
+            }
+      }
+
+      .mobileDesc {
+         position: relative;
+         z-index: 1;
+         
+         max-width: 370px;
+         font-size: 17.1px;
+         font-weight: 400;
+         line-height: 25.65px;
+         text-align: center;
+         color: #F0F0F0;
+
+         span {
+            font-weight: 700;
+         }
+      }
+  }
+  @media screen and (max-width: 480px) {
+   margin-top: 0px;
+   gap: 36px;
+
+   &::after {
+      left: -10px;
+   }
+
+   &::before {
+      width: 200px;
+      height: 200px;
+      top: 300px;
+      left: -160px;
+   }
+
+   .mobileBtns {
+      gap: 15px;
+
+      button {
+         width: 170px;
+         padding: 4px 40px;
+
+         font-size: 20px;
+         line-height: 42px;
+      }
+   }
+
+   .mobileDesc {
+      max-width: 300px;
+      font-size: 14px;
+      line-height: 21px;
+   }
+  }
+}

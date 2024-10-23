@@ -1,0 +1,76 @@
+.container {
+   position: relative;
+   margin-top: 50px;
+   width: 100%;
+   max-width: 1200px;
+   background-position: center;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 150px;
+
+   @media (max-width: 960px) {
+      display: none;
+   }
+
+   .left {
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+   }
+
+   .middle {
+      display: flex;
+      flex-direction: column;
+      gap: 450px;
+   }
+
+   .right {
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+   }
+
+   .coin {
+      position: absolute;
+      top: 70px;
+      transition: all .4s ease;
+
+      &:hover {
+         top: 55px;
+         filter: drop-shadow(0 0 24px #12FFF1);
+         transition: all .4s ease;
+
+         /* for other browsers */
+         -webkit-filter: drop-shadow(0 0 24px #12FFF1);
+      }
+   }
+
+   @media (max-width: 1280px) {
+      gap: 80px;
+
+      .left, .right {
+         gap: 95px;
+      }
+
+      .middle {
+         gap: 270px;
+      }
+
+      .coin {
+         width: 600px;
+         height: 394px;
+         top: 50px;
+
+         &:hover {
+            top: 40px;
+            filter: drop-shadow(0 0 24px #12FFF1);
+            transition: all .4s ease;
+   
+            /* for other browsers */
+            -webkit-filter: drop-shadow(0 0 24px #12FFF1);
+         }
+      }
+   }
+}

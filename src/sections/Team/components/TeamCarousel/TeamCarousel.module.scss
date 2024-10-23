@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 35px;
+
+    .btn {
+        display: block;
+        color: #f0f0f0;
+        font-weight: 500;
+        background: transparent;
+        font-size: 1.25rem;
+        text-wrap: nowrap;
+    }
+    .activeBtn {
+        display: none;
+    }
+
+    @media screen and (max-width: 1280px) {
+        margin-top: 30px;
+    }
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    overflow: hidden;
+    max-width: 600px;
+    height: 450px;
+    > div {
+        min-width: 280px;
+    }
+
+    @media screen and (max-width: 1280px) {
+        height: 330px;
+        max-width: 440px;
+
+        > div {
+            min-width: 200px;
+        }
+    }
+}
+
+.activeContent {
+    padding: 0 60px 0 0;
+    margin-right: 0;
+    margin-left: auto;
+    min-width: 130%;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+        height: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: rgba(87, 87, 87, 0.2);
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #f0f0f0;
+        border-radius: 6px;
+    }
+
+    @media screen and (max-width: 1280px) {
+        padding: 0;
+        min-width: 100%;
+    }
+}

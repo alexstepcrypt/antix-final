@@ -1,0 +1,98 @@
+.userFlowContainer {
+    margin: 0 auto;
+
+    height: 100%;
+    width: 100%;
+    margin-top: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .userFlowLegend {
+        display: none;
+    }
+
+    .UserFlowMobile {
+        display: none;
+    }
+
+    @media screen and (max-width: 1280px) {
+        margin-top: 100px;
+
+        img {
+            width: 805px;
+            height: 384px;
+        }
+    }
+    @media screen and (max-width: 960px) {
+        position: relative;
+        flex-direction: column;
+        gap: 46px;
+
+        .userFlowLegend {
+            display: flex;
+            width: 100%;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 40px;
+
+            & > img:nth-child(1) {
+                width: 340px;
+                height: 118px;
+            }
+            & > img:nth-child(2) {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        .UserFlow {
+            display: none;
+        }
+        .UserFlowMobile {
+            padding-left: 100px;
+            display: block;
+            width: 620px;
+            height: 693px;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .userFlowLegend {
+            gap: 16px;
+
+            & > img:nth-child(1) {
+                width: 280px;
+                height: 96px;
+            }
+            & > img:nth-child(2) {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        .UserFlowMobile {
+            padding: 0 20px;
+            width: 100%;
+            height: fit-content;
+            overflow: scroll;
+
+            img {
+                width: 508px;
+                height: 568px;
+            }
+        }
+    }
+}
