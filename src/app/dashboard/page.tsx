@@ -1,13 +1,14 @@
-"use client"
+"use client";
 
 import styles from "./page.module.scss";
 
 import Bg from "/public/images/dashboard-bg.png";
-import DashboardTop from "@/components/DashboardTop/DashboardTop";
+// import DashboardTop from "@/DashboardStages/Stage1/DashboardTop/DashboardTop";
 import Header from "@/sections/Header/Header";
-import { DashboardBottom } from "@/components/DashboardBottom/DashboardBottom";
+// import { DashboardBottom } from "@/DashboardStages/Stage1/DashboardBottom/DashboardBottom";
 import { MetaMaskProvider } from "@metamask/sdk-react";
 import ConnectWallet from "@/components/ConnectModals/ConnectWallet/ConnectWallet";
+import DashboardTopStage2 from "@/DashboardStages/Stage2/DashboardTop/DashboardTop";
 
 export default function Dashboard() {
     const host =
@@ -30,9 +31,16 @@ export default function Dashboard() {
             >
                 <Header />
                 <ConnectWallet />
-                <main>
+
+                {/* STAGE 1 */}
+                {/* <main>
                     <DashboardTop />
                     <DashboardBottom />
+                </main> */}
+
+                {/* STAGE 2 */}
+                <main>
+                    <DashboardTopStage2 />
                 </main>
             </div>
         </MetaMaskProvider>
