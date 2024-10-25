@@ -1,0 +1,30 @@
+.transaction {
+   display: flex;
+   align-items: center;
+   color: #F0F0F0;
+   list-style: none;
+   padding: 13px 15px;
+   font-size: 12px;
+   line-height: 18px;
+   font-weight: 400;
+
+   li {
+      margin-left: auto;
+      width: 100%;
+   }
+
+   .container {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+   }
+
+   .noDetails {
+      color: #F0F0F066;
+   }
+
+   .address {
+      text-decoration: underline;
+      color: #12FFF1;
+   }
+}
