@@ -3,69 +3,46 @@
 import styles from "./page.module.scss";
 
 import Bg from "/public/images/dashboard-bg.png";
-import DashboardTop from "@/components/DashboardTop/DashboardTop";
-// import DashboardHeader from "@/sections/DashboardHeader/DashboardHeader";
+// import DashboardTop from "@/DashboardStages/Stage1/DashboardTop/DashboardTop";
 import Header from "@/sections/Header/Header";
-import { DashboardBottom } from "@/components/DashboardBottom/DashboardBottom";
-import { useState } from "react";
-import PreConnect from "@/components/ConnectModals/PreConnect/PreConnect";
-
-import MataMaskIcon from "/public/dashboard/svg/meta-mask.svg";
-import WalletConnectIcon from "/public/dashboard/svg/wallet-connect.svg";
-import TrustWalletIcon from "/public/dashboard/svg/trust-wallet.svg";
-import CoinbaseWalletIcon from "/public/dashboard/svg/coinbase-wallet.svg";
-import ChooseWallet from "@/components/ConnectModals/ChooseWallet/ChooseWallet";
-import DisConnect from "@/components/ConnectModals/DisConnect/DisConnect";
-
-const buttonsList = [
-    { icon: MataMaskIcon, label: "MetaMask", isPopular: true },
-    { icon: WalletConnectIcon, label: "WalletConnect", isPopular: false },
-    { icon: TrustWalletIcon, label: "Trust Wallet", isPopular: false },
-    {
-        icon: CoinbaseWalletIcon,
-        label: "Coinbase Wallet",
-        isPopular: false,
-    },
-];
+// import { DashboardBottom } from "@/DashboardStages/Stage1/DashboardBottom/DashboardBottom";
+import { MetaMaskProvider } from "@metamask/sdk-react";
+import ConnectWallet from "@/components/ConnectModals/ConnectWallet/ConnectWallet";
+import DashboardTopStage2 from "@/DashboardStages/Stage2/DashboardTop/DashboardTop";
 
 export default function Dashboard() {
-    const [isConnect, setIsConnect] = useState<
-        "preConnect" | "chooseWallet" | "connected" | "disConnect"
-    >("preConnect");
+    const host =
+        typeof window !== "undefined" ? window.location.host : "defaultHost";
 
-    const preConnectClick = () => setIsConnect("chooseWallet");
-    const chooseWalletClick = () => setIsConnect("connected");
-    const disconnectButton = () => setIsConnect("disConnect");
-
-    const closeClick = () => setIsConnect("connected");
+    const sdkOptions = {
+        logging: { developerMode: false },
+        checkInstallationImmediately: false,
+        dappMetadata: {
+            name: "Next-Metamask-Boilerplate",
+            url: host,
+        },
+    };
 
     return (
-        <div
-            className={styles.page}
-            style={{ backgroundImage: `url(${Bg.src})` }}
-        >
-            <Header
-                isDashboard={
-                    isConnect === "connected" || isConnect === "disConnect"
-                }
-                disconnectClick={disconnectButton}
-            />
-            {isConnect === "preConnect" && (
-                <PreConnect onclick={preConnectClick} />
-            )}
-            {isConnect === "chooseWallet" && (
-                <ChooseWallet
-                    buttonsList={buttonsList}
-                    onclick={chooseWalletClick}
-                />
-            )}
-            {isConnect === "disConnect" && (
-                <DisConnect closeClick={closeClick} />
-            )}
-            <main>
-                <DashboardTop />
-                <DashboardBottom />
-            </main>
-        </div>
+        <MetaMaskProvider debug={false} sdkOptions={sdkOptions}>
+            <div
+                className={styles.page}
+                style={{ backgroundImage: `url(${Bg.src})` }}
+            >
+                <Header />
+                <ConnectWallet />
+
+                {/* STAGE 1 */}
+                {/* <main>
+                    <DashboardTop />
+                    <DashboardBottom />
+                </main> */}
+
+                {/* STAGE 2 */}
+                <main>
+                    <DashboardTopStage2 />
+                </main>
+            </div>
+        </MetaMaskProvider>
     );
 }

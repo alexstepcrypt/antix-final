@@ -1,0 +1,17 @@
+.list {
+   list-style-type: none;
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+
+   .element {
+      color: rgba(240, 240, 240, .4);
+      font-size: 12px;
+      line-height: 18px;
+
+      p {
+         color: #f0f0f0;
+         font-size: 14px;
+      }
+   }
+}

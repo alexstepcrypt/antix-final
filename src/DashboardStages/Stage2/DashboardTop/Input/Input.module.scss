@@ -1,0 +1,62 @@
+.container {
+    padding: 12px 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(22px);
+    background: rgba(255, 255, 255, 0.04);
+
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .title {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .balanceBtn {
+            background: transparent;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 21px;
+            text-align: center;
+            color: #12fff1;
+        }
+
+        .price {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 21px;
+            text-align: center;
+            color: rgba(240, 240, 240, 0.4);
+        }
+    }
+
+    .bottom {
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .input {
+            max-width: 50%;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 36px;
+            text-align: left;
+            color: rgba(255, 255, 255, 0.4);
+
+            background: transparent;
+            border: none;
+            outline: none;
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+            }
+            -moz-appearance: textfield;
+        }
+    }
+}

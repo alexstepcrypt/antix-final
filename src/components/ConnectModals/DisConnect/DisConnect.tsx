@@ -5,14 +5,23 @@ import CloseIcon from "/public/dashboard/svg/close-icon.svg";
 import DisconnectIcon from "/public/dashboard/svg/disconnect-icon.svg";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useSDK } from "@metamask/sdk-react";
 
-const DisConnect = ({ closeClick }: { closeClick: () => void }) => {
+const DisConnect = ({setIsOpen}: {setIsOpen: React.Dispatch<React.SetStateAction<boolean>>}) => {
+    const { sdk } = useSDK();
+
+    const handleClick = async () => {
+        if (sdk) {
+            sdk.terminate();
+            window.open("/", "_parent")
+        }
+    };
+
     return (
         <>
-            <div className={styles.bg} />
+            <div className={styles.bg} onClick={() => setIsOpen(false)} />
             <div className={styles.modal}>
-                <button className={styles.closeBtn} onClick={closeClick}>
+                <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>
                     <Image
                         src={CloseIcon}
                         alt={"Close"}
@@ -27,9 +36,9 @@ const DisConnect = ({ closeClick }: { closeClick: () => void }) => {
                 <p className={styles.modalSubtitle}>
                     This will end your session.
                 </p>
-                <Link href={"/"} className={styles.modalBtn}>
+                <button onClick={handleClick} className={styles.modalBtn}>
                     Disconnect Wallet
-                </Link>
+                </button>
             </div>
         </>
     );
