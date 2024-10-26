@@ -1,22 +1,23 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./DashboardTop.module.scss";
-import { Timer } from "./Timer/Timer";
 import Image from "next/image";
 
 import TetherIcon from "/public/svg/tether-icon.svg";
 import TokenIcon from "/public/svg/token-icon.svg";
 import EtherIcon from "/public/svg/ether-icon.svg";
+
 import { Steps } from "@/DashboardStages/Stage1/DashboardBottom/components/Steps/Steps";
 import { DashboardPopover } from "@/DashboardStages/Stage1/DashboardBottom/components/Popover/Popover";
 import { DashboardList } from "@/DashboardStages/Stage1/DashboardBottom/components/List/List";
-import { steps } from '@/DashboardStages/Stage1/DashboardBottom/constants/steps';
+import { Timer } from "./Timer/Timer";
 import Input from "./Input/Input";
 import { firstList, secondList, thirdList } from '@/DashboardStages/Stage1/DashboardBottom/constants/list-values'
 import { DashboardCard } from '@/DashboardStages/Stage1/DashboardBottom/components/Card/Card'
+import { steps } from "@/DashboardStages/Stage1/DashboardBottom/constants/steps";
 
-const ANTIX_RATE = 0.010;
+const ANTIX_RATE = 0.01;
 
 const DashboardTopStage2 = () => {
     const [payValue, setPayValue] = useState("0");
@@ -120,7 +121,7 @@ const DashboardTopStage2 = () => {
                 </div>
                 <div className={styles.chooseCurrWrapper}>
                     <button
-                    onClick={() => setCurrency("USDT")}
+                        onClick={() => setCurrency("USDT")}
                         className={`${styles.chooseCurrBtn} ${
                             currency === "USDT"
                                 ? styles.activeChooseCurrBtn
@@ -137,9 +138,7 @@ const DashboardTopStage2 = () => {
                     </button>
                     <button
                         className={`${styles.chooseCurrBtn} ${
-                            currency === "ETH"
-                                ? styles.activeChooseCurrBtn
-                                : ""
+                            currency === "ETH" ? styles.activeChooseCurrBtn : ""
                         }`}
                         onClick={() => setCurrency("ETH")}
                     >

@@ -10,22 +10,6 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Antix: Tokensale",
         description: "Antix: Tokensale",
-        images: [
-            {
-                url: "/Open Graph.png",
-                width: 1200,
-                height: 630,
-                alt: "Antix Tokensale Preview Rectangular",
-            },
-            {
-                url: "/Open Graph-1.png",
-                width: 800,
-                height: 800,
-                alt: "Antix Tokensale Preview Square",
-            },
-        ],
-        type: "website",
-        url: "token.antix.in",
     },
     icons: {
         icon: [
@@ -62,7 +46,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Antix: Tokensale",
         description: "Antix: Tokensale",
-        images: ["/Open Graph-1.png"],
+        images: "https://token.antix.in/og-1.png",
         site: "@antix_in",
     },
 };
@@ -81,6 +65,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <head>
+                <meta property="og:image" content="https://token.antix.in/og.png" /> 
+                <meta property="og:image" content="https://token.antix.in/og-1.png" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://token.antix.in" />
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1"
