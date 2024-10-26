@@ -9,6 +9,8 @@ import Header from "@/sections/Header/Header";
 import { MetaMaskProvider } from "@metamask/sdk-react";
 import ConnectWallet from "@/components/ConnectModals/ConnectWallet/ConnectWallet";
 import DashboardTopStage2 from "@/DashboardStages/Stage2/DashboardTop/DashboardTop";
+import { Transactions } from '@/DashboardStages/Stage1/DashboardBottom/components/Transactions/Transactions';
+import { mocTransactions } from '@/DashboardStages/Stage1/DashboardBottom/constants/transactions';
 
 export default function Dashboard() {
     const host =
@@ -41,6 +43,9 @@ export default function Dashboard() {
                 {/* STAGE 2 */}
                 <main>
                     <DashboardTopStage2 />
+                    <div style={{ margin: '0 auto', maxWidth: 1200 }}>
+                        <Transactions transactions={mocTransactions} />
+                    </div>
                 </main>
             </div>
         </MetaMaskProvider>

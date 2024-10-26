@@ -1,10 +1,28 @@
+import { Fragment } from 'react';
+
 import { SortIcon } from '@/icons/SortIcon';
 import { DashboardCard } from '../Card/Card';
+import { TransactionItem } from '../TransactionItem/TransactionItem';
 import s from './Transactions.module.scss';
 
+export interface Transaction {
+   id: number;
+   date: string;
+   type: string;
+   amount: {
+      currency: 'tether' | 'antix';
+      text: string;
+   };
+   status: {
+      icon: string;
+      text: string;
+   };
+   details: string | null;
+   address: string;
+}
+
 interface TransactionsProps {
-   // TODO: do a normal type for transaction
-   transactions: unknown[]
+   transactions: Transaction[];
 }
 
 export const Transactions = ({ transactions }: TransactionsProps) => {
@@ -36,7 +54,16 @@ export const Transactions = ({ transactions }: TransactionsProps) => {
             </div>
 
             {transactions.length > 0 ? (
-               <div></div>
+               transactions.map(({ id, ...transaction }, i) => {
+                  const is = i + 1 === transactions.length;
+
+                  return (
+                     <Fragment key={id}>
+                        <TransactionItem {...transaction} />
+                        {!is && <hr />}
+                     </Fragment>
+                  )
+               })
             ) : (
                <div className={s.notify}>
                   <p>There are no transactions yet. Once new operations occur, they will be displayed in this table.</p>

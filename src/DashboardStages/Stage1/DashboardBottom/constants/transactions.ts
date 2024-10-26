@@ -55,7 +55,7 @@ export const mocTransactions: Transaction[] = [
       id: 6,
       date: '05.01.2024 11:19:05 UTC',
       type: 'Withdraw',
-      amount: { currency: tether, text: '100 USDT' },
+      amount: { currency: tether, text: '40 USDT' },
       status: { icon: success, text: 'Success' },
       details: null,
       address: '0x031…27b',

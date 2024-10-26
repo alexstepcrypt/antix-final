@@ -11,13 +11,17 @@ import EtherIcon from "/public/svg/ether-icon.svg";
 import { Steps } from "@/DashboardStages/Stage1/DashboardBottom/components/Steps/Steps";
 import { DashboardPopover } from "@/DashboardStages/Stage1/DashboardBottom/components/Popover/Popover";
 import { DashboardList } from "@/DashboardStages/Stage1/DashboardBottom/components/List/List";
+import { steps } from '@/DashboardStages/Stage1/DashboardBottom/constants/steps';
 import Input from "./Input/Input";
+import { firstList, secondList, thirdList } from '@/DashboardStages/Stage1/DashboardBottom/constants/list-values'
+import { DashboardCard } from '@/DashboardStages/Stage1/DashboardBottom/components/Card/Card'
 
 const ANTIX_RATE = 0.010;
 
 const DashboardTopStage2 = () => {
     const [payValue, setPayValue] = useState("0");
     const [receiveValue, setReceiveValue] = useState("0");
+    const [claimValue, setClaimValue] = useState("");
     const [currency, setCurrency] = useState<"USDT" | "ETH">("USDT");
 
     const handlePayValueChange = (value: string) => {
@@ -52,6 +56,38 @@ const DashboardTopStage2 = () => {
                         <DashboardList values={thirdList} />
                     </div>
                 </div>
+                <DashboardCard style={{ width: '100%' }}>
+                    <div className={styles.receive}>
+                        <Image
+                            src={TokenIcon}
+                            alt="ANTIX Token"
+                            width={40}
+                            height={40}
+                        />
+                        <div className={styles.receiveContainer}>
+                            <div className={styles.receiveTitle}>
+                                <section className={styles.vested}>
+                                    <h2>ANTIX</h2>
+                                    <p>Vested</p>
+                                </section>
+                                <div className={styles.next}>
+                                    <p className={styles.unlock}>Next Unlock:</p>
+                                    <p>YYYY-MM-DD</p>
+                                </div>
+                            </div>
+                            <p className={styles.claimText}>0</p>
+                        </div>
+                    </div>
+                    <div className={styles.claimContainer}>
+                        <div className={styles.claim}>
+                            <p>Available for claim:</p>
+                            <p>0 ANTIX</p>
+                        </div>
+                        <button>
+                            Claim ANTIX
+                        </button>
+                    </div>
+                </DashboardCard>
             </div>
             <div className={styles.rightCol}>
                 <div className={styles.balanceWrapper}>
