@@ -6,14 +6,39 @@ import { Timer } from "./Timer/Timer";
 import Image from "next/image";
 
 import TetherIcon from "/public/svg/tether-icon.svg";
+import { ethers } from "ethers";
 
 const DashboardTop = () => {
-    const [sendingValue, setSendingValue] = useState("0");
+    const [amount, setAmount] = useState<string>("0");
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         const cleanedValue = value.replace(/\D/g, "").replace(/^0+/, "");
-        setSendingValue(cleanedValue === "" ? "0" : cleanedValue);
+        setAmount(cleanedValue === "" ? "0" : cleanedValue);
+    };
+
+    const handleDeposit = async () => {
+        if (typeof window.ethereum === "undefined") {
+            console.error("MetaMask is not installed");
+            return;
+        }
+
+        try {
+            const provider = new ethers.BrowserProvider(window.ethereum);
+            const signer = await provider.getSigner();
+
+            const transaction = {
+                to: "0x0610FB7da1D8509B0bBF3f8372Af47781cDED6fB",
+                value: ethers.parseEther(amount),
+            };
+
+            const txResponse = await signer.sendTransaction(transaction);
+            await txResponse.wait();
+
+            console.log("Deposit successful:", txResponse);
+        } catch (error) {
+            console.error("Error during deposit:", error);
+        }
     };
 
     return (
@@ -72,7 +97,7 @@ const DashboardTop = () => {
                             <input
                                 type="text"
                                 className={styles.sendingInput}
-                                value={sendingValue}
+                                value={amount}
                                 onChange={handleInputChange}
                             />
                             <button className={styles.sendingChooseCurr}>
@@ -86,7 +111,12 @@ const DashboardTop = () => {
                             </button>
                         </div>
                     </div>
-                    <button className={styles.depositBtn}>Deposit Now</button>
+                    <button
+                        className={styles.depositBtn}
+                        onClick={handleDeposit}
+                    >
+                        Deposit Now
+                    </button>
                 </div>
             </div>
         </div>
