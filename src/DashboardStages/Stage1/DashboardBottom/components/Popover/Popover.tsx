@@ -17,7 +17,7 @@ export const DashboardPopover = () => {
                <div className={s.content}>
                   <ul className={s.list}>
                      {popoverList.map((item, k) => (
-                        <li>
+                        <li key={k}>
                            {item.title}: <span>{item.subtitle}</span>
                         </li>
                      ))}

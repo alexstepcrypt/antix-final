@@ -1,0 +1,164 @@
+.sendingWrapepr {
+    // margin-top: 36px;
+    width: 100%;
+
+    .sending {
+        padding: 12px 20px;
+        border-radius: 8px;
+        backdrop-filter: blur(22px);
+        background: rgba(255, 255, 255, 0.04);
+
+        .sendingTop {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .sendingTitle {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 21px;
+                text-align: center;
+                color: #ffffff;
+            }
+
+            .sendingBalance {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+
+                span {
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 21px;
+                    text-align: center;
+                    color: #afafaf;
+                }
+
+                .sendingBalanceBtn {
+                    background: transparent;
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 21px;
+                    text-align: center;
+                    color: #12fff1;
+                }
+            }
+        }
+
+        .sendingBottom {
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .sendingInput {
+                max-width: 50%;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 36px;
+                text-align: left;
+                // color: rgba(255, 255, 255, 0.4);
+
+                background: transparent;
+                border: none;
+                outline: none;
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                }
+                -moz-appearance: textfield;
+            }
+
+            .sendingChooseCurr {
+                padding: 8px 12px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+
+                background: transparent;
+                border-radius: 8px;
+                border: 1px solid rgba(87, 87, 87, 0.2);
+
+                span {
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 21px;
+                    text-align: left;
+                    color: rgba(255, 255, 255, 0.4);
+                }
+            }
+        }
+    }
+    .depositBtn {
+        width: 100%;
+        margin-top: 12px;
+        padding: 12px 52px 12px 52px;
+
+        border-radius: 50px;
+        background: linear-gradient(89.59deg, #12fff1 14.83%, #99fff9 85.17%);
+        box-shadow: 0px 0px 29.77px 0px rgba(18, 255, 241, 0.3);
+
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 19.69px;
+        text-align: center;
+        color: #0f0f0f;
+    }
+
+    @media screen and (max-width: 960px) {
+        .sending {
+            .sendingTop {
+                flex-wrap: wrap;
+
+                .sendingTitle {
+                    width: 100%;
+                    text-align: left;
+                }
+
+                .sendingBalance {
+                    width: 100%;
+                    justify-content: space-between;
+                }
+            }
+        }
+        .depositBtn {
+            padding: 12px 30px;
+        }
+    }
+    @media screen and (max-width: 650px) {
+        .sending {
+            .sendingTop {
+                .sendingTitle {
+                    width: fit-content;
+                }
+
+                .sendingBalance {
+                    width: fit-content;
+                }
+            }
+        }
+        .depositBtn {
+            margin-top: 20px;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .sendingWrapepr {
+            .sending {
+                .sendingTop {
+                    .sendingTitle {
+                        width: fit-content;
+                    }
+
+                    .sendingBalance {
+                        width: fit-content;
+                    }
+                }
+            }
+            .depositBtn {
+                margin-top: 20px;
+            }
+        }
+    }
+}
