@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.scss";
+import MetaMaskClientProvider from "@/components/MetaMaskClientProvider/MetaMaskClientProvider";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://token.antix.in"),
@@ -62,11 +63,29 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const host =
+        typeof window !== "undefined" ? window.location.host : "defaultHost";
+
+    const sdkOptions = {
+        logging: { developerMode: false },
+        checkInstallationImmediately: false,
+        dappMetadata: {
+            name: "Next-Metamask-Boilerplate",
+            url: host,
+        },
+    };
+
     return (
         <html lang="en">
             <head>
-                <meta property="og:image" content="https://token.antix.in/og.png" /> 
-                <meta property="og:image" content="https://token.antix.in/og-1.png" />
+                <meta
+                    property="og:image"
+                    content="https://token.antix.in/og.png"
+                />
+                <meta
+                    property="og:image"
+                    content="https://token.antix.in/og-1.png"
+                />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://token.antix.in" />
                 <meta
@@ -75,7 +94,9 @@ export default function RootLayout({
                 />
                 <link rel="canonical" href="https://token.antix.in" />
             </head>
-            <body className={`${poppins.className}`}>{children}</body>
+            <body className={`${poppins.className}`}>
+                <MetaMaskClientProvider>{children}</MetaMaskClientProvider>
+            </body>
         </html>
     );
 }

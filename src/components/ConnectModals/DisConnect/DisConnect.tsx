@@ -6,14 +6,19 @@ import DisconnectIcon from "/public/dashboard/svg/disconnect-icon.svg";
 
 import Image from "next/image";
 import { useSDK } from "@metamask/sdk-react";
+import { useAuthStore } from "@/stores/useAuthStore";
 
 const DisConnect = ({setIsOpen}: {setIsOpen: React.Dispatch<React.SetStateAction<boolean>>}) => {
     const { sdk } = useSDK();
+    const { setIsConnected, setWalletAdress } = useAuthStore();
 
     const handleClick = async () => {
         if (sdk) {
             sdk.terminate();
             window.open("/", "_parent")
+            setIsConnected(false);
+            setWalletAdress("");
+            useAuthStore.persist.clearStorage();
         }
     };
 

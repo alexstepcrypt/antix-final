@@ -4,4 +4,5 @@ export const ETH_CONTRACT_ADDRESS = "0x0610FB7da1D8509B0bBF3f8372Af47781cDED6fB"
 export const ERC20_ABI = [
     "function balanceOf(address owner) view returns (uint256)",
     "function decimals() view returns (uint8)",
+    "function approve(address spender, uint256 amount) returns (bool)"
 ];
