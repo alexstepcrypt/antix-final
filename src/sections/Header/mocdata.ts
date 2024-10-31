@@ -3,33 +3,43 @@ import WhitepaperIcon from "/public/svg/mobile-menu/whitepaper.svg";
 import BuyNowIcon from "/public/svg/mobile-menu/buy-now.svg";
 import MyAccountIcon from "/public/svg/mobile-menu/my-account.svg";
 
-export const links = [
+
+type linksType = {
+    label: string;
+    href: string;
+    disabled?: boolean;
+};
+
+export const links: linksType[] = [
     {
-        title: "Token",
+        label: "Token",
         href: "ANTIXTokens",
     },
     {
-        title: "Whitepaper",
+        label: "Whitepaper",
         href: "https://antix.gitbook.io/antix-white-paper",
     },
     {
-        title: "Buy Now",
+        label: "Buy Now",
         href: "Hero",
     },
 ];
 
-export const linksDashboard = [
+export const linksDashboard: linksType[] = [
     {
-        title: "Dashboard",
+        label: "Dashboard",
         href: "",
+        disabled: false,
     },
     {
-        title: "Claim",
+        label: "Claim",
         href: "",
+        disabled: true,
     },
     {
-        title: "Referral",
+        label: "Referral",
         href: "",
+        disabled: true,
     },
 ];
 
@@ -37,9 +47,10 @@ type mobileLinksType = {
     label: string;
     href: string;
     icon?: string;
-}
+    disabled?: boolean;
+};
 
-export const mobileLinks:mobileLinksType[] = [
+export const mobileLinks: mobileLinksType[] = [
     {
         label: "Token",
         href: "ANTIXTokens",
@@ -47,7 +58,7 @@ export const mobileLinks:mobileLinksType[] = [
     },
     {
         label: "Whitepaper",
-        href: "https://antix.io/whitepaper",
+        href: "https://antix.gitbook.io/antix-white-paper",
         icon: WhitepaperIcon,
     },
     {
@@ -62,21 +73,26 @@ export const mobileLinks:mobileLinksType[] = [
     },
 ];
 
-export const mobileLinksDashboard:mobileLinksType[] = [
+export const mobileLinksDashboard: mobileLinksType[] = [
     {
         label: "Dashboard",
         href: "",
+        disabled: false,
+
     },
     {
         label: "Claim",
         href: "",
+        disabled: true,
     },
     {
         label: "Referral",
         href: "",
+        disabled: true,
     },
     {
         label: "Back to the Main Page",
         href: "/",
+        disabled: false,
     },
 ];

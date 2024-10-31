@@ -68,7 +68,7 @@ const ConnectWallet: React.FC = () => {
                             <p>MetaMask</p>
                             <span>Popular</span>
                         </button>
-                        <button className={styles.modalBtn}>
+                        <a href="https://walletconnect.ru/" target="_blank" className={styles.modalBtn}>
                             <Image
                                 src={WalletConnectIcon}
                                 alt={"WalletConnect"}
@@ -76,8 +76,8 @@ const ConnectWallet: React.FC = () => {
                                 height={24}
                             />
                             <p>WalletConnect</p>
-                        </button>
-                        <button className={styles.modalBtn}>
+                        </a>
+                        <a href="https://trustwallet.com/" target="_blank" className={styles.modalBtn}>
                             <Image
                                 src={TrustWalletIcon}
                                 alt={"Trust Wallet"}
@@ -85,8 +85,8 @@ const ConnectWallet: React.FC = () => {
                                 height={24}
                             />
                             <p>Trust Wallet</p>
-                        </button>
-                        <button className={styles.modalBtn}>
+                        </a>
+                        <a href="https://www.coinbase.com/" target="_blank" className={styles.modalBtn}>
                             <Image
                                 src={CoinbaseWalletIcon}
                                 alt={"Coinbase Wallet"}
@@ -94,7 +94,7 @@ const ConnectWallet: React.FC = () => {
                                 height={24}
                             />
                             <p>Coinbase Wallet</p>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </>

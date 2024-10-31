@@ -13,6 +13,7 @@ const Roadmap = () => {
       <div
          style={{ backgroundImage: `url(${bg.src})` }}
          className={s.container}
+         id="RoadMap"
       >
          {/* SWAP ICON */}
          <Image
@@ -24,10 +25,7 @@ const Roadmap = () => {
             loading="lazy"
          />
 
-         <h2
-            id="RoadMap"
-            className={s.title}
-         >
+         <h2 className={s.title}>
             Road Map
          </h2>
 
