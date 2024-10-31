@@ -21,7 +21,8 @@
     "recharts": "^2.12.7",
     "sass": "^1.79.4",
     "swiper": "^11.1.14",
-    "valtio": "^2.1.0"
+    "valtio": "^2.1.0",
+    "zustand": "^5.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
