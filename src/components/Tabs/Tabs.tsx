@@ -103,7 +103,7 @@ export const Tabs: React.FC<TabsProps> = ({ data }) => {
                     </div>
                 </div>
             )}
-            <div className={styles.wrapper} id="Advisors">
+            <div className={styles.wrapper}>
                 <div
                     className={`${styles.content} ${
                         isOpen ? styles.openContent : ""
