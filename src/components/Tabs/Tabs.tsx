@@ -30,11 +30,14 @@ export const Tabs: React.FC<TabsProps> = ({ data }) => {
         const content = contentRef.current;
         if (content) {
             if (isOpen) {
-                content.style.height = "auto";
+                content.style.height = "0px";
                 const scrollHeight = content.scrollHeight;
                 content.style.height = `${scrollHeight}px`;
+                content.style.transition = 'height 1s ease';
             } else {
+                content.style.height = `${content.scrollHeight}px`;
                 content.style.height = "0px";
+                content.style.transition = 'height 1s ease';
             }
         }
     };
@@ -105,13 +108,11 @@ export const Tabs: React.FC<TabsProps> = ({ data }) => {
             )}
             <div className={styles.wrapper}>
                 <div
-                    className={`${styles.content} ${
-                        isOpen ? styles.openContent : ""
-                    }`}
+                    className={styles.content}
                     ref={contentRef}
                 >
                     {data.map((item) => (
-                        <button
+                        <div
                             key={item.name}
                             className={styles.tabItem}
                             onClick={() => handleClick(item)}
@@ -146,7 +147,7 @@ export const Tabs: React.FC<TabsProps> = ({ data }) => {
                                     className={styles.linkedInIcon}
                                 />
                             </a>
-                        </button>
+                        </div>
                     ))}
                 </div>
                 <button
