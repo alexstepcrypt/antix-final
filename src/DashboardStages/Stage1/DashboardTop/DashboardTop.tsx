@@ -1,46 +1,11 @@
-"use client";
-
-import React, { useState } from "react";
 import styles from "./DashboardTop.module.scss";
-import { Timer } from "./Timer/Timer";
 import Image from "next/image";
-
 import TetherIcon from "/public/svg/tether-icon.svg";
-import { ethers } from "ethers";
+
+import { Timer } from "./Timer/Timer";
+import DepositForm from "./DepositForm/DepositForm";
 
 const DashboardTop = () => {
-    const [amount, setAmount] = useState<string>("0");
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        const cleanedValue = value.replace(/\D/g, "").replace(/^0+/, "");
-        setAmount(cleanedValue === "" ? "0" : cleanedValue);
-    };
-
-    const handleDeposit = async () => {
-        if (typeof window.ethereum === "undefined") {
-            console.error("MetaMask is not installed");
-            return;
-        }
-
-        try {
-            const provider = new ethers.BrowserProvider(window.ethereum);
-            const signer = await provider.getSigner();
-
-            const transaction = {
-                to: "0x0610FB7da1D8509B0bBF3f8372Af47781cDED6fB",
-                value: ethers.parseEther(amount),
-            };
-
-            const txResponse = await signer.sendTransaction(transaction);
-            await txResponse.wait();
-
-            console.log("Deposit successful:", txResponse);
-        } catch (error) {
-            console.error("Error during deposit:", error);
-        }
-    };
-
     return (
         <div className={styles.container}>
             <h2 className={styles.title}>Dashboard</h2>
@@ -80,44 +45,7 @@ const DashboardTop = () => {
                         <span>1,900.15 USDT</span>
                     </div>
                 </div>
-                <div className={styles.sendingWrapepr}>
-                    <div className={styles.sending}>
-                        <div className={styles.sendingTop}>
-                            <span className={styles.sendingTitle}>
-                                You send
-                            </span>
-                            <div className={styles.sendingBalance}>
-                                <span>Balance: 450,59 USDT</span>
-                                <button className={styles.sendingBalanceBtn}>
-                                    Max
-                                </button>
-                            </div>
-                        </div>
-                        <div className={styles.sendingBottom}>
-                            <input
-                                type="text"
-                                className={styles.sendingInput}
-                                value={amount}
-                                onChange={handleInputChange}
-                            />
-                            <button className={styles.sendingChooseCurr}>
-                                <Image
-                                    src={TetherIcon}
-                                    alt="Tether"
-                                    width={24}
-                                    height={24}
-                                />
-                                <span>USDT</span>
-                            </button>
-                        </div>
-                    </div>
-                    <button
-                        className={styles.depositBtn}
-                        onClick={handleDeposit}
-                    >
-                        Deposit Now
-                    </button>
-                </div>
+                <DepositForm />
             </div>
         </div>
     );

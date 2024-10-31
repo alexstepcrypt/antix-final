@@ -3,14 +3,14 @@
 import styles from "./page.module.scss";
 
 import Bg from "/public/images/dashboard-bg.png";
-// import DashboardTop from "@/DashboardStages/Stage1/DashboardTop/DashboardTop";
+import DashboardTop from "@/DashboardStages/Stage1/DashboardTop/DashboardTop";
 import Header from "@/sections/Header/Header";
-// import { DashboardBottom } from "@/DashboardStages/Stage1/DashboardBottom/DashboardBottom";
+import { DashboardBottom } from "@/DashboardStages/Stage1/DashboardBottom/DashboardBottom";
 import { MetaMaskProvider } from "@metamask/sdk-react";
 import ConnectWallet from "@/components/ConnectModals/ConnectWallet/ConnectWallet";
-import DashboardTopStage2 from "@/DashboardStages/Stage2/DashboardTop/DashboardTop";
-import { Transactions } from '@/DashboardStages/Stage1/DashboardBottom/components/Transactions/Transactions';
-import { mocTransactions } from '@/DashboardStages/Stage1/DashboardBottom/constants/transactions';
+// import DashboardTopStage2 from "@/DashboardStages/Stage2/DashboardTop/DashboardTop";
+// import { Transactions } from '@/DashboardStages/Stage1/DashboardBottom/components/Transactions/Transactions';
+// import { mocTransactions } from '@/DashboardStages/Stage1/DashboardBottom/constants/transactions';
 
 export default function Dashboard() {
     const host =
@@ -35,18 +35,18 @@ export default function Dashboard() {
                 <ConnectWallet />
 
                 {/* STAGE 1 */}
-                {/* <main>
+                <main>
                     <DashboardTop />
                     <DashboardBottom />
-                </main> */}
+                </main>
 
                 {/* STAGE 2 */}
-                <main>
+                {/* <main>
                     <DashboardTopStage2 />
                     <div style={{ margin: '0 auto', maxWidth: 1200 }}>
                         <Transactions transactions={mocTransactions} />
                     </div>
-                </main>
+                </main> */}
             </div>
         </MetaMaskProvider>
     );
