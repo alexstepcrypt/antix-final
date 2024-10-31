@@ -38,8 +38,9 @@ const Tokenomics = () => {
         <section
             className={styles.container}
             style={{ backgroundImage: `url(${Bg.src})` }}
+            id="Tokenomics"
         >
-            <h4 className={styles.title} id="Tokenomics">
+            <h4 className={styles.title}>
                 Tokenomics
             </h4>
             <div className={styles.chartWrapper} ref={sectionRef}>

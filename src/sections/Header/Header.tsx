@@ -22,15 +22,15 @@ import Link from "next/link";
 import { useSDK } from "@metamask/sdk-react";
 import { formatAddress } from "@/utils/utils";
 import DisConnect from "@/components/ConnectModals/DisConnect/DisConnect";
+import { scrollToId } from "@/utils/scrollToId";
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
-    const headerRef = useRef<HTMLDivElement | null>(null);
-
-    const { connected, account } = useSDK();
-
     const [isDisconnectModal, setIsDisconnectModal] = useState(false);
+
+    const headerRef = useRef<HTMLDivElement | null>(null);
+    const { connected, account } = useSDK();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -54,22 +54,12 @@ const Header: React.FC = () => {
     }, [lastScrollY]);
 
     const handleClick = (id: string) => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-        if (id.includes("https:")) {
-            window.open(id, "_blank");
-        }
-        if (id === "/") {
-            window.open(id, "_parent");
-        }
+        scrollToId(id)
         setIsOpen(false);
     };
 
     const linksList = connected && account ? linksDashboard : links;
-    const mobileLinksList =
-        connected && account ? mobileLinksDashboard : mobileLinks;
+    const mobileLinksList = connected && account ? mobileLinksDashboard : mobileLinks;
 
     return (
         <>
@@ -97,6 +87,7 @@ const Header: React.FC = () => {
                             style={{
                                 justifyContent: link.icon ? "" : "center",
                             }}
+                            disabled={link.disabled}
                         >
                             {link.icon && (
                                 <div className={styles.mobileLinkImg}>
@@ -144,10 +135,11 @@ const Header: React.FC = () => {
                     {linksList.map((link) => (
                         <button
                             className={styles.link}
-                            key={link.title}
+                            key={link.label}
                             onClick={() => handleClick(link.href)}
+                            disabled={link.disabled}
                         >
-                            {link.title}
+                            {link.label}
                         </button>
                     ))}
                 </div>
