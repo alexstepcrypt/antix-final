@@ -17,7 +17,6 @@ import Creations from "@/sections/Creations/Creations";
 import Tokenomics from "@/sections/Tokenomics/Tokenomics";
 import JoinUs from "@/sections/JoinUs/JoinUs";
 import ExclusiveOffer from "@/sections/ExclusiveOffer/ExclusiveOffer";
-import Footer from "@/sections/Footer/Footer";
 import UserFlow from "@/sections/UserFlow/UserFlow";
 import AIDriven from "@/sections/AIDriven/AIDriven";
 import AntixToken from "@/sections/AntixToken/AntixToken";
@@ -25,7 +24,10 @@ import Team from '@/sections/Team/Team';
 import Advisors from "@/sections/Advisors/Advisors";
 import DigitalMap from "@/sections/DigitalMap/DigitalMap";
 import Roadmap from '@/sections/Roadmap/Roadmap';
+import dynamic from 'next/dynamic'
 // import FloatingWidget from "@/components/FloatingWidget/FloatingWidget";
+
+const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false });
 
 export const metadata: Metadata = {
     title: 'Antix Digital Twins',
