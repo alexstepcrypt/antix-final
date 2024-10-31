@@ -10,8 +10,10 @@ import TitleImg from '/public/svg/footer-bg.svg';
 import Image from 'next/image';
 import { scrollToId } from '@/utils/scrollToId';
 import { useMobile } from '@/hooks/useMobile';
+import { useTabStore } from '@/stores/useTabStore'
 
 const Footer = () => {
+   const { setTab } = useTabStore();
    const isMobile = useMobile(960);
 
    return (
@@ -52,11 +54,10 @@ const Footer = () => {
                      <div className={styles.centerLinksWrapper}>
                         <div className={styles.linkWrapper}>
                            <button
-                              onClick={() =>
-                                 scrollToId(
-                                    !isMobile ? 'Advisors' : 'Team1',
-                                 )
-                              }>
+                              onClick={() => {
+                                 scrollToId(!isMobile ? 'Advisors' : 'Team1');
+                                 {isMobile && setTab('advisors')}
+                              }}>
                               Advisors
                            </button>
                            <button onClick={() => scrollToId('ANTIXTokens')}>
@@ -71,9 +72,10 @@ const Footer = () => {
                               About project
                            </button>
                            <button
-                              onClick={() =>
+                              onClick={() => {
                                  scrollToId(!isMobile ? 'Team' : 'Team1')
-                              }>
+                                 {isMobile && setTab('team')}
+                              }}>
                               Team
                            </button>
                            <button onClick={() => scrollToId('FeaturedIn')}>
