@@ -180,6 +180,7 @@
     }
 
     .walletButton {
+        max-height: 48px;
         padding: 14px 16px;
         gap: 8px;
         border-radius: 12px;
@@ -207,7 +208,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 7px;
+        padding: 12px;
 
         cursor: pointer;
         transition: 0.3s;
@@ -229,9 +230,20 @@
             line-height: 14px;
         }
         .userButton {
-            height: 34px;
-            width: 34px;
+            height: 40px;
+            width: 40px;
             border-radius: 7px;
+        }
+        .walletButton {
+            max-height: 40px;
+            padding: 10px 8px;
+            gap: 5px;
+            border-radius: 7px;
+
+            img {
+                width: 16px;
+                height: 16px;
+            }
         }
     }
 
@@ -336,7 +348,7 @@
     padding: 8px;
     gap: 16px;
     border-radius: 12px;
-    background: #f0f0f014;
+    // background: #f0f0f014;
     backdrop-filter: blur(18.8px);
 
     font-size: 16px;

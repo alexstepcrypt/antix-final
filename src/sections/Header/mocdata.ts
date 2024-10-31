@@ -68,7 +68,7 @@ export const mobileLinks: mobileLinksType[] = [
     },
     {
         label: "My Account",
-        href: "#",
+        href: "/dashboard",
         icon: MyAccountIcon,
     },
 ];

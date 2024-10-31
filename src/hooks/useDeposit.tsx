@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import { useSDK } from "@metamask/sdk-react";
 import { ERC20_ABI, USDT_CONTRACT_ADDRESS } from "@/utils/constants";
+import { useAuthStore } from "@/stores/useAuthStore";
 
 export const useDeposit = () => {
-    const { account } = useSDK();
+    const { walletAdress } = useAuthStore();
+
     const [amount, setAmount] = useState<string>("0");
     const [balance, setBalance] = useState<string | null>(null);
     const [displayCurrency, setDisplayCurrency] = useState<"ETH" | "USDT">(
@@ -30,12 +31,12 @@ export const useDeposit = () => {
         if (balance) setAmount(balance);
     };
 
-    const getEthBalance = async (accountAddress: string) => {
+    const getEthBalance = async () => {
         if (typeof window.ethereum === "undefined") return;
 
         try {
             const provider = new ethers.BrowserProvider(window.ethereum);
-            const balance = await provider.getBalance(accountAddress);
+            const balance = await provider.getBalance(walletAdress);
             const balanceInEth = ethers.formatEther(balance);
             setBalance(balanceInEth);
         } catch (error) {
@@ -65,16 +66,17 @@ export const useDeposit = () => {
     };
 
     useEffect(() => {
-        if (account) {
+        if (walletAdress) {
             displayCurrency === "ETH"
-                ? getEthBalance(account)
+                ? getEthBalance()
                 : getUsdtBalance();
         }
-    }, [account, displayCurrency]);
+    }, [walletAdress, displayCurrency]);
 
     return {
         amount,
         setAmount,
+        setBalance,
         balance,
         displayCurrency,
         toggleCurrency,

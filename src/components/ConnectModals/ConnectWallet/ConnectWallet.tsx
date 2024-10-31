@@ -9,13 +9,15 @@ import WalletConnectIcon from "/public/dashboard/svg/wallet-connect.svg";
 import TrustWalletIcon from "/public/dashboard/svg/trust-wallet.svg";
 import CoinbaseWalletIcon from "/public/dashboard/svg/coinbase-wallet.svg";
 import { useSDK } from "@metamask/sdk-react";
+import { useAuthStore } from "@/stores/useAuthStore";
 
 const ConnectWallet: React.FC = () => {
     const [stage, setStage] = useState<0 | 1 | 2>(1);
 
-    const { sdk, connected, account } = useSDK();
+    const { sdk, account } = useSDK();
+    const { isConnected ,setIsConnected, setWalletAdress } = useAuthStore();
 
-    const connect = async () => {
+    const connectMetamask = async () => {
         try {
             await sdk?.connect();
         } catch (err) {
@@ -24,10 +26,14 @@ const ConnectWallet: React.FC = () => {
     };
 
     useEffect(() => {
-        if (connected && account) {
+        if (isConnected) {
+            setStage(0);
+        } else if (account) {
+            setIsConnected(true)
+            setWalletAdress(account)
             setStage(0);
         }
-    }, [connected, account]);
+    }, [account]);
 
     if (stage === 0) {
         return null;
@@ -58,7 +64,7 @@ const ConnectWallet: React.FC = () => {
                 <div className={styles.modal}>
                     <p className={styles.modalTitle}>Connect Your Wallet</p>
                     <div className={styles.modalBtns}>
-                        <button className={styles.modalBtn} onClick={connect}>
+                        <button className={styles.modalBtn} onClick={connectMetamask}>
                             <Image
                                 src={MataMaskIcon}
                                 alt={"MetaMask"}

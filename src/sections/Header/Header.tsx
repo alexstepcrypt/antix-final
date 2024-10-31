@@ -9,6 +9,7 @@ import {
     mobileLinksDashboard,
 } from "./mocdata";
 import UserIcon from "/public/svg/user-icon.svg";
+import DisconnectIcon from "/public/svg/disconnect-icon.svg";
 
 import LogoFull from "/public/svg/logo-full.svg";
 import LogoSmall from "/public/svg/logo-small.svg";
@@ -19,18 +20,22 @@ import gsap from "gsap";
 import WalletIcon from "/public/svg/wallet-icon.svg";
 
 import Link from "next/link";
-import { useSDK } from "@metamask/sdk-react";
 import { formatAddress } from "@/utils/utils";
 import DisConnect from "@/components/ConnectModals/DisConnect/DisConnect";
 import { scrollToId } from "@/utils/scrollToId";
+import { useAuthStore } from "@/stores/useAuthStore";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+    isDashboard?: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [isDisconnectModal, setIsDisconnectModal] = useState(false);
 
     const headerRef = useRef<HTMLDivElement | null>(null);
-    const { connected, account } = useSDK();
+    const { isConnected, walletAdress } = useAuthStore();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -58,12 +63,12 @@ const Header: React.FC = () => {
         setIsOpen(false);
     };
 
-    const linksList = connected && account ? linksDashboard : links;
-    const mobileLinksList = connected && account ? mobileLinksDashboard : mobileLinks;
+    const linksList = isDashboard ? linksDashboard : links;
+    const mobileLinksList = isDashboard ? mobileLinksDashboard : mobileLinks;
 
     return (
         <>
-            {isDisconnectModal && connected && account && <DisConnect setIsOpen={setIsDisconnectModal} />}
+            {isDisconnectModal && isConnected && <DisConnect setIsOpen={setIsDisconnectModal} />}
             <div
                 className={`${styles.mobile} ${
                     isOpen ? styles.activeMobile : ""
@@ -86,6 +91,7 @@ const Header: React.FC = () => {
                             className={styles.mobileLink}
                             style={{
                                 justifyContent: link.icon ? "" : "center",
+                                background: link.label === "Dashboard" ? "#F0F0F033" : "#F0F0F00A"
                             }}
                             disabled={link.disabled}
                         >
@@ -118,7 +124,7 @@ const Header: React.FC = () => {
                             isOpen ? styles.openLogoFull : ""
                         }`}
                     />
-                    {connected && account && (
+                    {isDashboard &&  (
                         <Link href={"/"} className={styles.backToMainButton}>
                             Back to the Main Page
                         </Link>
@@ -144,13 +150,13 @@ const Header: React.FC = () => {
                     ))}
                 </div>
                 <div className={styles.connectContainer}>
-                    {connected && account ? (
+                    {isConnected ? (
                         <button
                             className={styles.walletButton}
                             onClick={() => setIsDisconnectModal(true)}
                         >
                             <Image src={WalletIcon} alt="User" />
-                            {account ? formatAddress(account) : ""}
+                            {isConnected ? formatAddress(walletAdress) : ""}
                         </button>
                     ) : (
                         <>
@@ -160,10 +166,17 @@ const Header: React.FC = () => {
                             >
                                 Connect Wallet
                             </button>
-                            <button className={styles.userButton}>
-                                <Image src={UserIcon} alt="User" />
-                            </button>
                         </>
+                    )}
+                    {!isDashboard && (
+                        <button className={styles.userButton} onClick={() => window.open("/dashboard", "_parent")}>
+                            <Image src={UserIcon} alt="User" />
+                        </button>
+                    )}
+                    {isConnected && (
+                        <button className={styles.userButton} onClick={() => setIsDisconnectModal(true)}>
+                            <Image src={DisconnectIcon} alt="Disconnect Wallet" width={24} height={24} />
+                        </button>
                     )}
                     <div className={styles.mobileButton}>
                         <BurgerButton
