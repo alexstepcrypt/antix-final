@@ -3,4 +3,10 @@ export const scrollToId = (id: string) => {
    if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "center" });
    }
+   if (id.includes("https:")) {
+      window.open(id, "_blank");
+   }
+   if (id === "/") {
+      window.open(id, "_parent");
+   }
 };

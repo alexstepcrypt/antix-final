@@ -4,6 +4,7 @@ import styles from "./DepositForm.module.scss";
 import React from "react";
 import Image from "next/image";
 import TetherIcon from "/public/svg/tether-icon.svg";
+import EtherIcon from "/public/svg/ether-icon.svg";
 import { useDeposit } from "@/hooks/useDeposit";
 import { ethers } from "ethers";
 import { ETH_CONTRACT_ADDRESS } from "@/utils/constants";
@@ -74,7 +75,12 @@ const DepositForm = () => {
                         className={styles.sendingChooseCurr}
                         onClick={toggleCurrency}
                     >
-                        <Image src={TetherIcon} alt="Tether" width={24} height={24} />
+                        {displayCurrency === "USDT" ? (
+                            <Image src={TetherIcon} alt="USDT" width={24} height={24} />
+                        ) : (
+                            <Image src={EtherIcon} alt="ETH" width={24} height={24} />
+                        )}
+                        
                         <span>{displayCurrency}</span>
                     </button>
                 </div>
