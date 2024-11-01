@@ -9,8 +9,8 @@ import Discordlogo from "/public/svg/social-discord.svg";
 
 import LogoSmall from "/public/svg/logo-small.svg";
 
-import { LoaderSvg } from "./ui/LoaderSvg/LoaderSvg";
-// import { HeroTimer } from "./ui/HeroTimer/HeroTimer";
+// import { LoaderSvg } from "./ui/LoaderSvg/LoaderSvg";
+import { HeroTimer } from "./ui/HeroTimer/HeroTimer";
 
 import Awords1 from "/public/svg/team/ico1.svg";
 import Awords2 from "/public/svg/team/ico2.svg";
@@ -22,9 +22,50 @@ import Awords6 from "/public/svg/team/ico5.svg";
 import Bg from "/public/images/hero-timer-bg.png";
 import BgHead from "/public/images/hero-timer-bg-head.png";
 import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
-import Link from 'next/link';
+import Link from "next/link";
 
 const HeroSection = () => {
+    const isIOS = typeof navigator !== 'undefined' ? /iPhone|iPad|iPod/i.test(navigator.userAgent) : false;
+    const startDate = "20241114T160000Z";
+    const endDate = "20241114T170000Z";
+
+    function addToCalendar() {
+        if (isIOS) {
+            const icsContent = `
+      BEGIN:VCALENDAR
+      VERSION:2.0
+      BEGIN:VEVENT
+      DTSTART:${startDate}
+      DTEND:${endDate}
+      SUMMARY:Мое событие
+      DESCRIPTION:Описание события
+      LOCATION:Онлайн
+      END:VEVENT
+      END:VCALENDAR`;
+
+            const blob = new Blob([icsContent], { type: "text/calendar" });
+            const url = URL.createObjectURL(blob);
+
+            window.open(url, "_blank");
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        } else {
+            const title = "ANTIX Deposit Stage starts";
+            const location = "Online";
+            const startDate = new Date("2024-11-14T16:00:00Z");
+
+            const start = startDate.toISOString().replace(/-|:|\.\d+/g, "");
+            const end = new Date(startDate.getTime() + 60 * 60 * 1000)
+                .toISOString()
+                .replace(/-|:|\.\d+/g, "");
+
+            const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+                title
+            )}&dates=${start}/${end}&location=${encodeURIComponent(location)}`;
+
+            window.open(googleCalendarUrl, "_blank");
+        }
+    }
+
     return (
         <section className={styles.wrapper} id="Hero">
             <video
@@ -70,7 +111,7 @@ const HeroSection = () => {
                             <div className={styles.socialIcon}>
                                 <Image src={Xlogo} alt="X" />
                             </div>
-                            <span>43K</span>
+                            <span>41K</span>
                         </Link>
                         <Link
                             className={styles.socialLink}
@@ -80,7 +121,7 @@ const HeroSection = () => {
                             <div className={styles.socialIcon}>
                                 <Image src={Tglogo} alt="Telegram" />
                             </div>
-                            <span>75K</span>
+                            <span>56К</span>
                         </Link>
                         <Link
                             className={styles.socialLink}
@@ -90,37 +131,67 @@ const HeroSection = () => {
                             <div className={styles.socialIcon}>
                                 <Image src={Discordlogo} alt="Discord" />
                             </div>
-                            <span>12K</span>
+                            <span>5К</span>
                         </Link>
                     </div>
                     <div className={styles.awords}>
                         <Image
-                            onClick={() => window.open("https://antix.in/about-company", "_blank")}
+                            onClick={() =>
+                                window.open(
+                                    "https://antix.in/about-company",
+                                    "_blank"
+                                )
+                            }
                             src={Awords1}
                             alt=""
                         />
                         <Image
-                            onClick={() => window.open("https://antix.in/about-company", "_blank")}
+                            onClick={() =>
+                                window.open(
+                                    "https://antix.in/about-company",
+                                    "_blank"
+                                )
+                            }
                             src={Awords2}
                             alt=""
                         />
                         <Image
-                            onClick={() => window.open("https://antix.in/about-company", "_blank")}
+                            onClick={() =>
+                                window.open(
+                                    "https://antix.in/about-company",
+                                    "_blank"
+                                )
+                            }
                             src={Awords3}
                             alt=""
                         />
                         <Image
-                            onClick={() => window.open("https://antix.in/about-company", "_blank")}
+                            onClick={() =>
+                                window.open(
+                                    "https://antix.in/about-company",
+                                    "_blank"
+                                )
+                            }
                             src={Awords4}
                             alt=""
                         />
                         <Image
-                            onClick={() => window.open("https://www.instagram.com/p/CiUgU4cK0YG/", "_blank")}
+                            onClick={() =>
+                                window.open(
+                                    "https://www.instagram.com/p/CiUgU4cK0YG/",
+                                    "_blank"
+                                )
+                            }
                             src={Awords5}
                             alt=""
                         />
                         <Image
-                            onClick={() => window.open("https://skynet.certik.com/projects/antix#fundamental-health", "_blank")}
+                            onClick={() =>
+                                window.open(
+                                    "https://skynet.certik.com/projects/antix#fundamental-health",
+                                    "_blank"
+                                )
+                            }
                             src={Awords6}
                             alt=""
                         />
@@ -152,7 +223,7 @@ const HeroSection = () => {
                                 alt="Logo"
                                 className={styles.logo}
                             />
-                            ANTIX Presale
+                            Deposit Stage
                         </div>
                     </div>
 
@@ -160,13 +231,21 @@ const HeroSection = () => {
                         className={styles.timer}
                         style={{ backgroundImage: `url(${Bg.src})` }}
                     >
-                        <span className={styles.title}>Coming Soon</span>
-                        <div className={styles.loader}>
+                        <span className={styles.title}>
+                            Deposit Stage starts in
+                        </span>
+                        {/* <div className={styles.loader}>
                             <LoaderSvg percent={0} />
-                        </div>
-                        {/* <HeroTimer
-                            targetDate={new Date("2024-12-31T23:59:59")}
-                        /> */}
+                        </div> */}
+                        <HeroTimer
+                            targetDate={new Date("2024-11-14T16:00:00Z")}
+                        />
+                        <button
+                            className={styles.timerButton}
+                            onClick={addToCalendar}
+                        >
+                            Notify me about the start
+                        </button>
                     </div>
                 </div>
             </div>

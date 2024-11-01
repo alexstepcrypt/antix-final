@@ -21,19 +21,19 @@ const JoinUs = () => {
                         platform="x"
                         link="https://x.com/antix_in"
                         handle="@antix"
-                        followers={44}
-                    />
-                    <JoinUsCard
-                        platform="discord"
-                        link="https://discord.com/invite/bKcMXChRRT"
-                        handle="@antix"
-                        followers={12}
+                        followers={41}
                     />
                     <JoinUsCard
                         platform="telegram"
                         link="https://t.me/antix_in"
                         handle="@antix"
-                        followers={75}
+                        followers={56}
+                    />
+                    <JoinUsCard
+                        platform="discord"
+                        link="https://discord.com/invite/bKcMXChRRT"
+                        handle="@antix"
+                        followers={5}
                     />
                 </div>
             </div>
