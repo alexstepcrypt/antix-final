@@ -28,11 +28,11 @@ const VerticalCarusel = ({ listOfWords }: { listOfWords: string[] }) => {
             loop={true}
             centeredSlides={true}
             autoplay={{
-                delay: 1000,
+                delay: 700,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: false,
             }}
-            speed={1700}
+            speed={1500}
             modules={[Autoplay]}
             allowTouchMove={false}
             className={styles.carousel}

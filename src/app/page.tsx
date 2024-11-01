@@ -25,6 +25,7 @@ import Advisors from "@/sections/Advisors/Advisors";
 import DigitalMap from "@/sections/DigitalMap/DigitalMap";
 import Roadmap from '@/sections/Roadmap/Roadmap';
 import dynamic from 'next/dynamic'
+import { StageWidget } from '@/components/StageWidget/StageWidget'
 // import FloatingWidget from "@/components/FloatingWidget/FloatingWidget";
 
 const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false });
@@ -46,6 +47,7 @@ export default function Home() {
             <FeaturedIn />
             <PlatformToReplace />
             {/* <FloatingWidget /> */}
+            <StageWidget />
             <MarketLeader />
             <Why />
             <Quote />
