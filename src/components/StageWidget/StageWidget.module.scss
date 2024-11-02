@@ -14,10 +14,14 @@
    align-items: center;
    justify-content: space-between;
    bottom: -250px;
-   transition: bottom .6s ease;
+   visibility: hidden;
+   opacity: 0;
+   transition: bottom .6s ease, visibility .5s ease, opacity .5s ease;
 
    &.open {
       bottom: -20px;
+      opacity: 1;
+      visibility: visible;
    }
 
    .stage {
