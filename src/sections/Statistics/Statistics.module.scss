@@ -48,6 +48,12 @@
                     line-height: 161px;
 
                     color: #fff;
+                    transition: color .4s ease;
+
+                    &:hover {
+                        color: #12FFF1;
+                        transition: color .4s ease;
+                    }
                 }
                 > p {
                     margin: 1rem 2rem 2rem;
@@ -93,7 +99,17 @@
                         text-align: center;
 
                         color: #fff;
+                        transition: color .4s ease;
+
                     }
+
+                    &:hover {
+                        span {
+                            color: #12FFF1;
+                            transition: color .4s ease;
+                        }
+                    }
+
                     > img {
                         width: 5px;
                     }
@@ -119,10 +135,20 @@
                 border: 1px solid rgba(255, 255, 255, 0.3);
                 border-radius: 10px;
                 padding: 1rem;
-                > img {
-                    max-width: 125px;
-                    width: 100%;
-                    margin-bottom: 1rem;
+                > span {
+                    font-size: 54px;
+                    line-height: 60px;
+                    text-align: center;
+                    display: inline-block;
+                    margin-bottom: 0.2rem;
+                    font-weight: 500;
+                    color: #fff;
+                    transition: color .4s ease;
+
+                    &:hover {
+                        color: #12FFF1;
+                        transition: color .4s ease;
+                    }
                 }
                 > p {
                     font-size: 14px;
@@ -157,9 +183,19 @@
                     line-height: 20px;
                     margin-bottom: 2rem;
                 }
-                > img {
-                    max-width: 100px;
-                    width: 100%;
+                > span {
+                    font-size: 60px;
+                    font-weight: 500;
+                    margin: 1rem;
+                    display: block;
+                    text-align: center;
+                    color: #fff;
+                    transition: color .4s ease;
+
+                    &:hover {
+                        color: #12FFF1;
+                        transition: color .4s ease;
+                    }
                 }
             }
         }
@@ -175,10 +211,28 @@
                 &:nth-child(1) {
                     flex: auto;
                     padding: 1rem;
-                    > img {
-                        max-width: 295px;
+                    .title15m {
                         width: 100%;
-                        margin-bottom: 1rem;
+                        color: #fff;
+                        font-weight: 500;
+                        transition: color .4s ease;
+                        font-size: 54px;
+
+                        .count {
+                            margin-top: 0.4rem;
+                            line-height: 54px;
+                        }
+
+                        .zeros {
+                            line-height: 54px;
+                            text-align: right;
+                            margin-bottom: 1rem;
+                        }
+
+                        &:hover {
+                            color: #12FFF1;
+                            transition: color .4s ease;
+                        }
                     }
                     > p {
                         font-size: 14px;
@@ -204,10 +258,18 @@
                 border: 1px solid rgba(255, 255, 255, 0.3);
                 border-radius: 10px;
                 padding: 1rem;
-                > img {
-                    max-width: 100px;
-                    width: 100%;
-                    margin-bottom: 1rem;
+                > span {
+                    font-size: 60px;
+                    line-height: 60px;
+                    display: inline-block;
+                    margin-bottom: 0.5rem;
+                    color: #fff;
+                    transition: color .4s ease;
+
+                    &:hover {
+                        color: #12FFF1;
+                        transition: color .4s ease;
+                    }
                 }
                 > p {
                     font-size: 14px;
@@ -246,7 +308,7 @@
                 grid-column: 5 / 3;
 
                 > div {
-                    > img {
+                    > span {
                         max-width: 90px;
                         margin-bottom: 0.625rem;
                     }
@@ -264,7 +326,6 @@
                 grid-column: 3 / 1;
                 > div {
                     > p {
-                        // max-width: none;
                         max-width: 200px;
                         margin: 0 auto;
                         font-size: 10px;
@@ -273,9 +334,9 @@
                         text-align: center;
                         width: 100%;
                     }
-                    > img {
-                        max-width: 100px;
-                        width: 100%;
+                    > span {
+                        font-size: 52px;
+                        margin: 0.8rem 0;
                     }
                 }
             }

@@ -118,7 +118,7 @@ const Statistics = () => {
                     <FadeInNew direction="left" distance={"50%"}>
                         <div>
                             <div>
-                                <Image src={Percent50} alt="50%" />
+                                <span>50%</span>
                                 <p>
                                     Adoption in Gaming and VR/AR Industries: 40%
                                     of new games and 50% of VR content to
@@ -144,14 +144,17 @@ const Statistics = () => {
                                     Yearly market growth: $10B in 2023,
                                     projected to $30B by 2030, 20% CAGR.
                                 </p>
-                                <Image src={Percent20} alt="20%" />
+                                <span>20%</span>
                             </div>
                         </div>
                     </FadeInNew>
                     <FadeInNew direction="left" distance={"50%"}>
                         <div>
                             <div>
-                                <Image src={Icon15m} alt="" />
+                                <div className={styles.title15m}>
+                                    <p className={styles.count}>15,000,</p>
+                                    <p className={styles.zeros}>000,000</p>
+                                </div>
                                 <p>
                                     Virtual influencers market growth: $15B
                                     market by 2025, triple the engagement of
@@ -170,7 +173,7 @@ const Statistics = () => {
                     <FadeInNew direction="right" distance={"50%"}>
                         <div>
                             <div>
-                                <Image src={Percent90} alt="90%" />
+                                <span>90%</span>
                                 <p>
                                     Production cost and time reduction: Antix
                                     cuts digital human creation time from weeks

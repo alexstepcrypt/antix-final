@@ -86,9 +86,11 @@ export const StageWidget = () => {
 
             <div className={s.info}>
                <h2>Stage 1 price</h2>
-               <p>0.09 USDT</p>
-               <div className={s.discount}>
-                  <p>-72%</p>
+               <div className={s.wrap}>
+                  <p>0.09 USDT</p>
+                  <div className={s.discount}>
+                     <p>-72%</p>
+                  </div>
                </div>
             </div>
 
