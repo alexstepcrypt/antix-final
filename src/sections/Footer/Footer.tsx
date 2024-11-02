@@ -66,10 +66,19 @@ const Footer = () => {
                            <button onClick={() => scrollToId('Tokenomics')}>
                               Tokenomics
                            </button>
-                        </div>
-                        <div className={styles.linkWrapper}>
                            <button onClick={() => scrollToId('AboutProject')}>
                               About project
+                           </button>
+                        </div>
+                        <div className={styles.linkWrapper}>
+                           <button className={styles.link} onClick={() => scrollToId('JoinUs')}>
+                              Community
+                           </button>
+                           <button onClick={() => scrollToId('RoadMap')}>
+                              Road map
+                           </button>
+                           <button onClick={() => scrollToId('FeaturedIn')}>
+                              Partners
                            </button>
                            <button
                               onClick={() => {
@@ -78,52 +87,41 @@ const Footer = () => {
                               }}>
                               Team
                            </button>
-                           <button onClick={() => scrollToId('FeaturedIn')}>
-                              Partners
-                           </button>
                         </div>
 
                         <div className={styles.linkWrapper}>
-                           <button onClick={() => scrollToId('RoadMap')}>
-                              Road map
-                           </button>
-                           <button onClick={() => scrollToId('JoinUs')}>
+                           <button className={styles.mobileLink} onClick={() => scrollToId('JoinUs')}>
                               Community
+                           </button>
+                           <button onClick={() => scrollToId('#')}>
+                              Cookie Policy
+                           </button>
+                           <button onClick={() => scrollToId('#')}>
+                              Privacy Policy
+                           </button>
+                           <button onClick={() => scrollToId('#')}>
+                              Terms of Use
                            </button>
                         </div>
                      </div>
                   </div>
                </div>
 
-               <div className={styles.bootomWrapper}>
-                  <div className={styles.bootomLinkWrapper}>
-                     <a href="#" className={styles.bootomLink}>
-                        Terms of Use
-                     </a>
-                     <a href="#" className={styles.bootomLink}>
-                        Privacy Policy
-                     </a>
-                     <p className={styles.bootomInfo}>
-                        Antix Interactive Inc. All Rights Reserved
-                     </p>
-
-                     {/* SHOWS ONLY AT MOBILE */}
-                     <span className={`${styles.bootomInfo} ${styles.mobile}`}>
-                        © 2024
-                     </span>
-                  </div>
-                  <span className={styles.bootomInfo}>© 2024</span>
-
-                  {/* SHOWS ONLY AT MOBILE */}
-                  <p className={`${styles.bottomInfo} ${styles.mobile}`}>
+               <div className={styles.bootomLinkWrapper}>
+                  <p className={styles.bottomInfo}>
                      Antix Interactive Inc. All Rights Reserved
                   </p>
+                  <span className={styles.bottomInfo}>© 2024</span>
                </div>
             </div>
             <div className={styles.bgTitle}>
                <Image src={TitleImg} alt="Antix" draggable={false} />
             </div>
          </footer>
+         
+         <div className={styles.bottomTextWrapper}>
+            The website token.antix.in (hereinafter referred to as the "Website") is owned by Antix LLC, a company duly existing and organized under the laws of Saint Vincent and the Grenadines, with its registered office at Suite 305 Griffith Corporate Centre, Beachmont, Kingstown, Saint Vincent and the Grenadines, company registration code 2345 LLC 2022. The information provided on this Website is for general informational purposes only. The Website and its contents are provided "as is" and "as available" without any warranties of any kind, either expressed or implied. The content on this Website does not constitute financial, investment, or legal advice. The Website does not recommend any investment, trading, or financial instruments, and users are responsible for conducting their own due diligence before making any financial decisions. The Website’s content is purely educational and informative and should not be construed as financial advice. Cryptocurrencies are highly volatile, and investments involve risks, including potential loss of capital. The Website does not make any guarantees regarding the legal or regulatory status of cryptocurrencies in your jurisdiction.
+         </div>
       </div>
    );
 };
