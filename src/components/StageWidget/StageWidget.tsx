@@ -17,7 +17,7 @@ export const StageWidget = () => {
       minutes: 0,
       seconds: 0,
    });
-   const [visible, setVisible] = useState(true);
+   const [visible, setVisible] = useState(false);
    const lastScrollY = useRef(0);
 
    useEffect(() => {
