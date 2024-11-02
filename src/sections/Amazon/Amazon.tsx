@@ -6,7 +6,9 @@ import Image from "next/image";
 const Amazon = () => {
     return (
         <section className={styles.container}>
-            <Image src={Img} alt={"Amazon"} className={styles.img} />
+            <div className={styles.imgContainer}>
+                <Image src={Img} alt={"Amazon"} />
+            </div>
             <div className={styles.mobileBg} />
             <div className={styles.textWrapper}>
                 <h3 className={styles.title}>

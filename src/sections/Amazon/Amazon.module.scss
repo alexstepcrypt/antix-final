@@ -40,7 +40,7 @@
     }
 }
 
-.img {
+.imgContainer {
     position: relative;
     z-index: 1;
 
@@ -48,6 +48,17 @@
     height: 360px;
     border-radius: 12px;
     box-shadow: 0px 12px 32px 0px rgba(0, 94, 104, 0.12);
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.4s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
 
     @media screen and (max-width: 1280px) {
         width: 367.64px;
@@ -60,9 +71,9 @@
         border-radius: 14px;
     }
     @media screen and (max-width: 480px) {
-        padding: 0 16px;
-        width: 100%;
-        height: auto;
+        // padding: 0 16px;
+        width: 340px;
+        height: 220px;
         border-radius: 12px;
     }
 }
