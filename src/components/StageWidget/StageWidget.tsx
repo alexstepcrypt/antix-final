@@ -11,71 +11,65 @@ import Link from 'next/link';
 
 export const StageWidget = () => {
    const targetDate = new Date('2024-11-14T16:00:00Z');
-
-   const ref = useRef<HTMLDivElement | null>(null);
-   const [lastScrollY, setLastScrollY] = useState(0);
-   const [isVisible, setIsVisible] = useState(true);
    const [timeLeft, setTimeLeft] = useState({
       days: 0,
       hours: 0,
       minutes: 0,
       seconds: 0,
    });
-
-   const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const partners = document.getElementById("Partners");
-
-      if (partners) {
-         const blockPosition = partners.getBoundingClientRect();
-         const scrollPosition = window.scrollY + window.innerHeight;
-
-         if (scrollPosition > blockPosition.top + window.scrollY) setIsVisible(true);
-         else setIsVisible(false);
-      }
-
-      // if (ref.current && partners) {
-      //    const blockPosition = partners.getBoundingClientRect();
-      //    const scrollPosition = window.scrollY + window.innerHeight;
-
-      //    if (currentScrollY > lastScrollY && currentScrollY > 100) setIsVisible(false);
-      //    else if (
-      //       currentScrollY < lastScrollY ||
-      //       !(scrollPosition > blockPosition.top + window.scrollY)
-      //    ) setIsVisible(true);
-      // }
-
-      // setLastScrollY(currentScrollY);
-   };
+   const [visible, setVisible] = useState(true);
+   const lastScrollY = useRef(0);
 
    useEffect(() => {
-      window.addEventListener("scroll", handleScroll);
-
-      return () => { window.removeEventListener("scroll", handleScroll) };
-   }, []);
-
-   useEffect(() => {
-      const interval = setInterval(() => {
-         const diff = targetDate.getTime() - new Date().getTime();
+      const updateTimeLeft = () => {
+         const diff = targetDate.getTime() - Date.now();
 
          if (diff > 0) {
+            const seconds = Math.floor(diff / 1000);
             setTimeLeft({
-               days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-               hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-               minutes: Math.floor((diff / (1000 * 60)) % 60),
-               seconds: Math.floor((diff / 1000) % 60),
+               days: Math.floor(seconds / 86400),
+               hours: Math.floor((seconds % 86400) / 3600),
+               minutes: Math.floor((seconds % 3600) / 60),
+               seconds: seconds % 60,
             });
-         } else clearInterval(interval);
-      }, 1000);
+         } else {
+            clearInterval(interval);
+         }
+      };
 
-      return () => { clearInterval(interval) };
+      updateTimeLeft();
+      const interval = setInterval(updateTimeLeft, 1000);
+
+      return () => clearInterval(interval);
    }, [targetDate]);
 
+   useEffect(() => {
+      const handleScroll = () => {
+         const currentScrollY = window.scrollY;
+         const about = document.getElementById('AboutProject');
+
+         if (!about) return;
+
+         const aboutTop = about.getBoundingClientRect().top + currentScrollY;
+
+         if (
+            currentScrollY < aboutTop ||
+            currentScrollY < lastScrollY.current
+         ) {
+            setVisible(false);
+         } else {
+            setVisible(true);
+         }
+
+         lastScrollY.current = currentScrollY;
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+   }, []);
+
    return (
-      <div
-         ref={ref}
-         className={`${s.wrapper} ${isVisible && s.open}`}
-      >
+      <div className={`${s.wrapper} ${visible && s.open}`}>
          <div className={s.stage}>
             <Image
                src={'/svg/stage-widget-coin.svg'}
@@ -128,8 +122,7 @@ export const StageWidget = () => {
             <Link
                href="https://x.com/antix_in"
                target="_blank"
-               className={s.social}
-            >
+               className={s.social}>
                <XIcon />
                <p>41,500</p>
             </Link>
@@ -137,8 +130,7 @@ export const StageWidget = () => {
             <Link
                href="https://t.me/antix_in"
                target="_blank"
-               className={s.social}
-            >
+               className={s.social}>
                <TgIcon />
                <p>56,300</p>
             </Link>
@@ -146,8 +138,7 @@ export const StageWidget = () => {
             <Link
                href="https://discord.com/invite/bKcMXChRRT"
                target="_blank"
-               className={s.social}
-            >
+               className={s.social}>
                <DiscordIcon />
                <p>5,300</p>
             </Link>
