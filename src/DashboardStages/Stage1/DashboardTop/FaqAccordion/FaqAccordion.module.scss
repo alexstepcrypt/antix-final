@@ -1,0 +1,27 @@
+.wrapper {
+   cursor: pointer;
+
+   .title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      line-height: 18px;
+      color: #FFFFFF99;
+
+      .open {
+         background: transparent;
+         rotate: 0deg;
+         font-weight: 300;
+      }
+
+      .active {
+         rotate: -180deg;
+         transition: rotate .5s ease;
+      }
+   }
+
+   .content {
+      margin-top: 5px;
+   }
+}

@@ -1,13 +1,24 @@
-import styles from "./DashboardTop.module.scss";
+"use client"
+
 import Image from "next/image";
+import { useState } from 'react'
+
+import styles from "./DashboardTop.module.scss";
 import TetherIcon from "/public/svg/tether-icon.svg";
+import EtherIcon from "/public/svg/ether-icon.svg";
 
 import { Timer } from "./Timer/Timer";
 import DepositForm from "./DepositForm/DepositForm";
 import { Steps } from '@/DashboardStages/components/Steps/Steps';
 import { stage1Steps } from '@/DashboardStages/constants/steps';
+import { DashboardCard } from '@/DashboardStages/components/Card/Card'
+import { BalanceItem } from './BalanceItem/BalanceItem';
+import { faqItems } from './FaqAccordion/mocdata';
+import { FaqAccordion } from './FaqAccordion/FaqAccordion';
 
 const DashboardTop = () => {
+    const [openedId, setOpenedId] = useState<number | null>(null);
+
     return (
         <div className={styles.container}>
             <h2 className={styles.title}>Dashboard</h2>
@@ -28,11 +39,37 @@ const DashboardTop = () => {
                         conditions.
                     </p>
                 </div>
-                <div className={styles.timer}>
-                    <h5 className={styles.timerTitle}>
-                        Deposit stage closes in:
-                    </h5>
-                    <Timer targetDate={new Date("2024-12-31T23:59:59")} />
+                <DashboardCard style={{ width: '100%' }}>
+                    <h3 className={styles.balanceTitle}>Deposit Balance</h3>
+
+                    <div className={styles.balanceItemsWrapper}>
+                        <BalanceItem
+                            currencySrc={TetherIcon}
+                            title='USDT'
+                            balance='1,472,231.31'
+                        />
+
+                        <BalanceItem
+                            currencySrc={EtherIcon}
+                            title='ETH'
+                            balance='4,344.87'
+                        />
+                    </div>
+                </DashboardCard>
+
+                <div className={styles.faq}>
+                    <h5 className={styles.faqTitle}>FAQ</h5>
+
+                    <div className={styles.faqItems}>
+                        {faqItems.map((item, i) => (
+                            <FaqAccordion
+                                key={i}
+                                openedId={openedId}
+                                setOpenedId={setOpenedId}
+                                {...item}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
             <div className={styles.rightCol}>
@@ -50,6 +87,12 @@ const DashboardTop = () => {
                         />
                         <span>1,900.15 USDT</span>
                     </div>
+                </div>
+                <div className={styles.timer}>
+                    <h5 className={styles.timerTitle}>
+                        Deposit stage closes in:
+                    </h5>
+                    <Timer targetDate={new Date("2024-12-31T23:59:59")} />
                 </div>
                 <DepositForm />
             </div>
