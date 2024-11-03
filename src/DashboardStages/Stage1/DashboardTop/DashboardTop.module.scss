@@ -80,22 +80,43 @@
         }
     }
 
-    .timer {
-        padding: 28px;
-        border-radius: 12px;
-        background: #141415;
-        backdrop-filter: blur(22px);
+    /* ==== DEPOSIT BALANCE CARD ==== */
+    .balanceTitle {
+        font-size: 20px;
+        line-height: 36px;
+        color: #fff;
+        font-weight: 500;
+    }
 
-        .timerTitle {
-            margin-bottom: 8px;
+    .balanceItemsWrapper {
+        margin-top: 18px;
+        display: flex;
+        gap: 16px;
+    }
+    /* ============================== */
 
-            font-size: 14px;
+    /* ==== FAQ ==== */
+    .faq {
+        padding: 32px;
+        border-radius: 8px;
+        background: #14141566;
+        backdrop-filter: blur(30.3px);
+
+        .faqTitle {
+            color: #f0f0f0;
             font-weight: 600;
-            line-height: 21px;
-            text-align: left;
-            color: #ffffff;
+            font-size: 14px;
+            line-height: 19px;
+        }
+
+        .faqItems {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 12px;
         }
     }
+    /* ============= */
 
     @media screen and (max-width: 960px) {
         .info {
@@ -106,13 +127,6 @@
         max-width: none;
         width: 100%;
         gap: 36px;
-
-        .timer {
-            padding: 0 8px;
-            background: none;
-        }
-    }
-    @media screen and (max-width: 480px) {
     }
 }
 
@@ -168,6 +182,19 @@
                 text-align: left;
                 color: #ffffff;
             }
+        }
+
+    }
+
+    .timer {
+        .timerTitle {
+            margin-bottom: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 21px;
+            text-align: left;
+            color: #ffffff;
         }
     }
 
