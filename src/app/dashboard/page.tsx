@@ -5,10 +5,12 @@ import DashboardTop from "@/DashboardStages/Stage1/DashboardTop/DashboardTop";
 import Header from "@/sections/Header/Header";
 import { DashboardBottom } from "@/DashboardStages/Stage1/DashboardBottom/DashboardBottom";
 import ConnectWallet from "@/components/ConnectModals/ConnectWallet/ConnectWallet";
+import dynamic from 'next/dynamic'
 // import DashboardTopStage2 from "@/DashboardStages/Stage2/DashboardTop/DashboardTop";
 // import { Transactions } from '@/DashboardStages/Stage1/DashboardBottom/components/Transactions/Transactions';
 // import { mocTransactions } from '@/DashboardStages/Stage1/DashboardBottom/constants/transactions';
-import Footer from '@/sections/Footer/Footer'
+
+const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false });
 
 export default function Dashboard() {
     return (
@@ -19,18 +21,16 @@ export default function Dashboard() {
             <Header isDashboard />
             <ConnectWallet />
 
-            {/* STAGE 1 */}
-            <main>
+            <main style={{  padding: '0 50px' }}>
+                {/* STAGE 1 */}
                 <DashboardTop />
                 <DashboardBottom />
-            </main>
 
-            {/* STAGE 2 */}
-            {/* <main style={{ padding: '0 50px' }}>
-                <DashboardTopStage2 />
+                {/* STAGE 2 */}
+                {/* <DashboardTopStage2 />
                 <div style={{ margin: '0 auto', maxWidth: 1200 }}>
                     <Transactions transactions={mocTransactions} />
-                </div>
+                </div> */}
 
                 <Footer
                     style={{
@@ -40,7 +40,7 @@ export default function Dashboard() {
                         overflow: 'hidden'
                     }}
                 />
-            </main> */}
+            </main>
         </div>
     );
 }
