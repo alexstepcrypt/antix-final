@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { type CSSProperties, FC } from "react";
 import styles from "./Input.module.scss";
 import Image from "next/image";
 
@@ -8,14 +8,16 @@ interface InputProps {
     title: string;
     icon: string;
     price?: string;
+    style?: CSSProperties
 }
 
-const Input: React.FC<InputProps> = ({
+const Input: FC<InputProps> = ({
     value,
     onChangeValue,
     title,
     icon,
     price,
+    style,
 }) => {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         let value = e.target.value;
@@ -36,7 +38,10 @@ const Input: React.FC<InputProps> = ({
     };
 
     return (
-        <div className={styles.container}>
+        <div
+            style={style}
+            className={styles.container}
+        >
             <div className={styles.top}>
                 <span className={styles.title}>{title}</span>
 

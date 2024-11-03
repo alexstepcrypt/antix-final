@@ -4,12 +4,19 @@
    justify-content: space-between;
 
    .stage {
-      color: #fff;
+      display: flex;
+      align-items: center;
+      color: #575757;
+      gap: 8px;
+      font-weight: 700;
 
       .title {
+         width: 24px;
+         text-align: center;
          font-size: 16px;
          line-height: 24px;
-         font-weight: 400;
+         background: #57575766;
+         border-radius: 24px;
       }
 
       p {
@@ -22,27 +29,26 @@
    .step {
       width: 100%;
       border: 2px solid #57575766;
-      max-width: 247px;
+      max-width: 147px;
       border-radius: 4px;
    }
 
-   .active {
+   .activeStep {
       border-color: #12FFF1;
    }
 
-   @media (max-width: 1135px) {
-      .step {
-         max-width: 200px;
+   .activeTitle {
+      color: #12FFF1;
+
+      .title {
+         background: #12FFF1;
+         color: #0F0F0F;
       }
    }
 
-   @media (max-width: 1020px) {
+   @media (max-width: 1180px) {
       .step {
-         max-width: 160px;
+         max-width: 121px;
       }
-   }
-
-   @media (max-width: 960px) {
-      display: none;
    }
 }

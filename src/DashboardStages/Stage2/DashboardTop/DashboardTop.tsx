@@ -8,14 +8,14 @@ import TetherIcon from "/public/svg/tether-icon.svg";
 import TokenIcon from "/public/svg/token-icon.svg";
 import EtherIcon from "/public/svg/ether-icon.svg";
 
-import { Steps } from "@/DashboardStages/Stage1/DashboardBottom/components/Steps/Steps";
-import { DashboardPopover } from "@/DashboardStages/Stage1/DashboardBottom/components/Popover/Popover";
-import { DashboardList } from "@/DashboardStages/Stage1/DashboardBottom/components/List/List";
+import { Steps } from "@/DashboardStages/components/Steps/Steps";
+import { DashboardPopover } from "@/DashboardStages/components/Popover/Popover";
+import { DashboardList } from "@/DashboardStages/components/List/List";
 import { Timer } from "./Timer/Timer";
 import Input from "./Input/Input";
-import { firstList, secondList, thirdList } from '@/DashboardStages/Stage1/DashboardBottom/constants/list-values'
-import { DashboardCard } from '@/DashboardStages/Stage1/DashboardBottom/components/Card/Card'
-import { steps } from "@/DashboardStages/Stage1/DashboardBottom/constants/steps";
+import { firstList, popoverList, secondList, thirdList } from '@/DashboardStages/constants/list-values';
+import { DashboardCard } from '@/DashboardStages/components/Card/Card'
+import { stage2Steps } from "@/DashboardStages/constants/steps";
 
 const ANTIX_RATE = 0.01;
 
@@ -41,7 +41,7 @@ const DashboardTopStage2 = () => {
         <div className={styles.container}>
             <h2 className={styles.title}>Dashboard</h2>
             <div className={styles.stepsWrapper}>
-                <Steps stages={steps} />
+                <Steps stages={stage2Steps} />
             </div>
 
             <div className={styles.leftCol}>
@@ -50,7 +50,20 @@ const DashboardTopStage2 = () => {
                     <Timer targetDate={new Date("2024-12-31T23:59:59")} />
                 </div>
                 <div className={styles.statisticWrapper}>
-                    <DashboardPopover />
+                    <DashboardPopover
+                        list={popoverList}
+                        customRender={(item, i) => (
+                            <li
+                                style={{ display: 'flex', gap: 4 }}
+                                key={i}
+                            >
+                                <p>{item.title}</p>
+                                {item.subtitle !== '' && (
+                                    <span>{item.subtitle}</span>
+                                )}
+                            </li>
+                        )}
+                    />
                     <div className={styles.statistic}>
                         <DashboardList values={firstList} />
                         <DashboardList values={secondList} />
@@ -163,11 +176,12 @@ const DashboardTopStage2 = () => {
                         onChangeValue={handleReceiveValueChange}
                         title="ANTIX you receive"
                         icon={TokenIcon}
-                        price={"$0.010"}
+                        price={"$0.09"}
+                        style={{
+                            background: 'unset',
+                            border: '1px solid rgba(255, 255, 255, .1)',
+                        }}
                     />
-                    <span className={styles.sendingNetwork}>
-                        Network: Ethereum
-                    </span>
                 </div>
                 <button className={styles.depositBtn}>Deposit Now</button>
             </div>

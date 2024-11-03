@@ -1,23 +1,27 @@
 'use client';
 
-import styles from './Footer.module.scss';
+import Image from 'next/image';
+import type { CSSProperties } from 'react';
 
 import socialX from '/public/svg/social-x.svg';
 import socialTelegram from '/public/svg/social-telegram.svg';
 import socialDiscord from '/public/svg/social-discord.svg';
 
 import TitleImg from '/public/svg/footer-bg.svg';
-import Image from 'next/image';
 import { scrollToId } from '@/utils/scrollToId';
 import { useMobile } from '@/hooks/useMobile';
 import { useTabStore } from '@/stores/useTabStore'
+import styles from './Footer.module.scss';
 
-const Footer = () => {
+const Footer = ({ style }: { style?: CSSProperties }) => {
    const { setTab } = useTabStore();
    const isMobile = useMobile(960);
 
    return (
-      <div className={styles.container}>
+      <div
+         style={style}
+         className={styles.container}
+      >
          <footer className={styles.footer} id="Footer">
             <div className={styles.footerConatiner}>
                <div className={styles.topWrapper}>

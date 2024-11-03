@@ -1,9 +1,12 @@
+import dynamic from 'next/dynamic';
+
 import ConnectWallet from "@/components/ConnectModals/ConnectWallet/ConnectWallet";
-import Footer from "@/sections/Footer/Footer";
 import Header from "@/sections/Header/Header";
 
 import Bg from "/public/images/dashboard-bg.png";
 import styles from "./page.module.scss";
+
+const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false });
 
 export default function DashboardLayout({
     children,
@@ -18,7 +21,13 @@ export default function DashboardLayout({
             <Header isDashboard />
             <ConnectWallet />
             {children}
-            <Footer />
+            <Footer
+                style={{
+                    margin: '100px 50px 28px 50px',
+                    borderRadius: 16,
+                    overflow: 'hidden'
+                }}
+            />
         </main>
     );
 }
