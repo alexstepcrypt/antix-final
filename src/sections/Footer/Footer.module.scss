@@ -239,6 +239,9 @@
         }
 
         button {
+            display: block;
+            min-width: fit-content;
+            width: fit-content;
             text-wrap: nowrap;
             margin-top: 8px;
             background: transparent;
@@ -251,7 +254,6 @@
             color: #afafaf;
             transition: 0.3s;
             cursor: pointer;
-            text-wrap: nowrap;
 
             &:hover {
                 opacity: 0.8;
