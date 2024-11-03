@@ -13,9 +13,9 @@ import { DashboardPopover } from "@/DashboardStages/Stage1/DashboardBottom/compo
 import { DashboardList } from "@/DashboardStages/Stage1/DashboardBottom/components/List/List";
 import { Timer } from "./Timer/Timer";
 import Input from "./Input/Input";
-import { firstList, secondList, thirdList } from '@/DashboardStages/Stage1/DashboardBottom/constants/list-values'
+import { firstList, popoverList, secondList, thirdList } from '@/DashboardStages/Stage1/DashboardBottom/constants/list-values';
 import { DashboardCard } from '@/DashboardStages/Stage1/DashboardBottom/components/Card/Card'
-import { steps } from "@/DashboardStages/Stage1/DashboardBottom/constants/steps";
+import { stage2Steps } from "@/DashboardStages/Stage1/DashboardBottom/constants/steps";
 
 const ANTIX_RATE = 0.01;
 
@@ -41,7 +41,7 @@ const DashboardTopStage2 = () => {
         <div className={styles.container}>
             <h2 className={styles.title}>Dashboard</h2>
             <div className={styles.stepsWrapper}>
-                <Steps stages={steps} />
+                <Steps stages={stage2Steps} />
             </div>
 
             <div className={styles.leftCol}>
@@ -50,7 +50,20 @@ const DashboardTopStage2 = () => {
                     <Timer targetDate={new Date("2024-12-31T23:59:59")} />
                 </div>
                 <div className={styles.statisticWrapper}>
-                    <DashboardPopover />
+                    <DashboardPopover
+                        list={popoverList}
+                        customRender={(item, i) => (
+                            <li
+                                style={{ display: 'flex', gap: 4 }}
+                                key={i}
+                            >
+                                <p>{item.title}</p>
+                                {item.subtitle !== '' && (
+                                    <span>{item.subtitle}</span>
+                                )}
+                            </li>
+                        )}
+                    />
                     <div className={styles.statistic}>
                         <DashboardList values={firstList} />
                         <DashboardList values={secondList} />
@@ -163,11 +176,12 @@ const DashboardTopStage2 = () => {
                         onChangeValue={handleReceiveValueChange}
                         title="ANTIX you receive"
                         icon={TokenIcon}
-                        price={"$0.010"}
+                        price={"$0.09"}
+                        style={{
+                            background: 'unset',
+                            border: '1px solid rgba(255, 255, 255, .1)',
+                        }}
                     />
-                    <span className={styles.sendingNetwork}>
-                        Network: Ethereum
-                    </span>
                 </div>
                 <button className={styles.depositBtn}>Deposit Now</button>
             </div>

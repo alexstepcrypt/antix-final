@@ -1,29 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 import { popoverList } from '../../constants/list-values';
 import { FadeInNew } from '@/components/FadeInNew/FadeInNew';
 import { InfoIcon } from '@/icons/InfoIcon';
 import s from './Popover.module.scss';
 
-export const DashboardPopover = () => {
+interface PopoverProps<T> {
+   list: T[];
+   customRender: (item: T, index: Partial<number>) => ReactNode;
+   directionAnim?: 'left' | 'up' | 'right' | 'down';
+}
+
+export function DashboardPopover<T>({
+   list,
+   customRender,
+   directionAnim = 'left'
+}: PopoverProps<T>) {
    const [isOpen, setIsOpen] = useState(false);
 
    return (
       <div className={s.popover}>
          {isOpen && (
-            <FadeInNew direction="left" distance={10}>
+            <FadeInNew direction={directionAnim} distance={10}>
                <div className={s.content}>
-                  <ul className={s.list}>
-                     {popoverList.map((item, k) => (
-                        <li key={k}>
-                           {item.title}: <span>{item.subtitle}</span>
-                        </li>
-                     ))}
-
-                     <p>(30 days per interval)</p>
-                  </ul>
+                  <ul className={s.list}>{list.map(customRender)}</ul>
                </div>
             </FadeInNew>
          )}
@@ -33,10 +35,9 @@ export const DashboardPopover = () => {
             onMouseEnter={() => setIsOpen(true)}
             onTouchStart={() => setIsOpen(true)}
             onTouchEnd={() => setIsOpen(false)}
-            onMouseLeave={() => setIsOpen(false)}
-         >
+            onMouseLeave={() => setIsOpen(false)}>
             <InfoIcon />
          </button>
       </div>
    );
-};
+}

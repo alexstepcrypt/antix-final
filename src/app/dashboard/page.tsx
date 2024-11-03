@@ -8,6 +8,7 @@ import ConnectWallet from "@/components/ConnectModals/ConnectWallet/ConnectWalle
 // import DashboardTopStage2 from "@/DashboardStages/Stage2/DashboardTop/DashboardTop";
 // import { Transactions } from '@/DashboardStages/Stage1/DashboardBottom/components/Transactions/Transactions';
 // import { mocTransactions } from '@/DashboardStages/Stage1/DashboardBottom/constants/transactions';
+import Footer from '@/sections/Footer/Footer'
 
 export default function Dashboard() {
     return (
@@ -25,12 +26,21 @@ export default function Dashboard() {
             </main>
 
             {/* STAGE 2 */}
-            {/* <main>
-                    <DashboardTopStage2 />
-                    <div style={{ margin: '0 auto', maxWidth: 1200 }}>
-                        <Transactions transactions={mocTransactions} />
-                    </div>
-                </main> */}
+            {/* <main style={{ padding: '0 50px' }}>
+                <DashboardTopStage2 />
+                <div style={{ margin: '0 auto', maxWidth: 1200 }}>
+                    <Transactions transactions={mocTransactions} />
+                </div>
+
+                <Footer
+                    style={{
+                        marginTop: 100,
+                        marginBottom: 28,
+                        borderRadius: 16,
+                        overflow: 'hidden'
+                    }}
+                />
+            </main> */}
         </div>
     );
 }

@@ -4,13 +4,13 @@ import { firstList, secondList, thirdList } from './constants/list-values';
 import { Transactions } from './components/Transactions/Transactions';
 import { DashboardPopover } from './components/Popover/Popover';
 import { Steps } from './components/Steps/Steps';
-import { steps } from './constants/steps';
+import { stage1Steps } from './constants/steps';
 import s from './DashboardBottom.module.scss';
 
 export const DashboardBottom = () => {
    return (
       <div className={s.container}>
-         <Steps stages={steps} />
+         <Steps stages={stage1Steps} />
 
          <div className={s.cards}>
             <DashboardCard>
