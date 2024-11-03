@@ -4,11 +4,17 @@ import TetherIcon from "/public/svg/tether-icon.svg";
 
 import { Timer } from "./Timer/Timer";
 import DepositForm from "./DepositForm/DepositForm";
+import { Steps } from '@/DashboardStages/components/Steps/Steps';
+import { stage1Steps } from '@/DashboardStages/constants/steps';
 
 const DashboardTop = () => {
     return (
         <div className={styles.container}>
             <h2 className={styles.title}>Dashboard</h2>
+            <Steps
+                style={{ margin: '10px 0 30px 0', width: '100%' }}
+                stages={stage1Steps}
+            />
             <div className={styles.leftCol}>
                 <div className={styles.info}>
                     <h5 className={styles.infoTitle}>

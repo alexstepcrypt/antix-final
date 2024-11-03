@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { type CSSProperties, Fragment } from 'react';
 import s from './Steps.module.scss';
 
 interface Stage {
@@ -9,11 +9,15 @@ interface Stage {
 
 interface StepsProps {
    stages: Stage[];
+   style?: CSSProperties;
 }
 
-export const Steps = ({ stages }: StepsProps) => {
+export const Steps = ({ stages, style }: StepsProps) => {
    return (
-      <div className={s.container}>
+      <div
+         style={style}
+         className={s.container}
+      >
          {stages.map((stage, i) => {
             const { isCurrent, step, title } = stage;
             const isLast = stages.length === i + 1;

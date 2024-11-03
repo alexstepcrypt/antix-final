@@ -8,14 +8,14 @@ import TetherIcon from "/public/svg/tether-icon.svg";
 import TokenIcon from "/public/svg/token-icon.svg";
 import EtherIcon from "/public/svg/ether-icon.svg";
 
-import { Steps } from "@/DashboardStages/Stage1/DashboardBottom/components/Steps/Steps";
-import { DashboardPopover } from "@/DashboardStages/Stage1/DashboardBottom/components/Popover/Popover";
-import { DashboardList } from "@/DashboardStages/Stage1/DashboardBottom/components/List/List";
+import { Steps } from "@/DashboardStages/components/Steps/Steps";
+import { DashboardPopover } from "@/DashboardStages/components/Popover/Popover";
+import { DashboardList } from "@/DashboardStages/components/List/List";
 import { Timer } from "./Timer/Timer";
 import Input from "./Input/Input";
-import { firstList, popoverList, secondList, thirdList } from '@/DashboardStages/Stage1/DashboardBottom/constants/list-values';
-import { DashboardCard } from '@/DashboardStages/Stage1/DashboardBottom/components/Card/Card'
-import { stage2Steps } from "@/DashboardStages/Stage1/DashboardBottom/constants/steps";
+import { firstList, popoverList, secondList, thirdList } from '@/DashboardStages/constants/list-values';
+import { DashboardCard } from '@/DashboardStages/components/Card/Card'
+import { stage2Steps } from "@/DashboardStages/constants/steps";
 
 const ANTIX_RATE = 0.01;
 
