@@ -28,7 +28,7 @@ export const links: linksType[] = [
 export const linksDashboard: linksType[] = [
     {
         label: "Dashboard",
-        href: "",
+        href: "/dashboard",
         disabled: false,
     },
     {
@@ -38,8 +38,8 @@ export const linksDashboard: linksType[] = [
     },
     {
         label: "Referral",
-        href: "",
-        disabled: true,
+        href: "/dashboard/referral",
+        disabled: false,
     },
 ];
 
@@ -76,7 +76,7 @@ export const mobileLinks: mobileLinksType[] = [
 export const mobileLinksDashboard: mobileLinksType[] = [
     {
         label: "Dashboard",
-        href: "",
+        href: "/dashboard",
         disabled: false,
 
     },
@@ -87,8 +87,8 @@ export const mobileLinksDashboard: mobileLinksType[] = [
     },
     {
         label: "Referral",
-        href: "",
-        disabled: true,
+        href: "/dashboard/referral",
+        disabled: false,
     },
     {
         label: "Back to the Main Page",

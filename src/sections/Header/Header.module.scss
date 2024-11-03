@@ -122,12 +122,17 @@
         line-height: 13.2px;
         text-align: center;
         color: #f0f0f0;
+        opacity: 0.4;
+
+        &.linkActive {
+            opacity: 1;
+        }
 
         &:hover {
             opacity: 0.8;
         }
-        &:disabled {
-            opacity: 0.2;
+        &:disabled:hover {
+            opacity: 0.4;
             cursor: default;
         }
     }

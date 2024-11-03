@@ -24,6 +24,7 @@ import { formatAddress } from "@/utils/utils";
 import DisConnect from "@/components/ConnectModals/DisConnect/DisConnect";
 import { scrollToId } from "@/utils/scrollToId";
 import { useAuthStore } from "@/stores/useAuthStore";
+import { usePathname } from "next/navigation";
 
 interface HeaderProps {
     isDashboard?: boolean;
@@ -66,6 +67,10 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
     const linksList = isDashboard ? linksDashboard : links;
     const mobileLinksList = isDashboard ? mobileLinksDashboard : mobileLinks;
 
+    const pathName = usePathname()
+    console.log(pathName);
+    
+
     return (
         <>
             {isDisconnectModal && isConnected && <DisConnect setIsOpen={setIsDisconnectModal} />}
@@ -91,7 +96,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                             className={styles.mobileLink}
                             style={{
                                 justifyContent: link.icon ? "" : "center",
-                                background: link.label === "Dashboard" ? "#F0F0F033" : "#F0F0F00A"
+                                background: link.href === pathName ? "#F0F0F033" : "#F0F0F00A"
                             }}
                             disabled={link.disabled}
                         >
@@ -140,7 +145,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                 <div className={styles.linksContainer}>
                     {linksList.map((link) => (
                         <button
-                            className={styles.link}
+                            className={`${styles.link} ${link.href === pathName ? styles.linkActive : ""}`}
                             key={link.label}
                             onClick={() => handleClick(link.href)}
                             disabled={link.disabled}
