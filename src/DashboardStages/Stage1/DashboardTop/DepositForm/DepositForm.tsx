@@ -102,6 +102,38 @@ const DepositForm = () => {
 
     return (
         <div className={styles.sendingWrapepr}>
+                            <div className={styles.chooseCurrWrapper}>
+                    <button
+                        onClick={toggleCurrency}
+                        className={`${styles.chooseCurrBtn} ${
+                            displayCurrency === "USDT"
+                                ? styles.activeChooseCurrBtn
+                                : ""
+                        }`}
+                    >
+                        <Image
+                            src={TetherIcon}
+                            alt="USDT"
+                            width={24}
+                            height={24}
+                        />
+                        <span>USDT</span>
+                    </button>
+                    <button
+                        className={`${styles.chooseCurrBtn} ${
+                            displayCurrency === "ETH" ? styles.activeChooseCurrBtn : ""
+                        }`}
+                        onClick={toggleCurrency}
+                    >
+                        <Image
+                            src={EtherIcon}
+                            alt="ETH"
+                            width={24}
+                            height={24}
+                        />
+                        <span>ETH</span>
+                    </button>
+                </div>
             <div className={styles.sending}>
                 <div className={styles.sendingTop}>
                     <span className={styles.sendingTitle}>You send</span>
@@ -120,6 +152,7 @@ const DepositForm = () => {
                         </button>
                     </div>
                 </div>
+
                 <div className={styles.sendingBottom}>
                     <input
                         type="text"
