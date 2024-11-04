@@ -40,4 +40,11 @@
       max-height: 100px;
       opacity: 1;
    }
+
+   @media (max-width: 425px) {
+      .content, .title {
+         font-size: 9px;
+         line-height: 16px;
+      }
+   }
 }

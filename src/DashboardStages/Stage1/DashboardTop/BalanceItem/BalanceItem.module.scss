@@ -9,15 +9,17 @@
       display: flex;
       gap: 8px;
       align-items: center;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 21px;
+      
+      h5 {
+         font-weight: 500;
+         font-size: 14px;
+         line-height: 21px;
+      }
    }
 
    .balance {
       font-weight: 500;
       font-size: 20px;
       line-height: 36px;
-
    }
 }
