@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import Image from "next/image";
-import { useState } from 'react'
+import { useState } from "react";
 
 import styles from "./DashboardTop.module.scss";
 import TetherIcon from "/public/svg/tether-icon.svg";
@@ -9,12 +9,13 @@ import EtherIcon from "/public/svg/ether-icon.svg";
 
 import { Timer } from "./Timer/Timer";
 import DepositForm from "./DepositForm/DepositForm";
-import { Steps } from '@/DashboardStages/components/Steps/Steps';
-import { stage1Steps } from '@/DashboardStages/constants/steps';
-import { DashboardCard } from '@/DashboardStages/components/Card/Card'
-import { BalanceItem } from './BalanceItem/BalanceItem';
-import { faqItems } from './FaqAccordion/mocdata';
-import { FaqAccordion } from './FaqAccordion/FaqAccordion';
+import { Steps } from "@/DashboardStages/components/Steps/Steps";
+import { stage1Steps } from "@/DashboardStages/constants/steps";
+import { DashboardCard } from "@/DashboardStages/components/Card/Card";
+import { BalanceItem } from "./BalanceItem/BalanceItem";
+import { faqItems } from "./FaqAccordion/mocdata";
+import { FaqAccordion } from "./FaqAccordion/FaqAccordion";
+import RaisedProgressBar from "./RaisedProgressBar/RaisedProgressBar";
 
 const DashboardTop = () => {
     const [openedId, setOpenedId] = useState<number | null>(null);
@@ -23,7 +24,7 @@ const DashboardTop = () => {
         <div className={styles.container}>
             <h2 className={styles.title}>Dashboard</h2>
             <Steps
-                style={{ margin: '10px 0 30px 0', width: '100%' }}
+                style={{ margin: "10px 0 30px 0", width: "100%" }}
                 stages={stage1Steps}
             />
             <div className={styles.leftCol}>
@@ -39,20 +40,20 @@ const DashboardTop = () => {
                         conditions.
                     </p>
                 </div>
-                <DashboardCard style={{ width: '100%' }}>
+                <DashboardCard style={{ width: "100%" }}>
                     <h3 className={styles.balanceTitle}>Deposit Balance</h3>
 
                     <div className={styles.balanceItemsWrapper}>
                         <BalanceItem
                             currencySrc={TetherIcon}
-                            title='USDT'
-                            balance='1,472,231.31'
+                            title="USDT"
+                            balance="1,472,231.31"
                         />
 
                         <BalanceItem
                             currencySrc={EtherIcon}
-                            title='ETH'
-                            balance='4,344.87'
+                            title="ETH"
+                            balance="4,344.87"
                         />
                     </div>
                 </DashboardCard>
@@ -73,19 +74,13 @@ const DashboardTop = () => {
                 </div>
             </div>
             <div className={styles.rightCol}>
-                <div className={styles.balanceWrapper}>
-                    <div className={styles.balanceTitle}>
-                        Deposit Balance
-                        <span>Up to 70% discount</span>
-                    </div>
-                    <div className={styles.balance}>
-                        <Image
-                            src={TetherIcon}
-                            alt="Tether"
-                            width={40}
-                            height={40}
-                        />
-                        <span>1,900.15 USDT</span>
+                <div className={styles.headTitle}>
+                    Stage 1
+                    <div className={styles.headTitleRight}>
+                        Pre-Sale price: <span>0.025 USD</span>
+                        <span className={styles.headTitleDiscount}>
+                            -72% to TGE Price
+                        </span>
                     </div>
                 </div>
                 <div className={styles.timer}>
@@ -94,6 +89,15 @@ const DashboardTop = () => {
                     </h5>
                     <Timer targetDate={new Date("2024-12-31T23:59:59")} />
                 </div>
+
+                <div className={styles.fundsRaised}>
+                    <RaisedProgressBar
+                        currentAmount={4201470}
+                        targetAmount={4800000}
+                        segments={15}
+                    />
+                </div>
+
                 <DepositForm />
             </div>
             <div className={styles.mobileFaq}>

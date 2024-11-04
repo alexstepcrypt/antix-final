@@ -2,7 +2,41 @@
     // margin-top: 36px;
     width: 100%;
 
+    .chooseCurrWrapper {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        justify-content: space-between;
+
+        .chooseCurrBtn {
+            width: 100%;
+            padding: 8px 12px;
+
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+
+            span {
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 21px;
+                text-align: left;
+                color: #ffffff;
+                text-transform: uppercase;
+            }
+        }
+
+        .activeChooseCurrBtn {
+            background: rgba(255, 255, 255, 0.12);
+        }
+    }
+
     .sending {
+        margin-top: 16px;
         padding: 12px 20px;
         border-radius: 8px;
         backdrop-filter: blur(22px);
@@ -44,6 +78,8 @@
                 }
             }
         }
+
+
 
         .sendingBottom {
             margin-top: 4px;
