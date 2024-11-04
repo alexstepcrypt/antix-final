@@ -82,3 +82,20 @@
         }
     }
 }
+
+.main {
+    padding: 0 50px;
+
+    .transactions {
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+    
+    @media (max-width: 960px) {
+        padding: 0 16px;
+
+        .transactions {
+            display: none;
+        }
+    }
+}

@@ -12,7 +12,7 @@ import { useSDK } from "@metamask/sdk-react";
 import { useAuthStore } from "@/stores/useAuthStore";
 
 const ConnectWallet: React.FC = () => {
-    const [stage, setStage] = useState<0 | 1 | 2>(1);
+    const [stage, setStage] = useState<0 | 1 | 2>(0);
 
     const { sdk, account } = useSDK();
     const { isConnected ,setIsConnected, setWalletAdress } = useAuthStore();

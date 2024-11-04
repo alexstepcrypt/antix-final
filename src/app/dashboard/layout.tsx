@@ -23,7 +23,7 @@ export default function DashboardLayout({
             {children}
             <Footer
                 style={{
-                    margin: '100px 15px 15px',
+                    margin: '100px 16px 16px',
                     borderRadius: 16,
                     overflow: 'hidden'
                 }}

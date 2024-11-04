@@ -25,47 +25,6 @@ import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 import Link from "next/link";
 
 const HeroSection = () => {
-    const isIOS = typeof navigator !== 'undefined' ? /iPhone|iPad|iPod/i.test(navigator.userAgent) : false;
-    const startDate = "20241114T160000Z";
-    const endDate = "20241114T170000Z";
-
-    function addToCalendar() {
-        if (isIOS) {
-            const icsContent = `
-      BEGIN:VCALENDAR
-      VERSION:2.0
-      BEGIN:VEVENT
-      DTSTART:${startDate}
-      DTEND:${endDate}
-      SUMMARY:Мое событие
-      DESCRIPTION:Описание события
-      LOCATION:Онлайн
-      END:VEVENT
-      END:VCALENDAR`;
-
-            const blob = new Blob([icsContent], { type: "text/calendar" });
-            const url = URL.createObjectURL(blob);
-
-            window.open(url, "_blank");
-            setTimeout(() => URL.revokeObjectURL(url), 1000);
-        } else {
-            const title = "ANTIX Deposit Stage starts";
-            const location = "Online";
-            const startDate = new Date("2024-11-14T16:00:00Z");
-
-            const start = startDate.toISOString().replace(/-|:|\.\d+/g, "");
-            const end = new Date(startDate.getTime() + 60 * 60 * 1000)
-                .toISOString()
-                .replace(/-|:|\.\d+/g, "");
-
-            const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-                title
-            )}&dates=${start}/${end}&location=${encodeURIComponent(location)}`;
-
-            window.open(googleCalendarUrl, "_blank");
-        }
-    }
-
     return (
         <section className={styles.wrapper} id="Hero">
             <video
@@ -121,7 +80,7 @@ const HeroSection = () => {
                             <div className={styles.socialIcon}>
                                 <Image src={Tglogo} alt="Telegram" />
                             </div>
-                            <span>56К</span>
+                            <span>56K</span>
                         </Link>
                         <Link
                             className={styles.socialLink}
@@ -131,7 +90,7 @@ const HeroSection = () => {
                             <div className={styles.socialIcon}>
                                 <Image src={Discordlogo} alt="Discord" />
                             </div>
-                            <span>5К</span>
+                            <span>5K</span>
                         </Link>
                     </div>
                     <div className={styles.awords}>
@@ -240,12 +199,13 @@ const HeroSection = () => {
                         <HeroTimer
                             targetDate={new Date("2024-11-14T16:00:00Z")}
                         />
-                        <button
+                        <Link
                             className={styles.timerButton}
-                            onClick={addToCalendar}
+                            href="https://t.me/antixtoken_bot"
+                            target="_blank"
                         >
                             Notify me about the start
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

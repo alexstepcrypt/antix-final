@@ -96,6 +96,19 @@ const DashboardTop = () => {
                 </div>
                 <DepositForm />
             </div>
+            <div className={styles.mobileFaq}>
+                <h5 className={styles.faqTitle}>FAQ</h5>
+                <div className={styles.faqItems}>
+                    {faqItems.map((item, i) => (
+                        <FaqAccordion
+                            key={i}
+                            openedId={openedId}
+                            setOpenedId={setOpenedId}
+                            {...item}
+                        />
+                    ))}
+                </div>
+            </div>
         </div>
     );
 };
