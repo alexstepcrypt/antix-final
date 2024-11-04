@@ -131,6 +131,7 @@
 }
 
 .rightCol {
+    height: fit-content;
     max-width: calc(50% - 10px);
     width: 100%;
     display: flex;

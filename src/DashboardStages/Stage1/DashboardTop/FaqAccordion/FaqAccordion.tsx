@@ -34,11 +34,9 @@ export const FaqAccordion = ({
             </button>
          </section>
 
-         {isOpened && (
-            <div className={s.content}>
-               <p>{content}</p>
-            </div>
-         )}
+         <p className={`${s.content} ${isOpened && s.activeText}`}>
+            {content}
+         </p>
       </div>
    );
 };

@@ -5,9 +5,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 14px;
-      line-height: 18px;
-      color: #FFFFFF99;
+
+      h6 {
+         font-size: 12px;
+         line-height: 22px;
+         color: #ffffff99;
+         font-weight: 400;
+      }
 
       .open {
          background: transparent;
@@ -17,11 +21,23 @@
 
       .active {
          rotate: -180deg;
-         transition: rotate .5s ease;
+         transition: rotate 0.5s ease;
       }
    }
 
    .content {
-      margin-top: 5px;
+      color: #ffffff66;
+      font-size: 12px;
+      line-height: 22px;
+      font-weight: 400;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.55s ease, opacity 0.35s ease;
+   }
+
+   .activeText {
+      max-height: 100px;
+      opacity: 1;
    }
 }
