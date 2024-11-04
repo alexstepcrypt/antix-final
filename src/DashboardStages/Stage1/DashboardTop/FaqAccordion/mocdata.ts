@@ -1,27 +1,22 @@
 export const faqItems = [
    {
       id: 1,
-      title: 'How do I deposit for priority access to the ANTIX sale?',
-      content: 'This is the answer to your question'
+      title: 'How can I acquire ANTIX tokens?',
+      content: 'You can acquire ANTIX tokens through token sales, on exchanges where ANTIX is listed, or by participating in various activities and rewards programs on the Antix platform.'
    },
    {
       id: 2,
-      title: 'How can I get a 72% discount on the listing price?',
-      content: 'This is the answer to your question'
+      title: 'What can I do with ANTIX tokens on the platform?',
+      content: 'ANTIX tokens can be used for transactions on the marketplace, staking for rewards, participating in governance decisions, and accessing exclusive features and content within the Antix ecosystem.'
    },
    {
       id: 3,
-      title: 'Is there a deadline for the discounted access?',
-      content: 'This is the answer to your question'
+      title: 'What is the purpose of the ANTIX token?',
+      content: 'The ANTIX token is the platform\'s utility token, facilitating activities within the ecosystem, including marketplace interactions and NFT auctions.'
    },
    {
       id: 4,
-      title: 'How many tokens are available at the discounted rate?',
-      content: 'This is the answer to your question'
-   },
-   {
-      id: 5,
-      title: 'What steps secure the best conditions for the sale?',
-      content: 'This is the answer to your question'
+      title: 'How does Antix ensure user security and privacy?',
+      content: 'Antix is committed to implementing robust privacy and security measures to protect user data and maintain a safe environment on its platform.'
    },
 ]
