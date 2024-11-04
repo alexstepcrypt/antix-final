@@ -90,13 +90,11 @@ const DashboardTop = () => {
                     <Timer targetDate={new Date("2024-12-31T23:59:59")} />
                 </div>
 
-                <div className={styles.fundsRaised}>
-                    <RaisedProgressBar
-                        currentAmount={4201470}
-                        targetAmount={4800000}
-                        segments={15}
-                    />
-                </div>
+                <RaisedProgressBar
+                    currentAmount={4201470}
+                    targetAmount={4800000}
+                    segments={15}
+                />
 
                 <DepositForm />
             </div>

@@ -19,7 +19,7 @@ export default function DashboardLayout({
             style={{ backgroundImage: `url(${Bg.src})` }}
         >
             <Header isDashboard />
-            {/* <ConnectWallet /> */}
+            <ConnectWallet />
             {children}
             <Footer
                 style={{
