@@ -9,10 +9,9 @@ const ExclusiveOffer = () => {
         <section className={styles.container}>
             <div className={styles.content}>
                 <div className={styles.left}>
-                    <h3 className={styles.title}>Exclusive Offer: Act Now</h3>
+                    <h3 className={styles.title}>Join Stage 1</h3>
                     <p className={styles.desc}>
-                        Make a deposit to secure your spot in stage 1 pre-sale
-                        and benefit from 70% discount
+                        Make deposit to secure the best price
                     </p>
                 </div>
                 <button

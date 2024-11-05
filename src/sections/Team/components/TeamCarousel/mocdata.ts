@@ -13,7 +13,7 @@ export const commandList = [
       image: maria,
       description: [
          'An international investor and entrepreneur, visionary in business and tech startups, with deep expertise in media, entertainment, investment, and banking sectors.',
-         'Marina held top management roles for nearly 30 years, including founding the Moscow office of Walt Disney, where she led business development across the CIS, Georgia, and Mongolia for over 13 years.',
+         'Marina held top management roles for nearly 30 years, including management of the CIS office of Walt Disney, where she led business development across 11 countries for over 13 years.',
       ],
    },
    {
