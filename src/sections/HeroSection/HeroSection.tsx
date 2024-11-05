@@ -191,7 +191,7 @@ const HeroSection = () => {
                         style={{ backgroundImage: `url(${Bg.src})` }}
                     >
                         <span className={styles.title}>
-                            Deposit starts in
+                            Deposits open in
                         </span>
                         {/* <div className={styles.loader}>
                             <LoaderSvg percent={0} />
