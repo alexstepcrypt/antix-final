@@ -5,21 +5,20 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import TetherIcon from "/public/svg/tether-icon.svg";
 import EtherIcon from "/public/svg/ether-icon.svg";
-import { useDeposit } from "@/hooks/useDeposit";
 import { Eip1193Provider, ethers } from "ethers";
 import {
     ERC20_ABI,
     ETH_CONTRACT_ADDRESS,
     USDT_CONTRACT_ADDRESS,
 } from "@/utils/constants";
-import { useSDK } from "@metamask/sdk-react";
+// import { useSDK } from "@metamask/sdk-react";
 import { useAuthStore } from "@/stores/useAuthStore";
 import contractABI from "@/app/abi.json";
 
 const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
 
 const DepositForm = () => {
-    const { isConnected, walletAdress } = useAuthStore();
+    const { walletAdress } = useAuthStore();
 
     const [amount, setAmount] = useState<string>("0");
     const [balance, setBalance] = useState<string | null>(null);
@@ -28,14 +27,14 @@ const DepositForm = () => {
     );
     const [transactionHash, setTransactionHash] = useState("");
 
-    if (typeof window.ethereum === "undefined") return;
-    const provider = new ethers.BrowserProvider(window.ethereum);
+    const provider = new ethers.BrowserProvider(window.ethereum as Eip1193Provider);
 
-
-    // Функция для депозита
-    const handleDeposit = async () => {
-
+    const getContract = async () => {
+        const signer = await provider.getSigner();
+        return new ethers.Contract(contractAddress, contractABI, signer);
     };
+
+    const handleDeposit = async () => {};
 
     const handleMax = (balance: string) => {
         if (balance) setAmount(balance);

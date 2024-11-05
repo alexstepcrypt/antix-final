@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import dynamic from 'next/dynamic';
 import { useState } from "react";
 
 import styles from "./DashboardTop.module.scss";
@@ -8,7 +8,7 @@ import TetherIcon from "/public/svg/tether-icon.svg";
 import EtherIcon from "/public/svg/ether-icon.svg";
 
 import { Timer } from "./Timer/Timer";
-import DepositForm from "./DepositForm/DepositForm";
+const DepositForm = dynamic(() => import("./DepositForm/DepositForm"), { ssr: false });
 import { Steps } from "@/DashboardStages/components/Steps/Steps";
 import { stage1Steps } from "@/DashboardStages/constants/steps";
 import { DashboardCard } from "@/DashboardStages/components/Card/Card";

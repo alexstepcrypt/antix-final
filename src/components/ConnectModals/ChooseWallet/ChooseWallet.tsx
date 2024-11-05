@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect } from "react";
 import styles from "./ChooseWallet.module.scss";
 import Image from "next/image";
@@ -15,7 +17,7 @@ interface IChooseWallet {
 
 const ChooseWallet: React.FC<IChooseWallet> = ({ onClose }) => {
     const { sdk, account } = useSDK();
-    const { setWalletAdress, setIsConnected, isConnected } = useAuthStore();
+    const { setWalletAdress, setIsConnected } = useAuthStore();
 
     const connectMetamask = async () => {
         try {
