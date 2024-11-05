@@ -188,7 +188,7 @@ const HeroSection = () => {
                                 alt="Logo"
                                 className={styles.logo}
                             />
-                            Join Presale
+                            Token Sale
                         </div>
                     </div>
 

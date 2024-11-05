@@ -14,8 +14,10 @@ import {
 // import { useSDK } from "@metamask/sdk-react";
 import { useAuthStore } from "@/stores/useAuthStore";
 import contractABI from "@/app/abi.json";
+import { SeedSaleSmart } from "@/app/SeedSaleSmart";
 
 const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
+const usdtAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
 
 const DepositForm = () => {
     const { walletAdress } = useAuthStore();
@@ -26,15 +28,64 @@ const DepositForm = () => {
         "USDT"
     );
     const [transactionHash, setTransactionHash] = useState("");
+    const [isDepositsEnabled, setIsDepositsEnabled] = useState(false);
 
-    const provider = new ethers.BrowserProvider(window.ethereum as Eip1193Provider);
+    const provider = new ethers.BrowserProvider(
+        window.ethereum as Eip1193Provider
+    );
 
     const getContract = async () => {
+        // if(window.ethereum === undefined) return
+        const provider = new ethers.BrowserProvider(window.ethereum as Eip1193Provider);
         const signer = await provider.getSigner();
         return new ethers.Contract(contractAddress, contractABI, signer);
     };
 
-    const handleDeposit = async () => {};
+    // const checkDepositsEnabled = async () => {
+    //     const contract = await getContract();
+    //     const enabled = await contract.isDepositsEnabled();
+    //     setIsDepositsEnabled(enabled);
+    //   };
+
+    // Проверка, является ли выбранный токен платежным
+    // const isTokenAllowed = async () => {
+    //     const contract = await getContract();
+    //     const tokenAllowed = await contract.isPaymentToken(contractAddress); // Используем функцию isPaymentToken для проверки
+    //     return tokenAllowed;
+    // };
+
+    // Функция для депозита
+    const handleDeposit = async () => {
+        const contract = await getContract();
+        const usdtAmount = ethers.parseUnits(amount, 6);
+
+        try {
+            if (displayCurrency === "USDT") {
+                const tx = await contract.deposit(usdtAmount, usdtAddress, {
+                    value: 0,
+                });
+                setTransactionHash(tx.hash);
+                await tx.wait();
+                alert("Депозит успешно выполнен");
+            } else {
+                const tx = await contract.deposit(
+                    0,
+                    0x0000000000000000000000000000000000000000,
+                    { value: Number(amount) }
+                );
+                setTransactionHash(tx.hash);
+                await tx.wait();
+                alert("Депозит успешно выполнен");
+            }
+
+
+            const updatedBalance = await contract.getUserDeposits(walletAdress);
+            setBalance(ethers.formatUnits(updatedBalance, 6));
+        } catch (error) {
+            console.error("Ошибка депозита:", error);
+            alert("Транзакция не удалась");
+        }
+    };
 
     const handleMax = (balance: string) => {
         if (balance) setAmount(balance);
@@ -65,6 +116,7 @@ const DepositForm = () => {
             console.error("Ошибка при получении баланса:", error);
         }
     };
+
     const getUsdtBalance = async () => {
         try {
             const signer = await provider.getSigner();
