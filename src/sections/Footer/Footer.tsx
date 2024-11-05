@@ -49,7 +49,7 @@ const Footer = ({ style }: { style?: CSSProperties }) => {
                      </div>
                   </div>
                   <div className={styles.topItem}>
-                     <span className={styles.smallTitle}>E-mail:</span>
+                     <span className={styles.smallTitle}>For business inquiries contact us:</span>
                      <a
                         href="mailto:token@antix.in"
                         className={styles.mailLink}>

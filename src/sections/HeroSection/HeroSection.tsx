@@ -182,7 +182,7 @@ const HeroSection = () => {
                                 alt="Logo"
                                 className={styles.logo}
                             />
-                            Deposit Stage
+                            Join Presale
                         </div>
                     </div>
 
@@ -191,7 +191,7 @@ const HeroSection = () => {
                         style={{ backgroundImage: `url(${Bg.src})` }}
                     >
                         <span className={styles.title}>
-                            Deposit Stage starts in
+                            Deposit starts in
                         </span>
                         {/* <div className={styles.loader}>
                             <LoaderSvg percent={0} />

@@ -89,7 +89,7 @@
     .smallTitle {
         font-size: 14px;
         font-weight: 400;
-        line-height: 21px;
+        line-height: 15px;
         text-align: left;
         color: #959595;
     }
@@ -125,7 +125,7 @@
     .mailLink {
         font-size: 14px;
         font-weight: 400;
-        line-height: 21px;
+        line-height: 15px;
         text-align: left;
         color: #f0f0f0;
         transition: 0.3s;
@@ -144,7 +144,6 @@
 
         .smallTitle {
             font-size: 10px;
-            line-height: 14.93px;
         }
 
         .socials {
@@ -159,7 +158,6 @@
 
         .mailLink {
             font-size: 10px;
-            line-height: 14.93px;
         }
     }
 
@@ -185,14 +183,15 @@
         }
 
         .smallTitle {
-            font-size: 19.54px;
-            line-height: 29.31px;
+            font-size: 15px;
+            line-height: 20px;
             letter-spacing: 0.02em;
         }
 
         .mailLink {
-            font-size: 24.43px;
-            line-height: 21.98px;
+            font-size: 14.5px;
+            line-height: 20px;
+            margin-top: -15px;
         }
     }
 
@@ -213,14 +212,13 @@
         }
 
         .smallTitle {
-            font-size: 16px;
-            line-height: 24px;
+            font-size: 10px;
+            line-height: 15px;
         }
 
         .mailLink {
-            margin-top: -8px;
-            font-size: 20px;
-            line-height: 18px;
+            font-size: 10px;
+            line-height: 15px;
         }
     }
 }

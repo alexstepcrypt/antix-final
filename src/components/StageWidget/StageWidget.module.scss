@@ -4,7 +4,8 @@
    width: 100%;
    padding: 10px;
    border-radius: 24px;
-   background: #272727;
+   background: #272727cc;
+   backdrop-filter: blur(11.4px);
    z-index: 10;
    backdrop-filter: blur(8px);
    left: 50%;
@@ -16,7 +17,7 @@
    bottom: -250px;
    visibility: hidden;
    opacity: 0;
-   transition: bottom .6s ease, visibility .5s ease, opacity .5s ease;
+   transition: bottom 0.6s ease, visibility 0.5s ease, opacity 0.5s ease;
 
    &.open {
       bottom: -20px;
@@ -27,12 +28,12 @@
    .stage {
       display: flex;
       align-items: center;
-      background: rgba(255, 255, 255, .12);
-      border: 1px solid rgba(255, 255, 255, .24);
-      gap: 28px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      gap: 10.5px;
       border-radius: 16px;
 
-      img {
+      .coin {
          margin-left: 28px;
       }
 
@@ -40,16 +41,38 @@
          border-radius: 8px;
          margin: 8px 0;
          padding: 8px 8px 8px 24px;
-         background: rgba(255, 255, 255, .04);
+         background: rgba(255, 255, 255, 0.04);
          display: flex;
          gap: 12px;
          align-items: center;
 
-         h2 {
-            color: #fff;
-            font-size: 10px;
-            line-height: 16px;
-            font-weight: 500;
+         .priceWrapper {
+            display: flex;
+            align-items: end;
+            justify-content: center;
+
+            h2 {
+               color: #fff;
+               font-size: 7px;
+               line-height: 11.4px;
+               vertical-align: middle;
+               font-weight: 500;
+            }
+
+            .mobileDiscount {
+               display: none;
+               border: 1px solid #00a1b2;
+               padding: 0 3px;
+               border-radius: 2.84px;
+
+               p {
+                  color: #12fff1;
+                  font-size: 11px;
+                  font-weight: 700;
+                  line-height: 13px;
+                  text-align: center;
+               }
+            }
          }
 
          .wrap {
@@ -57,20 +80,27 @@
             align-items: center;
             gap: 12px;
 
-            p {
-               font-weight: 700;
-               color: #fff;
-               font-size: 15px;
-               line-height: 20px;
+            .prices {
+               display: flex;
+               align-items: center;
+               gap: 4px;
+
+               p {
+                  font-weight: 700;
+                  color: #fff;
+                  vertical-align: middle;
+                  font-size: 15px;
+                  line-height: 20px;
+               }
             }
-   
+
             .discount {
-               background: #12FFF1;
+               border: 1px solid #00a1b2;
                padding: 0 8px;
                border-radius: 4px;
-               
+
                p {
-                  color: #0F0E14;
+                  color: #12fff1;
                   line-height: 28px;
                   font-size: 20px;
                   font-weight: 700;
@@ -86,7 +116,7 @@
          align-items: center;
          border-radius: 8px;
          padding: 8px 24px;
-         background: rgba(255, 255, 255, .04);
+         background: rgba(255, 255, 255, 0.04);
          gap: 12px;
 
          h2 {
@@ -102,7 +132,7 @@
             align-items: center;
             justify-content: center;
             gap: 4px;
-            color: #12FFF1;
+            color: #12fff1;
             font-weight: 500;
             font-size: 10px;
 
@@ -129,9 +159,9 @@
          justify-content: center;
          align-items: center;
          margin: 8px 8px 8px 0;
-         background: #12FFF1;
+         background: #12fff1;
          font-size: 20px;
-         color: #0F0E14;
+         color: #0f0e14;
          line-height: 28px;
          font-weight: 700;
          border-radius: 8px;
@@ -146,7 +176,7 @@
       margin-right: 24px;
 
       .social {
-         color: rgba(255, 255, 255, .6);
+         color: rgba(255, 255, 255, 0.6);
          display: flex;
          align-items: center;
          gap: 8px;
@@ -163,9 +193,9 @@
 
       .stage {
          border-radius: 11px;
-         gap: 20px;
+         gap: 13px;
 
-         img {
+         .coin {
             width: 48px;
             height: 36px;
             margin-left: 20px;
@@ -175,7 +205,7 @@
             margin: 6px 0;
             padding: 6px 6px 6px 17px;
             border-radius: 6px;
-            gap: 9px;
+            gap: 8.5px;
 
             h2 {
                font-size: 7px;
@@ -183,17 +213,24 @@
             }
 
             .wrap {
-               gap: 9px;
+               gap: 8.5px;
 
-               p {
-                  font-size: 11px;
-                  line-height: 14px;
+               .prices {
+                  p {
+                     font-size: 10px;
+                     line-height: 14px;
+                  }
+
+                  .price {
+                     width: 52px;
+                     height: 15px;
+                  }
                }
-   
+
                .discount {
                   padding: 0 6px;
                   border-radius: 3px;
-   
+
                   p {
                      font-size: 14px;
                      line-height: 20px;
@@ -216,7 +253,7 @@
             .countdown {
                font-size: 7px;
                width: 78px;
-               
+
                div {
                   span {
                      font-size: 11.4px;
@@ -281,26 +318,40 @@
          background: none;
          border: none;
 
-         img {
+         .coin {
             margin-left: 0;
          }
 
          .info {
             margin: 0;
             flex-direction: column;
-            gap: 0;
+            gap: 5px;
             padding: 6px 14px;
             align-items: unset;
 
-            h2 {
-               text-align: left;
+            .priceWrapper {
+               justify-content: space-between;
+
+               .mobileDiscount {
+                  display: block;
+               }
+            }
+
+            .discount {
+               display: none;
             }
          }
 
          .timer {
+            height: 47px;
             margin: 0;
             flex-direction: column;
+            align-items: flex-start;
             gap: 2.3px;
+
+            h2 {
+               margin-left: -2px;
+            }
          }
 
          .buy {
@@ -313,11 +364,13 @@
       max-width: 360px;
 
       .stage {
-         img {
+         .coin {
             display: none;
          }
 
          .info {
+            height: 47px;
+            width: 135px;
             padding: 6px 10px;
 
             .wrap {
@@ -326,7 +379,7 @@
          }
 
          .buy {
-            height: 43px;
+            height: 47px;
          }
       }
    }

@@ -76,12 +76,29 @@ export const StageWidget = () => {
                alt="coin"
                width={68}
                height={51}
+               className={s.coin}
             />
 
             <div className={s.info}>
-               <h2>Stage 1 price</h2>
+               <div className={s.priceWrapper}>
+                  <h2>Stage 1 price</h2>
+                  <div className={s.mobileDiscount}>
+                     <p>-72%</p>
+                  </div>
+               </div>
                <div className={s.wrap}>
-                  <p>0.09 USDT</p>
+                  <div className={s.prices}>
+                     <p>0.025 USDT</p>
+                     <Image
+                        src={'/svg/prev-price.svg'}
+                        alt="prev-price"
+                        width={74}
+                        height={20}
+                        draggable={false}
+                        loading="lazy"
+                        className={s.price}
+                     />
+                  </div>
                   <div className={s.discount}>
                      <p>-72%</p>
                   </div>
@@ -89,7 +106,7 @@ export const StageWidget = () => {
             </div>
 
             <div className={s.timer}>
-               <h2>Deposit Stage starts in</h2>
+               <h2>Deposit Open in</h2>
                <div className={s.countdown}>
                   <div>
                      <span>{timeLeft.days.toString().padStart(2, '0')}</span>
