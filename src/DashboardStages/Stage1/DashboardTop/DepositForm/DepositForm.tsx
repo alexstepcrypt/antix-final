@@ -1,12 +1,12 @@
 "use client";
 
 import styles from "./DepositForm.module.scss";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import TetherIcon from "/public/svg/tether-icon.svg";
 import EtherIcon from "/public/svg/ether-icon.svg";
 import { useDeposit } from "@/hooks/useDeposit";
-import { ethers } from "ethers";
+import { Eip1193Provider, ethers } from "ethers";
 import {
     ERC20_ABI,
     ETH_CONTRACT_ADDRESS,
@@ -14,126 +14,106 @@ import {
 } from "@/utils/constants";
 import { useSDK } from "@metamask/sdk-react";
 import { useAuthStore } from "@/stores/useAuthStore";
+import contractABI from "@/app/abi.json";
+
+const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
 
 const DepositForm = () => {
-    const {
-        amount,
-        setAmount,
-        balance,
-        setBalance,
-        displayCurrency,
-        toggleCurrency,
-        handleInputChange,
-        handleMax,
-    } = useDeposit();
     const { isConnected, walletAdress } = useAuthStore();
 
+    const [amount, setAmount] = useState<string>("0");
+    const [balance, setBalance] = useState<string | null>(null);
+    const [displayCurrency, setDisplayCurrency] = useState<"ETH" | "USDT">(
+        "USDT"
+    );
+    const [transactionHash, setTransactionHash] = useState("");
+
+    if (typeof window.ethereum === "undefined") return;
+    const provider = new ethers.BrowserProvider(window.ethereum);
+
+
+    // Функция для депозита
     const handleDeposit = async () => {
-        if (!amount || parseFloat(amount) <= 0) {
-            alert("Введите сумму для депозита.");
-            return;
-        }
 
-        if (typeof window.ethereum === "undefined") {
-            console.error("MetaMask is not installed");
-            return;
-        }
+    };
 
+    const handleMax = (balance: string) => {
+        if (balance) setAmount(balance);
+    };
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let value = e.target.value;
+        let cleanedValue = value
+            .replace(/[^0-9.,]/g, "")
+            .replace(",", ".")
+            .replace(/(\..*)\./g, "$1")
+            .replace(/^0+(?=\d)/, "");
+
+        setAmount(cleanedValue === "" ? "0" : cleanedValue);
+    };
+
+    const toggleCurrency = () => {
+        setDisplayCurrency((prev) => (prev === "ETH" ? "USDT" : "ETH"));
+        displayCurrency === "ETH" ? getEthBalance() : getUsdtBalance();
+    };
+
+    const getEthBalance = async () => {
         try {
-            const provider = new ethers.BrowserProvider(window.ethereum);
-            const signer = await provider.getSigner();
-
-            if (displayCurrency === "ETH") {
-                // Отправка ETH
-                const transaction = {
-                    to: ETH_CONTRACT_ADDRESS,
-                    value: ethers.parseEther(amount),
-                };
-                const txResponse = await signer.sendTransaction(transaction);
-                await txResponse.wait();
-
-                console.log("ETH deposit successful:", txResponse);
-            } else if (displayCurrency === "USDT") {
-                // Проверка авторизации и депозит в USDT
-                if (!isConnected) {
-                    alert("Откройте MetaMask и авторизуйтесь для депозита.");
-                    return;
-                }
-
-                const usdtContract = new ethers.Contract(
-                    USDT_CONTRACT_ADDRESS,
-                    ERC20_ABI,
-                    signer
-                );
-
-                const decimals = await usdtContract.decimals();
-                const amountInWei = ethers.parseUnits(amount, decimals);
-
-                // Одобрение смарт-контракту на снятие указанной суммы
-                const approveTx = await usdtContract.approve(
-                    walletAdress,
-                    amountInWei
-                );
-                await approveTx.wait();
-
-                // Отправка транзакции на депозитный смарт-контракт
-                const depositContract = new ethers.Contract(
-                    walletAdress,
-                    ["function deposit(uint256 amount)"],
-                    signer
-                );
-                const depositTx = await depositContract.deposit(amountInWei);
-                await depositTx.wait();
-
-                alert("Депозит в USDT успешно выполнен!");
-
-                // Обновление баланса после депозита
-                const updatedBalance = await usdtContract.balanceOf(
-                    signer.address
-                );
-                setBalance(ethers.formatUnits(updatedBalance, decimals));
-            } else {
-                console.error("Неподдерживаемая валюта депозита");
-            }
+            const balance = await provider.getBalance(walletAdress);
+            const balanceInEth = ethers.formatEther(balance);
+            setBalance(balanceInEth);
         } catch (error) {
-            console.error("Ошибка при депозите:", error);
+            console.error("Ошибка при получении баланса:", error);
+        }
+    };
+    const getUsdtBalance = async () => {
+        try {
+            const signer = await provider.getSigner();
+            const usdtContract = new ethers.Contract(
+                USDT_CONTRACT_ADDRESS,
+                ERC20_ABI,
+                signer
+            );
+
+            const balance = await usdtContract.balanceOf(signer.address);
+            const decimals = await usdtContract.decimals();
+            const balanceInUsdt = ethers.formatUnits(balance, decimals);
+            setBalance(balanceInUsdt);
+        } catch (error) {
+            console.error("Ошибка при получении баланса USDT:", error);
         }
     };
 
+    useEffect(() => {
+        getUsdtBalance();
+    }, []);
+
     return (
         <div className={styles.sendingWrapepr}>
-                            <div className={styles.chooseCurrWrapper}>
-                    <button
-                        onClick={toggleCurrency}
-                        className={`${styles.chooseCurrBtn} ${
-                            displayCurrency === "USDT"
-                                ? styles.activeChooseCurrBtn
-                                : ""
-                        }`}
-                    >
-                        <Image
-                            src={TetherIcon}
-                            alt="USDT"
-                            width={24}
-                            height={24}
-                        />
-                        <span>USDT</span>
-                    </button>
-                    <button
-                        className={`${styles.chooseCurrBtn} ${
-                            displayCurrency === "ETH" ? styles.activeChooseCurrBtn : ""
-                        }`}
-                        onClick={toggleCurrency}
-                    >
-                        <Image
-                            src={EtherIcon}
-                            alt="ETH"
-                            width={24}
-                            height={24}
-                        />
-                        <span>ETH</span>
-                    </button>
-                </div>
+            <div className={styles.chooseCurrWrapper}>
+                <button
+                    onClick={toggleCurrency}
+                    className={`${styles.chooseCurrBtn} ${
+                        displayCurrency === "USDT"
+                            ? styles.activeChooseCurrBtn
+                            : ""
+                    }`}
+                >
+                    <Image src={TetherIcon} alt="USDT" width={24} height={24} />
+                    <span>USDT</span>
+                </button>
+                <button
+                    className={`${styles.chooseCurrBtn} ${
+                        displayCurrency === "ETH"
+                            ? styles.activeChooseCurrBtn
+                            : ""
+                    }`}
+                    onClick={toggleCurrency}
+                >
+                    <Image src={EtherIcon} alt="ETH" width={24} height={24} />
+                    <span>ETH</span>
+                </button>
+            </div>
             <div className={styles.sending}>
                 <div className={styles.sendingTop}>
                     <span className={styles.sendingTitle}>You send</span>

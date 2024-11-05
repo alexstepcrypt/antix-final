@@ -68,8 +68,6 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
     const mobileLinksList = isDashboard ? mobileLinksDashboard : mobileLinks;
 
     const pathName = usePathname()
-    console.log(pathName);
-    
 
     return (
         <>

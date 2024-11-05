@@ -461,6 +461,16 @@
             color: #0f0f0f;
         }
 
+        .refBtn {
+            margin-top: 40px;
+            background: none;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 21px;
+            text-align: right;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
         // .loader {
         //     margin: 30px 0;
         //     width: 182px;
@@ -503,7 +513,7 @@
             .timerButton {
                 margin-top: 28px;
                 padding: 8px;
-    
+
                 font-size: 10px;
                 line-height: 15px;
             }
@@ -549,7 +559,7 @@
             .timerButton {
                 margin-top: 34px;
                 padding: 10px;
-    
+
                 font-size: 12px;
                 line-height: 18px;
             }
@@ -597,7 +607,7 @@
             .timerButton {
                 margin-top: 28px;
                 padding: 8px;
-    
+
                 font-size: 10px;
                 line-height: 14px;
             }

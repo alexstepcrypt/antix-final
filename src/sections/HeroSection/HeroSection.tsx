@@ -23,8 +23,11 @@ import Bg from "/public/images/hero-timer-bg.png";
 import BgHead from "/public/images/hero-timer-bg-head.png";
 import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 import Link from "next/link";
+import { useState } from "react";
+import RefferalModal from "./ui/RefferalModal/RefferalModal";
 
 const HeroSection = () => {
+    const [isRefModal, setIsRefModal] = useState(false);
     return (
         <section className={styles.wrapper} id="Hero">
             <video
@@ -40,6 +43,9 @@ const HeroSection = () => {
                 />
                 Ваш браузер не поддерживает видео.
             </video>
+            {isRefModal && (
+                <RefferalModal onClose={() => setIsRefModal(false)} />
+            )}
             <div className={styles.container}>
                 <div className={styles.mobileBg1} />
                 <div className={styles.mobileBg2} />
@@ -206,6 +212,12 @@ const HeroSection = () => {
                         >
                             Notify me about the start
                         </Link>
+                        <button
+                            onClick={() => setIsRefModal(true)}
+                            className={styles.refBtn}
+                        >
+                            + Get referral link
+                        </button>
                     </div>
                 </div>
             </div>

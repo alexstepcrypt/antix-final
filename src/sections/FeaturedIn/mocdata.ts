@@ -31,6 +31,9 @@ import Logo30 from "/public/images/featured-in/30.png";
 import Logo31 from "/public/images/featured-in/31.png";
 import Logo32 from "/public/images/featured-in/32.png";
 import Logo33 from "/public/images/featured-in/33.png";
+import Logo34 from "/public/images/featured-in/34.png";
+import Logo35 from "/public/images/featured-in/35.png";
+import Logo36 from "/public/images/featured-in/36.png";
 
 export const logos = [
     { logo: Logo1, link: "https://markets.businessinsider.com/news/stocks/antix-inc-prepares-for-the-avagen-update-augmenting-its-advanced-personalization-and-multilingual-capabilities-1033715993" },
@@ -66,4 +69,7 @@ export const logos = [
     { logo: Logo31, link: "https://livingletterpress.com/antix-rolls-out-avagen-update-and-brings-crypto-and-web3-to-digital-humans/" },
     { logo: Logo32, link: "https://blockchainwhispers.com/?article=antix-rolls-out-avagen-update-and-brings-crypto-and-web3-to-digital-humans" },
     { logo: Logo33, link: "https://bitrss.com/antix-rolls-out-avagen-update-and-brings-crypto-and-web3-to-digital-humans-3480" },
+    { logo: Logo34, link: "https://bravenewcoin.com/insights/antix-next-gen-digital-human-platform-to-launch-native-token-antix-in-november" },
+    { logo: Logo35, link: "https://www.cryptotimes.io/2024/11/01/virtual-influencer-market-grows-as-antix-token-enables-access/" },
+    { logo: Logo36, link: "https://cryptodaily.co.uk/2024/11/antix-enters-crypto-with-antix-token-launch-offering-early-access-to-ai-powered-digital-humans" },
 ];

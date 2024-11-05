@@ -15,7 +15,7 @@ import { DashboardCard } from "@/DashboardStages/components/Card/Card";
 import { BalanceItem } from "./BalanceItem/BalanceItem";
 import { faqItems } from "./FaqAccordion/mocdata";
 import { FaqAccordion } from "./FaqAccordion/FaqAccordion";
-import RaisedProgressBar from "./RaisedProgressBar/RaisedProgressBar";
+// import RaisedProgressBar from "./RaisedProgressBar/RaisedProgressBar";
 
 const DashboardTop = () => {
     const [openedId, setOpenedId] = useState<number | null>(null);
@@ -90,11 +90,11 @@ const DashboardTop = () => {
                     <Timer targetDate={new Date("2024-12-31T23:59:59")} />
                 </div>
 
-                <RaisedProgressBar
+                {/* <RaisedProgressBar
                     currentAmount={4201470}
                     targetAmount={4800000}
                     segments={15}
-                />
+                /> */}
 
                 <DepositForm />
             </div>
