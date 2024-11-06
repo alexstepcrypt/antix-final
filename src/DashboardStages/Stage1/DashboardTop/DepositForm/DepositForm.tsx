@@ -3,8 +3,11 @@
 import styles from "./DepositForm.module.scss";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from 'next/link';
 import TetherIcon from "/public/svg/tether-icon.svg";
 import EtherIcon from "/public/svg/ether-icon.svg";
+import Mastercard from '/public/dashboard/svg/mastercard-logo.svg';
+import Visa from '/public/dashboard/svg/visa-logo.svg';
 import { Eip1193Provider, ethers } from "ethers";
 import {
     ERC20_ABI,
@@ -15,6 +18,8 @@ import {
 import { useAuthStore } from "@/stores/useAuthStore";
 import contractABI from "@/app/abi.json";
 import { SeedSaleSmart } from "@/app/SeedSaleSmart";
+import { DepositPopover } from './DepositPopover/DepositPopover'
+import { DepositCheckbox } from './DepositCheckbox/DepositCheckbox'
 
 const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
 const usdtAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
@@ -24,11 +29,12 @@ const DepositForm = () => {
 
     const [amount, setAmount] = useState<string>("0");
     const [balance, setBalance] = useState<string | null>(null);
-    const [displayCurrency, setDisplayCurrency] = useState<"ETH" | "USDT">(
+    const [displayCurrency, setDisplayCurrency] = useState<"ETH" | "USDT" | "CARD">(
         "USDT"
     );
     const [transactionHash, setTransactionHash] = useState("");
     const [isDepositsEnabled, setIsDepositsEnabled] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const provider = new ethers.BrowserProvider(
         window.ethereum as Eip1193Provider
@@ -77,7 +83,6 @@ const DepositForm = () => {
                 await tx.wait();
                 alert("Депозит успешно выполнен");
             }
-
 
             const updatedBalance = await contract.getUserDeposits(walletAdress);
             setBalance(ethers.formatUnits(updatedBalance, 6));
@@ -164,6 +169,15 @@ const DepositForm = () => {
                     <Image src={EtherIcon} alt="ETH" width={24} height={24} />
                     <span>ETH</span>
                 </button>
+                <DepositPopover open={open} text='Coming Soon' />
+                <button
+                    onClick={() => setOpen(p => !p)}
+                    onBlur={() => setOpen(false)}
+                    className={styles.chooseCurrBtn}
+                >
+                    <Image src={Visa} alt="visa" width={46.5} height={15.28} />
+                    <Image src={Mastercard} alt="mastercard" width={36} height={27.78} />
+                </button>
             </div>
             <div className={styles.sending}>
                 <div className={styles.sendingTop}>
@@ -228,6 +242,20 @@ const DepositForm = () => {
             >
                 Deposit Now
             </button>
+
+            <div className={styles.agreement}>
+                <DepositCheckbox children="Automatically buy ANTIX from deposit when Stage 1 starts" />
+            </div>
+
+            <div className={styles.questions}>
+                <p>Got questions?</p>
+                <Link
+                    href="https://t.me/antixtoken_bot"
+                    target="_blank"
+                >
+                    We're here to help!
+                </Link>
+            </div>
         </div>
     );
 };
