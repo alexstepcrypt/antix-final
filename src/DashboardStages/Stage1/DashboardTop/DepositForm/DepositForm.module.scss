@@ -1,5 +1,4 @@
 .sendingWrapepr {
-    // margin-top: 36px;
     width: 100%;
 
     .chooseCurrWrapper {
@@ -10,7 +9,8 @@
 
         .chooseCurrBtn {
             width: 100%;
-            padding: 8px 12px;
+            padding: 0 12px;
+            height: 48px;
 
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.04);
@@ -93,7 +93,6 @@
                 font-weight: 500;
                 line-height: 36px;
                 text-align: left;
-                // color: rgba(255, 255, 255, 0.4);
 
                 background: transparent;
                 border: none;
@@ -141,6 +140,26 @@
         line-height: 19.69px;
         text-align: center;
         color: #0f0f0f;
+    }
+
+    .agreement {
+        margin-top: 16px;
+    }
+
+    .questions {
+        margin-top: 16px;
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        color: #F0F0F0;
+        font-size: 14px;
+        line-height: 21px;
+        font-weight: 400;
+
+        a {
+            text-decoration: underline;
+            color: #12fff1;
+        }
     }
 
     @media screen and (max-width: 960px) {

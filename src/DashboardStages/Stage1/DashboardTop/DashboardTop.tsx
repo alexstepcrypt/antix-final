@@ -75,26 +75,28 @@ const DashboardTop = () => {
             </div>
             <div className={styles.rightCol}>
                 <div className={styles.headTitle}>
-                    Stage 1
-                    <div className={styles.headTitleRight}>
-                        Pre-Sale price: <span>0.025 USD</span>
-                        <span className={styles.headTitleDiscount}>
-                            -72% to TGE Price
-                        </span>
+                    <h2>Add Deposit</h2>
+                    <div className={styles.discount}>
+                        <p>-72%</p>
                     </div>
                 </div>
                 <div className={styles.timer}>
                     <h5 className={styles.timerTitle}>
-                        Deposit stage closes in:
+                        Stage 1 starts in
                     </h5>
                     <Timer targetDate={new Date("2024-12-31T23:59:59")} />
                 </div>
 
-                {/* <RaisedProgressBar
-                    currentAmount={4201470}
-                    targetAmount={4800000}
-                    segments={15}
-                /> */}
+                <div className={styles.stagePrice}>
+                    <h5>Deposit Stage Price</h5>
+                    <div className={styles.depositPriceWrapper}>
+                        <h4>0.025 USD</h4>
+                        <h4 className={styles.prevPrice}>0.09 USD</h4>
+                        <div className={styles.depositDiscount}>
+                            <p>-72% to TGE Price</p>
+                        </div>
+                    </div>
+                </div>
 
                 <DepositForm />
             </div>

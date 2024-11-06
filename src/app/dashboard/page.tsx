@@ -1,9 +1,8 @@
 import DashboardTop from "@/DashboardStages/Stage1/DashboardTop/DashboardTop";
 import { Transactions } from '@/DashboardStages/components/Transactions/Transactions';
-import s from './page.module.scss';
 // import DashboardTopStage2 from "@/DashboardStages/Stage2/DashboardTop/DashboardTop";
-// import { Transactions } from '@/DashboardStages/Stage1/DashboardBottom/components/Transactions/Transactions';
-// import { mocTransactions } from '@/DashboardStages/Stage1/DashboardBottom/constants/transactions';
+// import { mocTransactions } from '@/DashboardStages/constants/transactions';
+import s from './page.module.scss';
 
 export default function Dashboard() {
     return (
