@@ -41,7 +41,7 @@ export const StageWidget = () => {
       const interval = setInterval(updateTimeLeft, 1000);
 
       return () => clearInterval(interval);
-   }, [targetDate]);
+   }, []);
 
    useEffect(() => {
       const handleScroll = () => {
