@@ -24,7 +24,7 @@ import BgHead from "/public/images/hero-timer-bg-head.png";
 import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 import Link from "next/link";
 import { useState } from "react";
-import RefferalModal from "./ui/RefferalModal/RefferalModal";
+import ReferalModal from "./ui/ReferalModal/ReferalModal";
 
 const HeroSection = () => {
     const [isRefModal, setIsRefModal] = useState(false);
@@ -44,7 +44,7 @@ const HeroSection = () => {
                 Ваш браузер не поддерживает видео.
             </video>
             {isRefModal && (
-                <RefferalModal onClose={() => setIsRefModal(false)} />
+                <ReferalModal onClose={() => setIsRefModal(false)} />
             )}
             <div className={styles.container}>
                 <div className={styles.mobileBg1} />

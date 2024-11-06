@@ -1,6 +1,7 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
-import styles from "./RefferalModal.module.scss";
+import styles from "./ReferalModal.module.scss";
 import { useAuthStore } from "@/stores/useAuthStore";
 import { formatAddress } from "@/utils/utils";
 
@@ -8,18 +9,20 @@ import Image from "next/image";
 import CloseIcon from "/public/dashboard/svg/close-icon.svg";
 import CopyIcon from "/public/svg/copy-icon.svg";
 import ChooseWallet from "@/components/ConnectModals/ChooseWallet/ChooseWallet";
+import { ethers } from "ethers";
+import { generateReferralLink } from "@/utils/generateReferralLink";
+import { useReferralStore } from "@/stores/useReferralStore";
 
-interface IRefferalModal {
+interface IReferalModal {
     onClose: () => void;
 }
 
-const RefferalModal: React.FC<IRefferalModal> = ({ onClose }) => {
+const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
     const { walletAdress, isConnected } = useAuthStore();
-    const [stage, setStage] = useState<0 | 1 | 2>(0);
+    const { referralLink, setReferralLink } = useReferralStore();
+    const [stage, setStage] = useState<0 | 1 | 2>(referralLink === "" ? 0 : 1);
     const [isCopied, setIsCopied] = useState(false);
-    const [refCode, setRefCode] = useState(
-        "https://antix/referral?code=YOURCODE"
-    );
+    const [refCode, setRefCode] = useState(referralLink);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(refCode).then(() => {
@@ -29,8 +32,34 @@ const RefferalModal: React.FC<IRefferalModal> = ({ onClose }) => {
     };
 
     useEffect(() => {
-        setStage(0);
+        referralLink === "" ? setStage(0) : 1;
     }, [isConnected]);
+
+    const handleGenerateReferralLink = async () => {
+        if (window.ethereum) {
+            try {
+                const provider = new ethers.BrowserProvider(window.ethereum);
+                await provider.send("eth_requestAccounts", []);
+                const signer = await provider.getSigner();
+
+                const msg = "I am signing in to confirm my referral link";
+                const sign = await signer.signMessage(msg);
+
+                const link = await generateReferralLink({
+                    wallet: walletAdress,
+                    sign: sign,
+                    msg: msg,
+                });
+                if (link) {
+                    setReferralLink(link)
+                    setRefCode(link);
+                    setStage(1);
+                }
+            } catch (error) {
+                console.error("Ошибка авторизации:", error);
+            }
+        }
+    };
 
     if (stage === 2) {
         return <ChooseWallet onClose={onClose} />;
@@ -65,7 +94,7 @@ const RefferalModal: React.FC<IRefferalModal> = ({ onClose }) => {
                     {isConnected ? (
                         <button
                             className={styles.connectBtn}
-                            onClick={() => setStage(1)}
+                            onClick={handleGenerateReferralLink}
                         >
                             Generate Code
                         </button>
@@ -108,7 +137,7 @@ const RefferalModal: React.FC<IRefferalModal> = ({ onClose }) => {
                     </h3>
 
                     <div className={styles.copyWrapper}>
-                        <span>antix/referral?code=YOURCODE</span>
+                        <input type="text" value={refCode} readOnly />
                         <button className={styles.copyBtn} onClick={handleCopy}>
                             <Image
                                 src={CopyIcon}
@@ -149,4 +178,4 @@ const RefferalModal: React.FC<IRefferalModal> = ({ onClose }) => {
     }
 };
 
-export default RefferalModal;
+export default ReferalModal;

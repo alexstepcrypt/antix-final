@@ -106,12 +106,11 @@
         gap: 12px;
         margin-top: 22px;
 
-        span,
+        input,
         .copyBtn {
             width: 100%;
             padding: 12px 24px;
             border-radius: 50px;
-            opacity: 0px;
             background: #f0f0f0;
 
             font-size: 12px;
@@ -120,6 +119,9 @@
             text-align: center;
             color: #0f0f0f;
             text-wrap: nowrap;
+            overflow: hidden;
+            outline: none;
+            border: none;
         }
         .copyBtn {
             width: fit-content;

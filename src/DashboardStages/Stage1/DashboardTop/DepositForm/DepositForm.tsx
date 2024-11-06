@@ -11,10 +11,8 @@ import {
     ETH_CONTRACT_ADDRESS,
     USDT_CONTRACT_ADDRESS,
 } from "@/utils/constants";
-// import { useSDK } from "@metamask/sdk-react";
 import { useAuthStore } from "@/stores/useAuthStore";
 import contractABI from "@/app/abi.json";
-import { SeedSaleSmart } from "@/app/SeedSaleSmart";
 
 const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
 const usdtAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
@@ -35,49 +33,46 @@ const DepositForm = () => {
     );
 
     const getContract = async () => {
-        // if(window.ethereum === undefined) return
         const provider = new ethers.BrowserProvider(window.ethereum as Eip1193Provider);
         const signer = await provider.getSigner();
         return new ethers.Contract(contractAddress, contractABI, signer);
     };
 
-    // const checkDepositsEnabled = async () => {
-    //     const contract = await getContract();
-    //     const enabled = await contract.isDepositsEnabled();
-    //     setIsDepositsEnabled(enabled);
-    //   };
-
-    // Проверка, является ли выбранный токен платежным
-    // const isTokenAllowed = async () => {
-    //     const contract = await getContract();
-    //     const tokenAllowed = await contract.isPaymentToken(contractAddress); // Используем функцию isPaymentToken для проверки
-    //     return tokenAllowed;
-    // };
-
     // Функция для депозита
     const handleDeposit = async () => {
         const contract = await getContract();
+        const signer = await provider.getSigner();
+        const usdtContract = new ethers.Contract(
+            USDT_CONTRACT_ADDRESS,
+            ERC20_ABI,
+            signer
+        );
+
         const usdtAmount = ethers.parseUnits(amount, 6);
 
         try {
             if (displayCurrency === "USDT") {
-                const tx = await contract.deposit(usdtAmount, usdtAddress, {
+                if (await usdtContract.allowance(signer.address, contractAddress) < usdtAmount){
+                    const  txu = await usdtContract.approve(contractAddress, usdtAmount);
+                    await txu.wait();
+                }
+                const tx = await contract.deposit(usdtAddress, usdtAmount, {
                     value: 0,
                 });
                 setTransactionHash(tx.hash);
                 await tx.wait();
                 alert("Депозит успешно выполнен");
             } else {
+                const ethAmount = ethers.parseUnits(amount, 18);
                 const tx = await contract.deposit(
-                    0,
-                    0x0000000000000000000000000000000000000000,
-                    { value: Number(amount) }
+                    "0x0000000000000000000000000000000000000000",
+                    ethAmount,
+                    { value: Number(ethAmount) }
                 );
                 setTransactionHash(tx.hash);
                 await tx.wait();
                 alert("Депозит успешно выполнен");
             }
-
 
             const updatedBalance = await contract.getUserDeposits(walletAdress);
             setBalance(ethers.formatUnits(updatedBalance, 6));
@@ -137,6 +132,7 @@ const DepositForm = () => {
 
     useEffect(() => {
         getUsdtBalance();
+        getContract();
     }, []);
 
     return (
