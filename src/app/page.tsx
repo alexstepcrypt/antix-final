@@ -26,6 +26,7 @@ import DigitalMap from "@/sections/DigitalMap/DigitalMap";
 import Roadmap from '@/sections/Roadmap/Roadmap';
 import dynamic from 'next/dynamic'
 import { StageWidget } from '@/components/StageWidget/StageWidget'
+import ReferralHandler from '@/components/ReferralHandler/ReferralHandler';
 // import FloatingWidget from "@/components/FloatingWidget/FloatingWidget";
 
 const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false });
@@ -42,6 +43,7 @@ export const metadata: Metadata = {
 export default function Home() {
     return (
         <div className={styles.container}>
+            <ReferralHandler />
             <Header />
             <HeroSection />
             <FeaturedIn />

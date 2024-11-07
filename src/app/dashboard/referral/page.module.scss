@@ -129,10 +129,13 @@
                 font-size: 12px;
                 font-weight: 600;
                 line-height: 21px;
-                text-align: center;
                 color: rgba(240, 240, 240, 0.1);
 
                 transition: color 0.3s ease;
+                background: none;
+                border: none;
+                width: 100%;
+                outline: none;
             }
 
             .genCode {
@@ -167,8 +170,10 @@
                 padding: 10px 24px;
                 display: flex;
                 align-items: center;
+                justify-content: center;
                 gap: 8px;
                 background: #12fff1;
+                min-width: 150px;
             }
         }
 

@@ -8,6 +8,8 @@ import WalletConnectIcon from "/public/dashboard/svg/wallet-connect.svg";
 import TrustWalletIcon from "/public/dashboard/svg/trust-wallet.svg";
 import CoinbaseWalletIcon from "/public/dashboard/svg/coinbase-wallet.svg";
 import useWalletStore from "@/stores/useWalletStore";
+import { useReferralStore } from "@/stores/useReferralStore";
+// import axios from "axios";
 
 interface IChooseWallet {
     onClose: () => void;
@@ -15,10 +17,27 @@ interface IChooseWallet {
 
 const ChooseWallet: React.FC<IChooseWallet> = ({ onClose }) => {
     const { connectWallet } = useWalletStore();
+    // const { referralCode } = useReferralStore();
 
     const handleConnectWallet = async () => {
         try {
             await connectWallet();
+
+            // if (referralCode) {
+            //     try {
+            //         const tokenResponse = await axios.post(
+            //             "https://antix.cryptoindex.com/profile/auth",
+            //             { wallet: account, msg, sign, refcode: referralCode},
+            //             { headers: { "Content-Type": "application/json" } }
+            //         );
+            //         console.log(
+            //             "Authentication successful",
+            //             tokenResponse.data
+            //         );
+            //     } catch (err) {
+            //         console.warn("Authentication error", err);
+            //     }
+            // }
         } catch (err) {
             console.warn(`Ошибка подключения`, err);
         }

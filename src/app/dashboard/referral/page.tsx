@@ -85,13 +85,13 @@ const Referral = () => {
                     >
                         <h4>Invite Your Friend and Earn Rewards</h4>
                         <div className={styles.codeContainer}>
-                            <span
+                            <input
+                                value={refCode}
+                                readOnly
                                 className={`${styles.code} ${
                                     isGenerated ? styles.genCode : ""
                                 }`}
-                            >
-                                {refCode}
-                            </span>
+                            />
                             {!isGenerated ? (
                                 <button
                                     className={styles.codeBtn}
