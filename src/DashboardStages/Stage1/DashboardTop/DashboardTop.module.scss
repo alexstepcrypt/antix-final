@@ -89,25 +89,6 @@
 
     /* ==== FAQ ==== */
     .faq {
-        padding: 32px;
-        border-radius: 8px;
-        background: #14141566;
-        backdrop-filter: blur(30.3px);
-
-        .faqTitle {
-            color: #f0f0f0;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 19px;
-        }
-
-        .faqItems {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 12px;
-        }
-
         @media (max-width: 650px) {
             display: none;
         }
@@ -338,26 +319,7 @@
 
 /* ==== MOBILE FAQ ==== */
 .mobileFaq {
-    padding: 32px;
-    border-radius: 8px;
-    background: #14141566;
-    backdrop-filter: blur(30.3px);
     display: none;
-
-    .faqTitle {
-        color: #f0f0f0;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 19px;
-    }
-
-    .faqItems {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 12px;
-    }
-
     @media (max-width: 650px) {
         display: block;
     }

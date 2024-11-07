@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import styles from "./ReferalModal.module.scss";
-import { useAuthStore } from "@/stores/useAuthStore";
 import { formatAddress } from "@/utils/utils";
 
 import Image from "next/image";
@@ -12,13 +11,14 @@ import ChooseWallet from "@/components/ConnectModals/ChooseWallet/ChooseWallet";
 import { ethers } from "ethers";
 import { generateReferralLink } from "@/utils/generateReferralLink";
 import { useReferralStore } from "@/stores/useReferralStore";
+import useWalletStore from "@/stores/useWalletStore";
 
 interface IReferalModal {
     onClose: () => void;
 }
 
 const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
-    const { walletAdress, isConnected } = useAuthStore();
+    const { account, signer } = useWalletStore();
     const { referralLink, setReferralLink } = useReferralStore();
     const [stage, setStage] = useState<0 | 1 | 2>(referralLink === "" ? 0 : 1);
     const [isCopied, setIsCopied] = useState(false);
@@ -32,21 +32,21 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
     };
 
     useEffect(() => {
-        referralLink === "" ? setStage(0) : 1;
-    }, [isConnected]);
+        if(referralLink && account) {
+            setStage(1)
+        } else {
+            setStage(0)
+        }
+    }, [account]);
 
     const handleGenerateReferralLink = async () => {
-        if (window.ethereum) {
+        if (window.ethereum && account && signer) {
             try {
-                const provider = new ethers.BrowserProvider(window.ethereum);
-                await provider.send("eth_requestAccounts", []);
-                const signer = await provider.getSigner();
-
                 const msg = "I am signing in to confirm my referral link";
                 const sign = await signer.signMessage(msg);
 
                 const link = await generateReferralLink({
-                    wallet: walletAdress,
+                    wallet: account,
                     sign: sign,
                     msg: msg,
                 });
@@ -85,13 +85,13 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                         Earn up to 10% reward in USDT on purchases made through
                         your referral link!
                     </h3>
-                    {!isConnected && (
+                    {!account && (
                         <span className={styles.disConnectInfo}>
                             То get your unique referral link, <br /> please
                             connect your wallet first.
                         </span>
                     )}
-                    {isConnected ? (
+                    {account ? (
                         <button
                             className={styles.connectBtn}
                             onClick={handleGenerateReferralLink}
@@ -106,9 +106,9 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                             Connect Wallet
                         </button>
                     )}
-                    {isConnected && (
+                    {account && (
                         <div className={styles.generateBtn}>
-                            Connected Wallet {formatAddress(walletAdress)}
+                            Connected Wallet {formatAddress(account)}
                         </div>
                     )}
                 </div>
@@ -150,7 +150,7 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                     </div>
 
                     <div className={styles.generateBtn}>
-                        Connected Wallet {formatAddress(walletAdress)}
+                        Connected Wallet {account && formatAddress(account)}
                     </div>
 
                     <div className={styles.hr} />

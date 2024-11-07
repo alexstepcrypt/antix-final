@@ -1,30 +1,30 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./Header.module.scss";
+import gsap from "gsap";
+
 import {
     links,
     linksDashboard,
     mobileLinks,
     mobileLinksDashboard,
 } from "./mocdata";
-import UserIcon from "/public/svg/user-icon.svg";
-import DisconnectIcon from "/public/svg/disconnect-icon.svg";
+import { formatAddress } from "@/utils/utils";
+import { scrollToId } from "@/utils/scrollToId";
+import useWalletStore from "@/stores/useWalletStore";
+
+import { BurgerButton } from "../AntixToken/components/BurgerButton/BurgerButton";
+import DisConnect from "@/components/ConnectModals/DisConnect/DisConnect";
 
 import LogoFull from "/public/svg/logo-full.svg";
 import LogoSmall from "/public/svg/logo-small.svg";
-import { BurgerButton } from "../AntixToken/components/BurgerButton/BurgerButton";
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-
+import UserIcon from "/public/svg/user-icon.svg";
+import DisconnectIcon from "/public/svg/disconnect-icon.svg";
 import WalletIcon from "/public/svg/wallet-icon.svg";
-
-import Link from "next/link";
-import { formatAddress } from "@/utils/utils";
-import DisConnect from "@/components/ConnectModals/DisConnect/DisConnect";
-import { scrollToId } from "@/utils/scrollToId";
-import { useAuthStore } from "@/stores/useAuthStore";
-import { usePathname } from "next/navigation";
 
 interface HeaderProps {
     isDashboard?: boolean;
@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
     const [isDisconnectModal, setIsDisconnectModal] = useState(false);
 
     const headerRef = useRef<HTMLDivElement | null>(null);
-    const { isConnected, walletAdress } = useAuthStore();
+    const { account  } = useWalletStore();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -71,7 +71,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
 
     return (
         <>
-            {isDisconnectModal && isConnected && <DisConnect setIsOpen={setIsDisconnectModal} />}
+            {isDisconnectModal && account && <DisConnect setIsOpen={setIsDisconnectModal} />}
             <div
                 className={`${styles.mobile} ${
                     isOpen ? styles.activeMobile : ""
@@ -153,13 +153,13 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                     ))}
                 </div>
                 <div className={styles.connectContainer}>
-                    {isConnected ? (
+                    {account ? (
                         <button
                             className={styles.walletButton}
                             onClick={() => setIsDisconnectModal(true)}
                         >
                             <Image src={WalletIcon} alt="User" />
-                            {isConnected ? formatAddress(walletAdress) : ""}
+                            {account ? formatAddress(account) : ""}
                         </button>
                     ) : (
                         <>
@@ -176,7 +176,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                             <Image src={UserIcon} alt="User" />
                         </button>
                     )}
-                    {isConnected && (
+                    {account && (
                         <button className={styles.userButton} onClick={() => setIsDisconnectModal(true)}>
                             <Image src={DisconnectIcon} alt="Disconnect Wallet" width={24} height={24} />
                         </button>

@@ -15,6 +15,7 @@ import { DashboardCard } from "@/DashboardStages/components/Card/Card";
 import { BalanceItem } from "./BalanceItem/BalanceItem";
 import { faqItems } from "./FaqAccordion/mocdata";
 import { FaqAccordion } from "./FaqAccordion/FaqAccordion";
+import Faq from '@/components/Faq/Faq';
 // import RaisedProgressBar from "./RaisedProgressBar/RaisedProgressBar";
 
 const DashboardTop = () => {
@@ -59,18 +60,7 @@ const DashboardTop = () => {
                 </DashboardCard>
 
                 <div className={styles.faq}>
-                    <h5 className={styles.faqTitle}>FAQ</h5>
-
-                    <div className={styles.faqItems}>
-                        {faqItems.map((item, i) => (
-                            <FaqAccordion
-                                key={i}
-                                openedId={openedId}
-                                setOpenedId={setOpenedId}
-                                {...item}
-                            />
-                        ))}
-                    </div>
+                    <Faq faqItems={faqItems} />
                 </div>
             </div>
             <div className={styles.rightCol}>
@@ -101,17 +91,7 @@ const DashboardTop = () => {
                 <DepositForm />
             </div>
             <div className={styles.mobileFaq}>
-                <h5 className={styles.faqTitle}>FAQ</h5>
-                <div className={styles.faqItems}>
-                    {faqItems.map((item, i) => (
-                        <FaqAccordion
-                            key={i}
-                            openedId={openedId}
-                            setOpenedId={setOpenedId}
-                            {...item}
-                        />
-                    ))}
-                </div>
+                <Faq faqItems={faqItems} />
             </div>
         </div>
     );

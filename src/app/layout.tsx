@@ -1,7 +1,6 @@
 import { Poppins } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.scss";
-import MetaMaskClientProvider from "@/components/MetaMaskClientProvider/MetaMaskClientProvider";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -119,7 +118,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${poppins.className}`}>
-        <MetaMaskClientProvider>{children}</MetaMaskClientProvider>
+        {children}
       </body>
     </html>
   );

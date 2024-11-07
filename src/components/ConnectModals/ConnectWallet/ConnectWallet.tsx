@@ -2,22 +2,15 @@
 
 import React, { useEffect, useState } from "react";
 import styles from "./ConnectWallet.module.scss";
-import { useSDK } from "@metamask/sdk-react";
-import { useAuthStore } from "@/stores/useAuthStore";
 import ChooseWallet from "../ChooseWallet/ChooseWallet";
+import useWalletStore from "@/stores/useWalletStore";
 
 const ConnectWallet: React.FC = () => {
     const [stage, setStage] = useState<0 | 1 | 2>(1);
-
-    const { account } = useSDK();
-    const { isConnected, setIsConnected, setWalletAdress } = useAuthStore();
+    const { account } = useWalletStore();
 
     useEffect(() => {
-        if (isConnected) {
-            setStage(0);
-        } else if (account) {
-            setIsConnected(true);
-            setWalletAdress(account);
+        if (account) {
             setStage(0);
         }
     }, [account]);
