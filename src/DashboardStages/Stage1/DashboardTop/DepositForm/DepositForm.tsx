@@ -17,6 +17,7 @@ import contractABI from "@/app/abi.json";
 import { DepositPopover } from './DepositPopover/DepositPopover'
 import { DepositCheckbox } from './DepositCheckbox/DepositCheckbox'
 import useWalletStore from "@/stores/useWalletStore";
+import CurrencyButton from "@/DashboardStages/components/CurrencyButton/CurrencyButton";
 
 const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
 const usdtAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
@@ -206,28 +207,19 @@ const DepositForm = () => {
                                     : "#fff",
                         }}
                     />
-                    <button
-                        className={styles.sendingChooseCurr}
-                        onClick={toggleCurrency}
-                    >
-                        {displayCurrency === "USDT" ? (
-                            <Image
-                                src={TetherIcon}
-                                alt="USDT"
-                                width={24}
-                                height={24}
-                            />
-                        ) : (
-                            <Image
-                                src={EtherIcon}
-                                alt="ETH"
-                                width={24}
-                                height={24}
-                            />
-                        )}
-
-                        <span>{displayCurrency}</span>
-                    </button>
+                    {displayCurrency === "USDT" ? (
+                        <CurrencyButton
+                            displayCurrency="USDT"
+                            icon={TetherIcon}
+                            onclick={toggleCurrency}
+                        />
+                    ) : (
+                        <CurrencyButton
+                            displayCurrency="ETH"
+                            icon={EtherIcon}
+                            onclick={toggleCurrency}
+                        />
+                    )}
                 </div>
             </div>
             <button
