@@ -1,63 +1,28 @@
-"use client"
+"use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./ChooseWallet.module.scss";
 import Image from "next/image";
 import MataMaskIcon from "/public/dashboard/svg/meta-mask.svg";
 import WalletConnectIcon from "/public/dashboard/svg/wallet-connect.svg";
 import TrustWalletIcon from "/public/dashboard/svg/trust-wallet.svg";
 import CoinbaseWalletIcon from "/public/dashboard/svg/coinbase-wallet.svg";
-import { useSDK } from "@metamask/sdk-react";
-import { useAuthStore } from "@/stores/useAuthStore";
-import { ethers } from "ethers";
+import useWalletStore from "@/stores/useWalletStore";
 
 interface IChooseWallet {
     onClose: () => void;
 }
 
 const ChooseWallet: React.FC<IChooseWallet> = ({ onClose }) => {
-    const { sdk, account } = useSDK();
-    const { setWalletAdress, setIsConnected } = useAuthStore();
+    const { connectWallet } = useWalletStore();
 
-    const connectMetamask = async () => {
+    const handleConnectWallet = async () => {
         try {
-            await sdk?.connect();
+            await connectWallet();
         } catch (err) {
-            console.warn(`No accounts found`, err);
+            console.warn(`Ошибка подключения`, err);
         }
     };
-
-    useEffect(() => {
-        if (account) {
-            setIsConnected(true);
-            setWalletAdress(account);
-        }
-    }, [account]);
-
-
-    const connectTrustWallet = async () => {
-        if (window.ethereum) {
-            try {
-                const provider = new ethers.BrowserProvider(window.ethereum);
-                await provider.send("eth_requestAccounts", []);
-                const signer = await provider.getSigner();
-                const address = await signer.getAddress();
-                setWalletAdress(address);
-                setIsConnected(true);
-            } catch (error) {
-                console.error("Ошибка подключения к TrustWallet:", error);
-            }
-        } else {
-            alert("Установите TrustWallet!");
-        }
-    };
-
-    useEffect(() => {
-        if (account) {
-            setWalletAdress(account);
-            setIsConnected(true);
-        }
-    }, [])
 
     return (
         <>
@@ -67,7 +32,7 @@ const ChooseWallet: React.FC<IChooseWallet> = ({ onClose }) => {
                 <div className={styles.modalBtns}>
                     <button
                         className={styles.modalBtn}
-                        onClick={connectMetamask}
+                        onClick={handleConnectWallet}
                     >
                         <Image
                             src={MataMaskIcon}
@@ -78,9 +43,8 @@ const ChooseWallet: React.FC<IChooseWallet> = ({ onClose }) => {
                         <p>MetaMask</p>
                         <span>Popular</span>
                     </button>
-                    <a
-                        href="https://walletconnect.ru/"
-                        target="_blank"
+                    <button
+                        onClick={handleConnectWallet}
                         className={styles.modalBtn}
                     >
                         <Image
@@ -90,9 +54,9 @@ const ChooseWallet: React.FC<IChooseWallet> = ({ onClose }) => {
                             height={24}
                         />
                         <p>WalletConnect</p>
-                    </a>
+                    </button>
                     <button
-                        onClick={connectTrustWallet}
+                        onClick={handleConnectWallet}
                         className={styles.modalBtn}
                     >
                         <Image
@@ -103,9 +67,8 @@ const ChooseWallet: React.FC<IChooseWallet> = ({ onClose }) => {
                         />
                         <p>Trust Wallet</p>
                     </button>
-                    <a
-                        href="https://www.coinbase.com/"
-                        target="_blank"
+                    <button
+                        onClick={handleConnectWallet}
                         className={styles.modalBtn}
                     >
                         <Image
@@ -115,7 +78,7 @@ const ChooseWallet: React.FC<IChooseWallet> = ({ onClose }) => {
                             height={24}
                         />
                         <p>Coinbase Wallet</p>
-                    </a>
+                    </button>
                 </div>
             </div>
         </>

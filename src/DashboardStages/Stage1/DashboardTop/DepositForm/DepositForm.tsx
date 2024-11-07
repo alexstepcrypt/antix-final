@@ -8,47 +8,42 @@ import TetherIcon from "/public/svg/tether-icon.svg";
 import EtherIcon from "/public/svg/ether-icon.svg";
 import Mastercard from '/public/dashboard/svg/mastercard-logo.svg';
 import Visa from '/public/dashboard/svg/visa-logo.svg';
-import { Eip1193Provider, ethers } from "ethers";
+import { ethers } from "ethers";
 import {
     ERC20_ABI,
-    ETH_CONTRACT_ADDRESS,
     USDT_CONTRACT_ADDRESS,
 } from "@/utils/constants";
-import { useAuthStore } from "@/stores/useAuthStore";
 import contractABI from "@/app/abi.json";
-import { SeedSaleSmart } from "@/app/SeedSaleSmart";
 import { DepositPopover } from './DepositPopover/DepositPopover'
 import { DepositCheckbox } from './DepositCheckbox/DepositCheckbox'
+import useWalletStore from "@/stores/useWalletStore";
 
 const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
 const usdtAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
 
 const DepositForm = () => {
-    const { walletAdress } = useAuthStore();
+    const { account, provider, signer } = useWalletStore();
 
     const [amount, setAmount] = useState<string>("0");
     const [balance, setBalance] = useState<string | null>(null);
     const [displayCurrency, setDisplayCurrency] = useState<"ETH" | "USDT" | "CARD">(
         "USDT"
     );
-    const [transactionHash, setTransactionHash] = useState("");
-    const [isDepositsEnabled, setIsDepositsEnabled] = useState(false);
+    // const [transactionHash, setTransactionHash] = useState("");
+    // const [isDepositsEnabled, setIsDepositsEnabled] = useState(false);
     const [open, setOpen] = useState(false);
 
-    const provider = new ethers.BrowserProvider(
-        window.ethereum as Eip1193Provider
-    );
 
     const getContract = async () => {
-        const provider = new ethers.BrowserProvider(window.ethereum as Eip1193Provider);
-        const signer = await provider.getSigner();
+        if(!provider) return
         return new ethers.Contract(contractAddress, contractABI, signer);
     };
 
     // Функция для депозита
     const handleDeposit = async () => {
+        if(!provider || !signer) return
+
         const contract = await getContract();
-        const signer = await provider.getSigner();
         const usdtContract = new ethers.Contract(
             USDT_CONTRACT_ADDRESS,
             ERC20_ABI,
@@ -63,25 +58,25 @@ const DepositForm = () => {
                     const  txu = await usdtContract.approve(contractAddress, usdtAmount);
                     await txu.wait();
                 }
-                const tx = await contract.deposit(usdtAddress, usdtAmount, {
+                const tx = await contract?.deposit(usdtAddress, usdtAmount, {
                     value: 0,
                 });
-                setTransactionHash(tx.hash);
+                // setTransactionHash(tx.hash);
                 await tx.wait();
                 alert("Депозит успешно выполнен");
             } else {
                 const ethAmount = ethers.parseUnits(amount, 18);
-                const tx = await contract.deposit(
+                const tx = await contract?.deposit(
                     "0x0000000000000000000000000000000000000000",
                     ethAmount,
                     { value: Number(ethAmount) }
                 );
-                setTransactionHash(tx.hash);
+                // setTransactionHash(tx.hash);
                 await tx.wait();
                 alert("Депозит успешно выполнен");
             }
 
-            const updatedBalance = await contract.getUserDeposits(walletAdress);
+            const updatedBalance = await contract?.getUserDeposits(account);
             setBalance(ethers.formatUnits(updatedBalance, 6));
         } catch (error) {
             console.error("Ошибка депозита:", error);
@@ -110,8 +105,9 @@ const DepositForm = () => {
     };
 
     const getEthBalance = async () => {
+        if(!account || !provider) return
         try {
-            const balance = await provider.getBalance(walletAdress);
+            const balance = await provider.getBalance(account);
             const balanceInEth = ethers.formatEther(balance);
             setBalance(balanceInEth);
         } catch (error) {
@@ -120,8 +116,9 @@ const DepositForm = () => {
     };
 
     const getUsdtBalance = async () => {
+        if(!provider || !signer) return
+
         try {
-            const signer = await provider.getSigner();
             const usdtContract = new ethers.Contract(
                 USDT_CONTRACT_ADDRESS,
                 ERC20_ABI,

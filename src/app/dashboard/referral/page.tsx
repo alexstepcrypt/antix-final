@@ -6,11 +6,46 @@ import Image from "next/image";
 
 import CopyIcon from "/public/svg/copy-icon.svg";
 import TetherIcon from "/public/svg/tether-icon.svg";
+import { faqItems } from "@/DashboardStages/Stage1/DashboardTop/FaqAccordion/mocdata";
+import Faq from "@/components/Faq/Faq";
+import { useReferralStore } from "@/stores/useReferralStore";
+import { generateReferralLink } from "@/utils/generateReferralLink";
+import useWalletStore from "@/stores/useWalletStore";
 
 const Referral = () => {
     const [isGenerated, setIsGenerated] = useState(false);
     const [isCopied, setIsCopied] = useState(false);
     const [refCode, setRefCode] = useState('https://antix/referral?code=YOURCODE');
+
+    const { referralLink, setReferralLink } = useReferralStore();
+    const { account, signer } = useWalletStore();
+
+    const handleGenerateReferralLink = async () => {
+        if(referralLink) {
+            setRefCode(referralLink)
+            setIsGenerated(true)
+            return
+        }
+        if (window.ethereum && account && signer) {
+            try {
+                const msg = "I am signing in to confirm my referral link";
+                const sign = await signer.signMessage(msg);
+
+                const link = await generateReferralLink({
+                    wallet: account,
+                    sign: sign,
+                    msg: msg,
+                });
+                if (link) {
+                    setReferralLink(link)
+                    setRefCode(link);
+                    setIsGenerated(true)
+                }
+            } catch (error) {
+                console.error("Ошибка авторизации:", error);
+            }
+        }
+    };
 
     const handleCopy = () => {
         navigator.clipboard.writeText(refCode).then(() => {
@@ -27,16 +62,15 @@ const Referral = () => {
             </div>
 
             <div className={styles.wrapper}>
-                <div className={styles.leftCol}></div>
-                <div className={styles.rightCol}>
-                    <div className={styles.topInfo}>
+                <div className={styles.leftCol}>
+                <div className={styles.topInfo}>
                         <h3>Thank уоu for choosing to promote Antix!</h3>
                         <p>
                             Earn up to 10% reward in USDT on purchases made
                             through your referral link!
                         </p>
                     </div>
-                    <div className={styles.info}>
+                    <div className={`${styles.infoWrapper} ${styles.codeWrapper}`}>
                         <h4>Invite Your Friend and Earn Rewards</h4>
                         <div className={styles.codeContainer}>
                             <span className={`${styles.code} ${isGenerated ? styles.genCode : ""}`}>
@@ -45,7 +79,7 @@ const Referral = () => {
                             {!isGenerated ? (
                                 <button
                                     className={styles.codeBtn}
-                                    onClick={() => setIsGenerated(true)}
+                                    onClick={handleGenerateReferralLink}
                                 >
                                     Generate Code
                                 </button>
@@ -65,7 +99,11 @@ const Referral = () => {
                             )}
                         </div>
                     </div>
-                    <div className={styles.info}>
+                    <Faq faqItems={faqItems} />
+                </div>
+                <div className={styles.rightCol}>
+
+                    <div className={styles.infoWrapper}>
                         <div className={styles.balancesWrapper}>
                             <div className={styles.balanceContainer}>
                                 <div className={styles.balanceTop}>
