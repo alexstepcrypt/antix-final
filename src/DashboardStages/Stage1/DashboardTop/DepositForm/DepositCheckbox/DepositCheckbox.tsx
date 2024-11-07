@@ -4,7 +4,7 @@ import { useState } from 'react';
 import s from './DepositCheckbox.module.scss';
 
 export const DepositCheckbox = ({ children }: { children: string }) => {
-   const [isOpen, setIsOpen] = useState(false);
+   const [isOpen, setIsOpen] = useState(true);
 
    return (
       <div

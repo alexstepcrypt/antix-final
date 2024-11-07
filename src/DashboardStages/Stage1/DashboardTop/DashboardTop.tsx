@@ -17,7 +17,7 @@ import { faqItems } from "./FaqAccordion/mocdata";
 import { FaqAccordion } from "./FaqAccordion/FaqAccordion";
 // import RaisedProgressBar from "./RaisedProgressBar/RaisedProgressBar";
 
-const DashboardTop = () => {
+const   DashboardTop = () => {
     const [openedId, setOpenedId] = useState<number | null>(null);
 
     return (
@@ -30,14 +30,12 @@ const DashboardTop = () => {
             <div className={styles.leftCol}>
                 <div className={styles.info}>
                     <h5 className={styles.infoTitle}>
-                        Get whitelisted for Stage 1
+                        Deposit to get whitelisted for Stage 1
                     </h5>
                     <p className={styles.infoText}>
-                        Make a deposit to gain priority access to the ANTIX
-                        token sale with a{" "}
-                        <span>70% discount from listing price.</span> Limited
-                        availability — act promptly to secure the best
-                        conditions.
+                        Make a deposit to gain priority access to the ANTIX token sale with{" "}
+                        <span>-72% to TGE Price.</span>{" "}
+                        Limited availability — act promptly to secure the best conditions.
                     </p>
                 </div>
                 <DashboardCard style={{ width: "100%" }}>
