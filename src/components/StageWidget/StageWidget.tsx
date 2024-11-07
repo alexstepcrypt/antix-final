@@ -137,7 +137,7 @@ export const StageWidget = () => {
                   const isOpen = new Date(targetDate) <= new Date();
 
                   if (isOpen) push("/dashboard");
-                  else document.scroll({ top: 0, behaviour: "smooth" });
+                  else document.scrollTo({ top: 0, behavior: "smooth" });
                }}
                className={s.buy}
             >
