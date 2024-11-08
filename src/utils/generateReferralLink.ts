@@ -29,7 +29,7 @@ export async function generateReferralLink({
 
         const referralCode = refcodeResponse.data.refcode;
 
-        return `https://token.antix.in/?refcode=${referralCode}`;
+        return `${window.location.origin}/?refcode=${referralCode}`;
     } catch (error) {
         console.error("Ошибка при генерации ссылки:", error);
         return null;

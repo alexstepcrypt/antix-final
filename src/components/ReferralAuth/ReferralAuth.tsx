@@ -10,7 +10,7 @@ const ReferralAuth: React.FC = () => {
     const { referralCode } = useReferralStore();
 
     useEffect(() => {
-        checkConnection();
+        if(account) checkConnection();
     }, []);
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const ReferralAuth: React.FC = () => {
             }
         };
         refAuth();
-    }, [signer, referralCode]);
+    }, [signer]);
 
     return null;
 };
