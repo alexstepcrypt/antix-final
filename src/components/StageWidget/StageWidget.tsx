@@ -90,7 +90,7 @@ export const StageWidget = () => {
                </div>
                <div className={s.wrap}>
                   <div className={s.prices}>
-                     <p>0.065 USDT</p>
+                     <p>0.030 USDT</p>
                      <Image
                         src={'/svg/prev-price.svg'}
                         alt="prev-price"
