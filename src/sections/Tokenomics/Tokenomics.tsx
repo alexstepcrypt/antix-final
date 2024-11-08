@@ -45,8 +45,8 @@ const Tokenomics = () => {
             </h4>
             <div className={styles.chartWrapper} ref={sectionRef}>
                 <div className={styles.innerChartText}>
-                    <span>1B</span>
-                    Tokens
+                    <span>1,000,000,000</span>
+                    ANTIX
                 </div>
                 <div className={styles.chart}>
                     <Image
@@ -54,6 +54,7 @@ const Tokenomics = () => {
                         alt="Chart"
                         width={530}
                         height={530}
+                        draggable={false}
                     />
                     <Image
                         src={TokenomicsLabelMobile}
