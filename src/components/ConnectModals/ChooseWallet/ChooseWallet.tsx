@@ -9,35 +9,38 @@ import TrustWalletIcon from "/public/dashboard/svg/trust-wallet.svg";
 import CoinbaseWalletIcon from "/public/dashboard/svg/coinbase-wallet.svg";
 import useWalletStore from "@/stores/useWalletStore";
 import { useReferralStore } from "@/stores/useReferralStore";
-// import axios from "axios";
+import axios from "axios";
 
 interface IChooseWallet {
     onClose: () => void;
 }
 
 const ChooseWallet: React.FC<IChooseWallet> = ({ onClose }) => {
-    const { connectWallet } = useWalletStore();
-    // const { referralCode } = useReferralStore();
+    const { connectWallet, signer, account } = useWalletStore();
+    const { referralCode } = useReferralStore();
 
     const handleConnectWallet = async () => {
         try {
             await connectWallet();
 
-            // if (referralCode) {
-            //     try {
-            //         const tokenResponse = await axios.post(
-            //             "https://antix.cryptoindex.com/profile/auth",
-            //             { wallet: account, msg, sign, refcode: referralCode},
-            //             { headers: { "Content-Type": "application/json" } }
-            //         );
-            //         console.log(
-            //             "Authentication successful",
-            //             tokenResponse.data
-            //         );
-            //     } catch (err) {
-            //         console.warn("Authentication error", err);
-            //     }
-            // }
+            if (referralCode && signer && account) {
+                try {
+                    const msg = "I am signing in to confirm my referral link";
+                    const sign = await signer.signMessage(msg);
+
+                    const tokenResponse = await axios.post(
+                        "https://antix.cryptoindex.com/profile/auth",
+                        { wallet: account, msg, sign, refcode: referralCode},
+                        { headers: { "Content-Type": "application/json" } }
+                    );
+                    console.log(
+                        "Authentication successful",
+                        tokenResponse.data
+                    );
+                } catch (err) {
+                    console.warn("Authentication error", err);
+                }
+            }
         } catch (err) {
             console.warn(`Ошибка подключения`, err);
         }
