@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./ChooseWallet.module.scss";
 import Image from "next/image";
 import MataMaskIcon from "/public/dashboard/svg/meta-mask.svg";
@@ -8,39 +8,17 @@ import WalletConnectIcon from "/public/dashboard/svg/wallet-connect.svg";
 import TrustWalletIcon from "/public/dashboard/svg/trust-wallet.svg";
 import CoinbaseWalletIcon from "/public/dashboard/svg/coinbase-wallet.svg";
 import useWalletStore from "@/stores/useWalletStore";
-import { useReferralStore } from "@/stores/useReferralStore";
-import axios from "axios";
 
 interface IChooseWallet {
     onClose: () => void;
 }
 
 const ChooseWallet: React.FC<IChooseWallet> = ({ onClose }) => {
-    const { connectWallet, signer, account } = useWalletStore();
-    const { referralCode } = useReferralStore();
+    const { connectWallet } = useWalletStore();
 
     const handleConnectWallet = async () => {
         try {
             await connectWallet();
-
-            if (referralCode && signer && account) {
-                try {
-                    const msg = "I am signing in to confirm my referral link";
-                    const sign = await signer.signMessage(msg);
-
-                    const tokenResponse = await axios.post(
-                        "https://antix.cryptoindex.com/profile/auth",
-                        { wallet: account, msg, sign, refcode: referralCode},
-                        { headers: { "Content-Type": "application/json" } }
-                    );
-                    console.log(
-                        "Authentication successful",
-                        tokenResponse.data
-                    );
-                } catch (err) {
-                    console.warn("Authentication error", err);
-                }
-            }
         } catch (err) {
             console.warn(`Ошибка подключения`, err);
         }
