@@ -18,7 +18,7 @@ import { FaqAccordion } from "./FaqAccordion/FaqAccordion";
 import Faq from '@/components/Faq/Faq';
 // import RaisedProgressBar from "./RaisedProgressBar/RaisedProgressBar";
 
-const   DashboardTop = () => {
+const DashboardTop = () => {
     const [openedId, setOpenedId] = useState<number | null>(null);
 
     return (
