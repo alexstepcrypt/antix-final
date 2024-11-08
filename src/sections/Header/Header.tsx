@@ -25,6 +25,7 @@ import LogoSmall from "/public/svg/logo-small.svg";
 import UserIcon from "/public/svg/user-icon.svg";
 import DisconnectIcon from "/public/svg/disconnect-icon.svg";
 import WalletIcon from "/public/svg/wallet-icon.svg";
+// import ReferralAuth from "@/components/ReferralAuth/ReferralAuth";
 
 interface HeaderProps {
     isDashboard?: boolean;
@@ -71,6 +72,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
 
     return (
         <>
+            {/* <ReferralAuth /> */}
             {isDisconnectModal && account && <DisConnect setIsOpen={setIsDisconnectModal} />}
             <div
                 className={`${styles.mobile} ${

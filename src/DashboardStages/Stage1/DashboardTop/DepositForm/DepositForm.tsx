@@ -24,7 +24,7 @@ const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
 const usdtAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
 
 const DepositForm = () => {
-    const { account, provider, signer } = useWalletStore();
+    const { account, provider, signer, checkConnection } = useWalletStore();
 
     const [amount, setAmount] = useState<string>("0");
     const [balance, setBalance] = useState<string | null>(null);
@@ -35,7 +35,6 @@ const DepositForm = () => {
     // const [isDepositsEnabled, setIsDepositsEnabled] = useState(false);
     const [open, setOpen] = useState(false);
     const [error, setError] = useState<string | null>(null);
-
 
     const getContract = async () => {
         if(!provider) return
@@ -124,7 +123,6 @@ const DepositForm = () => {
 
     const getUsdtBalance = async () => {
         if(!provider || !signer) return
-
         try {
             const usdtContract = new ethers.Contract(
                 USDT_CONTRACT_ADDRESS,
@@ -141,10 +139,17 @@ const DepositForm = () => {
         }
     };
 
+    const initializeBalances = async () => {
+        displayCurrency === "ETH" ? await getEthBalance() : await getUsdtBalance();
+    };
+
     useEffect(() => {
-        getUsdtBalance();
-        getContract();
+        if(account) checkConnection();
     }, []);
+    
+    useEffect(() => {
+        initializeBalances()
+    }, [provider]);
 
     return (
         <div className={styles.sendingWrapepr}>
