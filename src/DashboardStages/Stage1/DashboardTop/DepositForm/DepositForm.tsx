@@ -18,6 +18,7 @@ import { DepositPopover } from './DepositPopover/DepositPopover'
 import { DepositCheckbox } from './DepositCheckbox/DepositCheckbox'
 import useWalletStore from "@/stores/useWalletStore";
 import CurrencyButton from "@/DashboardStages/components/CurrencyButton/CurrencyButton";
+import { TgIcon } from './icons/TgIcon'
 
 const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
 const usdtAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
@@ -33,6 +34,7 @@ const DepositForm = () => {
     // const [transactionHash, setTransactionHash] = useState("");
     // const [isDepositsEnabled, setIsDepositsEnabled] = useState(false);
     const [open, setOpen] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
 
     const getContract = async () => {
@@ -89,7 +91,11 @@ const DepositForm = () => {
         if (balance) setAmount(balance);
     };
 
+    const errString = 'Not enough funds to make the deposit. Please top up your balance.';
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (balance === null || +balance < +amount) setError(errString);
+
         let value = e.target.value;
         let cleanedValue = value
             .replace(/[^0-9.,]/g, "")
@@ -175,7 +181,10 @@ const DepositForm = () => {
                     <Image src={Mastercard} alt="mastercard" width={36} height={27.78} />
                 </button>
             </div>
-            <div className={styles.sending}>
+            <div
+                style={{ border: error ? '1px solid #BF3434' : '' }}
+                className={styles.sending}
+            >
                 <div className={styles.sendingTop}>
                     <span className={styles.sendingTitle}>You send</span>
                     <div className={styles.sendingBalance}>
@@ -221,11 +230,17 @@ const DepositForm = () => {
                         />
                     )}
                 </div>
+
             </div>
+            {error && (
+                <span className={styles.err}>
+                    {error}
+                </span>
+            )}
             <button
                 className={styles.depositBtn}
                 onClick={handleDeposit}
-                disabled={balance ? Number(amount) > Number(balance) : true}
+                disabled={error !== null || balance === null || +balance < +amount}
             >
                 Deposit Now
             </button>
@@ -236,12 +251,13 @@ const DepositForm = () => {
 
             <div className={styles.questions}>
                 <p>Got questions?</p>
-                <Link
-                    href="https://t.me/antixtoken_bot"
-                    target="_blank"
+                <button
+                    className={styles.btn}
+                    onClick={() => window.open("https://t.me/antixtoken_bot", "_blank")}
                 >
+                    <TgIcon />
                     We're here to help!
-                </Link>
+                </button>
             </div>
         </div>
     );

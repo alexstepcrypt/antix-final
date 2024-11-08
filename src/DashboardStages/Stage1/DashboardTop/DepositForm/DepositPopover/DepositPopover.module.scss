@@ -21,4 +21,17 @@
       position: absolute;
       bottom: -10px;
    }
+
+   @media (max-width: 960px) {
+      top: 230px;
+   }
+
+   @media (max-width: 650px) {
+      top: 220px;
+   }
+
+   @media (max-width: 580px) {
+      right: 30px;
+   }
+
 }
