@@ -97,13 +97,10 @@ const Footer = ({ style }: { style?: CSSProperties }) => {
                            <button className={styles.mobileLink} onClick={() => scrollToId('JoinUs')}>
                               Community
                            </button>
-                           <button onClick={() => scrollToId('#')}>
-                              Cookie Policy
-                           </button>
-                           <button onClick={() => scrollToId('#')}>
+                           <button onClick={() => scrollToId('/privacy_policy.pdf')}>
                               Privacy Policy
                            </button>
-                           <button onClick={() => scrollToId('#')}>
+                           <button onClick={() => scrollToId('/terms_of_use.pdf')}>
                               Terms of Use
                            </button>
                         </div>
@@ -113,7 +110,12 @@ const Footer = ({ style }: { style?: CSSProperties }) => {
 
                <div className={styles.bootomLinkWrapper}>
                   <p className={styles.bottomInfo}>
-                     Antix Interactive Inc. All Rights Reserved
+                     {/* Antix Interactive Inc. All Rights Reserved */}
+                     A2Lab Inc.
+                  </p>
+                  <p className={`${styles.bottomInfoMobile} ${styles.bottomInfo}`}>
+                     {/* Antix Interactive Inc. All Rights Reserved */}
+                     Domicile Province of Panama, district of Panama, Betania, Vía Ricardo J. Alfaro, PH The Century Tower, office 317
                   </p>
                   <span className={styles.bottomInfo}>© 2024</span>
                </div>
@@ -127,7 +129,6 @@ const Footer = ({ style }: { style?: CSSProperties }) => {
             The website token.antix.in (hereinafter referred to as the "Website") is owned by Antix LLC, a company duly existing and organized under the laws of Saint Vincent and the Grenadines, with its registered office at Suite 305 Griffith Corporate Centre, Beachmont, Kingstown, Saint Vincent and the Grenadines, company registration code 2345 LLC 2022. The information provided on this Website is for general informational purposes only. The Website and its contents are provided "as is" and "as available" without any warranties of any kind, either expressed or implied. The content on this Website does not constitute financial, investment, or legal advice. The Website does not recommend any investment, trading, or financial instruments, and users are responsible for conducting their own due diligence before making any financial decisions. The Website’s content is purely educational and informative and should not be construed as financial advice. Cryptocurrencies are highly volatile, and investments involve risks, including potential loss of capital. The Website does not make any guarantees regarding the legal or regulatory status of cryptocurrencies in your jurisdiction.
          </div> */}
          <div className={styles.bottomTextWrapper}>
-            <span>A2Lab Inc.</span>
             Domicile Province of Panama, district of Panama, Betania, Vía Ricardo J. Alfaro, PH The Century Tower, office 317
          </div>
       </div>

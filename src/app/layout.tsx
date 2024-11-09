@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Antix: Tokensale",
     description: "Antix: Tokensale",
-    images: "https://token.antix.in/og-1.png",
+    images: "https://token.antix.in/og.png",
     site: "@antix_in",
   },
 };
@@ -69,10 +69,6 @@ export default function RootLayout({
         <meta
           property="og:image"
           content="https://token.antix.in/og.png"
-        />
-        <meta
-          property="og:image"
-          content="https://token.antix.in/og-1.png"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://token.antix.in" />

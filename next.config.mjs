@@ -6,6 +6,9 @@ const nextConfig = {
     images: {
         unoptimized: true, 
     },
+    env: {
+        CONTRACT_ADDRESS: process.env.CONTRACT_ADDRESS,
+    },
 };
 
 export default withVideos({

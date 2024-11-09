@@ -3,7 +3,6 @@
 import styles from "./DepositForm.module.scss";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from 'next/link';
 import TetherIcon from "/public/svg/tether-icon.svg";
 import EtherIcon from "/public/svg/ether-icon.svg";
 import Mastercard from '/public/dashboard/svg/mastercard-logo.svg';

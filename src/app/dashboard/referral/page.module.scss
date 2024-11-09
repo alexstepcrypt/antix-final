@@ -134,7 +134,7 @@
                 transition: color 0.3s ease;
                 background: none;
                 border: none;
-                width: 100%;
+                width: 60%;
                 outline: none;
             }
 
@@ -162,6 +162,9 @@
                 gap: 20px;
                 .codeBtn,
                 .codeBtnGenerated {
+                    width: 100%;
+                }
+                .code {
                     width: 100%;
                 }
             }
