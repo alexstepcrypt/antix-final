@@ -46,13 +46,13 @@ const DashboardTop = () => {
                         <BalanceItem
                             currencySrc={TetherIcon}
                             title="USDT"
-                            balance="1,472,231.31"
+                            balance="0.00"
                         />
 
                         <BalanceItem
                             currencySrc={EtherIcon}
                             title="ETH"
-                            balance="4,344.87"
+                            balance="0.00"
                         />
                     </div>
                 </DashboardCard>
