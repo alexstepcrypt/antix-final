@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./page.module.scss";
 import Image from "next/image";
 
@@ -24,7 +24,11 @@ const Referral = () => {
     );
 
     const { referralLink, setReferralLink } = useReferralStore();
-    const { account, signer } = useWalletStore();
+    const { account, signer, checkConnection } = useWalletStore();
+
+    useEffect(() => {
+        if (account) checkConnection();
+    }, []);
 
     const handleGenerateReferralLink = async () => {
         if (referralLink) {
@@ -32,6 +36,7 @@ const Referral = () => {
             setIsGenerated(true);
             return;
         }
+        
         if (window.ethereum && account && signer) {
             try {
                 const msg = "I am signing in to confirm my referral link";
