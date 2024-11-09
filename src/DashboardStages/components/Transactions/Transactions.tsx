@@ -34,41 +34,45 @@ export const Transactions = ({ transactions }: TransactionsProps) => {
                width: '100%',
                marginTop: 24,
                padding: 27,
-               borderRadius: 13
-            }}
-         >
-            <div className={s.table}>
-               <section className={s.date}>
-                  <h2>Date</h2>
-                  <SortIcon />
-               </section>
+               borderRadius: 13,
+            }}>
+            <div className={s.wrapper}>
+               <div className={s.table}>
+                  <h2 className={s.date}>Date</h2>
 
-               <ul>
-                  <li>Type</li>
-                  <li>Amount</li>
-                  <li>Status</li>
-                  <li>Details</li>
-               </ul>
+                  <ul>
+                     <li>Type</li>
+                     <li>Amount</li>
+                     <li>Status</li>
+                     <li>Details</li>
+                  </ul>
 
-               <span>Address</span>
-            </div>
-
-            {transactions.length > 0 ? (
-               transactions.map(({ id, ...transaction }, i) => {
-                  const is = i + 1 === transactions.length;
-
-                  return (
-                     <Fragment key={id}>
-                        <TransactionItem {...transaction} />
-                        {!is && <hr />}
-                     </Fragment>
-                  )
-               })
-            ) : (
-               <div className={s.notify}>
-                  <p>There are no transactions yet. Once new operations occur, they will be displayed in this table.</p>
+                  <span>Address</span>
                </div>
-            )}
+
+               {transactions.length > 0 ? (
+                  <div className={s.transactionsWrapper}>
+                     {transactions.map(({ id, ...transaction }, i) => {
+                        const is = i + 1 === transactions.length;
+
+                        return (
+                        <TransactionItem
+                           key={id}
+                           isLast={is}
+                           {...transaction}
+                        />
+                        );
+                     })}
+                  </div>
+               ) : (
+                  <div className={s.notify}>
+                     <p>
+                        There are no transactions yet. Once new operations
+                        occur, they will be displayed in this table.
+                     </p>
+                  </div>
+               )}
+            </div>
          </DashboardCard>
       </section>
    );

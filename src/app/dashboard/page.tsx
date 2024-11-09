@@ -1,7 +1,7 @@
 import DashboardTop from "@/DashboardStages/Stage1/DashboardTop/DashboardTop";
 import { Transactions } from '@/DashboardStages/components/Transactions/Transactions';
 // import DashboardTopStage2 from "@/DashboardStages/Stage2/DashboardTop/DashboardTop";
-// import { mocTransactions } from '@/DashboardStages/constants/transactions';
+import { mocTransactions } from '@/DashboardStages/constants/transactions';
 import s from './page.module.scss';
 
 export default function Dashboard() {
@@ -10,7 +10,7 @@ export default function Dashboard() {
             {/* STAGE 1 */}
             <DashboardTop />
             <div className={s.transactions}>
-                <Transactions transactions={[]} />
+                <Transactions transactions={mocTransactions} />
             </div>
 
             {/* STAGE 2 */}

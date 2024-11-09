@@ -8,50 +8,67 @@
       color: #fff;
    }
 
-   .notify {
-      border-radius: 9px;
-      backdrop-filter: blur(34px);
-      background-color: #FFFFFF0A;
-      padding: 20px 16px;
-      color: #FFFFFF99;
-      font-size: 12px;
-      line-height: 16px;
-      font-weight: 400;
-   }
+   .wrapper {
+      max-width: 100%;
 
-   .table {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 14px;
-      line-height: 18px;
-      font-weight: 500;
-      color: #575757;
-      margin-bottom: 15px;
-      padding: 0 15px;
+      .notify {
+         border-radius: 9px;
+         backdrop-filter: blur(34px);
+         background-color: #ffffff0a;
+         padding: 20px 16px;
+         color: #ffffff99;
+         font-size: 12px;
+         line-height: 16px;
+         font-weight: 400;
+      }
 
-      .date {
+      .table {
          display: flex;
+         justify-content: space-between;
          align-items: center;
-         gap: 8px;
-         
-         h2 {
+         font-size: 14px;
+         line-height: 18px;
+         font-weight: 500;
+         color: #575757;
+         margin-bottom: 15px;
+         padding: 0 15px;
+
+         .date {
             font-size: 14px;
             font-weight: 500;
          }
-      }
 
-      ul {
-         display: flex;
-         width: 100%;
-         max-width: 560px;
-         justify-content: space-between;
-         list-style-type: none;
+         ul {
+            display: flex;
+            width: 100%;
+            max-width: 560px;
+            justify-content: space-between;
+            list-style-type: none;
+         }
       }
    }
 
-   hr {
-      border: none;
-      border-bottom: 1px solid #FFFFFF0A;
+   @media (max-width: 1180px) {
+      .wrapper {
+         .table {
+            ul {
+               max-width: 505px;
+            }
+         }
+      }
+   }
+
+   @media (max-width: 960px) {
+      .title {
+         text-align: center;
+      }
+
+      .wrapper {
+         overflow-x: auto;
+
+         .table {
+            width: 960px;
+         }
+      }
    }
 }
