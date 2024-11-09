@@ -10,9 +10,13 @@ export const TransactionItem = ({
    details,
    status,
    type,
-}: Omit<Transaction, 'id'>) => {
+   isLast
+}: Omit<Transaction, 'id'> & { isLast: boolean }) => {
    return (
-      <ul className={s.transaction}>
+      <ul
+         style={{ borderBottom: !isLast ? '1px solid #ffffff0a' : '' }}
+         className={s.transaction}
+      >
          <li>{date}</li>
          <li>{type}</li>
          <li>

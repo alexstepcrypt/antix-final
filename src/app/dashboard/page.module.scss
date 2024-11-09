@@ -42,7 +42,6 @@
     .modalBtns {
         display: flex;
         flex-direction: column;
-        // align-items: center;
         gap: 6px;
     }
 
@@ -93,9 +92,5 @@
     
     @media (max-width: 960px) {
         padding: 0 16px;
-
-        .transactions {
-            display: none;
-        }
     }
 }
