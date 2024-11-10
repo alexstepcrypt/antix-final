@@ -40,6 +40,7 @@ const rightList = [
     {
         title: "Education",
         text: "Interactive digital teachers and educational programs. Employee training and development"
+    }
 ];
 
 const ReplacingHumans = () => {
