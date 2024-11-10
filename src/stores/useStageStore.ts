@@ -1,17 +1,15 @@
 import { create } from "zustand";
 
 interface StageState {
-    price: number | null;
-    discount: number | null;
-    setPrice: (price: number) => void;
-    setDiscount: (discount: number) => void;
+    stageData: any;
+    setStageData: (data: any) => void;
 }
 
+
 const useStageStore = create<StageState>((set) => ({
-    price: null,
-    discount: null,
-    setPrice: (price) => set({ price }),
-    setDiscount: (discount) => set({ discount }),
+  stageData: null,
+  setStageData: (data) => set({ stageData: data }),
 }));
 
 export default useStageStore;
+

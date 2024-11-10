@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from 'next/dynamic';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./DashboardTop.module.scss";
 import TetherIcon from "/public/svg/tether-icon.svg";
@@ -16,10 +16,41 @@ import { BalanceItem } from "./BalanceItem/BalanceItem";
 import { faqItems } from "./FaqAccordion/mocdata";
 import { FaqAccordion } from "./FaqAccordion/FaqAccordion";
 import Faq from '@/components/Faq/Faq';
+import useStageStore from '@/stores/useStageStore';
+import { ethers } from 'ethers';
 // import RaisedProgressBar from "./RaisedProgressBar/RaisedProgressBar";
 
+import contractABI from "@/app/abi.json";
+const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
+
 const DashboardTop = () => {
-    const [openedId, setOpenedId] = useState<number | null>(null);
+    const [depositBalance, setDepositBalance] = useState("0");
+    const { stageData} = useStageStore()
+
+    useEffect(() => {
+        if(stageData) console.log(stageData)
+    }, [stageData])
+
+
+    useEffect(() => {
+        // Load initial balance when component mounts
+        loadBalance();
+    }, []);
+
+    const loadBalance = async () => {
+        try {
+            if (typeof window.ethereum !== 'undefined') {
+                const provider = new ethers.BrowserProvider(window.ethereum);
+                const signer = await provider.getSigner();
+                const contract = new ethers.Contract(contractAddress, contractABI, signer);
+
+                const balance = await contract.getDepositBalance(signer.getAddress());
+                setDepositBalance(ethers.formatUnits(balance, 6)); 
+            }
+        } catch (error) {
+            console.error("Error loading balance:", error);
+        }
+    };
 
     return (
         <div className={styles.container}>
@@ -46,13 +77,13 @@ const DashboardTop = () => {
                         <BalanceItem
                             currencySrc={TetherIcon}
                             title="USDT"
-                            balance="0.00"
+                            balance={depositBalance}
                         />
 
                         <BalanceItem
                             currencySrc={EtherIcon}
                             title="ETH"
-                            balance="0.00"
+                            balance="0"
                         />
                     </div>
                 </DashboardCard>
@@ -86,7 +117,7 @@ const DashboardTop = () => {
                     </div>
                 </div>
 
-                <DepositForm />
+                <DepositForm loadBalance={loadBalance}/>
             </div>
             <div className={styles.mobileFaq}>
                 <Faq faqItems={faqItems} />

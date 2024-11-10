@@ -3,11 +3,13 @@ import { Transactions } from '@/DashboardStages/components/Transactions/Transact
 // import DashboardTopStage2 from "@/DashboardStages/Stage2/DashboardTop/DashboardTop";
 import { mocTransactions } from '@/DashboardStages/constants/transactions';
 import s from './page.module.scss';
+// import StageInfo from "@/hooks/StageInfo";
 
 export default function Dashboard() {
     return (
         <main className={s.main}>
             {/* STAGE 1 */}
+            {/* <StageInfo /> */}
             <DashboardTop />
             <div className={s.transactions}>
                 <Transactions transactions={mocTransactions} />

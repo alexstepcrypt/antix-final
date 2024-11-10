@@ -11,7 +11,6 @@ const ReferralHandler = () => {
             const refcode = urlParams.get("refcode");
 
             if (refcode) {
-                console.log(refcode);
                 setReferralCode(refcode); 
             }
         }

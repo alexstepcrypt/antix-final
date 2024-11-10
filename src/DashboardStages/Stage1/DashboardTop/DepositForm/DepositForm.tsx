@@ -22,74 +22,25 @@ import { TgIcon } from './icons/TgIcon'
 const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
 const usdtAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
 
-const DepositForm = () => {
+interface IDepositForm {
+    loadBalance: () => Promise<void>
+}
+
+const errString = 'Not enough funds to make the deposit. Please top up your balance.';
+
+const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
     const { account, provider, signer, checkConnection } = useWalletStore();
 
     const [amount, setAmount] = useState<string>("0");
     const [balance, setBalance] = useState<string | null>(null);
-    const [displayCurrency, setDisplayCurrency] = useState<"ETH" | "USDT" | "CARD">(
-        "USDT"
-    );
-    // const [transactionHash, setTransactionHash] = useState("");
-    // const [isDepositsEnabled, setIsDepositsEnabled] = useState(false);
+    const [displayCurrency, setDisplayCurrency] = useState<"ETH" | "USDT" | "CARD">("USDT");
     const [open, setOpen] = useState(false);
     const [error, setError] = useState<string | null>(null);
-
-    const getContract = async () => {
-        if(!provider) return
-        return new ethers.Contract(contractAddress, contractABI, signer);
-    };
-
-    // Функция для депозита
-    const handleDeposit = async () => {
-        if(!provider || !signer) return
-
-        const contract = await getContract();
-        const usdtContract = new ethers.Contract(
-            USDT_CONTRACT_ADDRESS,
-            ERC20_ABI,
-            signer
-        );
-
-        const usdtAmount = ethers.parseUnits(amount, 6);
-
-        try {
-            if (displayCurrency === "USDT") {
-                if (await usdtContract.allowance(signer.address, contractAddress) < usdtAmount){
-                    const  txu = await usdtContract.approve(contractAddress, usdtAmount);
-                    await txu.wait();
-                }
-                const tx = await contract?.deposit(usdtAddress, usdtAmount, {
-                    value: 0,
-                });
-                // setTransactionHash(tx.hash);
-                await tx.wait();
-                alert("Депозит успешно выполнен");
-            } else {
-                const ethAmount = ethers.parseUnits(amount, 18);
-                const tx = await contract?.deposit(
-                    "0x0000000000000000000000000000000000000000",
-                    ethAmount,
-                    { value: Number(ethAmount) }
-                );
-                // setTransactionHash(tx.hash);
-                await tx.wait();
-                alert("Депозит успешно выполнен");
-            }
-
-            const updatedBalance = await contract?.getUserDeposits(account);
-            setBalance(ethers.formatUnits(updatedBalance, 6));
-        } catch (error) {
-            console.error("Ошибка депозита:", error);
-            alert("Транзакция не удалась");
-        }
-    };
 
     const handleMax = (balance: string) => {
         if (balance) setAmount(balance);
     };
 
-    const errString = 'Not enough funds to make the deposit. Please top up your balance.';
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (balance === null || +balance < +amount) setError(errString);
@@ -149,6 +100,59 @@ const DepositForm = () => {
     useEffect(() => {
         initializeBalances()
     }, [provider]);
+    const [transactionInProgress, setTransactionInProgress] = useState(false);
+
+    const handleDeposit = async () => {
+        if (!amount || transactionInProgress) return;
+    
+        try {
+            setTransactionInProgress(true);
+            
+            if (typeof window.ethereum !== 'undefined') {
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                const provider = new ethers.BrowserProvider(window.ethereum);
+                const signer = await provider.getSigner();
+                const contract = new ethers.Contract(contractAddress, contractABI, signer);
+    
+                if (displayCurrency === "USDT") {
+                    const usdtContract = new ethers.Contract(USDT_CONTRACT_ADDRESS, ERC20_ABI, signer);
+                    const usdtAmount = ethers.parseUnits(amount, 6);
+    
+                    // Проверяем, достаточно ли разрешения для контракта
+                    const allowance = await usdtContract.allowance(signer.address, contractAddress);
+                    if (allowance < usdtAmount) {
+                        const approveTx = await usdtContract.approve(contractAddress, usdtAmount);
+                        await approveTx.wait(); // Ожидание подтверждения транзакции approve
+                    }
+    
+                    // Выполняем транзакцию депозита для USDT
+                    const transaction = await contract.deposit(usdtAddress, usdtAmount, { gasLimit: 100000 });
+                    await transaction.wait(); // Ожидание подтверждения депозита
+    
+                } else {
+                    const ethAmount = ethers.parseUnits(amount, 18); 
+    
+                    // Выполняем транзакцию депозита для ETH
+                    const transaction = await contract.deposit(
+                        "0x0000000000000000000000000000000000000000", 
+                        ethAmount,
+                        { value: ethAmount, gasLimit: 100000 }
+                    );
+                    await transaction.wait(); 
+                }
+    
+                await loadBalance();
+                setAmount(''); 
+                alert("Депозит успешно выполнен");
+            }
+        } catch (error) {
+            console.error("Ошибка депозита:", error);
+            alert("Транзакция не удалась");
+        } finally {
+            setTransactionInProgress(false);
+        }
+    };
+    
 
     return (
         <div className={styles.sendingWrapepr}>
@@ -244,7 +248,7 @@ const DepositForm = () => {
             <button
                 className={styles.depositBtn}
                 onClick={handleDeposit}
-                disabled={error !== null || balance === null || +balance < +amount}
+                disabled={error !== null || balance === null || +balance < +amount || transactionInProgress}
             >
                 Deposit Now
             </button>
