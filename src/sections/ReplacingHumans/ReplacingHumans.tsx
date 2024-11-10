@@ -39,8 +39,7 @@ const rightList = [
     },
     {
         title: "Education",
-        text: "AI-driven avatars will transform fashion with customizable, always-available digital models. No more costly shoots or limits—adapt to any style instantly, making fashion faster and more innovative than ever.",
-    },
+        text: "Interactive digital teachers and educational programs. Employee training and development"
 ];
 
 const ReplacingHumans = () => {
