@@ -68,6 +68,17 @@
             }
         }
     }
+
+    @media (max-width: 640px) {
+        .userFlowLegend {
+            & > img:nth-child(2) {
+                display: inline;
+                width: 60px;
+                height: 60px;
+            }
+        }
+    }
+
     @media screen and (max-width: 480px) {
         .userFlowLegend {
             gap: 16px;
@@ -91,15 +102,6 @@
             img {
                 width: 508px;
                 height: 568px;
-            }
-        }
-    }
-
-    @media (max-width: 640px) {
-        .userFlowLegend {
-            & > img:nth-child(2) {
-                width: 60px;
-                height: 60px;
             }
         }
     }
