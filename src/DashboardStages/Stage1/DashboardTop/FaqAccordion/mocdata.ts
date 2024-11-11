@@ -1,22 +1,22 @@
 export const faqItems = [
    {
       id: 1,
-      title: 'How can I acquire ANTIX tokens?',
-      content: 'You can acquire ANTIX tokens through token sales, on exchanges where ANTIX is listed, or by participating in various activities and rewards programs on the Antix platform.'
+      title: 'What is a Deposit?',
+      content: 'A deposit secures your place in Stage 1 of the token sale, giving you access to ANTIX tokens at the best price. Tokens are limited in this stage and offered on a first-come, first-served basis.'
    },
    {
       id: 2,
-      title: 'What can I do with ANTIX tokens on the platform?',
-      content: 'ANTIX tokens can be used for transactions on the marketplace, staking for rewards, participating in governance decisions, and accessing exclusive features and content within the Antix ecosystem.'
+      title: 'When Can I Purchase Tokens?',
+      content: 'Token purchases will open at the start of Stage 1. Refer to the timer on the main page and dashboard, and set a reminder with our Telegram bot to ensure you don’t miss out.'
    },
    {
       id: 3,
-      title: 'What is the purpose of the ANTIX token?',
-      content: 'The ANTIX token is the platform\'s utility token, facilitating activities within the ecosystem, including marketplace interactions and NFT auctions.'
+      title: 'When Will I Receive My Tokens?',
+      content: 'ANTIX tokens have a lock-up and vesting schedule to manage supply pressure. Initial unlocks of 5-10% (depending on purchase stage) will occur at the Token Generation Event (TGE).'
    },
    {
       id: 4,
-      title: 'How does Antix ensure user security and privacy?',
-      content: 'Antix is committed to implementing robust privacy and security measures to protect user data and maintain a safe environment on its platform.'
+      title: 'More Questions?',
+      content: 'Reach out to us anytime through our Telegram support bot for additional assistance.'
    },
 ]
