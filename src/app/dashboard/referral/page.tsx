@@ -8,13 +8,40 @@ import CopyIcon from "/public/svg/copy-icon.svg";
 import TetherIcon from "/public/svg/tether-icon.svg";
 import ETHIcon from "/public/svg/ether-icon.svg";
 import WalletIcon from "/public/svg/white-wallet-icon.svg";
-import { faqItems } from "@/DashboardStages/Stage1/DashboardTop/FaqAccordion/mocdata";
 import Faq from "@/components/Faq/Faq";
 import { useReferralStore } from "@/stores/useReferralStore";
 import { generateReferralLink } from "@/utils/generateReferralLink";
 import useWalletStore from "@/stores/useWalletStore";
 import { formatAddress } from "@/utils/utils";
 import CurrencyButton from "@/DashboardStages/components/CurrencyButton/CurrencyButton";
+
+const referralFaq = [
+    {
+        id: 1,
+        title: "How does the referral program work?",
+        content: "The Antix referral program lets users earn rewards by inviting friends to join the platform. For each successful referral, both the referrer and the new user may receive rewards."
+    },
+    {
+        id: 2,
+        title: "How do I refer someone?",
+        content: "You can refer friends by sharing your unique referral link, found in your Antix account. When they join and meet specific conditions, you both benefit."
+    },
+    {
+        id: 3,
+        title: "Is there a limit to the rewards I can earn?",
+        content: "There may be limits to rewards based on the program’s rules, but users are encouraged to refer as many people as possible for maximum benefits."
+    },
+    {
+        id: 4,
+        title: "When will I receive my referral rewards?",
+        content: "Rewards are typically credited after the referred user completes specific actions or meets certain requirements."
+    },
+    {
+        id: 5,
+        title: "What are the conditions for a referral to be valid?",
+        content: "Referrals are usually considered valid when the invited person completes registration and fulfills initial activity criteria on the Antix platform."
+    }
+];
 
 const Referral = () => {
     const [isGenerated, setIsGenerated] = useState(false);
@@ -121,7 +148,7 @@ const Referral = () => {
                         </div>
                     </div>
                     <div className={styles.faq}>
-                        <Faq faqItems={faqItems} />
+                        <Faq faqItems={referralFaq} />
                     </div>
                 </div>
                 <div className={styles.rightCol}>
