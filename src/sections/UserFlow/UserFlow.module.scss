@@ -42,8 +42,7 @@
                 height: 118px;
             }
             & > img:nth-child(2) {
-                width: 60px;
-                height: 60px;
+                display: none;
             }
         }
 
@@ -92,6 +91,15 @@
             img {
                 width: 508px;
                 height: 568px;
+            }
+        }
+    }
+
+    @media (max-width: 640px) {
+        .userFlowLegend {
+            & > img:nth-child(2) {
+                width: 60px;
+                height: 60px;
             }
         }
     }
