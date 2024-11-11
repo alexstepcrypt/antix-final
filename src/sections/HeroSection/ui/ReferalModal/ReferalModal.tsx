@@ -8,21 +8,20 @@ import Image from "next/image";
 import CloseIcon from "/public/dashboard/svg/close-icon.svg";
 import CopyIcon from "/public/svg/copy-icon.svg";
 import ChooseWallet from "@/components/ConnectModals/ChooseWallet/ChooseWallet";
-import { ethers } from "ethers";
 import { generateReferralLink } from "@/utils/generateReferralLink";
-import { useReferralStore } from "@/stores/useReferralStore";
 import useWalletStore from "@/stores/useWalletStore";
+import { DepositPopover } from "@/DashboardStages/Stage1/DashboardTop/DepositForm/DepositPopover/DepositPopover";
 
 interface IReferalModal {
     onClose: () => void;
 }
 
 const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
-    const { account, signer } = useWalletStore();
-    const { referralLink, setReferralLink } = useReferralStore();
-    const [stage, setStage] = useState<0 | 1 | 2>(referralLink === "" ? 0 : 1);
+    const { account, signer, checkConnection } = useWalletStore();
+    const [stage, setStage] = useState<0 | 1 | 2>(0);
     const [isCopied, setIsCopied] = useState(false);
-    const [refCode, setRefCode] = useState(referralLink);
+    const [refCode, setRefCode] = useState("");
+    const [openPopover, setOpenPopover] = useState(false);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(refCode).then(() => {
@@ -32,14 +31,16 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
     };
 
     useEffect(() => {
-        if(referralLink && account) {
-            setStage(1)
-        } else {
+        if(account) {
             setStage(0)
         }
     }, [account]);
 
-    const handleGenerateReferralLink = async () => {
+    useEffect(() => {
+        checkConnection()
+    }, []);
+
+    const handleGenerateReferralLink = async () => {        
         if (window.ethereum && account && signer) {
             try {
                 const msg = "I am signing in to confirm my referral link";
@@ -51,7 +52,6 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                     msg: msg,
                 });
                 if (link) {
-                    setReferralLink(link)
                     setRefCode(link);
                     setStage(1);
                 }
@@ -168,9 +168,20 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                             <span>0.00</span>
                         </div>
 
-                        <button className={styles.claimBtn}>
-                            Claim Referral Earnings
-                        </button>
+                        <div className={styles.claimBtnWrapper}>
+                            <DepositPopover
+                                style={{bottom: "120%", top: "auto", width: "200%", left: "-50%"}}
+                                open={openPopover}
+                                text="Claim available 1-2 days after each stage ends"
+                            />
+                            <button
+                                className={styles.claimBtn}
+                                onClick={() => setOpenPopover((p) => !p)}
+                                onBlur={() => setOpenPopover(false)}
+                            >
+                                Claim Referral Earnings
+                            </button>
+                        </div>
                     </div>
                 </div>
             </>

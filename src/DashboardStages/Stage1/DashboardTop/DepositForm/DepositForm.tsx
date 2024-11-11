@@ -94,7 +94,7 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
     };
 
     useEffect(() => {
-        if(account) checkConnection();
+        checkConnection();
     }, []);
     
     useEffect(() => {

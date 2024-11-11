@@ -176,6 +176,11 @@
             }
         }
 
+        .claimBtnWrapper {
+            position: relative;
+            z-index: 10;
+        }
+
         .claimBtn {
             width: 100%;
             font-size: 14px;
