@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import type { Dispatch, SetStateAction } from 'react';
+import type { CSSProperties, Dispatch, SetStateAction } from 'react';
 
 import { FadeInNew } from '@/components/FadeInNew/FadeInNew';
 import arrow from '/public/dashboard/svg/arrow-down.svg';
@@ -8,13 +8,14 @@ import s from './DepositPopover.module.scss';
 interface PopoverProps {
    open: boolean;
    text: string;
+   style?: CSSProperties
 }
 
-export const DepositPopover = ({ text, open }: PopoverProps) => {
+export const DepositPopover = ({ text, open, style }: PopoverProps) => {
    return (
       open && (
          <FadeInNew direction="down" distance={15}>
-            <div className={s.wrapper}>
+            <div style={style} className={s.wrapper}>
                <div className={s.content}>
                   <p>{text}</p>
                </div>

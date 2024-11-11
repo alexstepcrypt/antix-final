@@ -9,7 +9,6 @@ import TetherIcon from "/public/svg/tether-icon.svg";
 import ETHIcon from "/public/svg/ether-icon.svg";
 import WalletIcon from "/public/svg/white-wallet-icon.svg";
 import Faq from "@/components/Faq/Faq";
-import { useReferralStore } from "@/stores/useReferralStore";
 import { generateReferralLink } from "@/utils/generateReferralLink";
 import useWalletStore from "@/stores/useWalletStore";
 import { formatAddress } from "@/utils/utils";
@@ -49,21 +48,13 @@ const Referral = () => {
     const [refCode, setRefCode] = useState(
         "https://antix/referral?code=YOURCODE"
     );
-
-    const { referralLink, setReferralLink } = useReferralStore();
     const { account, signer, checkConnection } = useWalletStore();
 
     useEffect(() => {
-        if (account) checkConnection();
+        checkConnection();
     }, []);
 
-    const handleGenerateReferralLink = async () => {
-        if (referralLink) {
-            setRefCode(referralLink);
-            setIsGenerated(true);
-            return;
-        }
-        
+    const handleGenerateReferralLink = async () => {        
         if (window.ethereum && account && signer) {
             try {
                 const msg = "I am signing in to confirm my referral link";
@@ -75,7 +66,6 @@ const Referral = () => {
                     msg: msg,
                 });
                 if (link) {
-                    setReferralLink(link);
                     setRefCode(link);
                     setIsGenerated(true);
                 }

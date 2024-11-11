@@ -57,8 +57,15 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
 
     const toggleCurrency = () => {
         setDisplayCurrency((prev) => (prev === "ETH" ? "USDT" : "ETH"));
-        displayCurrency === "ETH" ? getEthBalance() : getUsdtBalance();
     };
+    
+    useEffect(() => {
+        if (displayCurrency === "ETH") {
+            getEthBalance();
+        } else {
+            getUsdtBalance();
+        }
+    }, [displayCurrency]);
 
     const getEthBalance = async () => {
         if(!account || !provider) return
@@ -94,7 +101,7 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
     };
 
     useEffect(() => {
-        if(account) checkConnection();
+        checkConnection();
     }, []);
     
     useEffect(() => {
