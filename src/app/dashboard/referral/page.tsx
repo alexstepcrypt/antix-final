@@ -211,7 +211,7 @@ const Referral = () => {
                         </button>
                     </div>
                     <div className={styles.mobileFaq}>
-                        <Faq faqItems={faqItems} />
+                        <Faq faqItems={referralFaq} />
                     </div>
                 </div>
             </div>
