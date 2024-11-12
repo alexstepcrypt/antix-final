@@ -4,11 +4,34 @@
    flex-direction: column;
    gap: 60px;
 
-   .title {
-      font-size: 3.75rem;
-      color: #f0f0f0;
-      line-height: 100%;
-      font-weight: 500;
+   .wrapper {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+
+      .title {
+         font-size: 3.75rem;
+         color: #f0f0f0;
+         line-height: 100%;
+         font-weight: 500;
+      }
+
+      .founderWrapper {
+         display: flex;
+         align-items: center;
+         gap: 12px;
+
+         .founder {
+            cursor: pointer;
+         }
+
+         .word {
+            color: #AFAFAF;
+            font-size: 14px;
+            line-height: 21px;
+            font-weight: 400;
+         }
+      }
    }
 
    .description {
@@ -44,10 +67,13 @@
       max-width: 290px;
       gap: 40px;
 
-      .title {
-         font-size: 43px;
-         line-height: 42.67px;
+      .wrapper {
+         .title {
+            font-size: 43px;
+            line-height: 42.67px;
+         }
       }
+
       .description {
          font-size: 10px;
          line-height: 14.93px;
@@ -74,9 +100,5 @@
             }
          }
       }
-   }
-   @media screen and (max-width: 960px) {
-   }
-   @media screen and (max-width: 480px) {
    }
 }
