@@ -19,15 +19,23 @@ import Awords4 from "/public/svg/team/ico4.svg";
 import Awords5 from "/public/svg/team/top10.svg";
 import Awords6 from "/public/svg/team/ico5.svg";
 
-import Bg from "/public/images/hero-timer-bg.png";
 import BgHead from "/public/images/hero-timer-bg-head.png";
 import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 import Link from "next/link";
 import { useState } from "react";
 import ReferalModal from "./ui/ReferalModal/ReferalModal";
+import useWalletStore from '@/stores/useWalletStore'
+import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar'
 
 const HeroSection = () => {
     const [isRefModal, setIsRefModal] = useState(false);
+    const { account } = useWalletStore();
+
+    // DATES FOR CONDITIONS BETWEEN STAGES
+    const stage1DateStr = "2024-11-20T13:00:00.000Z";
+    const stage1Date = new Date(stage1DateStr);
+    const currentDate = new Date();
+
     return (
         <section className={styles.wrapper} id="Hero">
             <video
@@ -46,7 +54,10 @@ const HeroSection = () => {
             {isRefModal && (
                 <ReferalModal onClose={() => setIsRefModal(false)} />
             )}
-            <div className={styles.container}>
+            <div
+                style={{ alignItems: currentDate >= stage1Date ? 'start' : 'center' }}
+                className={styles.container}
+            >
                 <div className={styles.mobileBg1} />
                 <div className={styles.mobileBg2} />
                 <div className={styles.leftColumn}>
@@ -192,26 +203,91 @@ const HeroSection = () => {
                         </div>
                     </div>
 
-                    <div
-                        className={styles.timer}
-                        style={{ backgroundImage: `url(${Bg.src})` }}
-                    >
-                        <span className={styles.title}>
-                            Deposits open in
-                        </span>
+                    <div className={styles.timer}>
+                        <div className={styles.timerTitle}>
+                            {currentDate <= stage1Date ? (
+                                <section>
+                                    <h2 className={styles.timerHeading}>Make Deposit</h2>
+                                    <p className={styles.timerDesc}>To secure your access to Stage 1</p>
+                                </section>
+                            ) : (
+                                <h2 className={styles.timerHeading}>Stage 1</h2>
+                            )}
+
+                            <div className={styles.discount}>
+                                <p>-79%</p>
+                            </div>
+                        </div>
+
+                        <div className={styles.timerContainer}>
+                            <span className={styles.title}>
+                                Stage 1 starts in
+                            </span>
+
+                            <HeroTimer
+                                targetDate={new Date(stage1DateStr)}
+                            />
+                        </div>
                         {/* <div className={styles.loader}>
                             <LoaderSvg percent={0} />
                         </div> */}
-                        <HeroTimer
-                            targetDate={new Date("2024-11-14T16:00:00Z")}
-                        />
+
+                        <section className={styles.stagePrice}>
+                            <h3>Stage 1 price</h3>
+
+                            <div className={styles.prices}>
+                                <p>0.030 USDT</p>
+                                <p className={styles.prevPrice}>0.14 USDT</p>
+                            </div>
+                        </section>
+
+                        {currentDate >= stage1Date && (
+                            <div className={styles.progress}>
+                                <RaisedProgressBar
+                                    segments={15}
+                                    currentAmount={4201470}
+                                    targetAmount={4800000}
+                                />
+                            </div>
+                        )}
+
+                        {currentDate >= stage1Date && ( 
+                            <p className={styles.warn}>
+                                <span>Access is limited</span>—don’t miss the chance to participate on the best terms
+                            </p>
+                        )}
+
                         <Link
+                            style={{ marginTop: currentDate <= stage1Date ? 36 : 12 }}
                             className={styles.timerButton}
-                            href="https://t.me/antixtoken_bot"
-                            target="_blank"
+                            href="/dashboard"
                         >
-                            Notify me about the start
+                            {account ? 'Buy Now' : 'Connect Wallet'}
                         </Link>
+
+                        <span className={styles.suggestion}>
+                            and get -79% to TGE Price
+                        </span>
+
+                        <div className={styles.pays}>
+                            <h3 className={styles.paysTitle}>Pay with</h3>
+                            
+                            <div className={styles.paysCards}>
+                                <div className={styles.paysCard}>
+                                    <Image src={'/svg/ether-icon.svg'} alt="ETH" width={24} height={24} />
+                                    <span>ETH</span>
+                                </div>
+                                <div className={styles.paysCard}>
+                                    <Image src={'/svg/tether-icon.svg'} alt="ETH" width={24} height={24} />
+                                    <span>USDT</span>
+                                </div>
+                                <div className={styles.paysCard}>
+                                    <Image src={'/dashboard/svg/visa-logo.svg'} alt="visa" width={46.5} height={15.28} />
+                                    <Image src={'/dashboard/svg/mastercard-logo.svg'} alt="mastercard" width={36} height={27.78} />
+                                </div>
+                            </div>
+                        </div>
+
                         <button
                             onClick={() => setIsRefModal(true)}
                             className={styles.refBtn}
