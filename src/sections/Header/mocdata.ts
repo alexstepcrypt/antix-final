@@ -34,7 +34,7 @@ export const linksDashboard: linksType[] = [
     {
         label: "Claim",
         href: "",
-        disabled: true,
+        disabled: false,
     },
     {
         label: "Referral",

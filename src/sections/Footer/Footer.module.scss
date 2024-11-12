@@ -242,6 +242,7 @@
     .linkWrapper {
         display: flex;
         flex-direction: column;
+        text-wrap: nowrap;
 
         .mobileLink {
             display: none;
@@ -252,6 +253,7 @@
             min-width: fit-content;
             width: fit-content;
             text-wrap: nowrap;
+            white-space: nowrap;
             margin-top: 8px;
             background: transparent;
             border: none;

@@ -21,7 +21,8 @@ import { ethers } from 'ethers';
 // import RaisedProgressBar from "./RaisedProgressBar/RaisedProgressBar";
 
 import contractABI from "@/app/abi.json";
-const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
+import { CONTRACT_ADDRESS } from '@/utils/constants';
+// const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
 
 const DashboardTop = () => {
     const [depositBalance, setDepositBalance] = useState("0");
@@ -42,7 +43,7 @@ const DashboardTop = () => {
             if (typeof window.ethereum !== 'undefined') {
                 const provider = new ethers.BrowserProvider(window.ethereum);
                 const signer = await provider.getSigner();
-                const contract = new ethers.Contract(contractAddress, contractABI, signer);
+                const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI, signer);
 
                 const balance = await contract.getDepositBalance(signer.getAddress());
                 setDepositBalance(ethers.formatUnits(balance, 6)); 

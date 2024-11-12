@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import type { CSSProperties, Dispatch, SetStateAction } from 'react';
+import type { CSSProperties } from 'react';
 
 import { FadeInNew } from '@/components/FadeInNew/FadeInNew';
 import arrow from '/public/dashboard/svg/arrow-down.svg';

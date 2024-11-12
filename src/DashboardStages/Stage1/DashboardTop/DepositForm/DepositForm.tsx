@@ -9,6 +9,7 @@ import Mastercard from '/public/dashboard/svg/mastercard-logo.svg';
 import Visa from '/public/dashboard/svg/visa-logo.svg';
 import { ethers } from "ethers";
 import {
+    CONTRACT_ADDRESS,
     ERC20_ABI,
     USDT_CONTRACT_ADDRESS,
 } from "@/utils/constants";
@@ -18,9 +19,7 @@ import { DepositCheckbox } from './DepositCheckbox/DepositCheckbox'
 import useWalletStore from "@/stores/useWalletStore";
 import CurrencyButton from "@/DashboardStages/components/CurrencyButton/CurrencyButton";
 import { TgIcon } from './icons/TgIcon'
-
-const contractAddress = "0x05beb3e8eef142C659b0e2081f9Cf734636df1C6";
-const usdtAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
+import { saveTransaction } from "@/utils/saveTransaction";
 
 interface IDepositForm {
     loadBalance: () => Promise<void>
@@ -36,6 +35,8 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
     const [displayCurrency, setDisplayCurrency] = useState<"ETH" | "USDT" | "CARD">("USDT");
     const [open, setOpen] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [transactionHash, setTransactionHash] = useState("");
+    const [transactionInProgress, setTransactionInProgress] = useState(false);
 
     const handleMax = (balance: string) => {
         if (balance) setAmount(balance);
@@ -106,8 +107,7 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
     
     useEffect(() => {
         initializeBalances()
-    }, [provider]);
-    const [transactionInProgress, setTransactionInProgress] = useState(false);
+    }, [provider, signer, balance]);
 
     const handleDeposit = async () => {
         if (!amount || transactionInProgress) return;
@@ -119,23 +119,23 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
                 await window.ethereum.request({ method: 'eth_requestAccounts' });
                 const provider = new ethers.BrowserProvider(window.ethereum);
                 const signer = await provider.getSigner();
-                const contract = new ethers.Contract(contractAddress, contractABI, signer);
+                const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI, signer);
     
                 if (displayCurrency === "USDT") {
                     const usdtContract = new ethers.Contract(USDT_CONTRACT_ADDRESS, ERC20_ABI, signer);
                     const usdtAmount = ethers.parseUnits(amount, 6);
     
                     // Проверяем, достаточно ли разрешения для контракта
-                    const allowance = await usdtContract.allowance(signer.address, contractAddress);
+                    const allowance = await usdtContract.allowance(signer.address, CONTRACT_ADDRESS);
                     if (allowance < usdtAmount) {
-                        const approveTx = await usdtContract.approve(contractAddress, usdtAmount);
+                        const approveTx = await usdtContract.approve(CONTRACT_ADDRESS, usdtAmount);
                         await approveTx.wait(); // Ожидание подтверждения транзакции approve
                     }
     
                     // Выполняем транзакцию депозита для USDT
-                    const transaction = await contract.deposit(usdtAddress, usdtAmount, { gasLimit: 100000 });
+                    const transaction = await contract.deposit(USDT_CONTRACT_ADDRESS, usdtAmount, { gasLimit: 100000 });
+                    setTransactionHash(transaction.hash);
                     await transaction.wait(); // Ожидание подтверждения депозита
-    
                 } else {
                     const ethAmount = ethers.parseUnits(amount, 18); 
     
@@ -145,12 +145,22 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
                         ethAmount,
                         { value: ethAmount, gasLimit: 100000 }
                     );
+                    setTransactionHash(transaction.hash);
                     await transaction.wait(); 
                 }
     
                 await loadBalance();
                 setAmount(''); 
-                alert("Депозит успешно выполнен");
+            
+                await saveTransaction({
+                    hash: transactionHash,
+                    stage: "1",
+                    status: "SUCCESS",
+                    type: "DEPOSIT",
+                    token: displayCurrency,
+                    amount: Number(amount),
+                    details: "Deposit transaction"
+                })
             }
         } catch (error) {
             console.error("Ошибка депозита:", error);
