@@ -14,14 +14,15 @@ const RaisedProgressBar: React.FC<ProgressBarProps> = ({
 }) => {
     const percentage = Math.min((currentAmount / targetAmount) * 100, 100);
     const filledSegments = Math.round((percentage / 100) * segments);
+    const regex = /\B(?=(\d{3})+(?!\d))/g;
 
     return (
         <div className={styles.progressBarContainer}>
             <p>
                 USDT Raised:{" "}
                 <span>
-                    ${currentAmount.toLocaleString()} / $
-                    {targetAmount.toLocaleString()}
+                    ${currentAmount.toString().replace(regex, ',')} / $
+                    {targetAmount.toString().replace(regex, ',')}
                 </span>
             </p>
             <div className={styles.progressBarSegments}>
