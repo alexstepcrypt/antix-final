@@ -26,6 +26,8 @@ import UserIcon from "/public/svg/user-icon.svg";
 import DisconnectIcon from "/public/svg/disconnect-icon.svg";
 import WalletIcon from "/public/svg/wallet-icon.svg";
 import ReferralAuth from "@/components/ReferralAuth/ReferralAuth";
+import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
+import arrow from '/public/dashboard/svg/arrow-down.svg';
 
 interface HeaderProps {
     isDashboard?: boolean;
@@ -35,6 +37,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [isDisconnectModal, setIsDisconnectModal] = useState(false);
+    const [openPopover, setOpenPopover] = useState(false);
 
     const headerRef = useRef<HTMLDivElement | null>(null);
     const { account  } = useWalletStore();
@@ -111,6 +114,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                                 </div>
                             )}
                             {link.label}
+                            {link.label.toLowerCase() === "claim" && <span>Claiming page will be available after the TGE</span>}
                         </button>
                     ))}
                 </div>
@@ -144,14 +148,40 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                 </div>
                 <div className={styles.linksContainer}>
                     {linksList.map((link) => (
-                        <button
-                            className={`${styles.link} ${link.href === pathName ? styles.linkActive : ""}`}
-                            key={link.label}
-                            onClick={() => handleClick(link.href)}
-                            disabled={link.disabled}
-                        >
-                            {link.label}
-                        </button>
+                        <>
+                            {openPopover && link.label.toLowerCase() === "claim" && (
+                                <FadeInNew direction="up" distance={15}>
+                                    <div className={styles.popover}>
+                                        <Image
+                                            width={26}
+                                            height={26}
+                                            src={arrow}
+                                            loading="lazy"
+                                            className={styles.popoverIcon}
+                                            alt="popover-arrow"
+                                        />
+                                        <div className={styles.popoverContent}>
+                                            <p>
+                                                Claiming page will be available
+                                                after the TGE
+                                            </p>
+                                        </div>
+                                    </div>
+                                </FadeInNew>
+                            )}
+                            <button
+                                className={`${styles.link} ${link.href === pathName ? styles.linkActive : ""}`}
+                                key={link.label}
+                                onClick={() => {
+                                    handleClick(link.href)
+                                    setOpenPopover(true)
+                                }}
+                                onBlur={() => setOpenPopover(false)}
+                                disabled={link.disabled}
+                                >
+                                {link.label}
+                            </button>
+                        </>
                     ))}
                 </div>
                 <div className={styles.connectContainer}>
