@@ -42,7 +42,7 @@ export const TeamPreview = () => {
                      height={80}
                      loading="lazy"
                      draggable={false}
-                     onClick={() => setOpenVideo("https://www.youtube.com/watch?v=CgoZc2ADV-8"))}
+                     onClick={() => setOpenVideo("https://www.youtube.com/watch?v=CgoZc2ADV-8")}
                      className={s.founder}
                   />
 
