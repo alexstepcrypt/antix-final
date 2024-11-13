@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import useWalletStore from "@/stores/useWalletStore";
 import { useReferralStore } from "@/stores/useReferralStore";
+import { auth } from "@/utils/auth";
 
 const trackReferralReward = async (account: string, refcode: string) => {
     try {
@@ -35,19 +36,8 @@ const ReferralAuth: React.FC = () => {
         const refAuth = async () => {
             if (referralCode && signer && account) {
                 try {
-                    const msg = "I am signing in to confirm my referral link";
-                    const sign = await signer.signMessage(msg);
-
                     // Отправка данных для авторизации и регистрации реферального кода
-                    const tokenResponse = await axios.post(
-                        "https://antix.cryptoindex.com/profile/auth",
-                        { wallet: account, msg, sign, refcode: referralCode },
-                        { headers: { "Content-Type": "application/json" } }
-                    );
-                    console.log(
-                        "Authentication successful",
-                        tokenResponse.data
-                    );
+                    const tokenResponse = await auth({ wallet: account, signer, refcode: referralCode })
 
                     // Пожертвование реферального бонуса (до 10%) на основе покупок
                     await trackReferralReward(account, referralCode);

@@ -57,13 +57,9 @@ const Referral = () => {
     const handleGenerateReferralLink = async () => {        
         if (window.ethereum && account && signer) {
             try {
-                const msg = "I am signing in to confirm my referral link";
-                const sign = await signer.signMessage(msg);
-
                 const link = await generateReferralLink({
                     wallet: account,
-                    sign: sign,
-                    msg: msg,
+                    signer
                 });
                 if (link) {
                     setRefCode(link);

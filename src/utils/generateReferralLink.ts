@@ -1,31 +1,29 @@
 import axios from "axios";
+import { JsonRpcSigner } from "ethers";
+import { auth } from "./auth";
 
 type Props = {
     wallet: string;
-    msg: string;
-    sign: string;
+    signer: JsonRpcSigner;
 };
 
 export async function generateReferralLink({
     wallet,
-    sign,
-    msg,
+    signer,
 }: Props): Promise<string | null> {
     if (!wallet) throw new Error("Wallet address is required");
 
     try {
-        const tokenResponse = await axios.post(
-            'https://antix.cryptoindex.com/profile/auth',
-            { wallet, msg, sign },
-            { headers: { 'Content-Type': 'application/json' } }
-        );
-        
-        const token = tokenResponse.data;
+        const token = await auth({ wallet, signer });
+        const authorization = `Bearer ${token}`;
+        console.log(authorization);
 
         const refcodeResponse = await axios.get(
-            'https://antix.cryptoindex.com/profile/refcode',
-            { headers: { Authorization: `Bearer ${token.accessToken}` } }
+            "https://antix.cryptoindex.com/profile/refcode",
+            { headers: { Authorization: authorization } }
         );
+        console.log("refcodeResponse" + refcodeResponse);
+
 
         const referralCode = refcodeResponse.data.refcode;
 

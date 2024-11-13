@@ -43,14 +43,7 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
     const handleGenerateReferralLink = async () => {        
         if (window.ethereum && account && signer) {
             try {
-                const msg = "I am signing in to confirm my referral link";
-                const sign = await signer.signMessage(msg);
-
-                const link = await generateReferralLink({
-                    wallet: account,
-                    sign: sign,
-                    msg: msg,
-                });
+                const link = await generateReferralLink({ wallet: account, signer });
                 if (link) {
                     setRefCode(link);
                     setStage(1);

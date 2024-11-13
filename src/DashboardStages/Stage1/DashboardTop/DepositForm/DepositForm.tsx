@@ -14,12 +14,13 @@ import {
     USDT_CONTRACT_ADDRESS,
 } from "@/utils/constants";
 import contractABI from "@/app/abi.json";
-import { DepositPopover } from './DepositPopover/DepositPopover'
-import { DepositCheckbox } from './DepositCheckbox/DepositCheckbox'
+import { DepositPopover } from './DepositPopover/DepositPopover';
+import { DepositCheckbox } from './DepositCheckbox/DepositCheckbox';
 import useWalletStore from "@/stores/useWalletStore";
 import CurrencyButton from "@/DashboardStages/components/CurrencyButton/CurrencyButton";
-import { TgIcon } from './icons/TgIcon'
+import { TgIcon } from './icons/TgIcon';
 import { saveTransaction } from "@/utils/saveTransaction";
+import { auth } from "@/utils/auth";
 
 interface IDepositForm {
     loadBalance: () => Promise<void>
@@ -38,12 +39,11 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
     const [transactionHash, setTransactionHash] = useState("");
     const [transactionInProgress, setTransactionInProgress] = useState(false);
     const [isBuyChecked, setIsBuyChecked] = useState(false); // условие для чекбокса
+    const [authToken, setAuthToken] = useState<string | null>(null);
 
     const handleMax = (balance: string) => {
         if (balance) setAmount(balance);
     };
-    
-
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (balance === null || +balance < +amount) setError(errString);
@@ -61,7 +61,7 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
     const toggleCurrency = () => {
         setDisplayCurrency((prev) => (prev === "ETH" ? "USDT" : "ETH"));
     };
-    
+
     useEffect(() => {
         if (displayCurrency === "ETH") {
             getEthBalance();
@@ -71,7 +71,7 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
     }, [displayCurrency]);
 
     const getEthBalance = async () => {
-        if(!account || !provider) return
+        if (!account || !provider) return;
         try {
             const balance = await provider.getBalance(account);
             const balanceInEth = ethers.formatEther(balance);
@@ -82,7 +82,7 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
     };
 
     const getUsdtBalance = async () => {
-        if(!provider || !signer) return
+        if (!provider || !signer) return;
         try {
             const usdtContract = new ethers.Contract(
                 USDT_CONTRACT_ADDRESS,
@@ -108,72 +108,74 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
     }, []);
     
     useEffect(() => {
-        initializeBalances()
+        initializeBalances();
     }, [provider, signer, balance]);
 
     const handleCheckboxChange = () => {
         setIsBuyChecked((prev) => !prev);
     };
 
+    const authenticateUser = async () => {
+        if (!authToken && account && signer) {
+            const token = await auth({wallet: account, signer});
+            setAuthToken(token);
+        }
+    };
 
     const handleDeposit = async () => {
         if (!amount || transactionInProgress) return;
-    
+
         try {
             setTransactionInProgress(true);
             
+            await authenticateUser();
+
             if (typeof window.ethereum !== 'undefined') {
                 await window.ethereum.request({ method: 'eth_requestAccounts' });
                 const provider = new ethers.BrowserProvider(window.ethereum);
                 const signer = await provider.getSigner();
                 const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI, signer);
 
+                let transaction;
+                let tokenAddress = displayCurrency === "USDT" ? USDT_CONTRACT_ADDRESS : "0x0000000000000000000000000000000000000000";
+
                 if (isBuyChecked) {
-                    // Вызываем функцию `buy` на смарт-контракте, если чекбокс выбран
-                    const transaction = await contract.buy(USDT_CONTRACT_ADDRESS, ethers.parseUnits(amount, 6), { gasLimit: 100000 });
-                    setTransactionHash(transaction.hash);
-                    await transaction.wait(); // Ожидаем подтверждения транзакции buy
+                    transaction = await contract.buy(tokenAddress, ethers.parseUnits(amount, 6), { gasLimit: 100000 });
                 } else {
-    
-                if (displayCurrency === "USDT") {
-                    const usdtContract = new ethers.Contract(USDT_CONTRACT_ADDRESS, ERC20_ABI, signer);
                     const usdtAmount = ethers.parseUnits(amount, 6);
-    
-                    // Проверяем, достаточно ли разрешения для контракта
-                    const allowance = await usdtContract.allowance(signer.address, CONTRACT_ADDRESS);
-                    if (allowance < usdtAmount) {
-                        const approveTx = await usdtContract.approve(CONTRACT_ADDRESS, usdtAmount);
-                        await approveTx.wait(); // Ожидание подтверждения транзакции approve
+
+                    if (displayCurrency === "USDT") {
+                        const usdtContract = new ethers.Contract(USDT_CONTRACT_ADDRESS, ERC20_ABI, signer);
+                        const allowance = await usdtContract.allowance(signer.address, CONTRACT_ADDRESS);
+                        if (allowance < usdtAmount) {
+                            const approveTx = await usdtContract.approve(CONTRACT_ADDRESS, usdtAmount);
+                            await approveTx.wait();
+                        }
+
+                        transaction = await contract.deposit(USDT_CONTRACT_ADDRESS, usdtAmount, { gasLimit: 100000 });
+                    } else {
+                        const ethAmount = ethers.parseUnits(amount, 18);
+                        transaction = await contract.deposit(tokenAddress, ethAmount, { value: ethAmount, gasLimit: 100000 });
                     }
-    
-                    // Выполняем транзакцию депозита для USDT
-                    const transaction = await contract.deposit(USDT_CONTRACT_ADDRESS, usdtAmount, { gasLimit: 100000 });
-                    setTransactionHash(transaction.hash);
-                    await transaction.wait(); // Ожидание подтверждения депозита
-                } else {
-                    const ethAmount = ethers.parseUnits(amount, 18); 
-    
-                    // Выполняем транзакцию депозита для ETH
-                    const transaction = await contract.deposit(
-                        "0x0000000000000000000000000000000000000000", 
-                        ethAmount,
-                        { value: ethAmount, gasLimit: 100000 }
-                    );
-                    setTransactionHash(transaction.hash);
-                    await transaction.wait(); 
                 }
-    
+
+                setTransactionHash(transaction.hash);
+                await transaction.wait();
                 await loadBalance();
-                setAmount(''); 
-            
+                setAmount('');
+
+                if(authToken)
+                // Pass details object and auth token in the request
                 await saveTransaction({
-                    hash: transactionHash,
+                    hash: transaction.hash,
                     stage: "1",
+                    chainId: 1,
                     status: "SUCCESS",
                     type: isBuyChecked ? "BUY" : "DEPOSIT",
-                    token: displayCurrency,
+                    token: tokenAddress, 
                     amount: Number(amount),
-                    details: isBuyChecked ? "Buy transaction" : "Deposit transaction",
+                    details: { extraInfo: 'Transaction details here' }, 
+                    tokenAuthorization: authToken,
                 });
             }
         } catch (error) {
@@ -183,7 +185,6 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
             setTransactionInProgress(false);
         }
     };
-    
 
     return (
         <div className={styles.sendingWrapepr}>
