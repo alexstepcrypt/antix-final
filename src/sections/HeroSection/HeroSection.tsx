@@ -258,8 +258,7 @@ const HeroSection = () => {
                         )}
 
                         <Link
-                            style={{ marginTop: currentDate <= stage1Date ? 36 : 12 }}
-                            className={styles.timerButton}
+                            className={`${styles.timerButton} ${currentDate >= stage1Date && styles.stage1Btn}`}
                             href="/dashboard"
                         >
                             {account ? 'Buy Now' : 'Connect Wallet'}

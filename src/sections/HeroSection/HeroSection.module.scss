@@ -531,7 +531,7 @@
         }
 
         .timerButton {
-            margin-top: 12px;
+            margin-top: 36px;
             width: 100%;
             padding: 12px;
             border-radius: 50px;
@@ -542,6 +542,10 @@
             line-height: 21px;
             text-align: center;
             color: #0F0E14;
+        }
+
+        .stage1Btn {
+            margin-top: 12px;
         }
 
         .suggestion {
@@ -626,8 +630,7 @@
     }
 
     @media screen and (max-width: 1280px) {
-        width: 325px;
-        height: 404px;
+        width: 328px;
 
         .timerHead {
             height: 52px;
@@ -647,21 +650,58 @@
         }
 
         .timer {
-            border-radius: 3px;
-            padding: 0 38px;
+            border-radius: 3px 3px 11px 11px;
+            padding: 0 28.45px;
 
-            .title {
-                font-size: 25.6px;
-                font-weight: 500;
-                line-height: 30.72px;
-                text-align: center;
+            .timerTitle {
+                .timerHeading {
+                    font-size: 22.76px;
+                    line-height: 25.6px;
+                }
+
+                .timerDesc {
+                    font-size: 8.5px;
+                    line-height: 11.38px;
+                }
+
+                .discount {
+                    font-size: 15.64px;
+                    line-height: 23.47px;
+                    padding: 2.84px 5.69px;
+                }
             }
-            .timerButton {
-                margin-top: 28px;
-                padding: 8px;
 
-                font-size: 10px;
-                line-height: 15px;
+            .timerContainer {
+                margin-top: 22px;
+            }
+
+            .stagePrice {
+                margin-top: 22px;
+
+                h3, .prices {
+                    font-size: 9.96px;
+                    line-height: 14.93px;
+                }
+            }
+
+            .progress {
+                margin-top: 22px;
+            }
+
+            .warn {
+                margin-top: 22px;
+            }
+
+            .timerButton {
+                margin-top: 22px;
+            }
+
+            .pays {
+                margin-top: 22px;
+            }
+
+            .refBtn {
+                margin-top: 22px;
             }
         }
     }
