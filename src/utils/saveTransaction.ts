@@ -10,7 +10,7 @@ type SaveTransactionParams = {
     type: typeParams;
     token: string;
     amount: number;
-    details: string;
+    details: Record<string, any>;
 };
 
 export const saveTransaction = async (

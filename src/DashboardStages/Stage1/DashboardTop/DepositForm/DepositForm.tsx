@@ -37,10 +37,12 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
     const [error, setError] = useState<string | null>(null);
     const [transactionHash, setTransactionHash] = useState("");
     const [transactionInProgress, setTransactionInProgress] = useState(false);
+    const [isBuyChecked, setIsBuyChecked] = useState(false); // условие для чекбокса
 
     const handleMax = (balance: string) => {
         if (balance) setAmount(balance);
     };
+    
 
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -109,6 +111,11 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
         initializeBalances()
     }, [provider, signer, balance]);
 
+    const handleCheckboxChange = () => {
+        setIsBuyChecked((prev) => !prev);
+    };
+
+
     const handleDeposit = async () => {
         if (!amount || transactionInProgress) return;
     
@@ -120,6 +127,13 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
                 const provider = new ethers.BrowserProvider(window.ethereum);
                 const signer = await provider.getSigner();
                 const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI, signer);
+
+                if (isBuyChecked) {
+                    // Вызываем функцию `buy` на смарт-контракте, если чекбокс выбран
+                    const transaction = await contract.buy(USDT_CONTRACT_ADDRESS, ethers.parseUnits(amount, 6), { gasLimit: 100000 });
+                    setTransactionHash(transaction.hash);
+                    await transaction.wait(); // Ожидаем подтверждения транзакции buy
+                } else {
     
                 if (displayCurrency === "USDT") {
                     const usdtContract = new ethers.Contract(USDT_CONTRACT_ADDRESS, ERC20_ABI, signer);
@@ -156,14 +170,14 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
                     hash: transactionHash,
                     stage: "1",
                     status: "SUCCESS",
-                    type: "DEPOSIT",
+                    type: isBuyChecked ? "BUY" : "DEPOSIT",
                     token: displayCurrency,
                     amount: Number(amount),
-                    details: "Deposit transaction"
-                })
+                    details: isBuyChecked ? "Buy transaction" : "Deposit transaction",
+                });
             }
         } catch (error) {
-            console.error("Ошибка депозита:", error);
+            console.error("Ошибка транзакции:", error);
             alert("Транзакция не удалась");
         } finally {
             setTransactionInProgress(false);
