@@ -13,6 +13,7 @@ import { generateReferralLink } from "@/utils/generateReferralLink";
 import useWalletStore from "@/stores/useWalletStore";
 import { formatAddress } from "@/utils/utils";
 import CurrencyButton from "@/DashboardStages/components/CurrencyButton/CurrencyButton";
+import { useReferralStore } from "@/stores/useReferralStore";
 
 const referralFaq = [
     {
@@ -49,13 +50,18 @@ const Referral = () => {
         "https://antix/referral?code=YOURCODE"
     );
     const { account, signer, checkConnection } = useWalletStore();
+    const { referralLink } = useReferralStore();
 
     useEffect(() => {
         checkConnection();
     }, []);
 
-    const handleGenerateReferralLink = async () => {        
-        if (window.ethereum && account && signer) {
+    const handleGenerateReferralLink = async () => {     
+        if(referralLink) {
+            setRefCode(referralLink);
+            setIsGenerated(true);
+        }
+        else if (window.ethereum && account && signer) {
             try {
                 const link = await generateReferralLink({
                     wallet: account,
@@ -72,10 +78,26 @@ const Referral = () => {
     };
 
     const handleCopy = () => {
-        navigator.clipboard.writeText(refCode).then(() => {
+        if (navigator.clipboard) {
+            navigator.clipboard
+                .writeText(refCode)
+                .then(() => {
+                    setIsCopied(true);
+                    setTimeout(() => setIsCopied(false), 2000);
+                })
+                .catch((err) => {
+                    console.error("Ошибка при копировании:", err);
+                });
+        } else {
+            const textArea = document.createElement("textarea");
+            textArea.value = refCode;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
             setIsCopied(true);
             setTimeout(() => setIsCopied(false), 2000);
-        });
+        }
     };
 
     return (

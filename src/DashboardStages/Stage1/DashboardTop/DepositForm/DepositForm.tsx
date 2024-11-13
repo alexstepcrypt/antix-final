@@ -286,7 +286,7 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
             </button>
 
             <div className={styles.agreement}>
-                <DepositCheckbox children="Automatically buy ANTIX from deposit when Stage 1 starts" />
+                <DepositCheckbox value={isBuyChecked} onChange={handleCheckboxChange} children="Automatically buy ANTIX from deposit when Stage 1 starts" />
             </div>
 
             <div className={styles.questions}>

@@ -11,6 +11,7 @@ import ChooseWallet from "@/components/ConnectModals/ChooseWallet/ChooseWallet";
 import { generateReferralLink } from "@/utils/generateReferralLink";
 import useWalletStore from "@/stores/useWalletStore";
 import { DepositPopover } from "@/DashboardStages/Stage1/DashboardTop/DepositForm/DepositPopover/DepositPopover";
+import { useReferralStore } from "@/stores/useReferralStore";
 
 interface IReferalModal {
     onClose: () => void;
@@ -22,12 +23,29 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
     const [isCopied, setIsCopied] = useState(false);
     const [refCode, setRefCode] = useState("");
     const [openPopover, setOpenPopover] = useState(false);
+    const { referralLink } = useReferralStore();
 
     const handleCopy = () => {
-        navigator.clipboard.writeText(refCode).then(() => {
+        if (navigator.clipboard) {
+            navigator.clipboard
+                .writeText(refCode)
+                .then(() => {
+                    setIsCopied(true);
+                    setTimeout(() => setIsCopied(false), 2000);
+                })
+                .catch((err) => {
+                    console.error("Ошибка при копировании:", err);
+                });
+        } else {
+            const textArea = document.createElement("textarea");
+            textArea.value = refCode;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
             setIsCopied(true);
             setTimeout(() => setIsCopied(false), 2000);
-        });
+        }
     };
 
     useEffect(() => {
@@ -40,7 +58,11 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
         checkConnection()
     }, []);
 
-    const handleGenerateReferralLink = async () => {        
+    const handleGenerateReferralLink = async () => {    
+        if(referralLink) {
+            setRefCode(referralLink);
+            setStage(1);
+        }    
         if (window.ethereum && account && signer) {
             try {
                 const link = await generateReferralLink({ wallet: account, signer });
