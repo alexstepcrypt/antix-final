@@ -1,57 +1,59 @@
+"use client"
+
 import dynamic from 'next/dynamic';
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./DashboardTop.module.scss";
-// import TetherIcon from "/public/svg/tether-icon.svg";
+import TetherIcon from "/public/svg/tether-icon.svg";
 // import EtherIcon from "/public/svg/ether-icon.svg";
+import USDCIcon from "/public/svg/usdc-icon.svg";
 
 import { Timer } from "./Timer/Timer";
 const DepositForm = dynamic(() => import("./DepositForm/DepositForm"), { ssr: false });
 import { Steps } from "@/DashboardStages/components/Steps/Steps";
 import { stage1Steps } from "@/DashboardStages/constants/steps";
-// import { DashboardCard } from "@/DashboardStages/components/Card/Card";
-// import { BalanceItem } from "./BalanceItem/BalanceItem";
+import { DashboardCard } from "@/DashboardStages/components/Card/Card";
+import { BalanceItem } from "./BalanceItem/BalanceItem";
 import { faqItems } from "./FaqAccordion/mocdata";
 // import { FaqAccordion } from "./FaqAccordion/FaqAccordion";
 import Faq from '@/components/Faq/Faq';
-// import useStageStore from '@/stores/useStageStore';
+import useStageStore from '@/stores/useStageStore';
 // import { ethers } from 'ethers';
 // import RaisedProgressBar from "./RaisedProgressBar/RaisedProgressBar";
 
 // import contractABI from "@/app/abi.json";
 // import { CONTRACT_ADDRESS } from '@/utils/constants';
-// import getBalance from '@/utils/getBalance';
-// import useWalletStore from '@/stores/useWalletStore';
+import getBalance from '@/utils/getBalance';
+import useWalletStore from '@/stores/useWalletStore';
 
 const DashboardTop = () => {
-    // const [depositBalance, setDepositBalance] = useState("0");
-    // const { stageData } = useStageStore()
-    // const { account } = useWalletStore();
+    const [depositBalance, setDepositBalance] = useState("0");
+    const { stageData } = useStageStore()
+    const { account } = useWalletStore();
 
-    // useEffect(() => {
-    //     if(stageData) console.log(stageData)
-    // }, [stageData])
+    useEffect(() => {
+        if(stageData) console.log(stageData)
+    }, [stageData])
 
 
-    // useEffect(() => {
-    //     loadBalance();
-    // }, [account]);
+    useEffect(() => {
+        loadBalance();
+    }, [account]);
 
-    // const loadBalance = async () => {
-    //     if (!account) {
-    //         setDepositBalance("0");
-    //         return;
-    //     }
+    const loadBalance = async () => {
+        if (!account) {
+            setDepositBalance("0");
+            return;
+        }
 
-    //     try {
-    //         const balance = await getBalance("1", account);
-    //         const usdtAmount = parseFloat(balance).toFixed(6);
-
-    //         setDepositBalance(String(usdtAmount))
-    //     } catch (error) {
-    //         console.error("Error:", error);
-    //     }
-    // };
+        try {
+            const balance = await getBalance("1", account);
+            const usdtAmount = parseFloat(balance).toFixed(6);
+            setDepositBalance(String(usdtAmount))
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
 
     return (
         <div className={styles.container}>
@@ -71,7 +73,7 @@ const DashboardTop = () => {
                         Limited availability — act promptly to secure the best conditions.
                     </p>
                 </div>
-                {/* <DashboardCard style={{ width: "100%" }}>
+                <DashboardCard style={{ width: "100%" }}>
                     <h3 className={styles.balanceTitle}>Deposit Balance</h3>
 
                     <div className={styles.balanceItemsWrapper}>
@@ -82,12 +84,12 @@ const DashboardTop = () => {
                         />
 
                         <BalanceItem
-                            currencySrc={EtherIcon}
-                            title="ETH"
-                            balance="0"
+                            currencySrc={USDCIcon}
+                            title="USDC"
+                            balance="0.000000"
                         />
                     </div>
-                </DashboardCard> */}
+                </DashboardCard>
 
                 <div className={styles.faq}>
                     <Faq faqItems={faqItems} />
@@ -95,7 +97,7 @@ const DashboardTop = () => {
             </div>
             <div className={styles.rightCol}>
                 <div className={styles.headTitle}>
-                    <h2>Add Deposit</h2>
+                    <h2>Get early access</h2>
                     <div className={styles.discount}>
                         <p>-79%</p>
                     </div>
@@ -104,7 +106,7 @@ const DashboardTop = () => {
                     <h5 className={styles.timerTitle}>
                         Deposits end in
                     </h5>
-                    <Timer targetDate={new Date("2024-11-20T13:00:00.000Z")} />
+                    <Timer targetDate={new Date("2024-11-28T16:00:00.000Z")} />
                 </div>
 
                 <div className={styles.stagePrice}>

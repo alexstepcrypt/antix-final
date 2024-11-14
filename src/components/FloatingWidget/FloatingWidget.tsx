@@ -15,8 +15,7 @@ interface TimeLeft {
 
 const FloatingWidget = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const targetDate = new Date("2024-12-31T23:59:59");
-
+    const targetDate = new Date("2024-11-28T16:00:00.000Z");
     const handleScroll = () => {
         const secondBlock = document.getElementById("Partners");
 

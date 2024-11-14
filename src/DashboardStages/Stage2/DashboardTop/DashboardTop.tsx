@@ -47,7 +47,7 @@ const DashboardTopStage2 = () => {
             <div className={styles.leftCol}>
                 <div className={styles.timer}>
                     <h5 className={styles.timerTitle}>Price increase in:</h5>
-                    <Timer targetDate={new Date("2024-12-31T23:59:59")} />
+                    <Timer targetDate={new Date("2024-11-28T16:00:00.000Z")} />
                 </div>
                 <div className={styles.statisticWrapper}>
                     <DashboardPopover
