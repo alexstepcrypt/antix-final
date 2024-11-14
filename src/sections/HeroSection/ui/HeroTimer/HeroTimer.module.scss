@@ -12,6 +12,11 @@
     justify-content: center;
     align-items: center;
     gap: 15px;
+
+    @media (max-width: 1280px) {
+        padding: 8px 17px;
+        gap: 10px;
+    }
 }
 
 .timeSegment {
@@ -30,10 +35,6 @@
         font-size: 23px;
         line-height: 25.3px;
     }
-    @media screen and (max-width: 960px) {
-        font-size: 28px;
-        line-height: 30px;
-    }
     @media screen and (max-width: 480px) {
         font-size: 23px;
         line-height: 25.3px;
@@ -50,10 +51,6 @@
     @media screen and (max-width: 1280px) {
         font-size: 9px;
         line-height: 9.9px;
-    }
-    @media screen and (max-width: 960px) {
-        font-size: 11px;
-        line-height: 12px;
     }
     @media screen and (max-width: 480px) {
         font-size: 9px;

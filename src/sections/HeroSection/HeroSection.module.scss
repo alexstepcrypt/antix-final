@@ -651,7 +651,7 @@
 
         .timer {
             border-radius: 3px 3px 11px 11px;
-            padding: 0 28.45px;
+            padding: 28.45px;
 
             .timerTitle {
                 .timerHeading {
@@ -673,10 +673,17 @@
 
             .timerContainer {
                 margin-top: 22px;
+
+                .title {
+                    font-size: 9.96px;
+                    line-height: 14.93px;
+                }
             }
 
             .stagePrice {
                 margin-top: 22px;
+                padding: 8.5px;
+                border-radius: 5.7px;
 
                 h3, .prices {
                     font-size: 9.96px;
@@ -694,10 +701,58 @@
 
             .timerButton {
                 margin-top: 22px;
+                font-size: 9.96px;
+                line-height: 14.93px;
+                padding: 8.5px;
+            }
+
+            .suggestion {
+                font-size: 9.96px;
+                line-height: 14.93px;
             }
 
             .pays {
                 margin-top: 22px;
+
+                .paysTitle {
+                    font-size: 9.96px;
+                    line-height: 14.93px;
+
+                    &::before, &::after {
+                        max-width: 105px;
+                    }
+                }
+
+                .paysCards {
+                    margin-top: 5.7px;
+                    gap: 11.4px;
+
+                    .paysCard {
+                        border-radius: 5.7px;
+                        padding: 8.5px;
+                        gap: 5.7px;
+                        height: 34px;
+                    }
+
+                    .paysCard:nth-child(1), .paysCard:nth-child(2) {
+                        img {
+                            width: 17px;
+                            height: 17px;
+                        }
+                    }
+
+                    .paysCard:nth-child(3) {
+                        img:nth-child(1) {
+                            width: 33px;
+                            height: 10.86px;
+                        }
+
+                        img:nth-child(2) {
+                            width: 25.6px;
+                            height: 19.72px;
+                        }
+                    }
+                }
             }
 
             .refBtn {
@@ -708,82 +763,31 @@
 
     @media screen and (max-width: 960px) {
         margin-top: 50px;
-        width: 401px;
-        height: 494px;
-
-        .timerHead {
-            height: 62px;
-
-            .timerWrapperTitle {
-                margin: 20px 76px 20px auto;
-                gap: 6px;
-
-                font-size: 17.37px;
-                line-height: 19.11px;
-
-                .logo {
-                    width: 27px;
-                    height: 27px;
-                }
-            }
-        }
 
         .timer {
-            border-radius: 3px;
-            padding: 0 46px;
+            padding: 25px;
 
-            .title {
-                font-size: 31.27px;
-                line-height: 37.52px;
-            }
-            .timerButton {
-                margin-top: 34px;
-                padding: 10px;
-
-                font-size: 12px;
-                line-height: 18px;
+            .stagePrice, .timerButton, .timerContainer, .paysCards, .refBtn, .progress, .warn {
+                margin-top: 19.86px;
             }
         }
     }
     @media screen and (max-width: 480px) {
         width: 325px;
-        height: 404px;
-
-        .timerHead {
-            height: 50px;
-
-            .timerWrapperTitle {
-                margin: 14px 65px 14px auto;
-                gap: 6px;
-
-                font-size: 14.22px;
-                line-height: 15.64px;
-
-                .logo {
-                    width: 22px;
-                    height: 22px;
-                }
-            }
-        }
 
         .timer {
-            padding: 0 38px;
-            .title {
-                font-size: 25.6px;
-                line-height: 30.72px;
+            padding: 28.45px;
+
+            .stagePrice, .timerButton, .timerContainer, .paysCards, .refBtn, .progress, .warn {
+                margin-top: 22px;
             }
 
-            .loader {
-                margin: 16px 0 30px;
-                width: 135px;
-                height: 135px;
-            }
-            .timerButton {
-                margin-top: 28px;
-                padding: 8px;
-
-                font-size: 10px;
-                line-height: 14px;
+            .pays {
+                .paysTitle {
+                    &::before, &::after {
+                        max-width: 103px;
+                    }
+                }
             }
         }
     }
