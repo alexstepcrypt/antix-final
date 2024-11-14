@@ -5,8 +5,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import TetherIcon from "/public/svg/tether-icon.svg";
 import EtherIcon from "/public/svg/ether-icon.svg";
-import Mastercard from '/public/dashboard/svg/mastercard-logo.svg';
-import Visa from '/public/dashboard/svg/visa-logo.svg';
+import Mastercard from "/public/dashboard/svg/mastercard-logo.svg";
+import Visa from "/public/dashboard/svg/visa-logo.svg";
 import { ethers } from "ethers";
 import {
     CONTRACT_ADDRESS,
@@ -14,26 +14,29 @@ import {
     USDT_CONTRACT_ADDRESS,
 } from "@/utils/constants";
 import contractABI from "@/app/abi.json";
-import { DepositPopover } from './DepositPopover/DepositPopover';
-import { DepositCheckbox } from './DepositCheckbox/DepositCheckbox';
+import { DepositPopover } from "./DepositPopover/DepositPopover";
+import { DepositCheckbox } from "./DepositCheckbox/DepositCheckbox";
 import useWalletStore from "@/stores/useWalletStore";
 import CurrencyButton from "@/DashboardStages/components/CurrencyButton/CurrencyButton";
-import { TgIcon } from './icons/TgIcon';
+import { TgIcon } from "./icons/TgIcon";
 import { saveTransaction } from "@/utils/saveTransaction";
 import { auth } from "@/utils/auth";
 
 interface IDepositForm {
-    loadBalance: () => Promise<void>
+    loadBalance: () => Promise<void>;
 }
 
-const errString = 'Not enough funds to make the deposit. Please top up your balance.';
+const errString =
+    "Not enough funds to make the deposit. Please top up your balance.";
 
-const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
+const DepositForm: React.FC<IDepositForm> = ({ loadBalance }) => {
     const { account, provider, signer, checkConnection } = useWalletStore();
 
     const [amount, setAmount] = useState<string>("0");
     const [balance, setBalance] = useState<string | null>(null);
-    const [displayCurrency, setDisplayCurrency] = useState<"ETH" | "USDT" | "CARD">("USDT");
+    const [displayCurrency, setDisplayCurrency] = useState<
+        "ETH" | "USDT" | "CARD"
+    >("USDT");
     const [open, setOpen] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [transactionHash, setTransactionHash] = useState("");
@@ -42,7 +45,7 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
     const [authToken, setAuthToken] = useState<string | null>(null);
 
     const handleMax = (balance: string) => {
-        if (balance) setAmount(balance);
+        if (balance) setAmount(parseFloat(balance).toFixed(6)); // Round to 6 decimal places
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,7 +58,12 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
             .replace(/(\..*)\./g, "$1")
             .replace(/^0+(?=\d)/, "");
 
-        setAmount(cleanedValue === "" ? "0" : cleanedValue);
+        // Ensure that entered value doesn't exceed balance
+        if (Number(cleanedValue) > Number(balance)) {
+            setAmount(parseFloat(balance || "0").toFixed(6)); // Reset to max balance if exceeded
+        } else {
+            setAmount(cleanedValue === "" ? "0" : cleanedValue);
+        }
     };
 
     const toggleCurrency = () => {
@@ -100,13 +108,15 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
     };
 
     const initializeBalances = async () => {
-        displayCurrency === "ETH" ? await getEthBalance() : await getUsdtBalance();
+        displayCurrency === "ETH"
+            ? await getEthBalance()
+            : await getUsdtBalance();
     };
 
     useEffect(() => {
         checkConnection();
     }, []);
-    
+
     useEffect(() => {
         initializeBalances();
     }, [provider, signer, balance]);
@@ -117,7 +127,7 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
 
     const authenticateUser = async () => {
         if (!authToken && account && signer) {
-            const token = await auth({wallet: account, signer});
+            const token = await auth({ wallet: account, signer });
             setAuthToken(token);
         }
     };
@@ -127,56 +137,87 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
 
         try {
             setTransactionInProgress(true);
-            
+
             await authenticateUser();
 
-            if (typeof window.ethereum !== 'undefined') {
-                await window.ethereum.request({ method: 'eth_requestAccounts' });
+            if (typeof window.ethereum !== "undefined") {
+                await window.ethereum.request({
+                    method: "eth_requestAccounts",
+                });
                 const provider = new ethers.BrowserProvider(window.ethereum);
                 const signer = await provider.getSigner();
-                const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI, signer);
+                const contract = new ethers.Contract(
+                    CONTRACT_ADDRESS,
+                    contractABI,
+                    signer
+                );
 
                 let transaction;
-                let tokenAddress = displayCurrency === "USDT" ? USDT_CONTRACT_ADDRESS : "0x0000000000000000000000000000000000000000";
+                let tokenAddress =
+                    displayCurrency === "USDT"
+                        ? USDT_CONTRACT_ADDRESS
+                        : "0x0000000000000000000000000000000000000000";
 
                 if (isBuyChecked) {
-                    transaction = await contract.buy(tokenAddress, ethers.parseUnits(amount, 6), { gasLimit: 100000 });
+                    transaction = await contract.buy(
+                        tokenAddress,
+                        ethers.parseUnits(amount, 6),
+                        { gasLimit: 100000 }
+                    );
                 } else {
                     const usdtAmount = ethers.parseUnits(amount, 6);
 
                     if (displayCurrency === "USDT") {
-                        const usdtContract = new ethers.Contract(USDT_CONTRACT_ADDRESS, ERC20_ABI, signer);
-                        const allowance = await usdtContract.allowance(signer.address, CONTRACT_ADDRESS);
+                        const usdtContract = new ethers.Contract(
+                            USDT_CONTRACT_ADDRESS,
+                            ERC20_ABI,
+                            signer
+                        );
+                        const allowance = await usdtContract.allowance(
+                            signer.address,
+                            CONTRACT_ADDRESS
+                        );
                         if (allowance < usdtAmount) {
-                            const approveTx = await usdtContract.approve(CONTRACT_ADDRESS, usdtAmount);
+                            const approveTx = await usdtContract.approve(
+                                CONTRACT_ADDRESS,
+                                usdtAmount
+                            );
                             await approveTx.wait();
                         }
 
-                        transaction = await contract.deposit(USDT_CONTRACT_ADDRESS, usdtAmount, { gasLimit: 100000 });
+                        transaction = await contract.deposit(
+                            USDT_CONTRACT_ADDRESS,
+                            usdtAmount,
+                            { gasLimit: 100000 }
+                        );
                     } else {
                         const ethAmount = ethers.parseUnits(amount, 18);
-                        transaction = await contract.deposit(tokenAddress, ethAmount, { value: ethAmount, gasLimit: 100000 });
+                        transaction = await contract.deposit(
+                            tokenAddress,
+                            ethAmount,
+                            { value: ethAmount, gasLimit: 100000 }
+                        );
                     }
                 }
 
                 setTransactionHash(transaction.hash);
                 await transaction.wait();
                 await loadBalance();
-                setAmount('');
+                setAmount("");
 
-                if(authToken)
-                // Pass details object and auth token in the request
-                await saveTransaction({
-                    hash: transaction.hash,
-                    stage: "1",
-                    chainId: 1,
-                    status: "SUCCESS",
-                    type: isBuyChecked ? "BUY" : "DEPOSIT",
-                    token: tokenAddress, 
-                    amount: Number(amount),
-                    details: { extraInfo: 'Transaction details here' }, 
-                    tokenAuthorization: authToken,
-                });
+                if (authToken)
+                    // Pass details object and auth token in the request
+                    await saveTransaction({
+                        hash: transaction.hash,
+                        stage: "1",
+                        chainId: 1,
+                        status: "SUCCESS",
+                        type: isBuyChecked ? "BUY" : "DEPOSIT",
+                        token: tokenAddress,
+                        amount: Number(amount),
+                        details: { extraInfo: "Transaction details here" },
+                        tokenAuthorization: authToken,
+                    });
             }
         } catch (error) {
             console.error("Ошибка транзакции:", error);
@@ -211,18 +252,24 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
                     <Image src={EtherIcon} alt="ETH" width={24} height={24} />
                     <span>ETH</span>
                 </button>
-                <DepositPopover open={open} text='Coming Soon' />
+                <DepositPopover open={open} text="Coming Soon" />
                 <button
-                    onClick={() => setOpen(p => !p)}
+                    onClick={() => setOpen((p) => !p)}
                     onBlur={() => setOpen(false)}
                     className={styles.chooseCurrBtn}
                 >
                     <Image src={Visa} alt="visa" width={46.5} height={15.28} />
-                    <Image src={Mastercard} alt="mastercard" width={36} height={27.78} />
+                    <Image
+                        src={Mastercard}
+                        alt="mastercard"
+                        width={36}
+                        height={27.78}
+                    />
                 </button>
             </div>
+
             <div
-                style={{ border: error ? '1px solid #BF3434' : '' }}
+                style={{ border: error ? "1px solid #BF3434" : "" }}
                 className={styles.sending}
             >
                 <div className={styles.sendingTop}>
@@ -236,7 +283,7 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
                         </span>
                         <button
                             className={styles.sendingBalanceBtn}
-                            onClick={() => handleMax(balance ? balance : "")}
+                            onClick={() => handleMax(balance || "")}
                         >
                             Max
                         </button>
@@ -245,10 +292,11 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
 
                 <div className={styles.sendingBottom}>
                     <input
-                        type="text"
-                        className={styles.sendingInput}
                         value={amount}
                         onChange={handleInputChange}
+                        className={styles.sendingInput}
+                        type="text"
+                        placeholder="Enter amount"
                         style={{
                             color:
                                 amount === "0"
@@ -270,30 +318,38 @@ const DepositForm: React.FC<IDepositForm> = ({loadBalance}) => {
                         />
                     )}
                 </div>
-
             </div>
-            {error && (
-                <span className={styles.err}>
-                    {error}
-                </span>
-            )}
+
+            {error && <span className={styles.err}>{error}</span>}
+
             <button
-                className={styles.depositBtn}
                 onClick={handleDeposit}
-                disabled={error !== null || balance === null || +balance < +amount || transactionInProgress}
+                disabled={
+                    isNaN(parseFloat(amount)) ||
+                    +amount <= 0 ||
+                    !balance ||
+                    +amount > +balance
+                }
+                className={styles.depositBtn}
             >
-                Deposit Now
+                {transactionInProgress ? "Processing..." : "Deposit Now"}
             </button>
 
             <div className={styles.agreement}>
-                <DepositCheckbox value={isBuyChecked} onChange={handleCheckboxChange} children="Automatically buy ANTIX from deposit when Stage 1 starts" />
+                <DepositCheckbox
+                    isChecked={isBuyChecked}
+                    onChange={handleCheckboxChange}
+                    children="Automatically buy ANTIX from deposit when Stage 1 starts"
+                />
             </div>
 
             <div className={styles.questions}>
                 <p>Got questions?</p>
                 <button
                     className={styles.btn}
-                    onClick={() => window.open("https://t.me/antixtoken_bot", "_blank")}
+                    onClick={() =>
+                        window.open("https://t.me/antixtoken_bot", "_blank")
+                    }
                 >
                     <TgIcon />
                     We're here to help!

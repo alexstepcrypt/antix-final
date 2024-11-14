@@ -1,17 +1,17 @@
 "use client"
 import s from './DepositCheckbox.module.scss';
 
-export const DepositCheckbox = ({ children, value, onChange }: { children: string, value: boolean, onChange: () => void }) => {
+export const DepositCheckbox = ({ children, isChecked, onChange }: { children: string, isChecked: boolean, onChange: () => void }) => {
    return (
       <div
          className={s.wrapper}
          onClick={onChange}
       >
-         <label className={`${s.label} ${value && s.open}`}>
+         <label className={`${s.label} ${isChecked && s.open}`}>
             <input
                type="checkbox"
                onChange={onChange}
-               checked={value}
+               checked={isChecked}
             />
          </label>
          <p>{children}</p>
