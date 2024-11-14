@@ -41,7 +41,7 @@ const DepositForm: React.FC<IDepositForm> = ({ loadBalance }) => {
     const [error, setError] = useState<string | null>(null);
     const [transactionHash, setTransactionHash] = useState("");
     const [transactionInProgress, setTransactionInProgress] = useState(false);
-    const [isBuyChecked, setIsBuyChecked] = useState(false); // условие для чекбокса
+    const [isBuyChecked, setIsBuyChecked] = useState(true); // условие для чекбокса
     const [authToken, setAuthToken] = useState<string | null>(null);
 
     const handleMax = (balance: string) => {
@@ -181,6 +181,7 @@ const DepositForm: React.FC<IDepositForm> = ({ loadBalance }) => {
 
                 if (isBuyChecked) {
                     transaction = await contract.buy(
+                        0,
                         tokenAddress,
                         usdtAmount,
                         { gasLimit: 150000 }
@@ -209,6 +210,8 @@ const DepositForm: React.FC<IDepositForm> = ({ loadBalance }) => {
     };
 
     useEffect(()=>{
+        if(!transactionHash) return
+
         saveTransaction({
             hash: transactionHash,
             stage: "1",

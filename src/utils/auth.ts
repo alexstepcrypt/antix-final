@@ -16,7 +16,7 @@ export async function auth({
     if (savedToken && !refcode) return savedToken;
 
     try {
-        const msg = "I am signing in to confirm my referral link";
+        const msg = "I am signing in to Antix digital twins";
         const sign = await signer.signMessage(msg);
 
         const data = { wallet, msg, sign, ...(refcode && { refcode }) };
