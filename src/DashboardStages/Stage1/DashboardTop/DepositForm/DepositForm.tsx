@@ -23,13 +23,13 @@ import { saveTransaction } from "@/utils/saveTransaction";
 import { auth } from "@/utils/auth";
 
 interface IDepositForm {
-    loadBalance: () => Promise<void>;
+    // loadBalance: () => Promise<void>;
 }
 
 const errString =
     "Not enough funds to make the deposit. Please top up your balance.";
 
-const DepositForm: React.FC<IDepositForm> = ({ loadBalance }) => {
+const DepositForm: React.FC<IDepositForm> = () => {
     const { account, provider, signer, checkConnection } = useWalletStore();
 
     const [amount, setAmount] = useState<string>("0");
@@ -198,7 +198,7 @@ const DepositForm: React.FC<IDepositForm> = ({ loadBalance }) => {
 
                 setTransactionHash(transaction.hash);
                 await transaction.wait();
-                await loadBalance();
+                // await loadBalance();
                 setAmount("");
             }
         } catch (error) {
