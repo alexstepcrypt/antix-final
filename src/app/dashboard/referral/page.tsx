@@ -6,7 +6,8 @@ import Image from "next/image";
 
 import CopyIcon from "/public/svg/copy-icon.svg";
 import TetherIcon from "/public/svg/tether-icon.svg";
-import ETHIcon from "/public/svg/ether-icon.svg";
+// import ETHIcon from "/public/svg/ether-icon.svg";
+import USDCIcon from "/public/svg/usdc-icon.svg";
 import WalletIcon from "/public/svg/white-wallet-icon.svg";
 import Faq from "@/components/Faq/Faq";
 import { generateReferralLink } from "@/utils/generateReferralLink";
@@ -202,13 +203,13 @@ const Referral = () => {
                             <div className={styles.balanceContainer}>
                                 <div className={styles.balanceTop}>
                                     <Image
-                                        src={ETHIcon}
-                                        alt=""
+                                        src={USDCIcon}
+                                        alt="USDC"
                                         width={24}
                                         height={24}
                                     />
                                     <span>
-                                        Your Referral ETH Current Phase Balance
+                                        Your Referral USDC Current Phase Balance
                                     </span>
                                 </div>
                                 <span>0.00</span>

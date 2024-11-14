@@ -4,7 +4,8 @@ import styles from "./DepositForm.module.scss";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import TetherIcon from "/public/svg/tether-icon.svg";
-import EtherIcon from "/public/svg/ether-icon.svg";
+// import EtherIcon from "/public/svg/ether-icon.svg";
+import USDCIcon from "/public/svg/usdc-icon.svg";
 import Mastercard from "/public/dashboard/svg/mastercard-logo.svg";
 import Visa from "/public/dashboard/svg/visa-logo.svg";
 import { ethers } from "ethers";
@@ -37,7 +38,8 @@ const DepositForm: React.FC<IDepositForm> = () => {
     const [displayCurrency, setDisplayCurrency] = useState<
         "ETH" | "USDT" | "CARD"
     >("USDT");
-    const [open, setOpen] = useState(false);
+    const [openDebit, setOpenDebit] = useState(false);
+    const [openUSDC, setOpenUSDC] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [transactionHash, setTransactionHash] = useState("");
     const [transactionInProgress, setTransactionInProgress] = useState(false);
@@ -184,13 +186,13 @@ const DepositForm: React.FC<IDepositForm> = () => {
                         0,
                         tokenAddress,
                         usdtAmount,
-                        { gasLimit: 150000 }
+                        { gasLimit: 200000 }
                     );
                 } else {
                     transaction = await contract.deposit(
                         USDT_CONTRACT_ADDRESS,
                         usdtAmount,
-                        { gasLimit: 150000 }
+                        { gasLimit: 200000 }
                     );
                 }
 
@@ -203,7 +205,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
             }
         } catch (error) {
             console.error("Ошибка транзакции:", error);
-            alert("Транзакция не удалась");
+            alert("The transaction failed");
         } finally {
             setTransactionInProgress(false);
         }
@@ -216,7 +218,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
             hash: transactionHash,
             stage: "1",
             chainId: 1,
-            status: "SUCCESS",
+            status: "PENDING",
             type: isBuyChecked ? "BUY" : "DEPOSIT",
             token: USDT_CONTRACT_ADDRESS,
             amount: amount,
@@ -239,21 +241,19 @@ const DepositForm: React.FC<IDepositForm> = () => {
                     <Image src={TetherIcon} alt="USDT" width={24} height={24} />
                     <span>USDT</span>
                 </button>
+                <DepositPopover open={openUSDC} text="Coming Soon" style={{left: "10%"}} />
                 <button
-                    className={`${styles.chooseCurrBtn} ${
-                        displayCurrency === "ETH"
-                            ? styles.activeChooseCurrBtn
-                            : ""
-                    }`}
-                    onClick={toggleCurrency}
+                    className={`${styles.chooseCurrBtn}`}
+                    onClick={() => setOpenUSDC((p) => !p)}
+                    onBlur={() => setOpenUSDC(false)}
                 >
-                    <Image src={EtherIcon} alt="ETH" width={24} height={24} />
-                    <span>ETH</span>
+                    <Image src={USDCIcon} alt="USDC" width={24} height={24} />
+                    <span>USDC</span>
                 </button>
-                <DepositPopover open={open} text="Coming Soon" />
+                <DepositPopover open={openDebit} text="Coming Soon" />
                 <button
-                    onClick={() => setOpen((p) => !p)}
-                    onBlur={() => setOpen(false)}
+                    onClick={() => setOpenDebit((p) => !p)}
+                    onBlur={() => setOpenDebit(false)}
                     className={styles.chooseCurrBtn}
                 >
                     <Image src={Visa} alt="visa" width={46.5} height={15.28} />
@@ -302,19 +302,18 @@ const DepositForm: React.FC<IDepositForm> = () => {
                                     : "#fff",
                         }}
                     />
-                    {displayCurrency === "USDT" ? (
                         <CurrencyButton
                             displayCurrency="USDT"
                             icon={TetherIcon}
-                            onclick={toggleCurrency}
                         />
+                    {/* {displayCurrency === "USDT" ? (
                     ) : (
                         <CurrencyButton
-                            displayCurrency="ETH"
-                            icon={EtherIcon}
+                            displayCurrency="USDC"
+                            icon={USDCIcon}
                             onclick={toggleCurrency}
                         />
-                    )}
+                    )} */}
                 </div>
             </div>
 

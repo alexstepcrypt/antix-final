@@ -25,7 +25,7 @@ import Advisors from "@/sections/Advisors/Advisors";
 import DigitalMap from "@/sections/DigitalMap/DigitalMap";
 import Roadmap from '@/sections/Roadmap/Roadmap';
 import dynamic from 'next/dynamic'
-import { StageWidget } from '@/components/StageWidget/StageWidget'
+// import { StageWidget } from '@/components/StageWidget/StageWidget'
 import ReferralHandler from '@/components/ReferralHandler/ReferralHandler';
 // import FloatingWidget from "@/components/FloatingWidget/FloatingWidget";
 
@@ -49,7 +49,7 @@ export default function Home() {
             <FeaturedIn />
             <PlatformToReplace />
             {/* <FloatingWidget /> */}
-            <StageWidget />
+            {/* <StageWidget /> */}
             <MarketLeader />
             <Why />
             <Quote />

@@ -37,7 +37,7 @@
         @media (max-width: 840px) {
             gap: 10px;
 
-            .chooseCurrBtn:nth-child(3) {
+            .chooseCurrBtn:last-child {
                 img:nth-child(1) {
                     width: 36px;
                     height: 11px;

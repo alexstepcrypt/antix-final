@@ -32,7 +32,7 @@ const HeroSection = () => {
     const { account } = useWalletStore();
 
     // DATES FOR CONDITIONS BETWEEN STAGES
-    const stage1DateStr = "2024-11-20T13:00:00.000Z";
+    const stage1DateStr = "2024-11-28T16:00:00.000Z";
     const stage1Date = new Date(stage1DateStr);
     const currentDate = new Date();
 
@@ -273,11 +273,11 @@ const HeroSection = () => {
                             
                             <div className={styles.paysCards}>
                                 <div className={styles.paysCard}>
-                                    <Image src={'/svg/ether-icon.svg'} alt="ETH" width={24} height={24} />
-                                    <span>ETH</span>
+                                    <Image src={'/svg/usdc-icon.svg'} alt="USDC" width={24} height={24} />
+                                    <span>USDC</span>
                                 </div>
                                 <div className={styles.paysCard}>
-                                    <Image src={'/svg/tether-icon.svg'} alt="ETH" width={24} height={24} />
+                                    <Image src={'/svg/tether-icon.svg'} alt="USDT" width={24} height={24} />
                                     <span>USDT</span>
                                 </div>
                                 <div className={styles.paysCard}>
