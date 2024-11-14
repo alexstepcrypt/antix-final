@@ -10,7 +10,7 @@ type SaveTransactionParams = {
     status: statusParams;
     type: typeParams;
     token: string;
-    amount: number;
+    amount: string;
     details: Record<string, any>;
     tokenAuthorization: string;
 };

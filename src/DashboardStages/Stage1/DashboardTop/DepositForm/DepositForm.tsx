@@ -158,66 +158,47 @@ const DepositForm: React.FC<IDepositForm> = ({ loadBalance }) => {
                         ? USDT_CONTRACT_ADDRESS
                         : "0x0000000000000000000000000000000000000000";
 
+                const usdtAmount = ethers.parseUnits(amount, 6);
+
+                if (displayCurrency === "USDT") {
+                    const usdtContract = new ethers.Contract(
+                        USDT_CONTRACT_ADDRESS,
+                        ERC20_ABI,
+                        signer
+                    );
+                    const allowance = await usdtContract.allowance(
+                        signer.address,
+                        CONTRACT_ADDRESS
+                    );
+                    if (allowance < usdtAmount) {
+                        const approveTx = await usdtContract.approve(
+                            CONTRACT_ADDRESS,
+                            usdtAmount
+                        );
+                        await approveTx.wait();
+                    }
+                }
+
                 if (isBuyChecked) {
                     transaction = await contract.buy(
                         tokenAddress,
-                        ethers.parseUnits(amount, 6),
-                        { gasLimit: 100000 }
+                        usdtAmount,
+                        { gasLimit: 150000 }
                     );
                 } else {
-                    const usdtAmount = ethers.parseUnits(amount, 6);
-
-                    if (displayCurrency === "USDT") {
-                        const usdtContract = new ethers.Contract(
-                            USDT_CONTRACT_ADDRESS,
-                            ERC20_ABI,
-                            signer
-                        );
-                        const allowance = await usdtContract.allowance(
-                            signer.address,
-                            CONTRACT_ADDRESS
-                        );
-                        if (allowance < usdtAmount) {
-                            const approveTx = await usdtContract.approve(
-                                CONTRACT_ADDRESS,
-                                usdtAmount
-                            );
-                            await approveTx.wait();
-                        }
-
-                        transaction = await contract.deposit(
-                            USDT_CONTRACT_ADDRESS,
-                            usdtAmount,
-                            { gasLimit: 100000 }
-                        );
-                    } else {
-                        const ethAmount = ethers.parseUnits(amount, 18);
-                        transaction = await contract.deposit(
-                            tokenAddress,
-                            ethAmount,
-                            { value: ethAmount, gasLimit: 100000 }
-                        );
-                    }
+                    transaction = await contract.deposit(
+                        USDT_CONTRACT_ADDRESS,
+                        usdtAmount,
+                        { gasLimit: 150000 }
+                    );
                 }
+
+                console.log(transaction);
 
                 setTransactionHash(transaction.hash);
                 await transaction.wait();
                 await loadBalance();
                 setAmount("");
-
-                if (authToken)
-                    // Pass details object and auth token in the request
-                    await saveTransaction({
-                        hash: transaction.hash,
-                        stage: "1",
-                        chainId: 1,
-                        status: "SUCCESS",
-                        type: isBuyChecked ? "BUY" : "DEPOSIT",
-                        token: tokenAddress,
-                        amount: Number(amount),
-                        details: { extraInfo: "Transaction details here" },
-                        tokenAuthorization: authToken,
-                    });
             }
         } catch (error) {
             console.error("Ошибка транзакции:", error);
@@ -226,6 +207,20 @@ const DepositForm: React.FC<IDepositForm> = ({ loadBalance }) => {
             setTransactionInProgress(false);
         }
     };
+
+    useEffect(()=>{
+        saveTransaction({
+            hash: transactionHash,
+            stage: "1",
+            chainId: 1,
+            status: "SUCCESS",
+            type: isBuyChecked ? "BUY" : "DEPOSIT",
+            token: USDT_CONTRACT_ADDRESS,
+            amount: amount,
+            details: { extraInfo: "Transaction details here" },
+            tokenAuthorization: String(authToken),
+        });
+    },[transactionHash])
 
     return (
         <div className={styles.sendingWrapepr}>
