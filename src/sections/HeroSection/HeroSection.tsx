@@ -236,7 +236,7 @@ const HeroSection = () => {
                             <h3>Stage 1 price</h3>
 
                             <div className={styles.prices}>
-                                <p>0.030 USDT</p>
+                                <p>0.03 USDT</p>
                                 <p className={styles.prevPrice}>0.14 USDT</p>
                             </div>
                         </section>

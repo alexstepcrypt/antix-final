@@ -102,7 +102,7 @@ const DashboardTop = () => {
                 </div>
                 <div className={styles.timer}>
                     <h5 className={styles.timerTitle}>
-                        Stage 1 starts in
+                        Deposits end in
                     </h5>
                     <Timer targetDate={new Date("2024-11-20T13:00:00.000Z")} />
                 </div>
@@ -110,7 +110,7 @@ const DashboardTop = () => {
                 <div className={styles.stagePrice}>
                     <h5>Deposit Stage Price</h5>
                     <div className={styles.depositPriceWrapper}>
-                        <h4>0.030 USD</h4>
+                        <h4>0.03 USD</h4>
                         <h4 className={styles.prevPrice}>0.14 USD</h4>
                         <div className={styles.depositDiscount}>
                             <p>-79% to TGE Price</p>
