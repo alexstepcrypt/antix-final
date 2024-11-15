@@ -1,0 +1,37 @@
+.wrapper {
+   cursor: pointer;
+   user-select: none;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   color: #f0f0f066;
+   font-size: 12px;
+   line-height: 18px;
+   font-weight: 400;
+
+   .label {
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+      border: 1px solid #f0f0f066;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+   
+      input {
+         visibility: hidden;
+      }
+   }
+   
+   .open::before {
+      content: url('/public/dashboard/svg/checkbox.svg');
+      position: relative;
+      left: 2px;
+      animation: scaling .15s ease;
+   }
+
+   @keyframes scaling {
+      from { transform: scale(0) }
+      to { transform: scale(1) }
+   }
+}
