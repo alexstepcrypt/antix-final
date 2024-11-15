@@ -1,0 +1,433 @@
+.container {
+    margin-top: 150px;
+
+    @media (max-width: 960px) {
+        margin-top: 120px;
+        padding: 0 10px 10px 10px;
+    }
+}
+
+.footer {
+    width: 100%;
+    height: 860px;
+    background: #0f0f0f;
+    padding: 42px 0 0;
+    display: flex;
+    position: relative;
+    overflow-x: hidden;
+
+    .footerConatiner {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (max-width: 1280px) {
+        height: 540px;
+        padding-bottom: 0;
+        .footerConatiner {
+            max-width: 880px;
+            padding: 0 35px;
+        }
+    }
+
+    @media (max-width: 960px) {
+        height: fit-content;
+        border-radius: 25px;
+        background-image: url("../../public/svg/footer-bg-mobile.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right;
+        max-width: 100vw;
+        max-height: 834px;
+        padding: 21px 0;
+    }
+
+    @media (max-width: 330px) {
+        max-height: 683px;
+    }
+}
+
+.bottomTextWrapper {
+    background: #0f0f0f;
+    width: 100%;
+    // padding: 52px;
+    padding-bottom: 64px;
+
+    // font-size: 12px;
+    // font-weight: 400;
+    // line-height: 21px;
+    text-align: center;
+    color: #686868;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+
+    @media (max-width: 1280px) {
+        font-size: 10px;
+        line-height: 14.93px;
+    }
+
+    @media (max-width: 960px) {
+        display: none;
+        // padding: 32px;
+        // margin-top: 22px;
+        // border-radius: 24px;
+    }
+
+    @media (max-width: 480px) {
+        // margin-top: 30px;
+        // font-size: 10px;
+        // line-height: 18px;
+        // padding: 32px 24px;
+    }
+}
+
+.topWrapper {
+    display: flex;
+    gap: 60px;
+
+    .topItem {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .smallTitle {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 15px;
+        text-align: left;
+        color: #959595;
+    }
+
+    .socials {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+
+        .socialLink {
+            transition: 0.3s;
+            width: 45px;
+            height: 45px;
+            background: #3e3e3e;
+            border-radius: 100px;
+            padding: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .mailLink {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 15px;
+        text-align: left;
+        color: #f0f0f0;
+        transition: 0.3s;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    @media (max-width: 1280px) {
+        gap: 40px;
+
+        .topItem {
+            gap: 2px;
+        }
+
+        .smallTitle {
+            font-size: 10px;
+        }
+
+        .socials {
+            gap: 12px;
+
+            .socialLink {
+                width: 32px;
+                height: 32px;
+                padding: 8px;
+            }
+        }
+
+        .mailLink {
+            font-size: 10px;
+        }
+    }
+
+    @media (max-width: 960px) {
+        flex-direction: column;
+        gap: 30px;
+        max-width: fit-content;
+
+        .topItem {
+            gap: 20px;
+        }
+
+        .socials {
+            flex-direction: column;
+            align-items: start;
+
+            gap: 24px;
+            .socialLink {
+                width: 50px;
+                height: 50px;
+                padding: 13px;
+            }
+        }
+
+        .smallTitle {
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: 0.02em;
+        }
+
+        .mailLink {
+            font-size: 14.5px;
+            line-height: 20px;
+            margin-top: -15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        gap: 28px;
+
+        .topItem {
+            gap: 16px;
+        }
+
+        .socials {
+            gap: 20px;
+            .socialLink {
+                width: 40px;
+                height: 40px;
+                padding: 11px;
+            }
+        }
+
+        .smallTitle {
+            font-size: 10px;
+            line-height: 15px;
+        }
+
+        .mailLink {
+            font-size: 10px;
+            line-height: 15px;
+        }
+    }
+}
+
+.centerLinksWrapper {
+    margin-top: 120px;
+    display: flex;
+    z-index: 1;
+
+    .linkWrapper {
+        display: flex;
+        flex-direction: column;
+        text-wrap: nowrap;
+
+        .mobileLink {
+            display: none;
+        }
+
+        button {
+            display: block;
+            min-width: fit-content;
+            width: fit-content;
+            text-wrap: nowrap;
+            white-space: nowrap;
+            margin-top: 8px;
+            background: transparent;
+            border: none;
+
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+            text-align: left;
+            color: #afafaf;
+            transition: 0.3s;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        &:nth-child(2) {
+            margin-left: 340px;
+        }
+        &:nth-child(3) {
+            margin-left: 400px;
+        }
+
+        @media (max-width: 1280px) {
+            .mobileLink {
+                display: block;
+            }
+            .link {
+                display: none;
+            }
+            button {
+                margin-top: 5px;
+                font-size: 10px;
+                line-height: 14.93px;
+            }
+
+            &:nth-child(2) {
+                margin-left: 215px;
+            }
+            &:nth-child(3) {
+                margin-left: 260px;
+            }
+        }
+    }
+
+    @media (max-width: 1280px) {
+        margin-top: 72px;
+    }
+
+    @media (max-width: 960px) {
+        margin-top: 10px;
+        flex-direction: column;
+
+        gap: 12px;
+        .linkWrapper {
+            margin-left: 0 !important;
+
+            button {
+                font-size: 12px;
+                line-height: 21px;
+                letter-spacing: 0.02em;
+            }
+        }
+    }
+}
+
+.bgTitle {
+    position: absolute;
+    bottom: 110px;
+
+    width: 1920px;
+    height: 526.96px;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    @media (max-width: 1280px) {
+        bottom: 38px;
+        width: 1250px;
+        height: 343px;
+    }
+
+    @media (max-width: 960px) {
+        display: none;
+    }
+}
+
+.bootomLinkWrapper {
+    margin-top: auto;
+    margin-bottom: 0;
+
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 84px;
+    gap: 420px;
+    // gap: 140px;
+
+    .mobile {
+        color: #686868;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        text-align: center;
+        display: none;
+
+        @media (max-width: 960px) {
+            display: initial;
+        }
+    }
+    .bottomInfo {
+        color: #686868;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 1280px) {
+    .bootomLinkWrapper {
+        padding-right: 60px;
+        gap: 280px;
+
+        .bottomInfo {
+            font-size: 10px;
+            line-height: 14.93px;
+        }
+    }
+}
+
+.bottomInfoMobile {
+    display: none;
+}
+
+@media (max-width: 960px) {
+    .bootomLinkWrapper {
+        margin-top: 45px;
+        padding-right: 0;
+        flex-direction: column;
+        align-items: left;
+        gap: 18px;
+
+        max-width: 50%;
+        .bottomInfo {
+            text-align: left;
+            font-size: 14.66px;
+            line-height: 17.59px;
+        }
+        .bottomInfoMobile {
+            margin-top: -18px;
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .bootomLinkWrapper {
+        margin-top: 34px;
+        gap: 16px;
+        max-width: 70%;
+
+        .bottomInfo {
+            font-size: 12px;
+            line-height: 14.4px;
+        }
+        .bottomInfoMobile {
+            margin-top: -16px;
+        }
+    }
+}
