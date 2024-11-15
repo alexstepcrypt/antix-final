@@ -1,4 +1,4 @@
-import type { IconWithControlledSize } from '../types/Icon';
+import type { IconWithControlledSize } from '@/types/Icon';
 
 export const InfoIcon = ({
    color = '#F0F0F0',

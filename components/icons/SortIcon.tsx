@@ -1,4 +1,4 @@
-import type { Icon } from '../types/Icon';
+import type { Icon } from '@/types/Icon';
 
 export const SortIcon = ({ color = "#575757", size = 19 }: Icon) => {
    return (

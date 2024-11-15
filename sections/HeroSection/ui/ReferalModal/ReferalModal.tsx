@@ -52,7 +52,6 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
 
 
     const handleGenerateReferralLink = async () => {    
-        setRefCode(1);
     };
 
 

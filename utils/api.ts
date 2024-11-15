@@ -112,11 +112,11 @@ export default new class Api {
   }
   
   getDepositTx(chainId:number|string, token:string, amount:number|string){
-    return this.call(`/sale/${chainId}/depositTxData?`+new URLSearchParams({ token, amount }).toString())
+    return this.call(`/sale/${chainId}/depositTxData?token=${token}&amount=${amount}`)
   }
 
   getBuyTx(chainId:number|string, token:string, amount:number|string){
-    return this.call(`/sale/${chainId}/buyTxData?`+new URLSearchParams({ token, amount }).toString())
+    return this.call(`/sale/${chainId}/buyTxData?token=${token}&amount=${amount}`)
   }
 
   saveTx(params:SaveTransactionParams):Promise<{success:Boolean}>{
