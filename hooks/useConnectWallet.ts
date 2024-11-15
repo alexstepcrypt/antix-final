@@ -3,6 +3,7 @@ import {useAccount, useChainId, useSignMessage, useDisconnect} from "wagmi";
 import {useWeb3Modal} from "@web3modal/wagmi/react";
 import Api from "@/utils/api";
 
+let getProfileReq:any = null
 export const useConnectWallet = function () {
 	const { open } = useWeb3Modal()
     const { disconnect } = useDisconnect()
@@ -14,11 +15,12 @@ export const useConnectWallet = function () {
 
 	const checkAuth = () => {
         if (!address) return
-		Api.getUserProfile().then(res => {
-			setProfile(res)
-        }).catch(() => {
+		getProfileReq = getProfileReq || Api.getUserProfile()
+		getProfileReq.then(setProfile).catch(() => {
             signToLogin()
-        })
+        }).finally(()=>{
+			getProfileReq = null
+		})
 	}
 	useEffect(() => checkAuth(), [address])
 

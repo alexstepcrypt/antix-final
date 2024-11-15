@@ -18,7 +18,7 @@ export default function Web3ModalProvider({children}: Web3ModalProviderProps) {
 	createWeb3Modal({
 		wagmiConfig: config,
 		projectId,
-		enableAnalytics: true,
+		enableAnalytics: false,
 		enableOnramp: true,
 		featuredWalletIds: [],
 		includeWalletIds: [],
