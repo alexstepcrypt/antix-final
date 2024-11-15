@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {useAccount, useSignMessage, useDisconnect} from "wagmi";
+import {useAccount, useChainId, useSignMessage, useDisconnect} from "wagmi";
 import {useWeb3Modal} from "@web3modal/wagmi/react";
 import Api from "@/utils/api";
 
@@ -7,6 +7,7 @@ export const useConnectWallet = function () {
 	const { open } = useWeb3Modal()
     const { disconnect } = useDisconnect()
 	const { address } = useAccount()
+	const chainId = useChainId()
 	const [ profile, setProfile ] = useState({})
 	const [ web3modalOpen, setWeb3modalOpen ] = useState(false)
 	const { data: signMessageData, signMessage, variables } = useSignMessage()
@@ -53,7 +54,7 @@ export const useConnectWallet = function () {
         }).catch(error => console.log(error))
 	}, [signMessageData])
 
-	return { connect, profile, address, account:address, disconnect: ()=>{
+	return { connect, chainId, profile, address, account:address, disconnect: ()=>{
 		disconnect()
 		localStorage.removeItem('authToken')
 	}}

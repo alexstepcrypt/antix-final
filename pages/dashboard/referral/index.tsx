@@ -1,6 +1,5 @@
 "use client";
 
-import { REFERRAL_LINK } from '@/utils/constants'
 import dynamic from 'next/dynamic';
 import ConnectWallet from "@/components/ConnectModals/ConnectWallet/ConnectWallet";
 import Header from "@/sections/Header/Header";
@@ -127,7 +126,7 @@ const Referral = () => {
                         <h4>Invite Your Friend and Earn Rewards</h4>
                         <div className={styles.codeContainer}>
                             <input
-                                value={REFERRAL_LINK + refCode}
+                                value={process.env.REFERRAL_LINK + refCode}
                                 readOnly
                                 className={`${styles.code} ${
                                     isGenerated ? styles.genCode : ""

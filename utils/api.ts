@@ -7,14 +7,14 @@ type LoginProps = {
 type statusParams = "PENDING" | "SUCCESS" | "ERROR";
 type typeParams   = "DEPOSIT" | "CANCEL" | "BUY" | "CLAIM";
 type SaveTransactionParams = {
-  hash   : string
-  stage  : string
-  chainId: number
-  status : statusParams
-  type   : typeParams
-  token  : string
-  amount : string
-  details: Record<string, any>
+  hash    : string
+  stage?  : string
+  chainId?: number
+  status  : statusParams
+  type?   : typeParams
+  token?  : string
+  amount? : string
+  details?: Record<string, any>
 }
 
 type TxProps = {
@@ -36,14 +36,13 @@ type ProfileProps = {
 
 
 export default new class Api {
-  public apiDomain = 'antix.cryptoindex.com'
+  public apiDomain = process.env.API_URL
 
   private authToken = null
   constructor(){
     if (typeof localStorage !== 'undefined') {
       this.authToken = localStorage.authToken || null
     }
-    console.log('this.authToken ', this.authToken )
   }
 
   /**
@@ -52,7 +51,7 @@ export default new class Api {
    * @param  {object} body - post body converted to json
    */
   async call (route:string, body:any = null, timeout = 10000) {
-    const url = 'https://' + [this.apiDomain, route].join('/').split('//').join('/')
+    const url = [this.apiDomain, route].join('/').replace('://','____').split('//').join('/').replace('____', '://')
     const params:any = (body)
       ? {
           method: 'POST',
@@ -80,7 +79,17 @@ export default new class Api {
   }
 
   async login(opts:LoginProps):Promise<ProfileProps> {
-    const resp = await this.call('/profile/auth/', opts)
+    function isMobile () {
+			const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+			return regex.test(navigator.userAgent)
+		}
+
+    const params = {
+      ...opts,
+      device: isMobile() ? 'mobile' : 'desktop'
+    }
+
+    const resp = await this.call('/profile/auth/', params)
     if (!resp.accessToken) {
       throw new Error('Invalid login')
     }
@@ -100,6 +109,14 @@ export default new class Api {
 
   getUserBalances(chainId:number|string, wallet:string):Promise<any>{
     return this.call(`/profile/balance/${chainId}/${wallet}`)
+  }
+  
+  getDepositTx(chainId:number|string, token:string, amount:number|string){
+    return this.call(`/sale/${chainId}/depositTxData?`+new URLSearchParams({ token, amount }).toString())
+  }
+
+  getBuyTx(chainId:number|string, token:string, amount:number|string){
+    return this.call(`/sale/${chainId}/buyTxData?`+new URLSearchParams({ token, amount }).toString())
   }
 
   saveTx(params:SaveTransactionParams):Promise<{success:Boolean}>{

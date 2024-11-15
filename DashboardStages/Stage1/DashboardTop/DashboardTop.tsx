@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from "react";
+import { toFixed } from "@/utils/numberFormat";
 
 import styles from "./DashboardTop.module.scss";
 import TetherIcon from "/public/svg/tether-icon.svg";
@@ -24,13 +25,12 @@ import { useConnectWallet } from '@/hooks/useConnectWallet'
 // import RaisedProgressBar from "./RaisedProgressBar/RaisedProgressBar";
 
 // import contractABI from "@/app/abi.json";
-// import { CONTRACT_ADDRESS } from '@/utils/constants';
-import getBalance from '@/utils/getBalance';
+import Api from '@/utils/api'
 
 const DashboardTop = () => {
-    const [depositBalance, setDepositBalance] = useState("0");
+    const [balances, setBalances] = useState({usdt:0, usdc:0});
     const { stageData } = useStageStore()
-    const { account } = useConnectWallet();
+    const { chainId, profile, address } = useConnectWallet();
 
     useEffect(() => {
         if(stageData) console.log(stageData)
@@ -38,23 +38,15 @@ const DashboardTop = () => {
 
 
     useEffect(() => {
-        loadBalance();
-    }, [account]);
-
-    const loadBalance = async () => {
-        if (!account) {
-            setDepositBalance("0");
-            return;
-        }
-
-        try {
-            const balance = await getBalance("1", account);
-            const usdtAmount = parseFloat(balance).toFixed(6);
-            setDepositBalance(String(usdtAmount))
-        } catch (error) {
-            console.error("Error:", error);
-        }
-    };
+        if (!profile) return
+        Api.getUserBalances(chainId, String(address)).then((res:any)=>{
+            // @ts-ignore
+            setBalances(Object.values(res).reduce((acc:any, token:any)=>{
+                acc[token.symbol] = toFixed(token.balance?.amount || 0, 2)
+                return acc
+            },{}))
+        })
+    }, [profile]);
 
     return (
         <div className={styles.container}>
@@ -81,13 +73,13 @@ const DashboardTop = () => {
                         <BalanceItem
                             currencySrc={TetherIcon}
                             title="USDT"
-                            balance={depositBalance}
+                            balance={balances.usdt}
                         />
 
                         <BalanceItem
                             currencySrc={USDCIcon}
                             title="USDC"
-                            balance="0.000000"
+                            balance={balances.usdc}
                         />
                     </div>
                 </DashboardCard>

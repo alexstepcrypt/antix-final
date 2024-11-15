@@ -24,7 +24,7 @@
    }
    
    .open::before {
-      content: url('/public/dashboard/svg/checkbox.svg');
+      content: url('../../../../../public/dashboard/svg/checkbox.svg');
       position: relative;
       left: 2px;
       animation: scaling .15s ease;

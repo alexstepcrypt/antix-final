@@ -12,7 +12,7 @@
     align-items: center;
 
     @media (max-width: 960px) {
-        background-image: url("/public/images/quote-bg-mobile.png") !important;
+        background-image: url("../../public/images/quote-bg-mobile.png") !important;
         background-size: cover;
         background-position: center;
         height: 1290px;
