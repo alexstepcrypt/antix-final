@@ -63,23 +63,34 @@ export const useDeposit = function () {
 	useEffect(() => {
 		if (!depositSuccess) return
 
-		Api.saveTx({
-			hash   : depositTxHash, 
-			status : 'SUCCESS'
-		})
-
 		// Wait for transaction to be confirmed
 		waitForTransactionReceipt(config, {
-			confirmations: 9, 
+			confirmations: 4, 
 			hash: depositTxHash
 		}).then(() => {
 			setDepositInProgress(false)
+
+			window.dispatchEvent(new CustomEvent('balance:changed', {
+				detail: {
+					token  : depositDetails.token,
+					amount : depositDetails.amount || depositDetails.value
+				}
+			}))
 		})
 
+		Api.saveTx({
+			hash   : depositTxHash, 
+			status : 'SUCCESS'
+		}).catch(console.error)
 	}, [depositSuccess])
 
+	let status:'none' | 'pending' | 'success' | 'fail' = 'none'
+	if (depositInProgress) status = 'pending'
+	if (depositSuccess) status = 'success'
+	if (depositError) status = 'fail'
 
 	return { 
+		status,
 		depositTxHash,
 		depositInProgress,
 		depositPending,

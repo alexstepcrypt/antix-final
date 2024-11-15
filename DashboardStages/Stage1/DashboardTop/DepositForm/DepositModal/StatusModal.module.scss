@@ -1,0 +1,100 @@
+@mixin animate($animation,$duration,$method,$times){
+    animation: $animation $duration $method $times;
+}
+@mixin keyframes($name){
+    @keyframes #{$name}{
+        @content;
+    }
+}
+.modal {
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    background: rgba(87, 87, 87, 0.4);
+    backdrop-filter: blur(5px);
+    padding: 20px 20px 20px 20px;
+
+    width: 400px;
+    min-height: 250px;
+
+    text-align: center;
+    color: #fff;
+
+    &::backdrop {
+        background-color: rgba(15, 15, 15, 0.9);
+    }
+
+    button[data-action="close"] {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: url('./icons/close.svg') no-repeat center;
+        width: 32px;
+        height: 32px;
+    }
+
+    figure {
+        padding: 0;
+        margin: 20px auto;
+        width: 120px;
+        height: 120px;
+    }
+    
+    &[data-status="pending"] {
+        button[data-action="close"] {
+            display: none;
+        }
+        figure {
+            background: url('./icons/pending.svg');
+            @include keyframes(spin){
+                from {
+                    transform:rotate(0deg);
+                }
+                to {
+                    transform:rotate(360deg);
+                }
+            }
+            @include animate(spin, 1.2s, linear, infinite);
+        }
+    }
+    &[data-status="fail"] {
+        figure {
+            background: url('./icons/fail.svg');
+        }
+    }
+    &[data-status="success"] {
+        figure {
+            background: url('./icons/success.svg');
+        }
+    }
+
+    h5 {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    article {
+        font-size: 12px;
+        line-height: 21px;
+        font-weight: 400;
+
+        a {
+            color: #fff;
+            text-decoration: underline;
+        }
+    }
+
+
+    .btn {
+        margin: 30px auto 0 auto;
+        width: 100%;
+        border-radius: 44px;
+        color: rgba(15, 15, 15, 1);
+        background: #fff;
+        text-align: center;
+        padding: 10px;
+    }
+}

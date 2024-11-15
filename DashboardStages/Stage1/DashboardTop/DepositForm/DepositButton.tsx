@@ -5,10 +5,11 @@ import { useDeposit } from '@/hooks/useDeposit'
 import {useAccount, useSwitchChain, useReadContract, useWriteContract, useWaitForTransactionReceipt} from "wagmi";
 import { useState, useEffect} from "react";
 import { parseUnits, formatUnits } from 'viem';
+import DepositStatusModal from './DepositModal/StatusModal'
 
 const contractsAddresses:any = {
-    1: '0x35b8f67107b7C04Cef5a3ab92170ac16Ca61BEd6',
-    56: ''
+    1  : process.env.TOKENSALE_ETH,
+    56 : process.env.TOKENSALE_BSC,
 }
 
 const erc20minABI = [{
@@ -33,9 +34,12 @@ const erc20minABI = [{
 
 
 const tokensDecimals:any = {
+	// eth/bsc native coin
     '0x0000000000000000000000000000000000000000': 18,
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee': 18,
+	// usdt
     '0xdAC17F958D2ee523a2206206994597C13D831ec7': 6,
+	// usdc
     '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48': 6,
 }
 
@@ -95,7 +99,7 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 	}, [isApproveConfirmed])
 
 
-    const { depositTxHash, depositInProgress, depositSuccess, depositError, makeDeposit } = useDeposit()
+    const { depositTxHash, status, depositError, makeDeposit } = useDeposit()
     function deposit(){
         makeDeposit(type, String(amount), tokenAddress)
     }
@@ -125,10 +129,11 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 	}
 
     // Deposit
-    const depositDisabled = !Number(amount)
     return <>
-        <button onClick={deposit} className={styles.depositBtn} disabled={depositDisabled}>
-            {depositInProgress ? "Processing..." : "Deposit Now"}
+        <button onClick={deposit} className={styles.depositBtn} disabled={!Number(amount)}>
+            {status==='pending' ? "Processing..." : "Deposit Now"}
         </button>
+
+		<DepositStatusModal txHash={String(depositTxHash)} status={status} retryFn={deposit} />
     </>
 }

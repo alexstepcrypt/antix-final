@@ -1,8 +1,7 @@
 "use client"
 
 import dynamic from 'next/dynamic';
-import { useEffect, useState } from "react";
-import { toFixed } from "@/utils/utils";
+import { useEffect } from "react";
 
 import styles from "./DashboardTop.module.scss";
 import TetherIcon from "/public/svg/tether-icon.svg";
@@ -19,33 +18,16 @@ import { faqItems } from "./FaqAccordion/mocdata";
 // import { FaqAccordion } from "./FaqAccordion/FaqAccordion";
 import Faq from '@/components/Faq/Faq';
 import useStageStore from '@/stores/useStageStore';
-import { useConnectWallet } from '@/hooks/useConnectWallet'
+import { useUserDepositedBalance } from '@/hooks/useUserDepositedBalance'
 
-// import RaisedProgressBar from "./RaisedProgressBar/RaisedProgressBar";
-
-// import contractABI from "@/app/abi.json";
-import Api from '@/utils/api'
 
 const DashboardTop = () => {
-    const [balances, setBalances] = useState({usdt:0, usdc:0});
+    const { balances } = useUserDepositedBalance()
     const { stageData } = useStageStore()
-    const { chainId, profile, address } = useConnectWallet();
 
     useEffect(() => {
         if(stageData) console.log(stageData)
     }, [stageData])
-
-
-    useEffect(() => {
-        if (!profile) return
-        Api.getUserBalances(chainId, String(address)).then((res:any)=>{
-            // @ts-ignore
-            setBalances(Object.values(res).reduce((acc:any, token:any)=>{
-                acc[token.symbol] = toFixed(token.balance?.amount || 0, 2)
-                return acc
-            },{}))
-        })
-    }, [profile]);
 
     return (
         <div className={styles.container}>
