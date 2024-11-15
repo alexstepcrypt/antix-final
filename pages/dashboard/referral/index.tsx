@@ -27,12 +27,12 @@ const referralFaq = [
     {
         id: 1,
         title: "How does the referral program work?",
-        content: "The Antix referral program lets users earn rewards by inviting friends to join the platform. For each successful referral, both the referrer and the new user may receive rewards."
+        content: "Generate your unique referral code, send it to your friend. After your friend enters the website and connects their wallet - you both will enjoy your bonuses."
     },
     {
         id: 2,
         title: "How do I refer someone?",
-        content: "You can refer friends by sharing your unique referral link, found in your Antix account. When they join and meet specific conditions, you both benefit."
+        content: "You can refer friends by sharing your unique referral link, found in your Antix account. When they connect their wallet and complete purchase, you both benefit (10% for you and 5% bonus tokens for the friend)."
     },
     {
         id: 3,
@@ -43,11 +43,6 @@ const referralFaq = [
         id: 4,
         title: "When will I receive my referral rewards?",
         content: "Rewards are typically credited after the referred user completes specific actions or meets certain requirements."
-    },
-    {
-        id: 5,
-        title: "What are the conditions for a referral to be valid?",
-        content: "Referrals are usually considered valid when the invited person completes registration and fulfills initial activity criteria on the Antix platform."
     }
 ];
 
