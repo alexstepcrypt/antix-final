@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { formatCrypto } from "@/utils/numberFormat";
+import { formatCrypto } from "@/utils/utils";
 import { useTokenBalance } from "@/hooks/useTokenBalance";
 
 export interface TokenBalanceParams {

@@ -23,7 +23,7 @@ export const useConnectWallet = function () {
 	useEffect(() => checkAuth(), [address])
 
 	const signToLogin = () => {
-        signMessage({message: 'I confirm login to token.antix website'})
+        signMessage({message: 'I am signing in to Antix digital twins'})
 	}
 
 	const connect = () => {

@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from "react";
-import { toFixed } from "@/utils/numberFormat";
+import { toFixed } from "@/utils/utils";
 
 import styles from "./DashboardTop.module.scss";
 import TetherIcon from "/public/svg/tether-icon.svg";
@@ -21,7 +21,6 @@ import Faq from '@/components/Faq/Faq';
 import useStageStore from '@/stores/useStageStore';
 import { useConnectWallet } from '@/hooks/useConnectWallet'
 
-// import { ethers } from 'ethers';
 // import RaisedProgressBar from "./RaisedProgressBar/RaisedProgressBar";
 
 // import contractABI from "@/app/abi.json";

@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-import { SortIcon } from '@/icons/SortIcon';
+// import { SortIcon } from '@/components/icons/SortIcon';
 import { DashboardCard } from '../Card/Card';
 import { TransactionItem } from '../TransactionItem/TransactionItem';
 import s from './Transactions.module.scss';

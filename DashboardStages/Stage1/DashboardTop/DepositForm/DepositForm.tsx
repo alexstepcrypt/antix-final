@@ -10,7 +10,6 @@ import USDCIcon from "/public/svg/usdc-icon.svg";
 
 import Mastercard from "/public/dashboard/svg/mastercard-logo.svg";
 import Visa from "/public/dashboard/svg/visa-logo.svg";
-import { ethers } from "ethers";
 import TokenBalance from '@/components/TokenBalance'
 
 import DepositButton from "./DepositButton";

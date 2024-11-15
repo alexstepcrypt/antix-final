@@ -3,7 +3,7 @@
 import { ReactNode, useState } from 'react';
 
 import { FadeInNew } from '@/components/FadeInNew/FadeInNew';
-import { InfoIcon } from '@/icons/InfoIcon';
+import { InfoIcon } from '@/components/icons/InfoIcon';
 import s from './Popover.module.scss';
 
 interface PopoverProps<T> {
