@@ -3,8 +3,10 @@ import {useChainId, useSignMessage, useDisconnect} from "wagmi";
 import { useAppKit, useAppKitAccount} from '@reown/appkit/react'
 import Api from "@/utils/api";
 
-let getProfileReq:any = null
 export const useConnectWallet = function () {
+	const [connected, setConnected] = useState(false)
+	const [account, setAccount] = useState<any>(null)
+
 	const { open, close } = useAppKit()
 	const { isConnected, status, address } = useAppKitAccount()
     const { disconnect } = useDisconnect()
@@ -15,19 +17,15 @@ export const useConnectWallet = function () {
 	const [ ready, setReady ] = useState(isConnected || !!status || !!profile)
 
 	const checkAuth = () => {
-        if (!address) return
-		getProfileReq = getProfileReq || Api.getUserProfile()
-		getProfileReq.then((profileInfo:any)=>{
+        if (!address || !Api.hasAuthToken()) return
+		Api.getUserProfile().then((profileInfo:any)=>{
 			if (profileInfo.error) {
 				console.log('Auth error', profileInfo.error)
 				return
 			}
-			setProfile(profileInfo)
         }).catch(() => {
             signToLogin()
-        }).finally(()=>{
-			getProfileReq = null
-		})
+        })
 	}
 	useEffect(() => checkAuth(), [address])
 	
@@ -78,20 +76,29 @@ export const useConnectWallet = function () {
 
 
 	useEffect(()=>{
-		if (ready) return
-		setTimeout(()=>{
+		if (ready) (()=>{})
+		const timeoutId = setTimeout(()=>{
 			setReady(true)
 		}, 1111)
+		return () => clearTimeout(timeoutId);
 	}, [])
 
-	// если не авторизовались на сервере - выдаем типа кошелек не подключен
-	const connected = profile ? isConnected : false
-	const account   = profile ? address : null
+	useEffect(()=>{
+		if (!address) return
+		// console.log('setConnected', profile ? isConnected : false)
+		setConnected(profile ? isConnected : false)
+	}, [isConnected, address, profile])
+
+	useEffect(()=>{
+		if (!isConnected) return
+		// console.log('setAccount', profile ? (address || profile.wallet) : null)
+		setAccount(profile ? (address || profile.wallet) : null)
+	}, [address, profile, isConnected])
 
 	return {
 		isReady: ready,
-		isConnected: connected, 
-		address:account, account, 
+		isConnected: isConnected, 
+		account:address, address, 
 		status, 
 		connect, 
 		chainId, 

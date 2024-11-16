@@ -105,6 +105,10 @@ export default new class Api {
     return resp.profile
   }
 
+  hasAuthToken(){
+    return !!this.authToken
+  }
+
   getUserProfile():Promise<ProfileProps>{
     return this.call('/profile/')
   }
