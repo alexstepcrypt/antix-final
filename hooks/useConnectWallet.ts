@@ -29,7 +29,7 @@ export const useConnectWallet = function () {
 	}
 
 	const connect = () => {
-		if (!address) {
+		if (!address || !isConnected) {
 			setWeb3modalOpen(true)
 			open()
 		} else {
