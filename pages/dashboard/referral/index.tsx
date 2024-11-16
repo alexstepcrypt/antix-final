@@ -66,6 +66,7 @@ const Referral = () => {
     },[profile])
 
     const handleCopy = () => {
+        const link = process.env.REFERRAL_LINK + refCode
         if (navigator.clipboard) {
             navigator.clipboard
                 .writeText(`${process.env.REFERRAL_LINK}${refCode}`)
