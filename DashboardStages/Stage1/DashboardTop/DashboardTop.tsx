@@ -7,7 +7,8 @@ import styles from "./DashboardTop.module.scss";
 import TetherIcon from "/public/svg/tether-icon.svg";
 // import EtherIcon from "/public/svg/ether-icon.svg";
 import USDCIcon from "/public/svg/usdc-icon.svg";
-import vAntixIcon from "/public/dashboard/svg/antix_currency.svg";
+import vAntixIcon from "/public/svg/vantix-icon.svg";
+import EtherIcon from "/public/svg/ether-icon.svg";
 
 import { Timer } from "./Timer/Timer";
 const DepositForm = dynamic(() => import("./DepositForm/DepositForm"), { ssr: false });
@@ -20,7 +21,29 @@ import { faqItems } from "./FaqAccordion/mocdata";
 import Faq from '@/components/Faq/Faq';
 import useStageStore from '@/stores/useStageStore';
 import { useUserDepositedBalance } from '@/hooks/useUserDepositedBalance'
+import Image from 'next/image';
 
+const underDepositInfo = [
+    {
+        title: "Listing price",
+        value: "0.14 USD",
+    },
+    {
+        title: "Initial unlock",
+        value: "6%",
+    },    {
+        title: "LockUp period",
+        value: "6 months",
+    },
+    {
+        title: "Vesting period",
+        value: "15 months",
+    },
+    {
+        title: "Claim interval",
+        value: "1 month",
+    }
+]
 
 const DashboardTop = () => {
     const { balances } = useUserDepositedBalance()
@@ -50,7 +73,7 @@ const DashboardTop = () => {
                 </div>
                 <DashboardCard style={{ width: "100%" }}>
                     <h3 className={styles.balanceTitle}>
-                        Deposit to get whitelisted for Stage 1
+                        Tokens to be received in <span>Stage 1</span>
                     </h3>
 
                     <div className={styles.balanceItemsWrapper}>
@@ -66,7 +89,13 @@ const DashboardTop = () => {
                 </DashboardCard>
 
                 <DashboardCard style={{ width: "100%" }}>
-                    <h3 className={styles.balanceTitle}>Deposit Balance</h3>
+                    <div className={styles.balanceTitleWrapper}>
+                        <h3 className={styles.balanceTitle}>Deposit Balance</h3>
+                        <span className={styles.balanceChain}>
+                            <Image src={EtherIcon} alt='ETH' />
+                            ETH
+                        </span>
+                    </div>
 
                     <div className={styles.balanceItemsWrapper}>
                         <BalanceItem
@@ -88,11 +117,12 @@ const DashboardTop = () => {
                 </div>
             </div>
             <div className={styles.rightCol}>
-                <div className={styles.headTitle}>
+               <div className={styles.depositWrapper}>
+               <div className={styles.headTitle}>
                     <h2>Get early access</h2>
-                    <div className={styles.discount}>
+                    {/* <div className={styles.discount}>
                         <p>-79%</p>
-                    </div>
+                    </div> */}
                 </div>
                 <div className={styles.timer}>
                     <h5 className={styles.timerTitle}>
@@ -113,6 +143,15 @@ const DashboardTop = () => {
                 </div>
 
                 <DepositForm />
+               </div>
+                <div className={styles.underDeposit}>
+                    {underDepositInfo.map((item, index) => (
+                        <div key={index} className={styles.underDepositItem}>
+                            {item.title}
+                            <span>{item.value}</span>
+                        </div>
+                    ))}
+                </div>
             </div>
             <div className={styles.mobileFaq}>
                 <Faq faqItems={faqItems} />

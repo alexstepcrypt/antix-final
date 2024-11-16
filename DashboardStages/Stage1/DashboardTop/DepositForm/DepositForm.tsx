@@ -49,6 +49,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
     const [balance, setMaxBalance] = useState<string | null>(null);
     const [displayCurrency, setDisplayCurrency] = useState<"ETH" | "USDT" | "USDC" | "CARD">("USDT");
     const [openDebit, setOpenDebit] = useState(false);
+    const [openETH, setOpenETH] = useState(false);
     const [isBuyChecked, setIsBuyChecked] = useState(true); // условие для чекбокса
     const [error, setError] = useState<string | null>(null);
     const [transactionInProgress, setTransactionInProgress] = useState(false);
@@ -97,6 +98,18 @@ const DepositForm: React.FC<IDepositForm> = () => {
             >
                 <Image src={USDCIcon} alt="USDC" width={24} height={24} />
                 <span>USDC</span>
+            </button>
+
+            <span className={styles.divider} />
+
+            <DepositPopover open={openETH} text="Coming Soon" style={{left: "35%"}} />
+            <button
+                onClick={() => setOpenETH((p) => !p)}
+                onBlur={() => setOpenETH(false)}
+                className={styles.chooseCurrBtn}
+            >
+                <Image src={EtherIcon} alt="ETH" width={24} height={24} />
+                <span>ETH</span>
             </button>
 
             <DepositPopover open={openDebit} text="Coming Soon" />
@@ -174,7 +187,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
                     window.open("https://t.me/antixtoken_bot", "_blank")
                 }
             >
-                <TgIcon />
+                {/* <TgIcon /> */}
                 We're here to help!
             </button>
         </div>
