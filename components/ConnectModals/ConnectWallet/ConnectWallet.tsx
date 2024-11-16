@@ -12,7 +12,7 @@ const ConnectWallet: React.FC = () => {
         <div className={styles.bg} />
         {isReady && <div className={styles.modal}>
             <p className={styles.modalTitle}>
-                Connect wallet to access token sale
+                Connect your Wallet to unlock all features
             </p>
             <button
                 className={styles.connectBtn}

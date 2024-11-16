@@ -30,8 +30,25 @@
             }
         }
 
+        .divider {
+            width: 1px;
+            height: 40px;
+            background: rgba(240, 240, 240, 0.1);
+        }
+
         .activeChooseCurrBtn {
             background: rgba(255, 255, 255, 0.12);
+        }
+
+        @media (max-width: 1280px) {
+            flex-wrap: wrap;
+            .divider {
+                display: none;
+            }
+            .chooseCurrBtn {
+                max-width: calc(50% - 8px);
+                width: 100%;
+            }
         }
 
         @media (max-width: 840px) {
@@ -168,7 +185,7 @@
             align-items: center;
             gap: 8px;
             text-decoration: underline;
-            color: #12fff1;
+            color: #00A1B2;
         }
 
         @media (max-width: 700px) {

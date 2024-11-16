@@ -78,6 +78,28 @@
         line-height: 36px;
         color: #fff;
         font-weight: 500;
+
+        span {
+            color: #12FFF1;
+        }
+    }
+    
+    .balanceTitleWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+        .balanceChain {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+            color: #FFFFFF;
+        }
     }
 
     .balanceItemsWrapper {
@@ -107,306 +129,366 @@
 }
 
 .rightCol {
-    height: fit-content;
     max-width: calc(50% - 10px);
+    height: fit-content;
+
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 20px;
 
-    background: #141415;
-    backdrop-filter: blur(22px);
-    padding: 44px 28px 28px;
-    border-radius: 12px;
-    border: 1px solid #12fff1;
-    box-shadow: 0 0 24px 0 #12FFF152;
+    .depositWrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
 
-    .balanceWrapper {
-        .balanceTitle {
-            width: 100%;
+        background: #141415;
+        backdrop-filter: blur(22px);
+        padding: 44px 28px 28px;
+        border-radius: 12px;
+        border: 1px solid #12fff1;
+        box-shadow: 0 0 24px 0 #12FFF152;
 
-            font-size: 20px;
-            font-weight: 500;
-            line-height: 36px;
-            text-align: left;
-            color: #ffffff;
+        .balanceWrapper {
+            .balanceTitle {
+                width: 100%;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            span {
-                font-size: 18px;
-                font-weight: 600;
-                line-height: 27px;
-                text-align: center;
-                color: #0f0e14;
-
-                background: #12fff1;
-                padding: 6px 8px;
-                border-radius: 4px;
-            }
-        }
-
-        .balance {
-            margin-top: 4px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            span {
-                font-size: 28px;
+                font-size: 20px;
                 font-weight: 500;
                 line-height: 36px;
                 text-align: left;
                 color: #ffffff;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                span {
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 27px;
+                    text-align: center;
+                    color: #0f0e14;
+
+                    background: #12fff1;
+                    padding: 6px 8px;
+                    border-radius: 4px;
+                }
+            }
+
+            .balance {
+                margin-top: 4px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+
+                span {
+                    font-size: 28px;
+                    font-weight: 500;
+                    line-height: 36px;
+                    text-align: left;
+                    color: #ffffff;
+                }
             }
         }
-    }
 
-    .headTitle {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        h2 {
-            font-size: 32px;
-            line-height: 36px;
-            color: #FFFFFF;
-            font-weight: 600;
-
-            @media (max-width: 960px) {
-                font-size: 28px;
-            }
-
-            @media (max-width: 710px) {
-                font-size: 22px;
-            }
-        }
-
-        .discount {
-            color: #0F0E14;
-            font-size: 22px;
-            line-height: 33px;
-            font-weight: 600;
-            background: #12FFF1;
-            padding: 4px 8px;
-            border-radius: 8px;
-        }
-    }
-
-    .timer {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-
-        .timerTitle {
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 21px;
-            color: #afafaf;
-            max-width: 61px;
-
-            @media (max-width: 450px) {
-                font-size: 10px;
-            } 
-        }
-    }
-
-    .stagePrice {
-        background: #F0F0F01A;
-        border-radius: 8px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px;
-
-        h5 {
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 21px;
-            color: #FFFFFF99;
-        }
-
-        .depositPriceWrapper {
+        .headTitle {
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: space-between;
 
-            h4 {
-                font-size: 14px;
+            h2 {
+                font-size: 32px;
+                line-height: 36px;
+                color: #FFFFFF;
                 font-weight: 600;
-                line-height: 21px;
-                color: #fff;
+
+                @media (max-width: 960px) {
+                    font-size: 28px;
+                }
+
+                @media (max-width: 710px) {
+                    font-size: 22px;
+                }
             }
 
-            .prevPrice {
-                text-decoration: line-through;
-                color: #F0F0F066;
-            }
-
-            .depositDiscount {
-                padding: 4px 8px;
-                border-radius: 4px;
-                background: #12FFF1;
+            .discount {
                 color: #0F0E14;
-                font-size: 14px;
+                font-size: 22px;
+                line-height: 33px;
                 font-weight: 600;
+                background: #12FFF1;
+                padding: 4px 8px;
+                border-radius: 8px;
+            }
+        }
+
+        .timer {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .timerTitle {
+                font-size: 14px;
+                font-weight: 400;
                 line-height: 21px;
-                text-align: center;
-            }
-        }
+                color: #afafaf;
+                max-width: 61px;
 
-        @media (max-width: 1200px) {
-            gap: 5px;
-
-            h5 {
-                font-size: 10px;
-            }
-
-            .depositPriceWrapper {
-                h4 {
+                @media (max-width: 450px) {
                     font-size: 10px;
-                }
-
-                .depositDiscount {
-                    font-size: 10px;
-                    line-height: 15px;
-                }
+                } 
             }
         }
 
-        @media (max-width: 880px) {
-            h5 {
-                max-width: 60px;
-                text-align: center;
-            }
-        }
+        .stagePrice {
+            background: #F0F0F01A;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
 
-        @media (max-width: 650px) {
             h5 {
                 font-size: 14px;
-                max-width: none;
-                text-align: left;
+                font-weight: 400;
+                line-height: 21px;
+                color: #FFFFFF99;
             }
 
             .depositPriceWrapper {
-                h4 {
-                    font-size: 14px;
-                }
-
-                .depositDiscount {
-                    font-size: 14px;
-                    line-height: 21px;
-                }
-            }
-        }
-
-        @media (max-width: 550px) {
-            h5 {
-                font-size: 10px;
-            }
-
-            .depositPriceWrapper {
-                h4 {
-                    font-size: 10px;
-                }
-
-                .depositDiscount {
-                    font-size: 10px;
-                    line-height: 15px;
-                }
-            }
-        }
-
-        @media (max-width: 425px) {
-            h5 {
-                font-size: 8px;
-            }
-
-            .depositPriceWrapper {
-                h4 {
-                    font-size: 8px;
-                }
-
-                .depositDiscount {
-                    font-size: 8px;
-                    line-height: 14px;
-                }
-            }
-        }
-    }
-
-    @media screen and (max-width: 960px) {
-        padding: 28px;
-        .balanceWrapper {
-            .balanceTitle {
-                font-size: 16px;
-                line-height: 24px;
-
-                flex-direction: column-reverse;
-                align-items: flex-start;
+                display: flex;
+                align-items: center;
                 gap: 8px;
 
-                span {
-                    font-size: 16px;
-                    line-height: 24px;
-                }
-            }
-            .balance {
-                span {
-                    font-size: 24px;
-                    line-height: 36px;
-                }
-            }
-        }
-    }
-    @media screen and (max-width: 650px) {
-        max-width: none;
-        padding: 20px;
-
-        .balanceWrapper {
-            .balanceTitle {
-                flex-direction: row;
-                align-items: center;
-                text-wrap: nowrap;
-            }
-            .balance {
-                span {
-                    font-size: 24px;
-                    line-height: 36px;
-                }
-            }
-        }
-        .headTitle {
-            font-size: 20px;
-            line-height: 36px;
-            text-wrap: nowrap;
-
-            .headTitleRight {
-                text-wrap: wrap;
-                margin-left: 6px;
-            }
-        }
-    }
-    @media screen and (max-width: 480px) {
-        padding-top: 24px;
-        .balanceWrapper {
-            .balanceTitle {
-                font-weight: 400;
-
-                span {
+                h4 {
                     font-size: 14px;
                     font-weight: 600;
-                    line-height: 24px;
+                    line-height: 21px;
+                    color: #fff;
+                }
+
+                .prevPrice {
+                    text-decoration: line-through;
+                    color: #F0F0F066;
+                }
+
+                .depositDiscount {
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                    background: #12FFF1;
+                    color: #0F0E14;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 21px;
+                    text-align: center;
                 }
             }
-            .balance {
-                margin-top: 8px;
+
+            @media (max-width: 1200px) {
+                gap: 5px;
+
+                h5 {
+                    font-size: 10px;
+                }
+
+                .depositPriceWrapper {
+                    h4 {
+                        font-size: 10px;
+                    }
+
+                    .depositDiscount {
+                        font-size: 10px;
+                        line-height: 15px;
+                    }
+                }
+            }
+
+            @media (max-width: 880px) {
+                h5 {
+                    max-width: 60px;
+                    text-align: center;
+                }
+            }
+
+            @media (max-width: 650px) {
+                h5 {
+                    font-size: 14px;
+                    max-width: none;
+                    text-align: left;
+                }
+
+                .depositPriceWrapper {
+                    h4 {
+                        font-size: 14px;
+                    }
+
+                    .depositDiscount {
+                        font-size: 14px;
+                        line-height: 21px;
+                    }
+                }
+            }
+
+            @media (max-width: 550px) {
+                h5 {
+                    font-size: 10px;
+                }
+
+                .depositPriceWrapper {
+                    h4 {
+                        font-size: 10px;
+                    }
+
+                    .depositDiscount {
+                        font-size: 10px;
+                        line-height: 15px;
+                    }
+                }
+            }
+
+            @media (max-width: 425px) {
+                h5 {
+                    font-size: 8px;
+                }
+
+                .depositPriceWrapper {
+                    h4 {
+                        font-size: 8px;
+                    }
+
+                    .depositDiscount {
+                        font-size: 8px;
+                        line-height: 14px;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 960px) {
+            padding: 28px;
+            .balanceWrapper {
+                .balanceTitle {
+                    font-size: 16px;
+                    line-height: 24px;
+
+                    flex-direction: column-reverse;
+                    align-items: flex-start;
+                    gap: 8px;
+
+                    span {
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                }
+                .balance {
+                    span {
+                        font-size: 24px;
+                        line-height: 36px;
+                    }
+                }
+            }
+        }
+        @media screen and (max-width: 650px) {
+            max-width: none;
+            padding: 20px;
+
+            .balanceWrapper {
+                .balanceTitle {
+                    flex-direction: row;
+                    align-items: center;
+                    text-wrap: nowrap;
+                }
+                .balance {
+                    span {
+                        font-size: 24px;
+                        line-height: 36px;
+                    }
+                }
+            }
+            .headTitle {
+                font-size: 20px;
+                line-height: 36px;
+                text-wrap: nowrap;
+
+                .headTitleRight {
+                    text-wrap: wrap;
+                    margin-left: 6px;
+                }
+            }
+        }
+        @media screen and (max-width: 480px) {
+            padding-top: 24px;
+            .balanceWrapper {
+                .balanceTitle {
+                    font-weight: 400;
+
+                    span {
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 24px;
+                    }
+                }
+                .balance {
+                    margin-top: 8px;
+                }
             }
         }
     }
+
+    .underDeposit {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 24px 32px;
+        border-radius: 8px;
+        background: rgba(20, 20, 21, 1);
+        backdrop-filter: blur(25px);
+
+        .underDepositItem {
+            display: flex;
+            flex-direction: column;
+            color: rgba(240, 240, 240, 0.4);
+
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 18.11px;
+
+            span {
+                font-size: 14px;
+                font-weight: 500;
+                color: #F0F0F0;
+            }
+        }
+
+        @media screen and (max-width: 1280px) {
+            padding: 20px;
+            .underDepositItem {
+                font-size: 10px;
+                font-weight: 400;
+                line-height: 18.11px;
+    
+                span {
+                    font-size: 10px;
+                }
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .underDepositItem {
+                text-align: center;
+            }
+        }
+    }
+
+
+    @media screen and (max-width: 650px) {
+        max-width: none;
+    }
 }
+
 
 /* ==== MOBILE FAQ ==== */
 .mobileFaq {
@@ -424,5 +506,5 @@
     font-size: 12px;
     line-height: 21px;
     color: rgba(255, 255, 255, 0.6);
-    b { color: #fff; font-weight: normal;}
+    b { color: #12FFF1; font-weight: normal;}
 }

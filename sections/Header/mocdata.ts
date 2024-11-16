@@ -32,13 +32,13 @@ export const linksDashboard: linksType[] = [
         disabled: false,
     },
     {
-        label: "Claim",
-        href: "",
+        label: "Referral",
+        href: "/dashboard/referral",
         disabled: false,
     },
     {
-        label: "Referral",
-        href: "/dashboard/referral",
+        label: "Claim",
+        href: "",
         disabled: false,
     },
 ];
