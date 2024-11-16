@@ -24,7 +24,7 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
     const handleCopy = () => {
         if (navigator.clipboard) {
             navigator.clipboard
-                .writeText(refCode)
+                .writeText(`${process.env.REFERRAL_LINK}${refCode}`)
                 .then(() => {
                     setIsCopied(true);
                     setTimeout(() => setIsCopied(false), 2000);
@@ -34,7 +34,7 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                 });
         } else {
             const textArea = document.createElement("textarea");
-            textArea.value = refCode;
+            textArea.value = `${process.env.REFERRAL_LINK}${refCode}`;
             document.body.appendChild(textArea);
             textArea.select();
             document.execCommand("copy");
