@@ -39,8 +39,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
 
     const headerRef = useRef<HTMLDivElement | null>(null);
 
-    const {connect, isConnected, connected, isReady, account} = useConnectWallet()
-    console.log({isConnected, connected, isReady, account})
+    const {connect, isConnected, isReady, account} = useConnectWallet()
 
     useEffect(() => {
         const handleScroll = () => {

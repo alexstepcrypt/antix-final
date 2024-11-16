@@ -7,6 +7,7 @@ import styles from "./DashboardTop.module.scss";
 import TetherIcon from "/public/svg/tether-icon.svg";
 // import EtherIcon from "/public/svg/ether-icon.svg";
 import USDCIcon from "/public/svg/usdc-icon.svg";
+import vAntixIcon from "/public/dashboard/svg/antix_currency.svg";
 
 import { Timer } from "./Timer/Timer";
 const DepositForm = dynamic(() => import("./DepositForm/DepositForm"), { ssr: false });
@@ -47,6 +48,23 @@ const DashboardTop = () => {
                         Limited availability — act promptly to secure the best conditions.
                     </p>
                 </div>
+                <DashboardCard style={{ width: "100%" }}>
+                    <h3 className={styles.balanceTitle}>
+                        Deposit to get whitelisted for Stage 1
+                    </h3>
+
+                    <div className={styles.balanceItemsWrapper}>
+                        <BalanceItem
+                            currencySrc={vAntixIcon}
+                            title="vANTIX"
+                            balance={String(balances.vesting)}
+                        />
+                        <p className={styles.vested}>
+                            <b>Vested Antix (vANTIX)</b> tokens will be converted to ANTIX tokens according to the unlock and vesting schedule.
+                        </p>
+                    </div>
+                </DashboardCard>
+
                 <DashboardCard style={{ width: "100%" }}>
                     <h3 className={styles.balanceTitle}>Deposit Balance</h3>
 

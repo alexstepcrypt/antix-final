@@ -5,9 +5,10 @@ import { useConnectWallet } from '@/hooks/useConnectWallet'
 
 export const useUserDepositedBalance = function () {
 	const { chainId, profile, isConnected, address } = useConnectWallet();
-	const [balances, setBalances] = useState({usdt:0, usdc:0});
+	const [balances, setBalances] = useState({usdt:0, usdc:0, vesting:0});
 
 	function fetchBalances(){
+		if (!Api.hasAuthToken()) return
 		Api.getUserBalances(chainId).then((res:any)=>{
             // @ts-ignore
             setBalances(Object.values(res).reduce((acc:any, token:any)=>{
@@ -18,7 +19,6 @@ export const useUserDepositedBalance = function () {
 	}
 
 	useEffect(() => {
-        if (!profile) return
         fetchBalances()
     }, [profile, isConnected, address]);
 
