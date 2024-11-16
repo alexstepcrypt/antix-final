@@ -66,9 +66,10 @@ const Referral = () => {
     },[profile])
 
     const handleCopy = () => {
+        const link = process.env.REFERRAL_LINK + refCode
         if (navigator.clipboard) {
             navigator.clipboard
-                .writeText(refCode)
+                .writeText(link)
                 .then(() => {
                     setIsCopied(true);
                     setTimeout(() => setIsCopied(false), 2000);
@@ -78,7 +79,7 @@ const Referral = () => {
                 });
         } else {
             const textArea = document.createElement("textarea");
-            textArea.value = refCode;
+            textArea.value = link;
             document.body.appendChild(textArea);
             textArea.select();
             document.execCommand("copy");
