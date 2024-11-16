@@ -25,6 +25,10 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
    function close(){
       dialog.current.close()
    }
+
+   function handleContinue(){
+      window.location.reload()
+   }
    
    const txUrl = explorerUrls[chainId] + '/tx/' + txHash
    const content:any = ({
@@ -53,6 +57,6 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
       <article>{content.desc}</article>
 
       {status==='fail' && <button className={styles.btn} onClick={()=>retryFn()}>Retry</button>}
-      {status==='success' && <button className={styles.btn} onClick={close}>Continue</button>}
+      {status==='success' && <button className={styles.btn} onClick={handleContinue}>Continue</button>}
    </dialog>
 }

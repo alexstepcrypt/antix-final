@@ -42,7 +42,7 @@ export const useConnectWallet = function () {
 	const [ ready, setReady ] = useState(isConnected || !!status || !!profile)
 
 	const checkAuth = () => {
-        if (!address || !Api.hasAuthToken()) return
+        if (!address) return
 		Api.getUserProfile().then((profileInfo:any)=>{
 			if (profileInfo.error) {
 				console.log('Auth error', profileInfo.error)

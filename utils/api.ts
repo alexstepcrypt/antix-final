@@ -35,7 +35,7 @@ type ProfileProps = {
 }
 
 
-export default new class Api {
+class Api {
   public apiDomain = process.env.API_URL
 
   private authToken = null
@@ -81,6 +81,11 @@ export default new class Api {
     return result
   }
 
+  authCall(...args:any[]){
+    if (!this.hasAuthToken()) return new Promise(()=>{})
+    return this.call(...args)
+  }
+
   stagesInfo(chainId:number|string) {
     return this.call(`sale/${chainId}/info`)
   }
@@ -110,16 +115,16 @@ export default new class Api {
   }
 
   getUserProfile():Promise<ProfileProps>{
-    return this.call('/profile/')
+    return this.authCall('/profile/')
   }
 
   async getUserRefcode():Promise<string> {
-    const res = await this.call('/profile/refcode')
+    const res = await this.authCall('/profile/refcode')
     return res.refcode
   }
 
   getUserBalances(chainId:number|string):Promise<any>{
-    return this.call(`/profile/balance/${chainId}/`)
+    return this.authCall(`/profile/balance/${chainId}/`)
   }
   
   getDepositTx(chainId:number|string, token:string, amount:number|string){
@@ -127,10 +132,12 @@ export default new class Api {
   }
 
   getBuyTx(chainId:number|string, token:string, amount:number|string){
-    return this.call(`/sale/${chainId}/buyTxData?token=${token}&amount=${amount}`)
+    return this.authCall(`/sale/${chainId}/buyTxData?token=${token}&amount=${amount}`)
   }
 
   saveTx(params:SaveTransactionParams):Promise<{success:Boolean}>{
-    return this.call('/profile/saveTx', params)
+    return this.authCall('/profile/saveTx', params)
   }
-}()
+}
+
+export default new Api()
