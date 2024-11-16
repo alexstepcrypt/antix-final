@@ -201,6 +201,17 @@
     }
 }
 
+.chooseChain {
+    margin-right: 12px;
+
+    @media screen and (max-width: 960px) {
+        margin-left: auto;
+    }
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
+}
+
 .connectContainer {
     display: flex;
     align-items: center;

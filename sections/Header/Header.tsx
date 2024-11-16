@@ -26,6 +26,7 @@ import DisconnectIcon from "/public/svg/disconnect-icon.svg";
 import WalletIcon from "/public/svg/wallet-icon.svg";
 import { FadeInNew } from "../../components/FadeInNew/FadeInNew";
 import arrow from '/public/dashboard/svg/arrow-down.svg';
+import ChainsDropdown from '@/components/ChainsDropdown/ChainsDropdown';
 
 interface HeaderProps {
     isDashboard?: boolean;
@@ -181,6 +182,9 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                             </button>
                         </>
                     ))}
+                </div>
+                <div className={styles.chooseChain}>
+                    <ChainsDropdown />
                 </div>
                 <div className={styles.connectContainer}>
                     {!isReady && <button className={styles.connectButton} style={{visibility:'hidden'}}>...</button>}
