@@ -1,17 +1,42 @@
+import { create } from "zustand"
 import { useState, useEffect } from "react";
 import {useChainId, useSignMessage, useDisconnect} from "wagmi";
 import { useAppKit, useAppKitAccount} from '@reown/appkit/react'
 import Api from "@/utils/api";
 
-export const useConnectWallet = function () {
-	const [connected, setConnected] = useState(false)
-	const [account, setAccount] = useState<any>(null)
+interface ProfileState {
+    profile: any;
+    setProfile: (data: any) => void;
+}
+const useProfileStore = create<ProfileState>((set) => ({
+	profile: null,
+	setProfile: (data:any) => set({ profile: data }),
+}))
 
+interface ConnectedState {
+    connected: any;
+    setConnected: (data: boolean) => void;
+}
+const useConnectedStore = create<ConnectedState>((set) => ({
+	connected: false,
+	setConnected: (data:boolean) => set({ connected: data }),
+}))
+
+interface AccountState {
+    account: string|null;
+    setAccount: (data: string) => void;
+}
+const useAccountStore = create<AccountState>((set) => ({
+	account: null,
+	setAccount: data => set({ account: data }),
+}))
+
+export const useConnectWallet = function () {
 	const { open, close } = useAppKit()
 	const { isConnected, status, address } = useAppKitAccount()
     const { disconnect } = useDisconnect()
 	const chainId = useChainId()
-	const [ profile, setProfile ] = useState<any>(null)
+	const { profile, setProfile } = useProfileStore()
 	const [ web3modalOpen, setWeb3modalOpen ] = useState(false)
 	const { data: signMessageData, signMessage, variables, error: signError } = useSignMessage()
 	const [ ready, setReady ] = useState(isConnected || !!status || !!profile)
@@ -23,6 +48,7 @@ export const useConnectWallet = function () {
 				console.log('Auth error', profileInfo.error)
 				return
 			}
+			setProfile(profileInfo)
         }).catch(() => {
             signToLogin()
         })
@@ -83,26 +109,27 @@ export const useConnectWallet = function () {
 		return () => clearTimeout(timeoutId);
 	}, [])
 
+	const {connected, setConnected} = useConnectedStore()
+	const {account, setAccount} = useAccountStore()
 	useEffect(()=>{
 		if (!address) return
-		// console.log('setConnected', profile ? isConnected : false)
 		setConnected(profile ? isConnected : false)
 	}, [isConnected, address, profile])
 
 	useEffect(()=>{
 		if (!isConnected) return
-		// console.log('setAccount', profile ? (address || profile.wallet) : null)
 		setAccount(profile ? (address || profile.wallet) : null)
 	}, [address, profile, isConnected])
 
+	
 	return {
 		isReady: ready,
-		isConnected: isConnected, 
-		account:address, address, 
+		isConnected: connected, 
+		account, address:account, 
 		status, 
 		connect, 
 		chainId, 
-		profile, 
+		profile,
 		disconnect: ()=>{
 			disconnect(); close()
 			localStorage.removeItem('authToken')

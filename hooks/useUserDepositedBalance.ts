@@ -17,8 +17,9 @@ export const useUserDepositedBalance = function () {
             },{}))
         }).catch(console.error)
 	}
-
+	
 	useEffect(() => {
+		if (!profile) return
         fetchBalances()
     }, [profile, isConnected, address]);
 
