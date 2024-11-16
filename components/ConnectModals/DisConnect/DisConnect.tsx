@@ -15,8 +15,7 @@ const DisConnect = ({setIsOpen}: {setIsOpen: React.Dispatch<React.SetStateAction
 
     const handleClick = () => {
         disconnect()
-        window.location.href = '/'
-    };
+    }
 
     return (
         <>

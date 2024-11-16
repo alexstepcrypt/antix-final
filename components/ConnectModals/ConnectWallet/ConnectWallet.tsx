@@ -4,9 +4,9 @@ import styles from "./ConnectWallet.module.scss";
 import { useConnectWallet } from '@/hooks/useConnectWallet'
 
 const ConnectWallet: React.FC = () => {
-    const { address, connect } = useConnectWallet()
+    const { isConnected, status, connect } = useConnectWallet()
 
-    if (address) return <></>
+    if (isConnected) return <></>
 
     return <>
         <div className={styles.bg} />

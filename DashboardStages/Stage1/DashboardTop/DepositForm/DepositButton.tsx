@@ -51,8 +51,7 @@ interface IDepositButton {
 }
 
 export default function DepositButton({amount, type, tokenAddress}:IDepositButton){
-    const account = useAccount()
-    const { address, chainId, connect } = useConnectWallet()
+    const { address, isConnected, chainId, connect } = useConnectWallet()
     const { switchChain } = useSwitchChain()
     const contractAddress = contractsAddresses[chainId]
 
@@ -105,18 +104,18 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
     }
 
 	// First connect wallet
-	if (!address) {
+	if (!isConnected) {
 		return <button onClick={() => connect()} className={styles.depositBtn}>
 			Connect wallet
 		</button>
 	}
 
-	// Switch network
-	if (![1,56].includes(Number(account.chainId))) {
-		return <button onClick={() => switchChain({ chainId: 1 })} className={styles.depositBtn}>
-			Switch network
-		</button>
-	}
+	// @TODO: Switch network - не пашет
+	// if (![1,56].includes(Number(account.chainId))) {
+	// 	return <button onClick={() => switchChain({ chainId: 1 })} className={styles.depositBtn}>
+	// 		Switch network
+	// 	</button>
+	// }
 
 	// Approve amount
 	if (allowance < Number(amount) || Number(amount) === 0) {

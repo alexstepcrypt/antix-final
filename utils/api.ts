@@ -69,7 +69,14 @@ export default new class Api {
     const controller = new AbortController()
     const timerId = setTimeout(() => controller.abort(), timeout)
     params.signal =  controller.signal
-    const result = (await fetch(url, params)).json()
+
+    let result
+    try {
+      result = (await fetch(url, params)).json()
+    } catch (err) {
+      console.error(err)
+      throw err
+    }
     clearTimeout(timerId)
     return result
   }
@@ -107,8 +114,8 @@ export default new class Api {
     return res.refcode
   }
 
-  getUserBalances(chainId:number|string, wallet:string):Promise<any>{
-    return this.call(`/profile/balance/${chainId}/${wallet}`)
+  getUserBalances(chainId:number|string):Promise<any>{
+    return this.call(`/profile/balance/${chainId}/`)
   }
   
   getDepositTx(chainId:number|string, token:string, amount:number|string){

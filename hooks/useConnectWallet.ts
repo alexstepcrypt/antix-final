@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import {useAccount, useChainId, useSignMessage, useDisconnect} from "wagmi";
-import {useWeb3Modal} from "@web3modal/wagmi/react";
+import {useChainId, useSignMessage, useDisconnect} from "wagmi";
+import { useAppKit, useAppKitAccount} from '@reown/appkit/react'
 import Api from "@/utils/api";
 
 let getProfileReq:any = null
 export const useConnectWallet = function () {
-	const { open } = useWeb3Modal()
+	const { open, close } = useAppKit()
+	const { isConnected, status, address } = useAppKitAccount()
     const { disconnect } = useDisconnect()
-	const { address } = useAccount()
 	const chainId = useChainId()
 	const [ profile, setProfile ] = useState({})
 	const [ web3modalOpen, setWeb3modalOpen ] = useState(false)
@@ -56,8 +56,14 @@ export const useConnectWallet = function () {
         }).catch(error => console.log(error))
 	}, [signMessageData])
 
-	return { connect, chainId, profile, address, account:address, disconnect: ()=>{
-		disconnect()
-		localStorage.removeItem('authToken')
-	}}
+	return { isConnected, status, connect, chainId, profile, address, account:address, 
+		disconnect: ()=>{
+			disconnect()
+			close()
+			localStorage.removeItem('authToken')
+			setTimeout(()=>{
+				window.location.href = '/'
+			}, 1111)
+		}
+	}
 }

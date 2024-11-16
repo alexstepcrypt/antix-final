@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import {formatUnits} from 'viem';
-import {useAccount, useBalance, useChainId, useSignMessage} from "wagmi";
+import {useAccount, useBalance, useChainId} from "wagmi";
 import { getBalance } from '@wagmi/core'
 import { config } from '@/utils/wagmiConfig'
 
