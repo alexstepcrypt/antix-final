@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
 
     const headerRef = useRef<HTMLDivElement | null>(null);
 
-    const {connect, address: account} = useConnectWallet()
+    const {connect, isConnected, isReady, account} = useConnectWallet()
 
 
     useEffect(() => {
@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
 
     return (
         <>
-            {isDisconnectModal && account && <DisConnect setIsOpen={setIsDisconnectModal} />}
+            {isDisconnectModal && isConnected && <DisConnect setIsOpen={setIsDisconnectModal} />}
             <div
                 className={`${styles.mobile} ${
                     isOpen ? styles.activeMobile : ""
@@ -184,7 +184,9 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                     ))}
                 </div>
                 <div className={styles.connectContainer}>
-                    {account ? (
+                    {!isReady && <button className={styles.connectButton} style={{visibility:'hidden'}}>...</button>}
+                    {isReady && <>
+                    {isConnected ? (
                         <button
                             className={styles.walletButton}
                             onClick={() => setIsDisconnectModal(true)}
@@ -193,15 +195,15 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                             {account ? formatAddress(account) : ""}
                         </button>
                     ) : (
-                        <>
-                            <button
-                                onClick={connect}
-                                className={styles.connectButton}
-                            >
-                                Connect Wallet
-                            </button>
-                        </>
+                        <button
+                            onClick={connect}
+                            className={styles.connectButton}
+                        >
+                            Connect Wallet
+                        </button>
                     )}
+                    </>}
+
                     {!isDashboard && (
                         <button className={styles.userButton} onClick={() => window.open("/dashboard", "_parent")}>
                             <Image src={UserIcon} alt="User" />

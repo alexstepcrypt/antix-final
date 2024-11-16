@@ -4,7 +4,7 @@ import { toFixed } from "@/utils/utils";
 import { useConnectWallet } from '@/hooks/useConnectWallet'
 
 export const useUserDepositedBalance = function () {
-	const { chainId, profile } = useConnectWallet();
+	const { chainId, profile, isConnected, address } = useConnectWallet();
 	const [balances, setBalances] = useState({usdt:0, usdc:0});
 
 	function fetchBalances(){
@@ -20,7 +20,7 @@ export const useUserDepositedBalance = function () {
 	useEffect(() => {
         if (!profile) return
         fetchBalances()
-    }, [profile]);
+    }, [profile, isConnected, address]);
 
 	useEffect(() => {
 		window.addEventListener("balance:changed", fetchBalances);
