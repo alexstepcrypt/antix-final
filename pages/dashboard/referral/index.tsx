@@ -17,7 +17,7 @@ import USDCIcon from "/public/svg/usdc-icon.svg";
 import WalletIcon from "/public/svg/white-wallet-icon.svg";
 import Faq from "@/components/Faq/Faq";
 import { useConnectWallet } from '@/hooks/useConnectWallet'
-import { formatAddress } from "@/utils/utils";
+import { formatAddress, formatFiat } from "@/utils/utils";
 import CurrencyButton from "@/DashboardStages/components/CurrencyButton/CurrencyButton";
 import Api from '@/utils/api'
 const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false });
@@ -50,7 +50,7 @@ const Referral = () => {
     const [isGenerated, setIsGenerated] = useState(false);
     const [isCopied, setIsCopied] = useState(false);
     const [refCode, setRefCode] = useState("YOURCODE");
-    const { address: account, profile } = useConnectWallet();
+    const { account, profile, chainId } = useConnectWallet();
 
     const handleGenerateReferralLink = async () => {
         const refcode = await Api.getUserRefcode()
@@ -69,7 +69,7 @@ const Referral = () => {
         const link = process.env.REFERRAL_LINK + refCode
         if (navigator.clipboard) {
             navigator.clipboard
-                .writeText(`${process.env.REFERRAL_LINK}${refCode}`)
+                .writeText(link)
                 .then(() => {
                     setIsCopied(true);
                     setTimeout(() => setIsCopied(false), 2000);
@@ -79,7 +79,7 @@ const Referral = () => {
                 });
         } else {
             const textArea = document.createElement("textarea");
-            textArea.value = `${process.env.REFERRAL_LINK}${refCode}`;
+            textArea.value = link
             document.body.appendChild(textArea);
             textArea.select();
             document.execCommand("copy");
@@ -88,6 +88,20 @@ const Referral = () => {
             setTimeout(() => setIsCopied(false), 2000);
         }
     };
+
+
+    const [refStats, setRefStats] = useState<any>({})
+    useEffect(()=>{
+        let fetchReferralsTimeout:any = setTimeout(()=>{
+            Api.getUserReferrals().then(res=>{
+                setRefStats({
+                    count: res.count,
+                    ...res.chain[chainId]
+                })
+            })
+        }, 333)
+        return () => clearTimeout(fetchReferralsTimeout)
+    }, [profile, chainId])
 
     return <>
         <main
@@ -160,19 +174,11 @@ const Referral = () => {
                         <div className={styles.topRefBalance}>
                             <h4>Total Referral Balance</h4>
                             <div className={styles.walletBtn}>
-                                <Image
-                                    src={WalletIcon}
-                                    alt="Wallet"
-                                    width={24}
-                                    height={24}
-                                />
-                                {account
-                                    ? formatAddress(account)
-                                    : "loading..."}
+                                {refStats?.count} referrals
                             </div>
                         </div>
                         <div className={styles.bottomRefBalance}>
-                            <span className={styles.balance}>0.00</span>
+                            <span className={styles.balance}>{formatFiat(refStats?.usd)}</span>
                             <CurrencyButton
                                 displayCurrency="USDT"
                                 icon={TetherIcon}
@@ -193,7 +199,7 @@ const Referral = () => {
                                         Your Referral USDT Current Phase Balance
                                     </span>
                                 </div>
-                                <span>0.00</span>
+                                <span>{formatFiat(refStats?.tokens?.usdt)}</span>
                             </div>
                             <div className={styles.balanceContainer}>
                                 <div className={styles.balanceTop}>
@@ -207,7 +213,7 @@ const Referral = () => {
                                         Your Referral USDC Current Phase Balance
                                     </span>
                                 </div>
-                                <span>0.00</span>
+                                <span>{formatFiat(refStats?.tokens?.usdc)}</span>
                             </div>
                         </div>
                         <button className={styles.claimBtn}>
@@ -220,12 +226,12 @@ const Referral = () => {
                 </div>
             </div>
 
-            <div className={styles.refWrapper}>
+            {/* <div className={styles.refWrapper}>
                 <h3 className={styles.refTitle}>My Referrals</h3>
                 <div className={styles.refContainer}>
                     <div className={styles.refMessage}>You don't have any referrals yet</div>
                 </div>
-            </div>
+            </div> */}
         </section>
         <Footer style={{
             margin: '100px 16px 16px',

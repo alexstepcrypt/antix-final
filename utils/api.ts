@@ -51,6 +51,8 @@ class Api {
    * @param  {object} body - post body converted to json
    */
   async call (route:string, body:any = null, timeout = 10000) {
+    if (typeof window === 'undefined') return
+
     const url = [this.apiDomain, route].join('/').replace('://','____').split('//').join('/').replace('____', '://')
     const params:any = (body)
       ? {
@@ -83,6 +85,7 @@ class Api {
 
   authCall(...args:any[]){
     if (!this.hasAuthToken()) return new Promise(()=>{})
+    // @ts-ignore
     return this.call(...args)
   }
 
@@ -121,6 +124,10 @@ class Api {
   async getUserRefcode():Promise<string> {
     const res = await this.authCall('/profile/refcode')
     return res.refcode
+  }
+
+  getUserReferrals():Promise<any>{
+    return this.authCall('/profile/referrals')
   }
 
   getUserBalances(chainId:number|string):Promise<any>{
