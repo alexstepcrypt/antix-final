@@ -22,6 +22,7 @@ import Faq from '@/components/Faq/Faq';
 import useStageStore from '@/stores/useStageStore';
 import { useUserDepositedBalance } from '@/hooks/useUserDepositedBalance'
 import Image from 'next/image';
+import { useNetworkStore } from '@/stores/useNetworkStore'
 
 const underDepositInfo = [
     {
@@ -46,8 +47,9 @@ const underDepositInfo = [
 ]
 
 const DashboardTop = () => {
-    const { balances } = useUserDepositedBalance()
-    const { stageData } = useStageStore()
+    const { balances } = useUserDepositedBalance();
+    const { stageData } = useStageStore();
+    const { network } = useNetworkStore();
 
     useEffect(() => {
         if(stageData) console.log(stageData)
@@ -92,8 +94,13 @@ const DashboardTop = () => {
                     <div className={styles.balanceTitleWrapper}>
                         <h3 className={styles.balanceTitle}>Deposit Balance</h3>
                         <span className={styles.balanceChain}>
-                            <Image src={EtherIcon} alt='ETH' />
-                            ETH
+                            <Image
+                                src={network.icon}
+                                alt={network.value}
+                                width={24}
+                                height={24}
+                            />
+                            {network.value}
                         </span>
                     </div>
 
@@ -126,13 +133,13 @@ const DashboardTop = () => {
                 </div>
                 <div className={styles.timer}>
                     <h5 className={styles.timerTitle}>
-                        Deposits end in
+                        Stage 1 starts in
                     </h5>
                     <Timer targetDate={new Date("2024-11-28T16:00:00.000Z")} />
                 </div>
 
                 <div className={styles.stagePrice}>
-                    <h5>Deposit Stage Price</h5>
+                    <h5>Current Price</h5>
                     <div className={styles.depositPriceWrapper}>
                         <h4>0.03 USD</h4>
                         <h4 className={styles.prevPrice}>0.14 USD</h4>
@@ -143,7 +150,7 @@ const DashboardTop = () => {
                 </div>
 
                 <DepositForm />
-               </div>
+                </div>
                 <div className={styles.underDeposit}>
                     {underDepositInfo.map((item, index) => (
                         <div key={index} className={styles.underDepositItem}>

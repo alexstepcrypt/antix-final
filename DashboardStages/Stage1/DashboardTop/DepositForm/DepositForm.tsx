@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 import TetherIcon from "/public/svg/tether-icon.svg";
-import EtherIcon from "/public/svg/ether-icon.svg";
+import BNBIcon from "/public/svg/bnb-icon.svg";
 import USDCIcon from "/public/svg/usdc-icon.svg";
 
 import Mastercard from "/public/dashboard/svg/mastercard-logo.svg";
@@ -19,6 +19,7 @@ import { useConnectWallet } from '@/hooks/useConnectWallet'
 
 import CurrencyButton from "../../../components/CurrencyButton/CurrencyButton";
 import { TgIcon } from "./icons/TgIcon";
+import { DepositErrIcon } from './icons/DepositErrIcon'
 
 
 const tokens:any = {
@@ -32,7 +33,7 @@ const tokens:any = {
 	}
 }
 const tokensIcons:any = {
-    ETH  : EtherIcon,
+    BNB  : BNBIcon,
     USDT : TetherIcon,
     USDC : USDCIcon
 }
@@ -40,16 +41,15 @@ const tokensIcons:any = {
 interface IDepositForm {
 }
 
-const errString =
-    "Not enough funds to make the deposit. Please top up your balance.";
+const errString = "Not enough funds to make the deposit";
 
 const DepositForm: React.FC<IDepositForm> = () => {
     const { chainId } = useConnectWallet();
     const [amount, setAmount] = useState<string>("0");
     const [balance, setMaxBalance] = useState<string | null>(null);
-    const [displayCurrency, setDisplayCurrency] = useState<"ETH" | "USDT" | "USDC" | "CARD">("USDT");
+    const [displayCurrency, setDisplayCurrency] = useState<"BNB" | "USDT" | "USDC" | "CARD">("USDT");
     const [openDebit, setOpenDebit] = useState(false);
-    const [openETH, setOpenETH] = useState(false);
+    const [openBNB, setOpenBNB] = useState(false);
     const [isBuyChecked, setIsBuyChecked] = useState(true); // условие для чекбокса
     const [error, setError] = useState<string | null>(null);
     const [transactionInProgress, setTransactionInProgress] = useState(false);
@@ -102,30 +102,34 @@ const DepositForm: React.FC<IDepositForm> = () => {
 
             <span className={styles.divider} />
 
-            <DepositPopover open={openETH} text="Coming Soon" style={{left: "35%"}} />
-            <button
-                onClick={() => setOpenETH((p) => !p)}
-                onBlur={() => setOpenETH(false)}
-                className={styles.chooseCurrBtn}
-            >
-                <Image src={EtherIcon} alt="ETH" width={24} height={24} />
-                <span>ETH</span>
-            </button>
+            <DepositPopover open={openBNB} text="Coming Soon">
+                <button
+                    onClick={() => setOpenBNB((p) => !p)}
+                    onBlur={() => setOpenBNB(false)}
+                    className={styles.chooseCurrBtn}
+                    style={{ width: 100 }}
+                >
+                    <Image src={BNBIcon} alt="BNB" width={24} height={24} />
+                    <span>BNB</span>
+                </button>
+            </DepositPopover>
 
-            <DepositPopover open={openDebit} text="Coming Soon" />
-            <button
-                onClick={() => setOpenDebit((p) => !p)}
-                onBlur={() => setOpenDebit(false)}
-                className={styles.chooseCurrBtn}
-            >
-                <Image src={Visa} alt="visa" width={46.5} height={15.28} />
-                <Image
-                    src={Mastercard}
-                    alt="mastercard"
-                    width={36}
-                    height={27.78}
-                />
-            </button>
+            <DepositPopover open={openDebit} text="Coming Soon">
+                <button
+                    onClick={() => setOpenDebit((p) => !p)}
+                    onBlur={() => setOpenDebit(false)}
+                    className={styles.chooseCurrBtn}
+                    style={{ width: 100 }}
+                >
+                    <Image src={Visa} alt="visa" width={37.7} height={12.73} />
+                    <Image
+                        src={Mastercard}
+                        alt="mastercard"
+                        width={29.2}
+                        height={22.5}
+                    />
+                </button>
+            </DepositPopover>
         </div>
 
         <div
@@ -160,10 +164,14 @@ const DepositForm: React.FC<IDepositForm> = () => {
                 />
                 <CurrencyButton displayCurrency={displayCurrency} icon={tokensIcons[displayCurrency]} />
             </div>
+
+            {error && (
+                <div className={styles.errWrapper}>
+                    <DepositErrIcon />
+                    <span className={styles.err}>{error}</span>
+                </div>
+            )}
         </div>
-
-        {error && <span className={styles.err}>{error}</span>}
-
 
         <DepositButton 
             amount={amount}

@@ -160,17 +160,18 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
 
                         <div className={styles.claimBtnWrapper}>
                             <DepositPopover
-                                style={{bottom: "120%", top: "auto", width: "200%", left: "-50%"}}
+                                style={{bottom: "120%", top: "auto", width: "200%", left: 50}}
                                 open={openPopover}
                                 text="Claim available 1-2 days after each stage ends"
-                            />
-                            <button
-                                className={styles.claimBtn}
-                                onClick={() => setOpenPopover((p) => !p)}
-                                onBlur={() => setOpenPopover(false)}
                             >
-                                Claim Referral Earnings
-                            </button>
+                                <button
+                                    className={styles.claimBtn}
+                                    onClick={() => setOpenPopover((p) => !p)}
+                                    onBlur={() => setOpenPopover(false)}
+                                >
+                                    Claim Referral Earnings
+                                </button>
+                            </DepositPopover>
                         </div>
                     </div>
                 </div>
