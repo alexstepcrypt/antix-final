@@ -19,6 +19,7 @@ import { useConnectWallet } from '@/hooks/useConnectWallet'
 
 import CurrencyButton from "../../../components/CurrencyButton/CurrencyButton";
 import { TgIcon } from "./icons/TgIcon";
+import { DepositErrIcon } from './icons/DepositErrIcon'
 
 
 const tokens:any = {
@@ -40,8 +41,7 @@ const tokensIcons:any = {
 interface IDepositForm {
 }
 
-const errString =
-    "Not enough funds to make the deposit. Please top up your balance.";
+const errString = "Not enough funds to make the deposit";
 
 const DepositForm: React.FC<IDepositForm> = () => {
     const { chainId } = useConnectWallet();
@@ -160,10 +160,14 @@ const DepositForm: React.FC<IDepositForm> = () => {
                 />
                 <CurrencyButton displayCurrency={displayCurrency} icon={tokensIcons[displayCurrency]} />
             </div>
+
+            {error && (
+                <div className={styles.errWrapper}>
+                    <DepositErrIcon />
+                    <span className={styles.err}>{error}</span>
+                </div>
+            )}
         </div>
-
-        {error && <span className={styles.err}>{error}</span>}
-
 
         <DepositButton 
             amount={amount}
