@@ -4,6 +4,8 @@ import Header from "@/sections/Header/Header";
 import Bg from "/public/images/dashboard-bg.png";
 import styles from "./dashboard.module.scss";
 import DashboardTop from "@/DashboardStages/Stage1/DashboardTop/DashboardTop";
+import usePlaceholderStore from '@/stores/usePlaceholderStore';
+import Placeholder from '@/components/Placeholder/Placeholder';
 
 // import { Transactions } from '@/DashboardStages/components/Transactions/Transactions';
 // import DashboardTopStage2 from "@/DashboardStages/Stage2/DashboardTop/DashboardTop";
@@ -18,6 +20,12 @@ export default function DashboardLayout({
 }: {
     children: React.ReactNode;
 }) {
+    const { isBlocked } = usePlaceholderStore();
+  
+    if (isBlocked) {
+      return <Placeholder />;
+    }
+
     return (
         <main
             className={styles.page}

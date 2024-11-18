@@ -27,6 +27,8 @@ import WalletIcon from "/public/svg/wallet-icon.svg";
 import { FadeInNew } from "../../components/FadeInNew/FadeInNew";
 import arrow from '/public/dashboard/svg/arrow-down.svg';
 import ChainsDropdown from '@/components/ChainsDropdown/ChainsDropdown';
+import { useUserCountry } from '@/hooks/useUserCountry';
+import usePlaceholderStore from '@/stores/usePlaceholderStore';
 
 interface HeaderProps {
     isDashboard?: boolean;
@@ -41,6 +43,15 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
     const headerRef = useRef<HTMLDivElement | null>(null);
 
     const {connect, isConnected, isReady, account} = useConnectWallet()
+
+    const { setBlocked } = usePlaceholderStore();
+    const countryCode = useUserCountry();
+
+    useEffect(() => {
+        if (countryCode === "US" && account) {
+            setBlocked(true);
+        }
+    }, [account]);
 
     useEffect(() => {
         const handleScroll = () => {
