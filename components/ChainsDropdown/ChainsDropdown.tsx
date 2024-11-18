@@ -64,7 +64,7 @@ const ChainsDropdown: React.FC = () => {
                <div className={styles.dropdownMenu}>
                   {networks.map(item => (
                      <button
-                        key={network.chainId}
+                        key={item.chainId}
                         onClick={() => selectNetwork(item)}
                         className={`${styles.dropdownItem} ${
                            item.value === network.value

@@ -1,6 +1,6 @@
 import { create } from "zustand"
 import { useState, useEffect } from "react";
-import { useSignMessage, useDisconnect} from "wagmi";
+import { useSignMessage, useDisconnect } from "wagmi";
 import { useAppKit, useAppKitAccount, useAppKitNetwork} from '@reown/appkit/react'
 import Api from "@/utils/api";
 
@@ -45,11 +45,13 @@ export const useConnectWallet = function (): {
 	const { open, close } = useAppKit()
 	const { isConnected, status, address } = useAppKitAccount()
 	const { chainId } = useAppKitNetwork()
+
     const { disconnect } = useDisconnect()
 	const { profile, setProfile } = useProfileStore()
 	const [ web3modalOpen, setWeb3modalOpen ] = useState(false)
 	const { data: signMessageData, signMessage, variables, error: signError } = useSignMessage()
 	const [ ready, setReady ] = useState(isConnected || !!status || !!profile)
+
 
 	const checkAuth = () => {
         if (!address) return

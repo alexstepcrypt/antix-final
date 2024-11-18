@@ -10,20 +10,30 @@ import { config as wagmiConfig} from "@/utils/wagmiConfig"
 
 export const useDeposit = function () {
 	const wagmiChainId = useChainId()
-	const { chainId } = useConnectWallet()
+	const { chainId, disconnect } = useConnectWallet()
 	const { switchNetwork } = useNetwork()
 	const [depositDetails, setDepositDetails] = useState({ type:'DEPOSIT', amount: '0', token: '', value: 0 })
 	const [depositInProgress, setDepositInProgress] = useState(false)
-	const { data: depositTxHash, isPending:depositPending, isSuccess:depositSuccess, sendTransaction, error: depositError } = useSendTransaction()
+	const { 
+		data: depositTxHash, 
+		isPending: depositPending, 
+		isSuccess: depositSuccess, 
+		error: depositError,
+		sendTransaction
+	} = useSendTransaction()
 
 	async function makeDeposit(type:'DEPOSIT' | 'BUY', amount: string, token: string, value: number = 0) {
 		if (!chainId) return
+
+		if (Number(wagmiChainId) !== Number(chainId)) {
+			disconnect()
+			return
+		}
+
 		setDepositInProgress(true)
 		setDepositDetails({type, amount, token, value})
 		
 		const method = type === 'BUY' ? 'getBuyTx' : 'getDepositTx'
-		
-		console.log({wagmiChainId, reownChainId: chainId})
 
 		Api[method](chainId, token, amount).then(data => {
 			if (data?.error) return console.error(data?.error)
@@ -57,8 +67,9 @@ export const useDeposit = function () {
 
 	// Error transaction
 	useEffect(() => {
-		if (depositError) setDepositInProgress(false)
 		if (!depositTxHash || !depositError) return
+		console.error('depositError', depositError)
+		setDepositInProgress(false)
 		Api.saveTx({
 			hash   : depositTxHash, 
 			status : 'ERROR'
@@ -66,22 +77,27 @@ export const useDeposit = function () {
 	}, [depositError])
 
 	// Success transaction
+	const minWaitTime = 9 * 1000
 	useEffect(() => {
 		if (!depositSuccess) return
-
+		const startWaitTime = Date.now()
 		// Wait for transaction to be confirmed
 		waitForTransactionReceipt(wagmiConfig, {
 			confirmations: 4, 
 			hash: depositTxHash
 		}).then(() => {
-			setDepositInProgress(false)
+			let waitTime = minWaitTime - (Date.now() - startWaitTime)
+			if (waitTime < 0) waitTime = 0
+			setTimeout(() => {
+				setDepositInProgress(false)
 
-			window.dispatchEvent(new CustomEvent('balance:changed', {
-				detail: {
-					token  : depositDetails.token,
-					amount : depositDetails.amount || depositDetails.value
-				}
-			}))
+				window.dispatchEvent(new CustomEvent('balance:changed', {
+					detail: {
+						token  : depositDetails.token,
+						amount : depositDetails.amount || depositDetails.value
+					}
+				}))
+			}, waitTime)
 		})
 
 		Api.saveTx({

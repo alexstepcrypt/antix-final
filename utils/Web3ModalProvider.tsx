@@ -1,9 +1,12 @@
 import {WagmiProvider } from "wagmi";
-import { config as wagmiConfig } from "@/utils/wagmiConfig"
+// import { config as wagmiConfig } from "@/utils/wagmiConfig"
 
 import { createAppKit } from '@reown/appkit/react'
 import { bsc, mainnet } from '@reown/appkit/networks'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
+
+import { useAppKitAccount, useAppKitNetwork } from '@reown/appkit/react'
+
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {ReactNode} from "react";
 
@@ -63,11 +66,16 @@ export default function Web3ModalProvider({children}: Web3ModalProviderProps) {
 		// ]
 	})
 
+	// @IMPORTANT: this hooks need in this place, 
+	// for re-render this component
+	// for correct work of wagmi when reown network changed
+	const { isConnected } = useAppKitAccount()
+	const { chainId } = useAppKitNetwork()
+	console.info('isConnected', isConnected, {chainId})
 
-	return (
-		// <WagmiProvider config={wagmiConfig}>
-		<WagmiProvider config={wagmiAdapter.wagmiConfig}>
-			<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-		</WagmiProvider>
-	)
+	return <WagmiProvider config={wagmiAdapter.wagmiConfig}>
+		<QueryClientProvider client={queryClient}>
+			{children}
+		</QueryClientProvider>
+	</WagmiProvider>
 }
