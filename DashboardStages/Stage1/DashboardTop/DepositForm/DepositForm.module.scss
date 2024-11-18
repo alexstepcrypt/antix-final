@@ -8,7 +8,7 @@
         justify-content: space-between;
 
         .chooseCurrBtn {
-            width: 100%;
+            width: 140px;
             padding: 0 12px;
             height: 48px;
 
@@ -41,20 +41,23 @@
         }
 
         @media (max-width: 1280px) {
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 12px;
+
             .divider {
                 display: none;
             }
             .chooseCurrBtn {
-                max-width: calc(50% - 8px);
-                width: 100%;
+                width: 100% !important;
             }
         }
 
         @media (max-width: 840px) {
             gap: 10px;
 
-            .chooseCurrBtn:last-child {
+            .chooseCurrBtn:nth-child(4) {
                 img:nth-child(1) {
                     width: 36px;
                     height: 11px;
