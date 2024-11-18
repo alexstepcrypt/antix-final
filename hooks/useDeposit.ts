@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Api from "@/utils/api"
 import { useSendTransaction, useChainId } from 'wagmi'
 import { useConnectWallet } from '@/hooks/useConnectWallet'
+import { useNetwork } from '@/hooks/useNetwork';
 import {parseUnits} from 'viem';
 import { waitForTransactionReceipt } from '@wagmi/core'
 import { config as wagmiConfig} from "@/utils/wagmiConfig"
@@ -10,12 +11,13 @@ import { config as wagmiConfig} from "@/utils/wagmiConfig"
 export const useDeposit = function () {
 	const wagmiChainId = useChainId()
 	const { chainId } = useConnectWallet()
-
+	const { switchNetwork } = useNetwork()
 	const [depositDetails, setDepositDetails] = useState({ type:'DEPOSIT', amount: '0', token: '', value: 0 })
 	const [depositInProgress, setDepositInProgress] = useState(false)
 	const { data: depositTxHash, isPending:depositPending, isSuccess:depositSuccess, sendTransaction, error: depositError } = useSendTransaction()
 
-	function makeDeposit(type:'DEPOSIT' | 'BUY', amount: string, token: string, value: number = 0) {
+	async function makeDeposit(type:'DEPOSIT' | 'BUY', amount: string, token: string, value: number = 0) {
+		if (!chainId) return
 		setDepositInProgress(true)
 		setDepositDetails({type, amount, token, value})
 		
@@ -44,7 +46,7 @@ export const useDeposit = function () {
 		Api.saveTx({
 			hash    : depositTxHash,
 			stage   : "1",
-			chainId : chainId,
+			chainId : Number(chainId),
 			status  : "PENDING",
 			type    : depositDetails.type === 'BUY' ? 'BUY' : 'DEPOSIT',
 			token   : depositDetails.token,

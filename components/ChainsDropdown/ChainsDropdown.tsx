@@ -5,10 +5,12 @@ import styles from './ChainsDropdown.module.scss';
 import ArrowIcon from '@/public/svg/top-arrow.svg';
 import Image from 'next/image';
 import { useNetwork } from '@/hooks/useNetwork';
+import { useConnectWallet } from '@/hooks/useConnectWallet';
 import { FadeInNew } from '../FadeInNew/FadeInNew';
 
 
 const ChainsDropdown: React.FC = () => {
+   const { isConnected } = useConnectWallet()
    const { network, networks, switchNetwork } = useNetwork();
    const [isOpen, setIsOpen] = useState(false);
    const dropdownRef = useRef<HTMLDivElement>(null);
@@ -43,7 +45,7 @@ const ChainsDropdown: React.FC = () => {
    }, []);
 
    return (
-      <div className={styles.dropdown} ref={dropdownRef}>
+      <div className={styles.dropdown} ref={dropdownRef} style={{display: isConnected ? 'block' : 'none'}}>
          <button onClick={toggleDropdown} className={styles.dropdownButton}>
             <Image
                src={network.icon}
@@ -62,7 +64,7 @@ const ChainsDropdown: React.FC = () => {
                <div className={styles.dropdownMenu}>
                   {networks.map(item => (
                      <button
-                        key={network.value}
+                        key={network.chainId}
                         onClick={() => selectNetwork(item)}
                         className={`${styles.dropdownItem} ${
                            item.value === network.value

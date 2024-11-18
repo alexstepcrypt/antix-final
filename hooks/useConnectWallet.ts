@@ -35,7 +35,7 @@ export const useConnectWallet = function (): {
 	isReady: boolean,
 	isConnected: boolean,
 	status: string | undefined,
-	chainId: number,
+	chainId: number | string | undefined,
 	account: string|null,
 	address: string|null,
 	profile: any,
@@ -138,7 +138,7 @@ export const useConnectWallet = function (): {
 		account, address:account, 
 		status, 
 		connect, 
-		chainId: Number(chainId) || 1, 
+		chainId, 
 		profile,
 		disconnect: ()=>{
 			disconnect(); close()

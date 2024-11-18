@@ -51,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
         if (countryCode === "US" && account) {
             setBlocked(true);
         }
-    }, [account]);
+    }, [account, countryCode]);
 
     useEffect(() => {
         const handleScroll = () => {

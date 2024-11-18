@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./ReferalModal.module.scss";
 import { formatAddress } from "@/utils/utils";
 import { useConnectWallet } from '@/hooks/useConnectWallet'
@@ -15,6 +16,7 @@ interface IReferalModal {
 }
 
 const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
+    const router = useRouter()
     const { account, profile } = useConnectWallet();
     const [stage, setStage] = useState<0 | 1 | 2>(0);
     const [isCopied, setIsCopied] = useState(false);
@@ -51,7 +53,9 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
     }, [account]);
 
 
-    const handleGenerateReferralLink = async () => {    
+    const handleGenerateReferralLink = async () => {
+        if (!account) return
+        router.push('/dashboard/referral')
     };
 
 

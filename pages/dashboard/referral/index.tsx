@@ -92,11 +92,12 @@ const Referral = () => {
 
     const [refStats, setRefStats] = useState<any>({})
     useEffect(()=>{
+        if (!chainId) return
         let fetchReferralsTimeout:any = setTimeout(()=>{
             Api.getUserReferrals().then(res=>{
                 setRefStats({
                     count: res.count,
-                    ...res.chain[chainId]
+                    ...res.chain[Number(chainId)]
                 })
             })
         }, 333)

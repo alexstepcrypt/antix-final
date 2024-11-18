@@ -22,7 +22,7 @@ import { TgIcon } from "./icons/TgIcon";
 import { DepositErrIcon } from './icons/DepositErrIcon'
 
 
-const tokens:any = {
+const tokensByChains:any = {
 	1: {
         ETH  : '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
 		USDT : '0xdAC17F958D2ee523a2206206994597C13D831ec7',
@@ -56,7 +56,8 @@ const DepositForm: React.FC<IDepositForm> = () => {
     const [openBNB, setOpenBNB] = useState(false);
     const [isBuyChecked, setIsBuyChecked] = useState(true); // условие для чекбокса
     const [error, setError] = useState<string | null>(null);
-    const [transactionInProgress, setTransactionInProgress] = useState(false);
+
+    const tokens = tokensByChains[chainId || 1]
 
     const handleMax = () => { if (balance) setAmount(balance) }
 
@@ -144,7 +145,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
                 <span className={styles.sendingTitle}>You send</span>
                 <div className={styles.sendingBalance}>
                     <span>
-                    <TokenBalance tokenAddress={tokens[chainId][displayCurrency]} onChange={setMaxBalance} />
+                    <TokenBalance tokenAddress={tokens[displayCurrency]} onChange={setMaxBalance} />
                     </span>
                     <button onClick={handleMax} className={styles.sendingBalanceBtn}>
                         Max
@@ -180,7 +181,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
         <DepositButton 
             amount={amount}
             type={isBuyChecked ? 'BUY' : 'DEPOSIT'} 
-            tokenAddress={tokens[chainId][displayCurrency]} 
+            tokenAddress={tokens[displayCurrency]} 
         />
 
         <div className={styles.agreement}>

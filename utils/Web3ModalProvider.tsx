@@ -65,8 +65,8 @@ export default function Web3ModalProvider({children}: Web3ModalProviderProps) {
 
 
 	return (
-		<WagmiProvider config={wagmiConfig}>
-		{/* <WagmiProvider config={wagmiAdapter.wagmiConfig} initialState={initialState}> */}
+		// <WagmiProvider config={wagmiConfig}>
+		<WagmiProvider config={wagmiAdapter.wagmiConfig}>
 			<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 		</WagmiProvider>
 	)

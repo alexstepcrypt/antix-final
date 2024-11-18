@@ -3,7 +3,7 @@ import styles from "./DepositButton.module.scss";
 import { useConnectWallet } from '@/hooks/useConnectWallet'
 import { useDeposit } from '@/hooks/useDeposit'
 import { useReadContract, useWriteContract, useWaitForTransactionReceipt} from "wagmi";
-import { useNetwork} from '@/hooks/useNetwork'
+import { useNetwork } from '@/hooks/useNetwork'
 import { useState, useEffect} from "react";
 import { parseUnits, formatUnits } from 'viem';
 import DepositStatusModal from './DepositModal/StatusModal'
@@ -62,12 +62,12 @@ interface IDepositButton {
 export default function DepositButton({amount, type, tokenAddress}:IDepositButton){
     const { address, isConnected, chainId, connect } = useConnectWallet()
     const { switchNetwork } = useNetwork()
-    const contractAddress = contractsAddresses[chainId]
+    const contractAddress = contractsAddresses[chainId || 1]
 
-	const tokensDecimals = tokensDecimalsByChains[chainId]
+	const tokensDecimals = tokensDecimalsByChains[chainId || 1]
 
     const allowanceResult:any = useReadContract({
-        chainId: chainId,
+        chainId: Number(chainId),
 		address: tokenAddress, 
 		abi: erc20minABI,
 		functionName: 'allowance',
