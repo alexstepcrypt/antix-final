@@ -25,6 +25,8 @@ import Advisors from "@/sections/Advisors/Advisors";
 import DigitalMap from "@/sections/DigitalMap/DigitalMap";
 import Roadmap from '@/sections/Roadmap/Roadmap';
 import dynamic from 'next/dynamic'
+import usePlaceholderStore from "@/stores/usePlaceholderStore";
+import Placeholder from "@/components/Placeholder/Placeholder";
 // import { StageWidget } from '@/components/StageWidget/StageWidget'
 // import FloatingWidget from "@/components/FloatingWidget/FloatingWidget";
 
@@ -40,6 +42,12 @@ const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false })
 // };
 
 export default function Home() {
+    const { isBlocked } = usePlaceholderStore();
+  
+    if (isBlocked) {
+      return <Placeholder />;
+    }
+
     return (
         <div className={styles.container}>
             <Header />
