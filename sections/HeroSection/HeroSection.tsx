@@ -49,7 +49,7 @@ const HeroSection = () => {
                     src={require("/public/video/hero-video.webm")}
                     type="video/webm"
                 />
-                Ваш браузер не поддерживает видео.
+                
             </video>
             {isRefModal && (
                 <ReferalModal onClose={() => setIsRefModal(false)} />

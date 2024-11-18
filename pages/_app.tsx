@@ -30,6 +30,7 @@ export default function App({Component, pageProps: { session, ...pageProps }}: A
 		localStorage.refcode = refcode
 	}, [query])
 
+
 	return <>
 		<Head>
 			<meta name="viewport" content="width=device-width, initial-scale=1" />

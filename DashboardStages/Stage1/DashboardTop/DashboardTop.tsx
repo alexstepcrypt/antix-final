@@ -1,14 +1,13 @@
 "use client"
 
 import dynamic from 'next/dynamic';
-import { useEffect } from "react";
 
 import styles from "./DashboardTop.module.scss";
 import TetherIcon from "/public/svg/tether-icon.svg";
 // import EtherIcon from "/public/svg/ether-icon.svg";
 import USDCIcon from "/public/svg/usdc-icon.svg";
 import vAntixIcon from "/public/svg/vantix-icon.svg";
-import EtherIcon from "/public/svg/ether-icon.svg";
+// import EtherIcon from "/public/svg/ether-icon.svg";
 
 import { Timer } from "./Timer/Timer";
 const DepositForm = dynamic(() => import("./DepositForm/DepositForm"), { ssr: false });
@@ -19,10 +18,10 @@ import { BalanceItem } from "./BalanceItem/BalanceItem";
 import { faqItems } from "./FaqAccordion/mocdata";
 // import { FaqAccordion } from "./FaqAccordion/FaqAccordion";
 import Faq from '@/components/Faq/Faq';
-import useStageStore from '@/stores/useStageStore';
+// import useStageStore from '@/stores/useStageStore';
 import { useUserDepositedBalance } from '@/hooks/useUserDepositedBalance'
 import Image from 'next/image';
-import { useNetworkStore } from '@/stores/useNetworkStore'
+import { useNetwork } from '@/hooks/useNetwork'
 
 const underDepositInfo = [
     {
@@ -48,12 +47,12 @@ const underDepositInfo = [
 
 const DashboardTop = () => {
     const { balances } = useUserDepositedBalance();
-    const { stageData } = useStageStore();
-    const { network } = useNetworkStore();
-
-    useEffect(() => {
-        if(stageData) console.log(stageData)
-    }, [stageData])
+    const { network } = useNetwork();
+    
+    // const { stageData } = useStageStore();
+    // useEffect(() => {
+    //     if(stageData) console.log(stageData)
+    // }, [stageData])
 
     return (
         <div className={styles.container}>

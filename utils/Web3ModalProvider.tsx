@@ -1,4 +1,5 @@
-import {WagmiProvider} from "wagmi";
+import {WagmiProvider } from "wagmi";
+import { config as wagmiConfig } from "@/utils/wagmiConfig"
 
 import { createAppKit } from '@reown/appkit/react'
 import { bsc, mainnet } from '@reown/appkit/networks'
@@ -62,8 +63,10 @@ export default function Web3ModalProvider({children}: Web3ModalProviderProps) {
 		// ]
 	})
 
+
 	return (
-		<WagmiProvider config={wagmiAdapter.wagmiConfig}>
+		<WagmiProvider config={wagmiConfig}>
+		{/* <WagmiProvider config={wagmiAdapter.wagmiConfig} initialState={initialState}> */}
 			<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 		</WagmiProvider>
 	)

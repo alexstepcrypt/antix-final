@@ -2,7 +2,8 @@
 import styles from "./DepositButton.module.scss";
 import { useConnectWallet } from '@/hooks/useConnectWallet'
 import { useDeposit } from '@/hooks/useDeposit'
-import {useAccount, useSwitchChain, useReadContract, useWriteContract, useWaitForTransactionReceipt} from "wagmi";
+import { useReadContract, useWriteContract, useWaitForTransactionReceipt} from "wagmi";
+import { useNetwork} from '@/hooks/useNetwork'
 import { useState, useEffect} from "react";
 import { parseUnits, formatUnits } from 'viem';
 import DepositStatusModal from './DepositModal/StatusModal'
@@ -32,15 +33,23 @@ const erc20minABI = [{
 ]
 
 
-
-const tokensDecimals:any = {
-	// eth/bsc native coin
-    '0x0000000000000000000000000000000000000000': 18,
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee': 18,
-	// usdt
-    '0xdAC17F958D2ee523a2206206994597C13D831ec7': 6,
-	// usdc
-    '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48': 6,
+const tokensDecimalsByChains:any = {
+	1: {
+		// eth native coin
+		'0x0000000000000000000000000000000000000000': 18,
+		'0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee': 18,
+		// usdt
+		'0xdAC17F958D2ee523a2206206994597C13D831ec7': 6,
+		// usdc
+		'0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48': 6,
+	},
+	56: {
+		'0x0000000000000000000000000000000000000000': 18,
+        // Token USDT (busd) 
+		'0x55d398326f99059fF775485246999027B3197955': 18,
+		//  Token USDС 
+		'0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d': 18,
+	}
 }
 
 
@@ -52,8 +61,10 @@ interface IDepositButton {
 
 export default function DepositButton({amount, type, tokenAddress}:IDepositButton){
     const { address, isConnected, chainId, connect } = useConnectWallet()
-    const { switchChain } = useSwitchChain()
+    const { switchNetwork } = useNetwork()
     const contractAddress = contractsAddresses[chainId]
+
+	const tokensDecimals = tokensDecimalsByChains[chainId]
 
     const allowanceResult:any = useReadContract({
         chainId: chainId,
@@ -110,12 +121,12 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 		</button>
 	}
 
-	// @TODO: Switch network - не пашет
-	// if (![1,56].includes(Number(account.chainId))) {
-	// 	return <button onClick={() => switchChain({ chainId: 1 })} className={styles.depositBtn}>
-	// 		Switch network
-	// 	</button>
-	// }
+	// Switch network 
+	if (![1,56].includes(Number(chainId))) {
+		return <button onClick={() => switchNetwork(1)} className={styles.depositBtn}>
+			Switch network
+		</button>
+	}
 
 	// Approve amount
 	if (allowance < Number(amount) || Number(amount) === 0) {

@@ -14,7 +14,7 @@ export const useUserDepositedBalance = function () {
 	function fetchBalances() {
 		clearTimeout(fetchBalancesTimeout)
 		fetchBalancesTimeout = setTimeout(()=>{
-			Api.getUserBalances(chainId).then((res:any)=>{
+			Api.getUserBalances(Number(chainId)).then((res:any)=>{
                 // @ts-ignore
             setBalances(Object.values(res).reduce((acc:any, token:any)=>{
                 acc[token.symbol] = toFixed(token.balance?.amount || 0, 2)
@@ -27,7 +27,7 @@ export const useUserDepositedBalance = function () {
 	useEffect(() => {
 		if (!profile) return
         fetchBalances()
-    }, [profile]);
+    }, [profile, chainId]);
 
 	useEffect(() => {
 		window.addEventListener("balance:changed", fetchBalances);

@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import {formatUnits} from 'viem';
-import {useAccount, useBalance, useChainId} from "wagmi";
+import { useBalance } from "wagmi";
+import { useAppKitAccount, useAppKitNetwork} from '@reown/appkit/react'
+
 import { getBalance } from '@wagmi/core'
 import { config } from '@/utils/wagmiConfig'
 
 export const useTokenBalance = function (tokenAddress:string|undefined, balanceChainId?:number|undefined) {
 	const [amount, setAmount] = useState('0')
 
-	const account = useAccount()
-	const currentChainId = useChainId()
+	const { address } = useAppKitAccount()
+	const { chainId:currentChainId} = useAppKitNetwork()
    	const chainId = balanceChainId || currentChainId
 
-	const isNativeCoin = tokenAddress === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
-	const useBalanceParams:any = {chainId, address: account.address}
+	const isNativeCoin = ['0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', '0x0000000000000000000000000000000000000000'].includes(tokenAddress || '')
+	const useBalanceParams:any = {chainId, address}
 	if (!isNativeCoin) useBalanceParams.token = tokenAddress
 
 	const { data } = useBalance(useBalanceParams)
@@ -24,10 +26,14 @@ export const useTokenBalance = function (tokenAddress:string|undefined, balanceC
 
 		if (!isNativeCoin) {
 			;(async ()=>{
-				if (!account?.address || !tokenAddress) return
-				// @ts-ignore
-				const { value, decimals } = await getBalance(config, { address:account.address, token: tokenAddress })
-				setAmount(formatUnits(value, decimals))
+				if (!address || !tokenAddress) return
+				try {	
+					// @ts-ignore
+					const { value, decimals } = await getBalance(config, { address, token: tokenAddress })
+					setAmount(formatUnits(value, decimals))
+				} catch (error) {
+					console.error('Error getting balance', {chainId, address, tokenAddress, error})
+				}
 			})()
 		}
 	}, [tokenAmount])

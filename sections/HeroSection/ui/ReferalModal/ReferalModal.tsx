@@ -15,7 +15,7 @@ interface IReferalModal {
 }
 
 const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
-    const { address:account } = useConnectWallet();
+    const { account, profile } = useConnectWallet();
     const [stage, setStage] = useState<0 | 1 | 2>(0);
     const [isCopied, setIsCopied] = useState(false);
     const [refCode, setRefCode] = useState("");
@@ -86,7 +86,7 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                             className={styles.connectBtn}
                             onClick={handleGenerateReferralLink}
                         >
-                            Generate Code
+                            {profile?.refcode ? "Referral" : "Generate Code"}
                         </button>
                     ) : (
                         <button

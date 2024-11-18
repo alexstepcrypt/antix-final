@@ -4,31 +4,24 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './ChainsDropdown.module.scss';
 import ArrowIcon from '@/public/svg/top-arrow.svg';
 import Image from 'next/image';
-import { useNetworkStore, type Network } from '@/stores/useNetworkStore';
+import { useNetwork } from '@/hooks/useNetwork';
 import { FadeInNew } from '../FadeInNew/FadeInNew';
 
-const networks: Network[] = [
-   {
-      label: 'Ethereum',
-      value: 'ETH',
-      icon: '/svg/ether-icon.svg',
-   },
-   {
-      label: 'BNB Smart Chain',
-      value: 'BSC',
-      icon: '/svg/bnb-icon.svg',
-   },
-];
 
 const ChainsDropdown: React.FC = () => {
-   const { network, setNetwork } = useNetworkStore();
+   const { network, networks, switchNetwork } = useNetwork();
    const [isOpen, setIsOpen] = useState(false);
    const dropdownRef = useRef<HTMLDivElement>(null);
 
+
    const toggleDropdown = () => setIsOpen(!isOpen);
 
-   const selectNetwork = (externalNetwork: Network) => {
-      if (network.label !== externalNetwork.label) setNetwork(externalNetwork);
+   const selectNetwork = async ({ chainId }: { chainId: number }) => {
+      try {
+         await switchNetwork(chainId)
+      } catch (error) {
+         console.error('Error switching network', error)
+      }
 
       setIsOpen(false);
    };
@@ -75,8 +68,7 @@ const ChainsDropdown: React.FC = () => {
                            item.value === network.value
                               ? styles.dropdownItemActive
                               : ''
-                        }`}
-                        disabled={item.value === 'BSC'}>
+                        }`}>
                         <Image
                            src={item.icon}
                            alt={item.label}

@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import Api from "@/utils/api"
 import { useSendTransaction, useChainId } from 'wagmi'
+import { useConnectWallet } from '@/hooks/useConnectWallet'
 import {parseUnits} from 'viem';
 import { waitForTransactionReceipt } from '@wagmi/core'
-import { config } from "@/utils/wagmiConfig"
+import { config as wagmiConfig} from "@/utils/wagmiConfig"
 
 
 export const useDeposit = function () {
-	const chainId = useChainId()
+	const wagmiChainId = useChainId()
+	const { chainId } = useConnectWallet()
 
 	const [depositDetails, setDepositDetails] = useState({ type:'DEPOSIT', amount: '0', token: '', value: 0 })
 	const [depositInProgress, setDepositInProgress] = useState(false)
@@ -19,6 +21,8 @@ export const useDeposit = function () {
 		
 		const method = type === 'BUY' ? 'getBuyTx' : 'getDepositTx'
 		
+		console.log({wagmiChainId, reownChainId: chainId})
+
 		Api[method](chainId, token, amount).then(data => {
 			if (data?.error) return console.error(data?.error)
 			const txData = data?.txData
@@ -64,7 +68,7 @@ export const useDeposit = function () {
 		if (!depositSuccess) return
 
 		// Wait for transaction to be confirmed
-		waitForTransactionReceipt(config, {
+		waitForTransactionReceipt(wagmiConfig, {
 			confirmations: 4, 
 			hash: depositTxHash
 		}).then(() => {

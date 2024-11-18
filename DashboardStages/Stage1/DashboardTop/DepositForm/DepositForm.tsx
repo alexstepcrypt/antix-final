@@ -29,7 +29,11 @@ const tokens:any = {
 		USDC : '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
 	},
 	56: {
-
+        ETH  : '0x0000000000000000000000000000000000000000', // native coin
+        // Token USDT (busd) 
+		USDT :'0x55d398326f99059fF775485246999027B3197955',
+		//  Token USDС 
+		USDC :'0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d'
 	}
 }
 const tokensIcons:any = {
