@@ -157,9 +157,11 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                     />
                 </div>
                 <div className={styles.linksContainer}>
-                    {linksList.map((link) => (
+                    {linksList.map((link) => {
+                        const isClaim = link.label.toLowerCase() === "claim";
+                        return (
                         <>
-                            {openPopover && link.label.toLowerCase() === "claim" && (
+                            {openPopover && isClaim && (
                                 <FadeInNew direction="up" distance={15}>
                                     <div className={styles.popover}>
                                         <Image
@@ -184,15 +186,15 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                                 key={link.label}
                                 onClick={() => {
                                     handleClick(link.href)
-                                    setOpenPopover(true)
+                                    isClaim && setOpenPopover(true)
                                 }}
-                                onBlur={() => setOpenPopover(false)}
+                                onBlur={() => isClaim && setOpenPopover(false)}
                                 disabled={link.disabled}
                                 >
                                 {link.label}
                             </button>
                         </>
-                    ))}
+                    )})}
                 </div>
                 <div className={styles.chooseChain}>
                     <ChainsDropdown />
