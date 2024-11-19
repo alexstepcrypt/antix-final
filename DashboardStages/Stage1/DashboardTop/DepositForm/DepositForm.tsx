@@ -15,7 +15,9 @@ import TokenBalance from '@/components/TokenBalance'
 import DepositButton from "./DepositButton";
 import { DepositPopover } from "./DepositPopover/DepositPopover";
 import { DepositCheckbox } from "./DepositCheckbox/DepositCheckbox";
-import { useConnectWallet } from '@/hooks/useConnectWallet'
+import { useConnectWallet } from '@/hooks/useConnectWallet';
+import { useNetwork } from '@/hooks/useNetwork';
+
 
 import CurrencyButton from "../../../components/CurrencyButton/CurrencyButton";
 import { TgIcon } from "./icons/TgIcon";
@@ -56,6 +58,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
     const [openBNB, setOpenBNB] = useState(false);
     const [isBuyChecked, setIsBuyChecked] = useState(true); // условие для чекбокса
     const [error, setError] = useState<string | null>(null);
+    const { network } = useNetwork();
 
     const tokens = tokensByChains[chainId || 1]
 
@@ -114,8 +117,8 @@ const DepositForm: React.FC<IDepositForm> = () => {
                     className={styles.chooseCurrBtn}
                     style={{ width: 100 }}
                 >
-                    <Image src={BNBIcon} alt="BNB" width={24} height={24} />
-                    <span>BNB</span>
+                    <Image src={network.icon} alt={network.value} width={24} height={24} />
+                    <span>{network.value === 'BSC' ? 'BNB' : network.value}</span>
                 </button>
             </DepositPopover>
 
