@@ -118,8 +118,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        left: 55%;
-        transform: translateX(-50%) !important;
+        // left: 55%;
+        right: 0 !important;
+        transform: translateX(45%) !important;
         top: 200%;
 
         .popoverIcon {
