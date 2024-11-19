@@ -72,7 +72,11 @@ export const useConnectWallet = function (): {
 	}
 	useEffect(() => {
 		if (signError) {
+			console.log('signError', signError)
 			disconnect(); close()
+			setTimeout(()=>{
+				window.location.reload()
+			},999)
 		}
 	}, [signError])
 

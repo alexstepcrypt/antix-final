@@ -52,6 +52,10 @@ const tokensDecimalsByChains:any = {
 	}
 }
 
+const nativeCoins = [
+	'0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+	'0x0000000000000000000000000000000000000000',
+]
 
 interface IDepositButton {
     amount: string|number
@@ -63,8 +67,9 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
     const { address, isConnected, chainId, connect } = useConnectWallet()
     const { switchNetwork } = useNetwork()
     const contractAddress = contractsAddresses[chainId || 1]
-
 	const tokensDecimals = tokensDecimalsByChains[chainId || 1]
+
+	const isNativeCoin = nativeCoins.includes(tokenAddress)
 
     const allowanceResult:any = useReadContract({
         chainId: Number(chainId),
@@ -129,7 +134,7 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 	}
 
 	// Approve amount
-	if (allowance < Number(amount) || Number(amount) === 0) {
+	if (!isNativeCoin && (allowance < Number(amount) || Number(amount) === 0)) {
 		return <button onClick={() => approve()} disabled={apprveInProgress || Number(amount) <= 0} className={styles.depositBtn}>
             {Number(amount) <= 0 
                 ? 'Enter amount' 

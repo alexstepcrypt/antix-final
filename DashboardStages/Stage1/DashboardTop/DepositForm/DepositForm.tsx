@@ -31,7 +31,7 @@ const tokensByChains:any = {
 		USDC : '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
 	},
 	56: {
-        ETH  : '0x0000000000000000000000000000000000000000', // native coin
+        BNB  : '0x0000000000000000000000000000000000000000', // native coin
         // Token USDT (busd) 
 		USDT :'0x55d398326f99059fF775485246999027B3197955',
 		//  Token USDС 
@@ -55,14 +55,29 @@ const DepositForm: React.FC<IDepositForm> = () => {
     const [balance, setMaxBalance] = useState<string | null>(null);
     const [displayCurrency, setDisplayCurrency] = useState<"BNB" | "USDT" | "USDC" | "CARD">("USDT");
     const [openDebit, setOpenDebit] = useState(false);
-    const [openBNB, setOpenBNB] = useState(false);
+    const [openETH, setOpenETH] = useState(false);
     const [isBuyChecked, setIsBuyChecked] = useState(true); // условие для чекбокса
     const [error, setError] = useState<string | null>(null);
     const { network } = useNetwork();
 
     const tokens = tokensByChains[chainId || 1]
 
-    const handleMax = () => { if (balance) setAmount(balance) }
+    useEffect(()=>{
+        if (!tokens[displayCurrency]) {
+            setDisplayCurrency('USDT')
+        }
+    }, [chainId])
+
+    const handleMax = () => { 
+        if (!balance) return
+
+        if (displayCurrency === 'BNB') {
+            // отнимаем коммисию которая понадобится для отправки транзакции
+            setAmount((Number(balance) - 0.001).toFixed(6)) 
+        } else {
+            setAmount(balance) 
+        }
+    }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (balance === null || +balance < +amount) setError(errString);
@@ -110,17 +125,26 @@ const DepositForm: React.FC<IDepositForm> = () => {
 
             <span className={styles.divider} />
 
-            <DepositPopover open={openBNB} text="Coming Soon">
+            {network.value === 'ETH' && <DepositPopover open={openETH} text="Coming Soon">
                 <button
-                    onClick={() => setOpenBNB((p) => !p)}
-                    onBlur={() => setOpenBNB(false)}
+                    onClick={() => setOpenETH((p) => !p)}
+                    onBlur={() => setOpenETH(false)}
                     className={styles.chooseCurrBtn}
                     style={{ width: 100 }}
                 >
                     <Image src={network.icon} alt={network.value} width={24} height={24} />
-                    <span>{network.value === 'BSC' ? 'BNB' : network.value}</span>
+                    <span>ETH</span>
                 </button>
-            </DepositPopover>
+            </DepositPopover>}
+
+            {network.value === 'BSC' && <button
+                onClick={() => setDisplayCurrency('BNB')}
+                className={styles.chooseCurrBtn}
+                style={{ width: 100 }}
+            >
+                <Image src={network.icon} alt={network.value} width={24} height={24} />
+                <span>BNB</span>
+            </button>}
 
             <DepositPopover open={openDebit} text="Coming Soon">
                 <button

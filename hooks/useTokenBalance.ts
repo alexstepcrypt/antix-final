@@ -4,7 +4,7 @@ import { useBalance } from "wagmi";
 import { useAppKitAccount, useAppKitNetwork} from '@reown/appkit/react'
 
 import { getBalance } from '@wagmi/core'
-import { config } from '@/utils/wagmiConfig'
+import { wagmiConfig } from '@/utils/wagmiConfig'
 
 export const useTokenBalance = function (tokenAddress:string|undefined, balanceChainId?:number|undefined) {
 	const [amount, setAmount] = useState('0')
@@ -29,7 +29,7 @@ export const useTokenBalance = function (tokenAddress:string|undefined, balanceC
 				if (!address || !tokenAddress) return
 				try {	
 					// @ts-ignore
-					const { value, decimals } = await getBalance(config, { address, token: tokenAddress })
+					const { value, decimals } = await getBalance(wagmiConfig, { address, token: tokenAddress })
 					setAmount(formatUnits(value, decimals))
 				} catch (error) {
 					console.error('Error getting balance', {chainId, address, tokenAddress, error})

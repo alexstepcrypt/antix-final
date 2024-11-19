@@ -5,8 +5,12 @@ import { useConnectWallet } from '@/hooks/useConnectWallet'
 import { useNetwork } from '@/hooks/useNetwork';
 import {parseUnits} from 'viem';
 import { waitForTransactionReceipt } from '@wagmi/core'
-import { config as wagmiConfig} from "@/utils/wagmiConfig"
+import { wagmiConfig } from "@/utils/wagmiConfig"
 
+const nativeCoins = [
+	'0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+	'0x0000000000000000000000000000000000000000',
+]
 
 export const useDeposit = function () {
 	const wagmiChainId = useChainId()
@@ -22,7 +26,7 @@ export const useDeposit = function () {
 		sendTransaction
 	} = useSendTransaction()
 
-	async function makeDeposit(type:'DEPOSIT' | 'BUY', amount: string, token: string, value: number = 0) {
+	async function makeDeposit(type:'DEPOSIT' | 'BUY', amount: string, token: string) {
 		if (!chainId) return
 
 		if (Number(wagmiChainId) !== Number(chainId)) {
@@ -30,9 +34,14 @@ export const useDeposit = function () {
 			return
 		}
 
+		let value = 0
+		if (nativeCoins.includes(token)) {
+			value = Number(amount)
+		}
+
 		setDepositInProgress(true)
 		setDepositDetails({type, amount, token, value})
-		
+		console.log('makeDeposit', {type, amount, token, value})
 		const method = type === 'BUY' ? 'getBuyTx' : 'getDepositTx'
 
 		Api[method](chainId, token, amount).then(data => {
@@ -67,8 +76,8 @@ export const useDeposit = function () {
 
 	// Error transaction
 	useEffect(() => {
+		if (depositError) console.error('depositError', depositError)
 		if (!depositTxHash || !depositError) return
-		console.error('depositError', depositError)
 		setDepositInProgress(false)
 		Api.saveTx({
 			hash   : depositTxHash, 

@@ -1,6 +1,7 @@
 import styles from './StatusModal.module.scss';
 import { useRef, useEffect } from 'react';
 import { useChainId } from 'wagmi';
+
 const explorerUrls: {[key: number]: string} = {
 	1  : 'https://etherscan.io',
 	56 : 'https://bscscan.com'
