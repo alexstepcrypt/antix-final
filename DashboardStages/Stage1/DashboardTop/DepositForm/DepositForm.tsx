@@ -20,8 +20,9 @@ import { useNetwork } from '@/hooks/useNetwork';
 
 
 import CurrencyButton from "../../../components/CurrencyButton/CurrencyButton";
-import { TgIcon } from "./icons/TgIcon";
+import { TgIcon } from "../../../../components/GotQuestions/icons/TgIcon";
 import { DepositErrIcon } from './icons/DepositErrIcon'
+import { GotQuestions } from '@/components/GotQuestions/GotQuestions'
 
 
 const tokensByChains:any = {
@@ -123,28 +124,28 @@ const DepositForm: React.FC<IDepositForm> = () => {
                 <span>USDC</span>
             </button>
 
-            <span className={styles.divider} />
-
-            {network.value === 'ETH' && <DepositPopover open={openETH} text="Coming Soon">
+            {network.value === 'ETH' && (
                 <button
                     onClick={() => setOpenETH((p) => !p)}
                     onBlur={() => setOpenETH(false)}
                     className={styles.chooseCurrBtn}
-                    style={{ width: 100 }}
                 >
                     <Image src={network.icon} alt={network.value} width={24} height={24} />
                     <span>ETH</span>
                 </button>
-            </DepositPopover>}
+            )}
 
-            {network.value === 'BSC' && <button
-                onClick={() => setDisplayCurrency('BNB')}
-                className={styles.chooseCurrBtn}
-                style={{ width: 100 }}
-            >
-                <Image src={network.icon} alt={network.value} width={24} height={24} />
-                <span>BNB</span>
-            </button>}
+            {network.value === 'BNB' && (
+                <button
+                    onClick={() => setDisplayCurrency('BNB')}
+                    className={styles.chooseCurrBtn}
+                >
+                    <Image src={network.icon} alt={network.value} width={24} height={24} />
+                    <span>BNB</span>
+                </button>
+            )}
+
+            <span className={styles.divider} />
 
             <DepositPopover open={openDebit} text="Coming Soon">
                 <button
@@ -219,25 +220,14 @@ const DepositForm: React.FC<IDepositForm> = () => {
             />
         </div>
 
-        <div className={styles.questions}>
-            <p>Got questions?</p>
-            <button
-                className={styles.btn}
-                onClick={() =>
-                    window.open("https://t.me/antixtoken_bot", "_blank")
-                }
-            >
-                <TgIcon />
-                We're here to help!
-            </button>
-        </div>
+        <GotQuestions />
 
         <div className={styles.disclaimer}>
             <span>By clicking "Deposit Now," you confirm that you are not a U.S. citizen
             or U.S. resident.</span> This investment offer is exclusively intended for
             non-U.S. persons and is strictly not available to U.S. citizens, U.S.
             residents, or any entities organized or domiciled in the United States.
-      </div>
+        </div>
     </div>
 };
 

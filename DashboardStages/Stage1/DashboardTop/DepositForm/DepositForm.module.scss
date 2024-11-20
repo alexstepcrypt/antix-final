@@ -8,7 +8,7 @@
         justify-content: space-between;
 
         .chooseCurrBtn {
-            width: 140px;
+            width: 126px;
             padding: 0 12px;
             height: 48px;
 
@@ -175,42 +175,6 @@
 
     .agreement {
         margin-top: 16px;
-    }
-
-    .questions {
-        margin-top: 16px;
-        display: flex;
-        gap: 4px;
-        align-items: center;
-        color: #F0F0F0;
-        font-size: 14px;
-        line-height: 21px;
-        font-weight: 400;
-
-        .btn {
-            background: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: underline;
-            color: #00A1B2;
-        }
-
-        @media (max-width: 700px) {
-            font-size: 11px;
-
-            .btn {
-                font-size: 11px;
-            }
-        }
-
-        @media (max-width: 650px) {
-            font-size: 14px;
-            
-            .btn {
-                font-size: 14px;
-            }
-        }
     }
 
     .disclaimer {

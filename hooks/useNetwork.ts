@@ -22,8 +22,8 @@ export const networks: Record<number, Network> = {
    56: {
       chain  : bsc,
       chainId: 56,
-      label  : 'BNB Smart Chain',
-      value  : 'BSC',
+      label  : 'BNB Chain',
+      value  : 'BNB',
       icon   : '/svg/bnb-icon.svg',
    },
 }
