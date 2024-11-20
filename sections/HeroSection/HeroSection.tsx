@@ -262,7 +262,8 @@ const HeroSection = () => {
                             className={`${styles.timerButton} ${currentDate >= stage1Date && styles.stage1Btn}`}
                             href="/dashboard"
                         >
-                            {account ? 'Buy Now' : 'Connect Wallet'}
+                            <span className={styles.flare}></span>
+                            {account ? 'Buy Now' : 'Connect Wallet to Buy'}
                         </Link>
 
                         <span className={styles.suggestion}>

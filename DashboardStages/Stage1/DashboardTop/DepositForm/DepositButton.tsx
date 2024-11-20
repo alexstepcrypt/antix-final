@@ -123,6 +123,7 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 	if (!isConnected) {
 		return <button onClick={() => connect()} className={styles.depositBtn}>
 			Connect wallet
+			<span className={styles.flare}></span>
 		</button>
 	}
 
@@ -140,6 +141,7 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
                 ? 'Enter amount' 
                 : apprveInProgress ? 'Please confirm TX...' : 'Approve Deposit'
             }
+			<span className={styles.flare}></span>
         </button>
 	}
 
@@ -147,7 +149,8 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
     return <>
         <button onClick={deposit} className={styles.depositBtn} disabled={!Number(amount)}>
             {status==='pending' ? "Processing..." : "Deposit Now"}
-        </button>
+			<span className={styles.flare}></span>
+		</button>
 
 		<DepositStatusModal txHash={String(depositTxHash)} status={status} retryFn={deposit} />
     </>
