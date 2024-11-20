@@ -48,6 +48,11 @@ const underDepositInfo = [
 const DashboardTop = () => {
     const { balances } = useUserDepositedBalance();
     const { network } = useNetwork();
+
+    const bonus = 75123;
+    const refBonus = bonus
+        ? `+${bonus.toLocaleString('en-US')} ANTIX Referral Bonus`
+        : "";
     
     // const { stageData } = useStageStore();
     // useEffect(() => {
@@ -82,6 +87,7 @@ const DashboardTop = () => {
                             currencySrc={vAntixIcon}
                             title="vANTIX"
                             balance={String(balances.vesting)}
+                            bottomText={refBonus}
                         />
                         <p className={styles.vested}>
                             <b>Vested Antix (vANTIX)</b> tokens will be converted to ANTIX tokens according to the unlock and vesting schedule.
