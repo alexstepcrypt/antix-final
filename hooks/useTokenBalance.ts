@@ -10,7 +10,7 @@ export const useTokenBalance = function (tokenAddress:string|undefined, balanceC
 	const [amount, setAmount] = useState('0')
 
 	const { address } = useAppKitAccount()
-	const { chainId:currentChainId} = useAppKitNetwork()
+	const { chainId:currentChainId } = useAppKitNetwork()
    	const chainId = balanceChainId || currentChainId
 
 	const isNativeCoin = ['0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', '0x0000000000000000000000000000000000000000'].includes(tokenAddress || '')
@@ -21,6 +21,7 @@ export const useTokenBalance = function (tokenAddress:string|undefined, balanceC
 	const tokenAmount = formatUnits(data?.value || BigInt(0), data?.decimals || 18) || '0'
 
 	useEffect(() => {
+		if (!tokenAddress || !address || !chainId) return
 		setAmount('0')
 		setTimeout(() => setAmount(tokenAmount), 1)
 
@@ -36,7 +37,7 @@ export const useTokenBalance = function (tokenAddress:string|undefined, balanceC
 				}
 			})()
 		}
-	}, [tokenAmount])
+	}, [tokenAmount, address, chainId])
 
 	return {
 		amount, symbol: data?.symbol || '', 

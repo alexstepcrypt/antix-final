@@ -7,6 +7,7 @@ import Image from "next/image";
 import TetherIcon from "/public/svg/tether-icon.svg";
 import BNBIcon from "/public/svg/bnb-icon.svg";
 import USDCIcon from "/public/svg/usdc-icon.svg";
+import ETHIcon from "/public/svg/ether-icon.svg";
 
 import Mastercard from "/public/dashboard/svg/mastercard-logo.svg";
 import Visa from "/public/dashboard/svg/visa-logo.svg";
@@ -26,7 +27,7 @@ import { DepositErrIcon } from './icons/DepositErrIcon'
 
 const tokensByChains:any = {
 	1: {
-        ETH  : '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+        ETH  : '0x0000000000000000000000000000000000000000',
 		USDT : '0xdAC17F958D2ee523a2206206994597C13D831ec7',
 		USDC : '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
 	},
@@ -41,7 +42,8 @@ const tokensByChains:any = {
 const tokensIcons:any = {
     BNB  : BNBIcon,
     USDT : TetherIcon,
-    USDC : USDCIcon
+    USDC : USDCIcon,
+    ETH  : ETHIcon
 }
 
 interface IDepositForm {
@@ -53,7 +55,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
     const { chainId } = useConnectWallet();
     const [amount, setAmount] = useState<string>("0");
     const [balance, setMaxBalance] = useState<string | null>(null);
-    const [displayCurrency, setDisplayCurrency] = useState<"BNB" | "USDT" | "USDC" | "CARD">("USDT");
+    const [displayCurrency, setDisplayCurrency] = useState<"BNB" | "USDT" | "USDC" | "CARD" | "ETH">("USDT");
     const [openDebit, setOpenDebit] = useState(false);
     const [openETH, setOpenETH] = useState(false);
     const [isBuyChecked, setIsBuyChecked] = useState(true); // условие для чекбокса
@@ -125,17 +127,14 @@ const DepositForm: React.FC<IDepositForm> = () => {
 
             <span className={styles.divider} />
 
-            {network.value === 'ETH' && <DepositPopover open={openETH} text="Coming Soon">
-                <button
-                    onClick={() => setOpenETH((p) => !p)}
-                    onBlur={() => setOpenETH(false)}
-                    className={styles.chooseCurrBtn}
-                    style={{ width: 100 }}
-                >
-                    <Image src={network.icon} alt={network.value} width={24} height={24} />
-                    <span>ETH</span>
-                </button>
-            </DepositPopover>}
+            {network.value === 'ETH' && <button
+                onClick={() => setDisplayCurrency('ETH')}
+                className={styles.chooseCurrBtn}
+                style={{ width: 100 }}
+            >
+                <Image src={network.icon} alt={network.value} width={24} height={24} />
+                <span>ETH</span>
+            </button>}
 
             {network.value === 'BSC' && <button
                 onClick={() => setDisplayCurrency('BNB')}
