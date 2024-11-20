@@ -1,9 +1,9 @@
 .wrapper {
    position: fixed;
-   max-width: 1200px;
-   width: 100%;
+   // max-width: 1200px;
+   width: max-content;
    padding: 10px;
-   border-radius: 24px;
+   border-radius: 16px;
    background: #272727cc;
    backdrop-filter: blur(11.4px);
    z-index: 10;
@@ -28,19 +28,12 @@
    .stage {
       display: flex;
       align-items: center;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      gap: 10.5px;
+      gap: 16px;
       border-radius: 16px;
-
-      .coin {
-         margin-left: 28px;
-      }
 
       .info {
          border-radius: 8px;
-         margin: 8px 0;
-         padding: 8px 8px 8px 24px;
+         padding: 8px 24px;
          background: rgba(255, 255, 255, 0.04);
          display: flex;
          gap: 12px;
@@ -103,6 +96,16 @@
                   font-size: 15px;
                   line-height: 20px;
                }
+
+               .prevPrice {
+                  font-size: 15px;
+                  font-weight: 400;
+                  line-height: 20px;
+                  text-align: right;
+                  text-decoration-line: line-through;
+                  text-underline-position: from-font;
+                  color: rgba(240, 240, 240, 0.4);
+               }
             }
 
             .discount {
@@ -122,7 +125,6 @@
       }
 
       .timer {
-         margin: 8px 0;
          display: flex;
          align-items: center;
          border-radius: 8px;
@@ -144,7 +146,6 @@
          }
 
          .countdown {
-            width: 110px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -170,12 +171,9 @@
       }
 
       .buy {
-         height: 44px;
-         width: 116px;
          display: flex;
          justify-content: center;
          align-items: center;
-         margin: 8px 8px 8px 0;
          background: #12fff1;
          transition: background .4s ease;
          font-size: 20px;
@@ -184,6 +182,7 @@
          font-weight: 700;
          border-radius: 8px;
          text-transform: uppercase;
+         padding: 6px 24px;
 
          &:hover {
             background: #00A1B2;
@@ -192,171 +191,43 @@
       }
    }
 
-   .socials {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-right: 24px;
 
-      .social {
-         color: rgba(255, 255, 255, 0.6);
-         display: flex;
-         align-items: center;
-         gap: 8px;
-         font-size: 14px;
-         line-height: 21px;
-         font-weight: 400;
-      }
-   }
-
-   @media (max-width: 1280px) {
-      padding: 7px;
-      border-radius: 17px;
-      max-width: 853px;
-
+   @media (max-width: 680px) {
       .stage {
-         border-radius: 11px;
-         gap: 13px;
-
-         .coin {
-            width: 48px;
-            height: 36px;
-            margin-left: 20px;
-         }
-
+         gap: 5px;
          .info {
-            margin: 6px 0;
-            padding: 6px 6px 6px 17px;
-            border-radius: 6px;
-            gap: 8.5px;
-
-            h2 {
-               font-size: 7px;
-               line-height: 11px;
-            }
-
-            .wrap {
-               gap: 8.5px;
-
-               .prices {
-                  p {
-                     font-size: 10px;
-                     line-height: 14px;
-                  }
-
-                  .price {
-                     width: 52px;
-                     height: 15px;
-                  }
-               }
-
-               .discount {
-                  padding: 0 6px;
-                  border-radius: 3px;
-
-                  p {
-                     font-size: 14px;
-                     line-height: 20px;
-                  }
-               }
-            }
-         }
-
-         .timer {
-            padding: 6px 17px;
-            border-radius: 6px;
-            gap: 9px;
-            margin: 6px 0;
-
-            h2 {
-               font-size: 7px;
-               line-height: 11px;
-            }
-
-            .countdown {
-               font-size: 7px;
-               width: 78px;
-
-               div {
-                  span {
-                     font-size: 11.4px;
-                     line-height: 12.5px;
-                  }
-
-                  p {
-                     font-size: 4.3px;
-                     line-height: 4.7px;
-                  }
-               }
-            }
-         }
-
-         .buy {
-            height: 28.45px;
-            width: 82.5px;
-            margin: 6px 6px 6px 0;
-            font-size: 14px;
-            line-height: 22px;
-            border-radius: 6px;
-         }
-      }
-
-      .socials {
-         margin-right: 20px;
-         gap: 11px;
-
-         .social {
-            svg {
-               width: 11.4px;
-               height: 11.4px;
-            }
-
-            gap: 6px;
-            font-size: 10px;
-            line-height: 15px;
-         }
-      }
-   }
-
-   @media (max-width: 960px) {
-      max-width: 635px;
-      display: block;
-
-      .stage {
-         justify-content: space-between;
-         gap: 0;
-      }
-
-      .socials {
-         display: none;
-      }
-   }
-
-   @media (max-width: 640px) {
-      max-width: 440px;
-      padding: 8px 12px;
-      border-radius: 17px;
-
-      .stage {
-         background: none;
-         border: none;
-
-         .coin {
-            margin-left: 0;
-         }
-
-         .info {
-            margin: 0;
             flex-direction: column;
-            gap: 5px;
-            padding: 6px 14px;
+            gap: 0px;
+            padding: 8px;
             align-items: unset;
 
             .priceWrapper {
-               justify-content: space-between;
+               align-items: flex-start;
+               flex-direction: column-reverse;
+               gap: 4px;
+
+               h2 {
+                  font-size: 10px;
+                  font-weight: 500;
+                  line-height: 15px;
+               }
 
                .mobileDiscount {
                   display: block;
+               }
+            }
+
+            .wrap {
+               .prices {
+                  p {
+                     font-size: 10px;
+                     line-height: 15px;
+                  }
+   
+                  .prevPrice {
+                     font-size: 8px;
+                     line-height: 12px;
+                  }
                }
             }
 
@@ -366,43 +237,18 @@
          }
 
          .timer {
-            height: 47px;
-            margin: 0;
+            height: 100%;
             flex-direction: column;
-            align-items: flex-start;
-            gap: 2.3px;
-
-            h2 {
-               margin-left: -2px;
-            }
+            align-items: center;
+            justify-content: space-between;
+            gap: 4px;
+            padding: 8px 12px;
          }
 
          .buy {
-            margin: 0;
-         }
-      }
-   }
-
-   @media (max-width: 480px) {
-      max-width: 360px;
-
-      .stage {
-         .coin {
-            display: none;
-         }
-
-         .info {
-            height: 47px;
-            width: 135px;
-            padding: 6px 10px;
-
-            .wrap {
-               gap: 3px;
-            }
-         }
-
-         .buy {
-            height: 47px;
+            padding: 6px 20px;
+            font-size: 16px;
+            font-weight: 700;
          }
       }
    }

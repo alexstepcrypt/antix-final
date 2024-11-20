@@ -49,7 +49,7 @@ const DashboardTop = () => {
     const { balances } = useUserDepositedBalance();
     const { network } = useNetwork();
 
-    const bonus = 75123;
+    let bonus = 0;
     const refBonus = bonus
         ? `+${bonus.toLocaleString('en-US')} ANTIX Referral Bonus`
         : "";

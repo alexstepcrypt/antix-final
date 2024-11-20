@@ -1,23 +1,14 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-
-import { XIcon } from './icons/XIcon';
 import s from './StageWidget.module.scss';
-import { TgIcon } from './icons/TgIcon';
-import { DiscordIcon } from './icons/DiscordIcon';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+
 
 export const StageWidget = () => {
-   const targetDate = new Date('2024-11-14T16:00:00Z');
-   const { push } = useRouter();
+   const targetDate = new Date('2024-11-28T16:00:00.000Z');
    const [timeLeft, setTimeLeft] = useState({
       days: 0,
       hours: 0,
-      minutes: 0,
-      seconds: 0,
    });
    const [visible, setVisible] = useState(false);
    const lastScrollY = useRef(0);
@@ -31,11 +22,7 @@ export const StageWidget = () => {
             setTimeLeft({
                days: Math.floor(seconds / 86400),
                hours: Math.floor((seconds % 86400) / 3600),
-               minutes: Math.floor((seconds % 3600) / 60),
-               seconds: seconds % 60,
             });
-         } else {
-            clearInterval(interval);
          }
       };
 
@@ -73,17 +60,9 @@ export const StageWidget = () => {
    return (
       <div className={`${s.wrapper} ${visible && s.open}`}>
          <div className={s.stage}>
-            <Image
-               src={'/svg/stage-widget-coin.svg'}
-               alt="coin"
-               width={68}
-               height={51}
-               className={s.coin}
-            />
-
             <div className={s.info}>
                <div className={s.priceWrapper}>
-                  <h2>Stage 1 price</h2>
+                  <h2>Current price</h2>
                   <div className={s.mobileDiscount}>
                      <p>-79%</p>
                   </div>
@@ -91,7 +70,7 @@ export const StageWidget = () => {
                <div className={s.wrap}>
                   <div className={s.prices}>
                      <p>0.03 USDT</p>
-                     <Image
+                     {/* <Image
                         src={'/svg/prev-price.svg'}
                         alt="prev-price"
                         width={74}
@@ -99,7 +78,8 @@ export const StageWidget = () => {
                         draggable={false}
                         loading="lazy"
                         className={s.price}
-                     />
+                     /> */}
+                     <span className={s.prevPrice}>0.14 USDT</span>
                   </div>
                   <div className={s.discount}>
                      <p>-79%</p>
@@ -108,7 +88,7 @@ export const StageWidget = () => {
             </div>
 
             <div className={s.timer}>
-               <h2>Deposits Open in</h2>
+               <h2>Stage 1 starts in</h2>
                <div className={s.countdown}>
                   <div>
                      <span>{timeLeft.days.toString().padStart(2, '0')}</span>
@@ -119,56 +99,17 @@ export const StageWidget = () => {
                      <span>{timeLeft.hours.toString().padStart(2, '0')}</span>
                      <p>hours</p>
                   </div>
-                  :
-                  <div>
-                     <span>{timeLeft.minutes.toString().padStart(2, '0')}</span>
-                     <p>min</p>
-                  </div>
-                  :
-                  <div>
-                     <span>{timeLeft.seconds.toString().padStart(2, '0')}</span>
-                     <p>sec</p>
-                  </div>
                </div>
             </div>
 
             <button 
                onClick={() => {
-                  const isOpen = new Date(targetDate) <= new Date();
-
-                  if (isOpen) push("/dashboard");
-                  else window.scrollTo({ top: 0, behavior: "smooth" });
+                  window.scrollTo({ top: 0, behavior: "smooth" });
                }}
                className={s.buy}
             >
-               buy
+               Buy Now
             </button>
-         </div>
-
-         <div className={s.socials}>
-            <Link
-               href="https://x.com/antix_in"
-               target="_blank"
-               className={s.social}>
-               <XIcon />
-               <p>41,500</p>
-            </Link>
-
-            <Link
-               href="https://t.me/antix_in"
-               target="_blank"
-               className={s.social}>
-               <TgIcon />
-               <p>56,300</p>
-            </Link>
-
-            <Link
-               href="https://discord.com/invite/bKcMXChRRT"
-               target="_blank"
-               className={s.social}>
-               <DiscordIcon />
-               <p>5,300</p>
-            </Link>
          </div>
       </div>
    );
