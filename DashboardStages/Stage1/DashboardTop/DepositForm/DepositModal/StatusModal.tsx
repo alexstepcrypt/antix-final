@@ -1,6 +1,7 @@
 import styles from './StatusModal.module.scss';
 import { useRef, useEffect } from 'react';
 import { useChainId } from 'wagmi';
+import EmailForm from './EmailForm';
 
 const explorerUrls: {[key: number]: string} = {
 	1  : 'https://etherscan.io',
@@ -14,6 +15,7 @@ interface ModalProps {
 }
 
 export default function DepositStatusModal({ txHash, status, retryFn }: ModalProps) {
+   // status = 'success'
    const chainId = useChainId()
    const dialog:any = useRef(null)
 
@@ -27,10 +29,6 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
       dialog.current.close()
    }
 
-   function handleContinue(){
-      window.location.reload()
-   }
-   
    const txUrl = explorerUrls[chainId] + '/tx/' + txHash
    const content:any = ({
       pending: {
@@ -44,8 +42,7 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
       },
       success: {
          title : 'Congrats!',
-         desc  : <><p>You have successfully made a <a href={txUrl} target='_blank' rel="noopener">deposit</a>.<br />
-      Wait for Stage 1 to get your ANTIX tokens distributed</p></>
+         desc  : <><p>You have successfully made a <a href={txUrl} target='_blank' rel="noopener">deposit</a>.</p></>
       }
    } as any)[status] || {}
 
@@ -58,6 +55,6 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
       <article>{content.desc}</article>
 
       {status==='fail' && <button className={styles.btn} onClick={()=>retryFn()}>Retry</button>}
-      {status==='success' && <button className={styles.btn} onClick={handleContinue}>Continue</button>}
+      {status==='success' && <EmailForm />}
    </dialog>
 }

@@ -121,6 +121,10 @@ class Api {
     return this.authCall('/profile/')
   }
 
+  sendUserEmail(email:string){
+    return this.authCall('/profile/email', {email})
+  }
+
   async getUserRefcode():Promise<string> {
     const res = await this.authCall('/profile/refcode')
     return res.refcode
