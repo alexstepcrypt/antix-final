@@ -7,7 +7,7 @@ import { OpenIcon } from './icon/OpenIcon';
 interface FaqProps {
    id: number;
    title: string;
-   content: string;
+   content: string | React.ReactNode;
    openedId: number | null;
    setOpenedId: Dispatch<SetStateAction<number | null>>;
 }

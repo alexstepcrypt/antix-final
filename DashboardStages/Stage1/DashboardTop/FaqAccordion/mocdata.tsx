@@ -1,4 +1,10 @@
-export const faqItems = [
+export type faqItemsTypes = {
+   id: number;
+   title: string;
+   content: string | React.ReactNode;
+}
+
+export const faqItems: faqItemsTypes[] = [
    {
       id: 1,
       title: 'What is a Deposit?',
@@ -17,6 +23,11 @@ export const faqItems = [
    {
       id: 4,
       title: 'More Questions?',
-      content: 'Reach out to us anytime through our Telegram support bot for additional assistance.'
+      content: (
+         <>
+            Reach out to us anytime through our{" "}
+            <a href="https://t.me/antixtoken_bot" rel='noopener' target='_blank'>Telegram support bot</a> for additional assistance.
+         </>
+      ),
    },
 ]

@@ -6,9 +6,10 @@ interface BalanceProps {
    currencySrc: string;
    title: string;
    balance: string;
+   bottomText?: string;
 }
 
-export const BalanceItem = ({ currencySrc, balance, title }: BalanceProps) => {
+export const BalanceItem = ({ currencySrc, balance, title, bottomText }: BalanceProps) => {
    return (
       <div className={s.wrapper}>
          <section className={s.currency}>
@@ -23,6 +24,9 @@ export const BalanceItem = ({ currencySrc, balance, title }: BalanceProps) => {
          </section>
 
          <p className={s.balance}>{balance}</p>
+         {bottomText && (
+            <span className={s.bottomText}>{bottomText}</span>
+         )}
       </div>
    );
 };

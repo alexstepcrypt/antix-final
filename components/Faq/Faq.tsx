@@ -3,15 +3,16 @@
 import React, { useState } from "react";
 import styles from "./Faq.module.scss";
 import { FaqAccordion } from "@/DashboardStages/Stage1/DashboardTop/FaqAccordion/FaqAccordion";
+import { faqItemsTypes } from "@/DashboardStages/Stage1/DashboardTop/FaqAccordion/mocdata";
 
-interface IFaqItem {
-    id: number;
-    title: string;
-    content: string;
-}
+// interface IFaqItem {
+//     id: number;
+//     title: string;
+//     content: string;
+// }
 
 interface IFaq {
-    faqItems: IFaqItem[];
+    faqItems: faqItemsTypes[];
 }
 
 const Faq: React.FC<IFaq> = ({ faqItems }) => {
