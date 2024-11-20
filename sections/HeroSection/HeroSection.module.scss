@@ -421,7 +421,7 @@
     .timer {
         height: 100%;
         backdrop-filter: blur(24px);
-        background: #252526;
+        background: #02030499;
 
         display: flex;
         flex-direction: column;
@@ -630,14 +630,70 @@
             }
         }
 
-        .refBtn {
+        .referralAndQuestions {
             margin-top: 32px;
-            background: none;
-            font-size: 12px;
-            font-weight: 400;
-            line-height: 21px;
-            text-align: right;
-            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 8.5px;
+
+            .refBtn {
+                background: none;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 21px;
+                text-align: right;
+                color: #fff;
+            }
+
+            .divider {
+                height: 21px;
+                width: 1px;
+                background: #FFFFFF33;
+            }
+
+            .questions {
+                display: flex;
+                gap: 4px;
+                align-items: center;
+                color: #f0f0f0;
+                font-size: 12px;
+                line-height: 21px;
+                font-weight: 400;
+
+                .btn {
+                    background: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    text-decoration: underline;
+                    color: #00a1b2;
+
+                    svg {
+                        width: 15px;
+                        height: 14px;
+                    }
+                }
+            }
+
+            @media (max-width: 1280px) {
+                gap: 5.3px;
+
+                .refBtn, .questions {
+                    font-size: 8px;
+                    line-height: 13px;
+                }
+
+                .divider {
+                    height: 14px;
+                }
+
+                .questions {
+                    .btn {
+                        gap: 4px;
+                        font-size: 8px;
+                    }
+                }
+            }
         }
     }
 
@@ -772,7 +828,7 @@
                 }
             }
 
-            .refBtn {
+            .referralAndQuestions {
                 margin-top: 22px;
             }
         }
@@ -784,7 +840,7 @@
         .timer {
             padding: 25px;
 
-            .stagePrice, .timerButton, .timerContainer, .paysCards, .refBtn, .progress, .warn {
+            .stagePrice, .timerButton, .timerContainer, .paysCards, .referralAndQuestions, .progress, .warn {
                 margin-top: 19.86px;
             }
 
@@ -803,7 +859,7 @@
         .timer {
             padding: 28.45px;
 
-            .stagePrice, .timerButton, .timerContainer, .paysCards, .refBtn, .progress, .warn {
+            .stagePrice, .timerButton, .timerContainer, .paysCards, .referralAndQuestions, .progress, .warn {
                 margin-top: 22px;
             }
 

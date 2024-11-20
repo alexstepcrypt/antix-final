@@ -26,6 +26,7 @@ import { useState } from "react";
 import ReferalModal from "./ui/ReferalModal/ReferalModal";
 import { useConnectWallet } from '@/hooks/useConnectWallet'
 import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar'
+import { TgIcon } from '@/components/GotQuestions/icons/TgIcon'
 
 const HeroSection = () => {
     const [isRefModal, setIsRefModal] = useState(false);
@@ -354,12 +355,29 @@ const HeroSection = () => {
                             </div>
                         </div>
 
-                        <button
-                            onClick={() => setIsRefModal(true)}
-                            className={styles.refBtn}
-                        >
-                            + Get referral link
-                        </button>
+                        <div className={styles.referralAndQuestions}>
+                            <button
+                                onClick={() => setIsRefModal(true)}
+                                className={styles.refBtn}
+                            >
+                                + Get referral link
+                            </button>
+
+                            <span className={styles.divider} />
+                            
+                            <div className={styles.questions}>
+                                <p>Got questions?</p>
+                                <button
+                                    className={styles.btn}
+                                    onClick={() =>
+                                        window.open("https://t.me/antixtoken_bot", "_blank")
+                                    }
+                                >
+                                    <TgIcon />
+                                    We're here to help!
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
