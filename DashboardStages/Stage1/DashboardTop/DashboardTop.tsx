@@ -22,7 +22,6 @@ import Faq from '@/components/Faq/Faq';
 import { useUserDepositedBalance } from '@/hooks/useUserDepositedBalance'
 import Image from 'next/image';
 import { useNetwork } from '@/hooks/useNetwork'
-import { useState } from 'react';
 
 const underDepositInfo = [
     {
