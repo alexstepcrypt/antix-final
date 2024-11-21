@@ -115,7 +115,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
             </button>
 
             <button
-                onClick={()=>setDisplayCurrency('USDC')}
+                onClick={() => setDisplayCurrency('USDC')}
                 className={`${styles.chooseCurrBtn} ${
                     displayCurrency === "USDC"
                         ? styles.activeChooseCurrBtn
@@ -128,9 +128,12 @@ const DepositForm: React.FC<IDepositForm> = () => {
 
             {network.value === 'ETH' && (
                 <button
-                    onClick={() => setOpenETH((p) => !p)}
-                    onBlur={() => setOpenETH(false)}
-                    className={styles.chooseCurrBtn}
+                    onClick={() => setDisplayCurrency("ETH")}
+                    className={`${styles.chooseCurrBtn} ${
+	                displayCurrency === "ETH"
+	                   ? styles.activeChooseCurrBtn
+	                   : ""
+                    }`}
                 >
                     <Image src={network.icon} alt={network.value} width={24} height={24} />
                     <span>ETH</span>
@@ -140,7 +143,11 @@ const DepositForm: React.FC<IDepositForm> = () => {
             {network.value === 'BNB' && (
                 <button
                     onClick={() => setDisplayCurrency('BNB')}
-                    className={styles.chooseCurrBtn}
+                    className={`${styles.chooseCurrBtn} ${
+	                displayCurrency === "BNB"
+	                   ? styles.activeChooseCurrBtn
+	                   : ""
+                    }`}
                 >
                     <Image src={network.icon} alt={network.value} width={24} height={24} />
                     <span>BNB</span>
