@@ -4,10 +4,9 @@ import dynamic from 'next/dynamic';
 
 import styles from "./DashboardTop.module.scss";
 import TetherIcon from "/public/svg/tether-icon.svg";
-// import EtherIcon from "/public/svg/ether-icon.svg";
+import EtherIcon from "/public/svg/ether-icon.svg";
 import USDCIcon from "/public/svg/usdc-icon.svg";
 import vAntixIcon from "/public/svg/vantix-icon.svg";
-// import EtherIcon from "/public/svg/ether-icon.svg";
 
 import { Timer } from "./Timer/Timer";
 const DepositForm = dynamic(() => import("./DepositForm/DepositForm"), { ssr: false });
@@ -95,34 +94,43 @@ const DashboardTop = () => {
                     </div>
                 </DashboardCard>
 
-                <DashboardCard style={{ width: "100%" }}>
-                    <div className={styles.balanceTitleWrapper}>
-                        <h3 className={styles.balanceTitle}>Deposit Balance</h3>
-                        <span className={styles.balanceChain}>
-                            <Image
-                                src={network.icon}
-                                alt={network.value}
-                                width={24}
-                                height={24}
+                {Number(balances.usdc) !== 0 || Number(balances.usdt) === 0 ? (
+                    <DashboardCard style={{ width: "100%" }}>
+                        <div className={styles.balanceTitleWrapper}>
+                            <h3 className={styles.balanceTitle}>Deposit Balance</h3>
+                            <span className={styles.balanceChain}>
+                                <Image
+                                    src={network.icon}
+                                    alt={network.value}
+                                    width={24}
+                                    height={24}
+                                />
+                                {network.value}
+                            </span>
+                        </div>
+
+                        <div className={styles.balanceItemsWrapper}>
+                            <BalanceItem
+                                currencySrc={TetherIcon}
+                                title="USDT"
+                                balance={String(balances.usdt)}
                             />
-                            {network.value}
-                        </span>
-                    </div>
 
-                    <div className={styles.balanceItemsWrapper}>
-                        <BalanceItem
-                            currencySrc={TetherIcon}
-                            title="USDT"
-                            balance={String(balances.usdt)}
-                        />
+                            <BalanceItem
+                                currencySrc={USDCIcon}
+                                title="USDC"
+                                balance={String(balances.usdc)}
+                            />
 
-                        <BalanceItem
-                            currencySrc={USDCIcon}
-                            title="USDC"
-                            balance={String(balances.usdc)}
-                        />
-                    </div>
-                </DashboardCard>
+                            <BalanceItem
+                                currencySrc={network.icon}
+                                title={network.value}
+                                balance={"0.00"}
+                            />
+                        </div>
+                    </DashboardCard>
+                ) : null}
+
 
                 <div className={styles.faq}>
                     <Faq faqItems={faqItems} />

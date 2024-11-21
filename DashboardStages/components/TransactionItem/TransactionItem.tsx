@@ -1,50 +1,59 @@
 import Image from 'next/image';
 
-import type { Transaction } from '../Transactions/Transactions';
+import type { Transaction } from '@/DashboardStages/constants/transactions';
 import s from './TransactionItem.module.scss';
+import vesting_antix from '/public/svg/vantix-icon.svg';
 
 export const TransactionItem = ({
-   address,
    amount,
    date,
-   details,
-   status,
    type,
-   isLast
-}: Omit<Transaction, 'id'> & { isLast: boolean }) => {
+   received,
+   stage,
+   transactionLink,
+}: Omit<Transaction, 'id'>) => {
    return (
       <ul
-         style={{ borderBottom: !isLast ? '1px solid #ffffff0a' : '' }}
          className={s.transaction}
       >
          <li>{date}</li>
          <li>{type}</li>
          <li>
-            <div className={s.container}>
                <Image
-                  src={amount.currency}
+                  src={amount.icon}
                   alt="amount-icon"
-                  width={22.5}
-                  height={22.5}
+                  width={24}
+                  height={24}
                />
-               <p>{amount.text}</p>
-            </div>
+               <p>
+                  {amount.amount.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 6 })}
+                  {" "}
+                  {amount.currency}
+               </p>
          </li>
          <li>
-            <div className={s.container}>
-               <Image
-                  src={status.icon}
-                  alt="status-icon"
-                  width={18}
-                  height={18}
-               />
-               <p>{status.text}</p>
-            </div>
+            {received !== 0 ? (
+               <>
+                  <Image
+                     src={vesting_antix}
+                     alt="vesting-antix"
+                     width={24}
+                     height={24}
+                     className={s.vestingAntix}
+                  />
+                  {received.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} vAntix
+               </>
+
+            ) : (
+               "-"
+            )}
          </li>
-         <li className={!details ? s.noDetails : ''}>
-            {details ?? 'No details'}
+         <li>
+            {stage}
          </li>
-         <li className={s.address}>{address}</li>
+         <li>
+            <a href={transactionLink} className={s.address}>View Transaction</a>
+         </li>
       </ul>
    );
 };
