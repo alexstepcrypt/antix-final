@@ -24,6 +24,7 @@ import CurrencyButton from "../../../components/CurrencyButton/CurrencyButton";
 import { TgIcon } from "../../../../components/GotQuestions/icons/TgIcon";
 import { DepositErrIcon } from './icons/DepositErrIcon'
 import { GotQuestions } from '@/components/GotQuestions/GotQuestions'
+import DepositStatusModal from './DepositModal/StatusModal'
 
 
 const tokensByChains:any = {
@@ -131,8 +132,8 @@ const DepositForm: React.FC<IDepositForm> = () => {
                     onClick={() => setDisplayCurrency("ETH")}
                     className={`${styles.chooseCurrBtn} ${
 	                displayCurrency === "ETH"
-	                   ? styles.activeChooseCurrBtn
-	                   : ""
+	                    ? styles.activeChooseCurrBtn
+	                    : ""
                     }`}
                 >
                     <Image src={network.icon} alt={network.value} width={24} height={24} />
@@ -145,8 +146,8 @@ const DepositForm: React.FC<IDepositForm> = () => {
                     onClick={() => setDisplayCurrency('BNB')}
                     className={`${styles.chooseCurrBtn} ${
 	                displayCurrency === "BNB"
-	                   ? styles.activeChooseCurrBtn
-	                   : ""
+	                    ? styles.activeChooseCurrBtn
+	                    : ""
                     }`}
                 >
                     <Image src={network.icon} alt={network.value} width={24} height={24} />

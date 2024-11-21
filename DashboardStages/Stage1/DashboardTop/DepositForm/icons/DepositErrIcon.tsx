@@ -1,14 +1,15 @@
 export const DepositErrIcon = () => {
    return (
       <svg
-         width="20"
-         height="20"
-         viewBox="0 0 20 20"
+         width="24"
+         height="24"
+         viewBox="0 0 24 24"
          fill="none"
          xmlns="http://www.w3.org/2000/svg">
          <path
-            d="M10 6V11M10 14H10.01M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z"
+            d="M12 7.33333V13.1667M12 16.6667H12.0117M22.5 12C22.5 17.799 17.799 22.5 12 22.5C6.20101 22.5 1.5 17.799 1.5 12C1.5 6.20101 6.20101 1.5 12 1.5C17.799 1.5 22.5 6.20101 22.5 12Z"
             stroke="#BF3434"
+            strokeWidth="2"
             strokeLinecap="round"
          />
       </svg>
