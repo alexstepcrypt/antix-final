@@ -7,8 +7,8 @@ import DashboardTop from "@/DashboardStages/Stage1/DashboardTop/DashboardTop";
 import usePlaceholderStore from '@/stores/usePlaceholderStore';
 import Placeholder from '@/components/Placeholder/Placeholder';
 
-// import { Transactions } from '@/DashboardStages/components/Transactions/Transactions';
-// import { mocTransactions } from '@/DashboardStages/constants/transactions';
+import { Transactions } from '@/DashboardStages/components/Transactions/Transactions';
+import { mocTransactions } from '@/DashboardStages/constants/transactions';
 // import DashboardTopStage2 from "@/DashboardStages/Stage2/DashboardTop/DashboardTop";
 // import StageInfo from "@/hooks/StageInfo";
 
@@ -37,9 +37,9 @@ export default function DashboardLayout({
                 {/* STAGE 1 */}
                 {/* <StageInfo /> */}
                 <DashboardTop />
-                {/* <div className={styles.transactions}>
+                <div className={styles.transactions}>
                     <Transactions transactions={mocTransactions} />
-                </div> */}
+                </div>
 
                 {/* STAGE 2 */}
                 {/* <DashboardTopStage2 />

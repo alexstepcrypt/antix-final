@@ -27,10 +27,10 @@ export const Transactions = ({ transactions }: TransactionsProps) => {
             style={{
                width: '100%',
                marginTop: 24,
-               padding: 27,
+               padding: 20,
                borderRadius: 13,
             }}>
-            <div className={s.wrapper}>
+            <div className={`${s.wrapper} ${transactions.length > 0 ? '' : s.emptyWrapper}`}>
                <ul className={s.table}>
                   <li>Date (GMT)</li>
 
