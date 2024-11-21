@@ -86,27 +86,22 @@ export const useDeposit = function () {
 	}, [depositError])
 
 	// Success transaction
-	const minWaitTime = 9 * 1000
 	useEffect(() => {
 		if (!depositSuccess) return
-		const startWaitTime = Date.now()
+
 		// Wait for transaction to be confirmed
 		waitForTransactionReceipt(wagmiConfig, {
 			confirmations: 4, 
 			hash: depositTxHash
 		}).then(() => {
-			let waitTime = minWaitTime - (Date.now() - startWaitTime)
-			if (waitTime < 0) waitTime = 0
-			setTimeout(() => {
-				setDepositInProgress(false)
+			setDepositInProgress(false)
 
-				window.dispatchEvent(new CustomEvent('balance:changed', {
-					detail: {
-						token  : depositDetails.token,
-						amount : depositDetails.amount || depositDetails.value
-					}
-				}))
-			}, waitTime)
+			window.dispatchEvent(new CustomEvent('balance:changed', {
+				detail: {
+					token  : depositDetails.token,
+					amount : depositDetails.amount || depositDetails.value
+				}
+			}))
 		})
 
 		Api.saveTx({
