@@ -1,25 +1,9 @@
-import { Fragment } from 'react';
-
 // import { SortIcon } from '@/components/icons/SortIcon';
+import Image from 'next/image';
 import { DashboardCard } from '../Card/Card';
 import { TransactionItem } from '../TransactionItem/TransactionItem';
 import s from './Transactions.module.scss';
-
-export interface Transaction {
-   id: number;
-   date: string;
-   type: string;
-   amount: {
-      currency: 'tether' | 'antix';
-      text: string;
-   };
-   status: {
-      icon: string;
-      text: string;
-   };
-   details: string | null;
-   address: string;
-}
+import type { Transaction } from '@/DashboardStages/constants/transactions';
 
 interface TransactionsProps {
    transactions: Transaction[];
@@ -28,7 +12,17 @@ interface TransactionsProps {
 export const Transactions = ({ transactions }: TransactionsProps) => {
    return (
       <section className={s.transactions}>
-         <h2 className={s.title}>Transactions</h2>
+         <h2 className={s.title}>
+            Transactions
+            <Image
+               className={s.mobileSwipe}
+               src={'/svg/swap-icon.svg'}
+               alt="swap-icon"
+               width={36}
+               height={36}
+               loading="lazy"
+            />
+         </h2>
          <DashboardCard
             style={{
                width: '100%',
@@ -37,32 +31,26 @@ export const Transactions = ({ transactions }: TransactionsProps) => {
                borderRadius: 13,
             }}>
             <div className={s.wrapper}>
-               <div className={s.table}>
-                  <h2 className={s.date}>Date</h2>
+               <ul className={s.table}>
+                  <li>Date (GMT)</li>
 
-                  <ul>
-                     <li>Type</li>
-                     <li>Amount</li>
-                     <li>Status</li>
-                     <li>Details</li>
-                  </ul>
+                  <li>Type</li>
+                  <li>Amount (Currency)</li>
+                  <li>Received</li>
+                  <li>Stage</li>
 
-                  <span>Address</span>
-               </div>
+                  <li>Transaction Link</li>
+               </ul>
 
                {transactions.length > 0 ? (
                   <div className={s.transactionsWrapper}>
-                     {transactions.map(({ id, ...transaction }, i) => {
-                        const is = i + 1 === transactions.length;
-
-                        return (
+                     {transactions.map(({ id, ...transaction }) => (
                         <TransactionItem
                            key={id}
-                           isLast={is}
                            {...transaction}
                         />
-                        );
-                     })}
+                        )
+                     )}
                   </div>
                ) : (
                   <div className={s.notify}>

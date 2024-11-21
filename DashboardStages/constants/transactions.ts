@@ -1,63 +1,46 @@
 import tether from '/public/dashboard/svg/tether.svg';
-import antix_currency from '/public/dashboard/svg/antix_currency.svg';
-import pending from '/public/dashboard/svg/pending.svg';
-import success from '/public/dashboard/svg/success.svg';
-import failed from '/public/dashboard/svg/failed.svg';
-import type { Transaction } from '../components/Transactions/Transactions';
+import bnb from '/public/svg/bnb-icon.svg';
+import usdc from '/public/svg/usdc-icon.svg';
+export interface Transaction {
+   id: number;
+   date: string;
+   type: string;
+   amount: {
+      icon: any;
+      amount: number;
+      currency: string
+   };
+   received: number;
+   stage: string;
+   transactionLink: string;
+}
 
 export const mocTransactions: Transaction[] = [
    {
       id: 1,
-      date: '10.07.2024 15:39:45 UTC',
+      date: '10.07.2024 15:39',
       type: 'Deposit',
-      amount: { currency: tether, text: '100 USDT' },
-      status: { icon: pending, text: 'Pending' },
-      details: 'You’ve purchased 1000 ANTIX for – 100 USDT',
-      address: '0x031…27b',
+      amount: { icon: tether, amount: 400, currency: "ETH" },
+      received: 0,
+      stage: 'Deposit Stage',
+      transactionLink: '',
    },
    {
       id: 2,
-      date: '05.01.2024 11:19:05 UTC',
-      type: 'Withdraw',
-      amount: { currency: tether, text: '40 USDT' },
-      status: { icon: success, text: 'Success' },
-      details: 'You’ve purchased 1000 ANTIX for – 100 USDT',
-      address: '0x031…27b',
+      date: '11.07.2024 10:45',
+      type: 'Buy',
+      amount: { icon: bnb, amount: 200, currency: "BNB" },
+      received: 1234.567,
+      stage: 'Stage #1',
+      transactionLink: '',
    },
    {
       id: 3,
-      date: '14.11.2023 21:13:14 UTC',
-      type: 'Token purchase',
-      amount: { currency: antix_currency, text: '100 ANTIX' },
-      status: { icon: failed, text: 'Failed' },
-      details: null,
-      address: '0x031…27b',
+      date: '12.07.2024 14:20',
+      type: 'Deposit + Buy',
+      amount: { icon: usdc, amount: 150, currency: "USDC" },
+      received: 2000.000,
+      stage: 'Deposit + Stage #1',
+      transactionLink: '',
    },
-   {
-      id: 4,
-      date: '10.07.2024 15:39:45 UTC',
-      type: 'Deposit',
-      amount: { currency: tether, text: '100 USDT' },
-      status: { icon: pending, text: 'Pending' },
-      details: 'You’ve purchased 1000 ANTIX for – 100 USDT',
-      address: '0x031…27b',
-   },
-   {
-      id: 5,
-      date: '10.07.2024 15:39:45 UTC',
-      type: 'Deposit',
-      amount: { currency: tether, text: '100 USDT' },
-      status: { icon: pending, text: 'Pending' },
-      details: null,
-      address: '0x031…27b',
-   },
-   {
-      id: 6,
-      date: '05.01.2024 11:19:05 UTC',
-      type: 'Withdraw',
-      amount: { currency: tether, text: '40 USDT' },
-      status: { icon: success, text: 'Success' },
-      details: null,
-      address: '0x031…27b',
-   }
 ];
