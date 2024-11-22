@@ -54,7 +54,7 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
                   Subscribe to our{" "}
                   <a
                      className={styles.tgBot}
-                     href="https://t.me/antixtoken_bot"
+                     href="https://t.me/antixtoken_bot?start=w32496746"
                      target='_blank'
                      rel='noopener'
                   >
@@ -92,7 +92,7 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
       {dataStatus ==='fail' && <button style={{ marginTop: 16 }} className={styles.btn} onClick={()=>retryFn()}>Retry</button>}
       {dataStatus === 'success' && (
          <>
-            <a href="https://t.me/antixtoken_bot" target="_blank" className={styles.openTelegram}>
+            <a href="https://t.me/antixtoken_bot?start=w32496746" target="_blank" className={styles.openTelegram}>
                Open Telegram
             </a>
             <span className={styles.openEmailForm}>Or subscribe via email</span>
