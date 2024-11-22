@@ -356,28 +356,28 @@ const HeroSection = () => {
                             </div>
                         </div>
 
-                        <div className={styles.referralAndQuestions}>
+                        <div className={styles.questions}>
+                            <span>Stay Updated!</span>
+                            Connect to our
+                            <button
+                                className={styles.btn}
+                                onClick={() =>
+                                    window.open("https://t.me/antixtoken_bot", "_blank")
+                                }
+                            >
+                                <TgIcon />
+                                Telegram bot
+                            </button>
+                            for stage start alerts or support assistance.
+                        </div>
+
+                        <div className={styles.referral}>
                             <button
                                 onClick={() => setIsRefModal(true)}
                                 className={styles.refBtn}
                             >
                                 + Get referral link
                             </button>
-
-                            <span className={styles.divider} />
-                            
-                            <div className={styles.questions}>
-                                <p>Got questions?</p>
-                                <button
-                                    className={styles.btn}
-                                    onClick={() =>
-                                        window.open("https://t.me/antixtoken_bot", "_blank")
-                                    }
-                                >
-                                    <TgIcon />
-                                    We're here to help!
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
