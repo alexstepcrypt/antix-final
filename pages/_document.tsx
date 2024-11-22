@@ -61,20 +61,18 @@ export default class MyDocument extends Document {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://token.antix.in" />
         <link rel="canonical" href="https://token.antix.in" />
+        {/* <!-- Google tag (gtag.js) --> */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3X71B2ZGH" />
         <Script
-          id="hotjar-analytics"
+          id="google-analytics"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-                            (function(h,o,t,j,a,r){
-                                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                                h._hjSettings={hjid:5192619,hjsv:6};
-                                a=o.getElementsByTagName('head')[0];
-                                r=o.createElement('script');r.async=1;
-                                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                                a.appendChild(r);
-                            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-                        `,
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Z3X71B2ZGH');
+            `,
           }}
         />
         <Script

@@ -654,11 +654,48 @@
             }
         }
 
-        .referralAndQuestions {
+        .questions {
             margin-top: 32px;
+
             display: flex;
-            align-items: center;
-            gap: 8.5px;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0 4px;
+
+            color: #f0f0f0;
+            font-size: 12px;
+            line-height: 21px;
+            font-weight: 400;
+
+            border: 1px solid rgba(240, 240, 240, 0.2);
+            border-radius: 8px;
+            width: 100%;
+            padding: 12px;
+
+            text-align: center;
+
+            span {
+                font-weight: 600;
+            }
+
+            .btn {
+                background: none;
+                display: flex;
+                gap: 4px;
+                color: #12FFF1;
+                font-size: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+        .referral {
+            margin-top: 20px;
 
             .refBtn {
                 background: none;
@@ -667,56 +704,6 @@
                 line-height: 21px;
                 text-align: right;
                 color: #fff;
-            }
-
-            .divider {
-                height: 21px;
-                width: 1px;
-                background: #FFFFFF33;
-            }
-
-            .questions {
-                display: flex;
-                gap: 4px;
-                align-items: center;
-                color: #f0f0f0;
-                font-size: 12px;
-                line-height: 21px;
-                font-weight: 400;
-
-                .btn {
-                    background: none;
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                    text-decoration: underline;
-                    color: #00a1b2;
-
-                    svg {
-                        width: 15px;
-                        height: 14px;
-                    }
-                }
-            }
-
-            @media (max-width: 1280px) {
-                gap: 5.3px;
-
-                .refBtn, .questions {
-                    font-size: 8px;
-                    line-height: 13px;
-                }
-
-                .divider {
-                    height: 14px;
-                }
-
-                .questions {
-                    .btn {
-                        gap: 4px;
-                        font-size: 8px;
-                    }
-                }
             }
         }
     }
@@ -852,8 +839,26 @@
                 }
             }
 
-            .referralAndQuestions {
+            .questions {
                 margin-top: 22px;
+
+                font-size: 10px;
+                line-height: 18px;
+                gap: 0 3px;
+    
+                border-radius: 7px;
+                padding: 10px;
+    
+                text-align: center;
+    
+                .btn {
+                    gap: 3px;
+    
+                    svg {
+                        width: 17px;
+                        height: 17px;
+                    }
+                }
             }
         }
     }
@@ -864,7 +869,7 @@
         .timer {
             padding: 25px;
 
-            .stagePrice, .timerButton, .timerContainer, .paysCards, .referralAndQuestions, .progress, .warn {
+            .stagePrice, .timerButton, .timerContainer, .paysCards, .questions, .progress, .warn {
                 margin-top: 19.86px;
             }
 
@@ -883,7 +888,7 @@
         .timer {
             padding: 28.45px;
 
-            .stagePrice, .timerButton, .timerContainer, .paysCards, .referralAndQuestions, .progress, .warn {
+            .stagePrice, .timerButton, .timerContainer, .paysCards, .questions, .progress, .warn {
                 margin-top: 22px;
             }
 
