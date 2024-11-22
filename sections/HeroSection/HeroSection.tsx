@@ -7,11 +7,6 @@ import Xlogo from "/public/svg/social-x.svg";
 import Tglogo from "/public/svg/social-telegram.svg";
 import Discordlogo from "/public/svg/social-discord.svg";
 
-import LogoSmall from "/public/svg/logo-small.svg";
-
-// import { LoaderSvg } from "./ui/LoaderSvg/LoaderSvg";
-import { HeroTimer } from "./ui/HeroTimer/HeroTimer";
-
 import Awords1 from "/public/svg/team/ico1.svg";
 import Awords2 from "/public/svg/team/ico2.svg";
 import Awords3 from "/public/svg/team/ico3.svg";
@@ -19,18 +14,20 @@ import Awords4 from "/public/svg/team/ico4.svg";
 import Awords5 from "/public/svg/team/top10.svg";
 import Awords6 from "/public/svg/team/ico5.svg";
 
-import BgHead from "/public/images/hero-timer-bg-head.png";
+// import BgHead from "/public/images/hero-timer-bg-head.png";
 import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 import Link from "next/link";
 import { useState } from "react";
 import ReferalModal from "./ui/ReferalModal/ReferalModal";
-import { useConnectWallet } from '@/hooks/useConnectWallet'
-import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar'
-import { TgIcon } from '@/components/GotQuestions/icons/TgIcon'
+import TokenSaleDeposit from "@/components/TokenSaleForm/TokenSaleDeposit/TokenSaleDeposit";
+import TokenSaleStage1CS from "@/components/TokenSaleForm/TokenSaleStage1CS/TokenSaleStage1CS";
+import TokenSaleStage1 from "@/components/TokenSaleForm/TokenSaleStage1/TokenSaleStage1";
+import TokenSaleStage1SO from "@/components/TokenSaleForm/TokenSaleStage1SO/TokenSaleStage1SO";
+// import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar'
 
 const HeroSection = () => {
     const [isRefModal, setIsRefModal] = useState(false);
-    const { account } = useConnectWallet();
+    // const { account } = useConnectWallet();
 
     // DATES FOR CONDITIONS BETWEEN STAGES
     const stage1DateStr = "2024-11-28T16:00:00.000Z";
@@ -187,200 +184,17 @@ const HeroSection = () => {
                     />
                     Ваш браузер не поддерживает видео.
                 </video>
-                <div className={styles.rightColumn}>
-                    <div
-                        className={styles.timerHead}
-                        style={{ backgroundImage: `url(${BgHead.src})` }}
-                    >
-                        <div className={styles.timerWrapperTitle}>
-                            <Image
-                                src={LogoSmall}
-                                width={30}
-                                height={30}
-                                alt="Logo"
-                                className={styles.logo}
-                            />
-                            Token Sale
-                        </div>
-                    </div>
+                <TokenSaleDeposit stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} />
+                
+                {/* Stage 1 Coming soon */}
+                {/* <TokenSaleStage1CS stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} /> */}
+                
+                {/* Stage 1 */}
+                {/* <TokenSaleStage1 stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} /> */}
+                
+                {/* Stage 1 Sold Out */}
+                {/* <TokenSaleStage1SO stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} /> */}
 
-                    <div className={styles.timer}>
-                        <div className={styles.timerTitle}>
-                            {currentDate <= stage1Date ? (
-                                <section>
-                                    <h2 className={styles.timerHeading}>Deposit Stage</h2>
-                                    <p className={styles.timerDesc}>To secure your access to Stage 1</p>
-                                </section>
-                            ) : (
-                                <h2 className={styles.timerHeading}>Stage 1</h2>
-                            )}
-
-                            <div className={styles.discount}>
-                                <p>-79%</p>
-                            </div>
-                        </div>
-
-                        <div className={styles.timerContainer}>
-                            <span className={styles.title}>
-                                Stage 1 starts in
-                            </span>
-
-                            <HeroTimer
-                                targetDate={new Date(stage1DateStr)}
-                            />
-                        </div>
-                        {/* <div className={styles.loader}>
-                            <LoaderSvg percent={0} />
-                        </div> */}
-
-                        <section className={styles.stagePrice}>
-                            <h3>Stage 1 price</h3>
-
-                            <div className={styles.prices}>
-                                <p>0.03 USDT</p>
-                                <p className={styles.prevPrice}>0.14 USDT</p>
-                            </div>
-                        </section>
-
-                        {currentDate >= stage1Date && (
-                            <div className={styles.progress}>
-                                <RaisedProgressBar
-                                    segments={15}
-                                    currentAmount={4201470}
-                                    targetAmount={4800000}
-                                />
-                            </div>
-                        )}
-
-                        {currentDate >= stage1Date && ( 
-                            <p className={styles.warn}>
-                                <span>Access is limited</span>—don’t miss the chance to participate on the best terms
-                            </p>
-                        )}
-
-                        <Link
-                            className={`${styles.timerButton} ${currentDate >= stage1Date && styles.stage1Btn}`}
-                            href="/dashboard"
-                        >
-                            <span className={styles.flare}></span>
-                            {account ? 'Buy Now' : 'Connect Wallet to Buy'}
-                        </Link>
-
-                        <span className={styles.suggestion}>
-                            and get -79% to TGE Price
-                        </span>
-
-                        <div className={styles.pays}>
-                            <h3 className={styles.paysTitle}>Pay with</h3>
-                            
-                            <div className={styles.paysCards}>
-                                <div className={styles.paysCard}>
-                                    <Image src={'/svg/tether-icon.svg'} alt="USDT" width={35.45} height={35.45} />
-                                    <div>
-                                        <span>USDT</span>
-
-                                        <div className={styles.networks}>
-                                            <Image
-                                                className={styles.network}
-                                                src={'/svg/ether-icon.svg'}
-                                                alt="eth"
-                                                width={12.5}
-                                                height={12.5}
-                                            />
-                                            <Image
-                                                className={styles.network}
-                                                src={'/svg/network-icon.svg'}
-                                                alt="bnb"
-                                                width={12.5}
-                                                height={12.5}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.paysCard}>
-                                    <Image src={'/svg/usdc-icon.svg'} alt="USDC" width={35.45} height={35.45} />
-                                    <div>
-                                        <span>USDC</span>
-
-                                        <div className={styles.networks}>
-                                            <Image
-                                                className={styles.network}
-                                                src={'/svg/ether-icon.svg'}
-                                                alt="eth"
-                                                width={12.5}
-                                                height={12.5}
-                                            />
-                                            <Image
-                                            className={styles.network}
-                                                src={'/svg/network-icon.svg'}
-                                                alt="bnb"
-                                                width={12.5}
-                                                height={12.5}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.paysCard}>
-                                    <Image src={'/svg/bnb-icon.svg'} alt="BNB" width={35.45} height={35.45} />
-                                    <div>
-                                        <span>BNB</span>
-
-                                        <div className={styles.networks}>
-                                            <Image
-                                                className={styles.network}
-                                                src={'/svg/network-icon.svg'}
-                                                alt="bnb"
-                                                width={14.5}
-                                                height={14.5}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                style={{
-                                    justifyContent: 'center',
-                                    marginTop: 10,
-                                    gap: 7
-                                }}
-                                className={styles.paysCards}
-                            >
-                                <div className={styles.paysCard1}>
-                                    <Image src={'/svg/ether-icon.svg'} alt="USDC" width={17} height={17} />
-                                    <span>ETH</span>
-                                </div>
-                                <div className={styles.paysCard1}>
-                                    <Image src={'/dashboard/svg/visa-logo.svg'} alt="visa" width={30.8} height={13} />
-                                    <Image src={'/dashboard/svg/mastercard-logo.svg'} alt="mastercard" width={24.77} height={19} />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className={styles.questions}>
-                            <span>Stay Updated!</span>
-                            Connect to our
-                            <button
-                                className={styles.btn}
-                                onClick={() =>
-                                    window.open("https://t.me/antixtoken_bot", "_blank")
-                                }
-                            >
-                                <TgIcon />
-                                Telegram bot
-                            </button>
-                            for stage start alerts or support assistance.
-                        </div>
-
-                        <div className={styles.referral}>
-                            <button
-                                onClick={() => setIsRefModal(true)}
-                                className={styles.refBtn}
-                            >
-                                + Get referral link
-                            </button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     );

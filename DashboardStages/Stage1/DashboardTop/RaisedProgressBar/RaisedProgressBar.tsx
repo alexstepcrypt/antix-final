@@ -5,12 +5,14 @@ interface ProgressBarProps {
     currentAmount: number;
     targetAmount: number;
     segments: number;
+    color?: string;
 }
 
 const RaisedProgressBar: React.FC<ProgressBarProps> = ({
     currentAmount,
     targetAmount,
     segments,
+    color
 }) => {
     const percentage = Math.min((currentAmount / targetAmount) * 100, 100);
     const filledSegments = Math.round((percentage / 100) * segments);
@@ -32,6 +34,7 @@ const RaisedProgressBar: React.FC<ProgressBarProps> = ({
                         className={`${styles.segment} ${
                             index < filledSegments ? styles.filled : ""
                         }`}
+                        style={color ? {borderColor: color, background: index < filledSegments ? color : ''} : {}}
                     />
                 ))}
             </div>
