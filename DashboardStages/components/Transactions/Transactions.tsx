@@ -3,13 +3,19 @@ import Image from 'next/image';
 import { DashboardCard } from '../Card/Card';
 import { TransactionItem } from '../TransactionItem/TransactionItem';
 import s from './Transactions.module.scss';
-import type { Transaction } from '@/DashboardStages/constants/transactions';
+import Api from '@/utils/api';
+import { useState, useEffect } from 'react';
+import { useConnectWallet } from '@/hooks/useConnectWallet';
 
-interface TransactionsProps {
-   transactions: Transaction[];
-}
+export const Transactions = () => {
+   const { profile } = useConnectWallet()
+   const [transactions, setTransactions] = useState<any[]>([])
 
-export const Transactions = ({ transactions }: TransactionsProps) => {
+   useEffect(() => {
+      if (!profile) return
+      Api.getTransactions().then(resp=>setTransactions(resp.txs))
+   }, [profile])
+
    return (
       <section className={s.transactions}>
          <h2 className={s.title}>
@@ -44,11 +50,8 @@ export const Transactions = ({ transactions }: TransactionsProps) => {
 
                {transactions.length > 0 ? (
                   <div className={s.transactionsWrapper}>
-                     {transactions.map(({ id, ...transaction }) => (
-                        <TransactionItem
-                           key={id}
-                           {...transaction}
-                        />
+                     {transactions.map(tx => (
+                        <TransactionItem key={tx.hash} tx={tx}/>
                         )
                      )}
                   </div>

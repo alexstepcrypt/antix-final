@@ -149,6 +149,10 @@ class Api {
   saveTx(params:SaveTransactionParams):Promise<{success:Boolean}>{
     return this.authCall('/profile/saveTx', params)
   }
+
+  getTransactions():Promise<any>{
+    return this.authCall('/profile/txs/')
+  }
 }
 
 export default new Api()
