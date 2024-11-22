@@ -1,0 +1,353 @@
+.container {
+    width: 460px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .timerHead {
+        width: 100%;    
+        height: 71.66px;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        .timerWrapperTitle {
+            margin: 20px 88px 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 6px;
+
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 22px;
+            text-align: left;
+            color: #f0f0f0;
+
+            .logo {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+
+    .timer {
+        height: 100%;
+        backdrop-filter: blur(24px);
+        background: #02030499;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid #575757;
+        border-radius: 4px 4px 16px 16px;
+
+        padding: 40px;
+
+        .timerTitle {
+            width: 100%;
+            color: #fff;
+
+            .timerHeading {
+                font-size: 32px;
+                line-height: 36px;
+                font-weight: 600;
+            }
+        }
+
+        .timerContainer {
+            margin-top: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .title {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 21px;
+                color: #AFAFAF;
+            }
+        }
+
+        .progress {
+            width: 100%;
+            margin-top: 32px;
+        }
+
+        .timerButton {
+            margin-top: 16px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 50px;
+            background: linear-gradient(89.59deg, #12FFF1 14.83%, #99FFF9 85.17%);
+
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 21px;
+            text-align: center;
+            color: #0F0E14;
+
+            position: relative; 
+            overflow-x: hidden; 
+        }
+
+        .flare {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 45px;
+            transform: skewX(-45deg);
+            animation: flareAnimation;
+            left: -150%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.6));
+            animation: flareAnimation 5s infinite linear;
+        }
+
+        .questions {
+            margin-top: 32px;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0 4px;
+
+            color: #FFFFFF;
+            font-size: 14px;
+            line-height: 21px;
+            font-weight: 400;
+
+            text-align: center;
+
+            .btn {
+                background: none;
+                display: flex;
+                gap: 4px;
+                color: #12FFF1;
+                font-size: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+        .referral {
+            margin-top: 20px;
+
+            .refBtn {
+                background: none;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 21px;
+                text-align: right;
+                color: #fff;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1280px) {
+        width: 328px;
+
+        .timerHead {
+            height: 52px;
+
+            .timerWrapperTitle {
+                margin: 14px 62px 14px auto;
+                gap: 6px;
+
+                font-size: 14.22px;
+                line-height: 15.64px;
+
+                .logo {
+                    width: 22px;
+                    height: 22px;
+                }
+            }
+        }
+
+        .timer {
+            border-radius: 3px 3px 11px 11px;
+            padding: 28.45px;
+
+            .timerTitle {
+                .timerHeading {
+                    font-size: 22.76px;
+                    line-height: 25.6px;
+                }
+
+                .timerDesc {
+                    font-size: 8.5px;
+                    line-height: 11.38px;
+                }
+
+                .discount {
+                    font-size: 15.64px;
+                    line-height: 23.47px;
+                    padding: 2.84px 5.69px;
+                }
+            }
+
+            .timerContainer {
+                margin-top: 22px;
+
+                .title {
+                    font-size: 9.96px;
+                    line-height: 14.93px;
+                }
+            }
+
+            .stagePrice {
+                margin-top: 22px;
+                padding: 8.5px;
+                border-radius: 5.7px;
+
+                h3, .prices {
+                    font-size: 9.96px;
+                    line-height: 14.93px;
+                }
+            }
+
+            .progress {
+                margin-top: 22px;
+            }
+
+            .warn {
+                margin-top: 22px;
+            }
+
+            .timerButton {
+                font-size: 9.96px;
+                line-height: 14.93px;
+                padding: 8.5px;
+            }
+
+            .suggestion {
+                font-size: 9.96px;
+                line-height: 14.93px;
+            }
+
+            .pays {
+                margin-top: 22px;
+
+                .paysTitle {
+                    font-size: 9.96px;
+                    line-height: 14.93px;
+
+                    &::before, &::after {
+                        max-width: 105px;
+                    }
+                }
+
+                .paysCards {
+                    margin-top: 5.7px;
+                    gap: 9px;
+
+                    .paysCard:nth-child(1), .paysCard:nth-child(2), .paysCard:nth-child(3) {
+                        img {
+                            width: 25px;
+                            height: 25px;
+                        }
+                    }
+
+                    .paysCard {
+                        border-radius: 5.7px;
+                        gap: 5.7px;
+                        height: 45px;
+
+                        div {
+                            margin-top: -4px;
+
+                            span {
+                                font-size: 10px;
+                            }
+    
+                            .networks > .network {
+                                width: 13px;
+                                height: 13px;
+                            }
+                        }
+                    }
+
+                    .paysCard1 {
+                        height: 30px;
+                        width: 80px;
+                    }
+                }
+            }
+
+            .questions {
+                margin-top: 22px;
+
+                font-size: 10px;
+                line-height: 18px;
+                gap: 0 3px;
+    
+                border-radius: 7px;
+    
+                text-align: center;
+    
+                .btn {
+                    gap: 3px;
+    
+                    svg {
+                        width: 17px;
+                        height: 17px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        margin-top: 50px;
+
+        .timer {
+            padding: 25px;
+
+            .stagePrice, .timerContainer, .paysCards, .questions, .progress, .warn {
+                margin-top: 19.86px;
+            }
+
+            .pays {
+                .paysTitle {
+                    &::before, &::after {
+                        max-width: 108px;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 480px) {
+        width: 325px;
+
+        .timer {
+            padding: 28.45px;
+
+            .stagePrice, .timerContainer, .paysCards, .questions, .progress, .warn {
+                margin-top: 22px;
+            }
+
+            .pays {
+                .paysTitle {
+                    &::before, &::after {
+                        max-width: 103px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes flareAnimation {
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 150%;
+    }
+}
