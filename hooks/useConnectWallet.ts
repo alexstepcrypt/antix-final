@@ -74,6 +74,8 @@ export const useConnectWallet = function (): {
 		if (signError) {
 			console.log('signError', signError)
 			disconnect(); close()
+			localStorage.clear()
+			sessionStorage.clear()
 			setTimeout(()=>{
 				window.location.reload()
 			},999)
@@ -84,6 +86,8 @@ export const useConnectWallet = function (): {
 		if (!address || !isConnected) {
 			disconnect()
 			close()
+			localStorage.clear()
+			sessionStorage.clear()
 			setTimeout(()=>{
 				setWeb3modalOpen(true)
 				open()
@@ -148,7 +152,8 @@ export const useConnectWallet = function (): {
 		profile,
 		disconnect: ()=>{
 			disconnect(); close()
-			localStorage.removeItem('authToken')
+			localStorage.clear()
+			sessionStorage.clear()
 			setTimeout(()=>{
 				window.location.href = '/'
 			}, 1111)

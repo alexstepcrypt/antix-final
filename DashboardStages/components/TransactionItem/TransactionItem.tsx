@@ -75,7 +75,7 @@ export const TransactionItem = ({tx}:{tx:any}) => {
             {formatCrypto(received)} vAntix
          </>}</li>
          <li>
-            Stage #{tx.stage}
+            Deposit Stage #{tx.stage}
          </li>
          <li>
             <a href={explorerUrls[tx.chainId] + '/tx/' + tx.hash} className={s.address} target="_blank" rel="noreferrer, noopener">View Transaction</a>
