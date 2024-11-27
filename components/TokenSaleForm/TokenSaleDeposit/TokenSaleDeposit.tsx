@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from "./TokenSaleDeposit.module.scss"
 
 import LogoSmall from "/public/svg/logo-small.svg";
@@ -8,6 +8,7 @@ import { HeroTimer } from '@/sections/HeroSection/ui/HeroTimer/HeroTimer';
 import Link from 'next/link';
 import { TgIcon } from '@/components/GotQuestions/icons/TgIcon';
 import { useConnectWallet } from '@/hooks/useConnectWallet';
+import { useRouter } from 'next/router';
 
 interface ITokenSaleDeposit {
     stage1DateStr: string;
@@ -15,7 +16,21 @@ interface ITokenSaleDeposit {
 }
 
 const TokenSaleDeposit: React.FC<ITokenSaleDeposit> = ({stage1DateStr, setIsRefModal}) => {
-    const { account } = useConnectWallet();
+    const { isConnected, connect } = useConnectWallet();
+    const router = useRouter();
+
+    async function buyHandler(e:React.MouseEvent<HTMLAnchorElement>){
+        e.preventDefault()
+        if (!isConnected) {
+            return connect()
+        }
+        router.push('/dashboard')
+    }
+
+    useEffect(()=>{
+        if (!isConnected || router.pathname !== '/') return
+        router.push('/dashboard')
+    }, [isConnected])
 
     return (
     <div className={styles.container}>
@@ -68,10 +83,11 @@ const TokenSaleDeposit: React.FC<ITokenSaleDeposit> = ({stage1DateStr, setIsRefM
 
         <Link
             className={`${styles.timerButton}`}
-            href="/dashboard"
+            onClick={buyHandler}
+            href="#buy"
         >
             <span className={styles.flare}></span>
-            {account ? 'Buy Now' : 'Connect Wallet to Buy'}
+            {isConnected ? 'Buy Now' : 'Connect Wallet to Buy'}
         </Link>
 
         <span className={styles.suggestion}>
