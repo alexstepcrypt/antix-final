@@ -1,6 +1,5 @@
 .wrapper {
    position: fixed;
-   // max-width: 1200px;
    width: max-content;
    padding: 10px;
    border-radius: 16px;
@@ -190,7 +189,7 @@
    }
 
 
-   @media (max-width: 680px) {
+   @media (max-width: 840px) {
       .stage {
          gap: 5px;
          .info {

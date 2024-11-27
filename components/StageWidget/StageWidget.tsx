@@ -9,6 +9,7 @@ export const StageWidget = () => {
    const [timeLeft, setTimeLeft] = useState({
       days: 0,
       hours: 0,
+      minutes: 0
    });
    const [visible, setVisible] = useState(false);
    const lastScrollY = useRef(0);
@@ -22,6 +23,7 @@ export const StageWidget = () => {
             setTimeLeft({
                days: Math.floor(seconds / 86400),
                hours: Math.floor((seconds % 86400) / 3600),
+               minutes: Math.floor((seconds % 3600) / 60)
             });
          }
       };
@@ -92,12 +94,17 @@ export const StageWidget = () => {
                <div className={s.countdown}>
                   <div>
                      <span>{timeLeft.days.toString().padStart(2, '0')}</span>
-                     <p>days</p>
+                     <p>day</p>
                   </div>
                   :
                   <div>
                      <span>{timeLeft.hours.toString().padStart(2, '0')}</span>
-                     <p>hours</p>
+                     <p>hour</p>
+                  </div>
+                  :
+                  <div>
+                     <span>{timeLeft.minutes.toString().padStart(2, '0')}</span>
+                     <p>min</p>
                   </div>
                </div>
             </div>
