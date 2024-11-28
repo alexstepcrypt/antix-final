@@ -19,10 +19,10 @@ import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 import Link from "next/link";
 import { useState } from "react";
 import ReferalModal from "./ui/ReferalModal/ReferalModal";
-import TokenSaleDeposit from "@/components/TokenSaleForm/TokenSaleDeposit/TokenSaleDeposit";
+// import TokenSaleDeposit from "@/components/TokenSaleForm/TokenSaleDeposit/TokenSaleDeposit";
 import TokenSaleStage1AS from "@/components/TokenSaleForm/TokenSaleStage1AS/TokenSaleStage1AS";
-import TokenSaleStage1 from "@/components/TokenSaleForm/TokenSaleStage1/TokenSaleStage1";
-import TokenSaleStage1SO from "@/components/TokenSaleForm/TokenSaleStage1SO/TokenSaleStage1SO";
+// import TokenSaleStage1 from "@/components/TokenSaleForm/TokenSaleStage1/TokenSaleStage1";
+// import TokenSaleStage1SO from "@/components/TokenSaleForm/TokenSaleStage1SO/TokenSaleStage1SO";
 // import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar'
 
 const HeroSection = () => {
@@ -184,10 +184,10 @@ const HeroSection = () => {
                     />
                     Ваш браузер не поддерживает видео.
                 </video>
-                <TokenSaleDeposit stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} />
+                {/* <TokenSaleDeposit stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} /> */}
                 
                 {/* Stage 1 is about to start! */}
-                {/* <TokenSaleStage1AS stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} /> */}
+                <TokenSaleStage1AS stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} />
                 
                 {/* Stage 1 */}
                 {/* <TokenSaleStage1 stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} /> */}
