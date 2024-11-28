@@ -186,118 +186,6 @@
             margin-top: 8px;
         }
 
-        .pays {
-            margin-top: 32px;
-            width: 100%;
-
-            .paysTitle {
-                color: #FFFFFF66;
-                font-weight: 600;
-                font-size: 14px;
-                line-height: 21px;
-                align-items: center;
-                gap: 7.8px;
-                display: flex;
-
-                &::before, &::after {
-                    content: '';
-                    max-width: 149px;
-                    display: block;
-                    height: 1px;
-                    width: 100%;
-                    background: #FFFFFF33;
-                }
-            }
-
-            .paysCards {
-                display: flex;
-                align-items: center;
-                gap: 11px;
-                margin-top: 8px;
-
-                .networks {
-                    display: flex;
-                    gap: 3px;
-                    margin-top: -2px;
-                }
-
-                .paysCard, .paysCard1 {
-                    width: 100%;
-                    padding: 8.5px;
-                    gap: 7px;
-
-                    border-radius: 8px;
-                    background: rgba(255, 255, 255, 0.04);
-                    transition: background .4s ease;
-
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 7px;
-
-                    span {
-                        font-size: 12px;
-                        font-weight: 600;
-                        text-align: left;
-                        line-height: 11px;
-                        color: #ffffff;
-                        text-transform: uppercase;
-                    }
-
-                    &:hover {
-                        background: rgba(255, 255, 255, .02);
-                        transition: background .4s ease;
-                    }
-                }
-
-                .paysCard1 {
-                    width: 90px;
-                    height: 35px;
-                    padding: 0;
-                }
-            }
-        }
-
-        .questions {
-            margin-top: 32px;
-
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0 4px;
-
-            color: #f0f0f0;
-            font-size: 12px;
-            line-height: 21px;
-            font-weight: 400;
-
-            border: 1px solid rgba(240, 240, 240, 0.2);
-            border-radius: 8px;
-            width: 100%;
-            padding: 12px;
-
-            text-align: center;
-
-            span {
-                font-weight: 600;
-            }
-
-            .btn {
-                background: none;
-                display: flex;
-                gap: 4px;
-                color: #12FFF1;
-                font-size: inherit;
-                font-weight: inherit;
-                line-height: inherit;
-
-                svg {
-                    width: 20px;
-                    height: 20px;
-                }
-            }
-        }
-
         .referral {
             margin-top: 20px;
 
@@ -393,77 +281,6 @@
                 font-size: 9.96px;
                 line-height: 14.93px;
             }
-
-            .pays {
-                margin-top: 22px;
-
-                .paysTitle {
-                    font-size: 9.96px;
-                    line-height: 14.93px;
-
-                    &::before, &::after {
-                        max-width: 105px;
-                    }
-                }
-
-                .paysCards {
-                    margin-top: 5.7px;
-                    gap: 9px;
-
-                    .paysCard:nth-child(1), .paysCard:nth-child(2), .paysCard:nth-child(3) {
-                        img {
-                            width: 25px;
-                            height: 25px;
-                        }
-                    }
-
-                    .paysCard {
-                        border-radius: 5.7px;
-                        gap: 5.7px;
-                        height: 45px;
-
-                        div {
-                            margin-top: -4px;
-
-                            span {
-                                font-size: 10px;
-                            }
-    
-                            .networks > .network {
-                                width: 13px;
-                                height: 13px;
-                            }
-                        }
-                    }
-
-                    .paysCard1 {
-                        height: 30px;
-                        width: 80px;
-                    }
-                }
-            }
-
-            .questions {
-                margin-top: 22px;
-
-                font-size: 10px;
-                line-height: 18px;
-                gap: 0 3px;
-    
-                border-radius: 7px;
-                padding: 10px;
-    
-                text-align: center;
-    
-                .btn {
-                    gap: 3px;
-    
-                    svg {
-                        width: 17px;
-                        height: 17px;
-                    }
-                }
-            }
         }
     }
 
@@ -473,16 +290,8 @@
         .timer {
             padding: 25px;
 
-            .stagePrice, .timerButton, .timerContainer, .paysCards, .questions, .progress, .warn {
+            .stagePrice, .timerButton, .timerContainer, .paysCards, .progress, .warn {
                 margin-top: 19.86px;
-            }
-
-            .pays {
-                .paysTitle {
-                    &::before, &::after {
-                        max-width: 108px;
-                    }
-                }
             }
         }
     }
@@ -492,16 +301,8 @@
         .timer {
             padding: 28.45px;
 
-            .stagePrice, .timerButton, .timerContainer, .paysCards, .questions, .progress, .warn {
+            .stagePrice, .timerButton, .timerContainer, .paysCards, .progress, .warn {
                 margin-top: 22px;
-            }
-
-            .pays {
-                .paysTitle {
-                    &::before, &::after {
-                        max-width: 103px;
-                    }
-                }
             }
         }
     }
