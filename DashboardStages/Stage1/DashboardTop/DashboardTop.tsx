@@ -257,7 +257,7 @@ const DashboardTop = () => {
                     </div>
                 </div> */}
 
-                {/* <DepositForm /> */}
+                <DepositForm />
                 </div>
                 <div className={styles.underDeposit}>
                     {underDepositInfo.map((item, index) => (
