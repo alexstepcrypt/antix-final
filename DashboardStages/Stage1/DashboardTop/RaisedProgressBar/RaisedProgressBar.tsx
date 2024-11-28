@@ -7,14 +7,15 @@ interface ProgressBarProps {
     segments: number;
     title: string
     color?: string;
+    title?: string;
 }
 
 const RaisedProgressBar: React.FC<ProgressBarProps> = ({
     currentAmount,
     targetAmount,
     segments,
-    title,
-    color
+    color,
+    title
 }) => {
     const percentage = Math.min((currentAmount / targetAmount) * 100, 100);
     const filledSegments = Math.round((percentage / 100) * segments);

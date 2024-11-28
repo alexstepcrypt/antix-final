@@ -4,8 +4,4 @@ export const stage1Steps = [
    { step: 3, title: 'Success', isCurrent: false }
 ];
 
-export const stage2Steps = [
-   { step: 1, title: 'Make a deposit', isCurrent: true },
-   { step: 2, title: 'Wait for the start', isCurrent: false },
-   { step: 3, title: 'Buy tokens', isCurrent: false }
-];
+export const stage2Steps = stage1Steps.map(item => ({ ...item, isCurrent: true }));

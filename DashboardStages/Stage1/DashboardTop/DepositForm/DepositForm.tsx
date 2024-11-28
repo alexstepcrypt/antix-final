@@ -8,6 +8,7 @@ import TetherIcon from "/public/svg/tether-icon.svg";
 import BNBIcon from "/public/svg/bnb-icon.svg";
 import USDCIcon from "/public/svg/usdc-icon.svg";
 import ETHIcon from "/public/svg/ether-icon.svg";
+import TokenIcon from "/public/svg/token-icon.svg";
 
 import Mastercard from "/public/dashboard/svg/mastercard-logo.svg";
 import Visa from "/public/dashboard/svg/visa-logo.svg";
@@ -25,6 +26,7 @@ import { TgIcon } from "../../../../components/GotQuestions/icons/TgIcon";
 import { DepositErrIcon } from './icons/DepositErrIcon'
 import { GotQuestions } from '@/components/GotQuestions/GotQuestions'
 import DepositStatusModal from './DepositModal/StatusModal'
+import Input from '@/DashboardStages/Stage2/DashboardTop/Input/Input'
 
 
 const tokensByChains:any = {
@@ -52,6 +54,7 @@ interface IDepositForm {
 }
 
 const errString = "Not enough funds to make the deposit";
+const ANTIX_RATE = 0.01;
 
 const DepositForm: React.FC<IDepositForm> = () => {
     const { chainId } = useConnectWallet();
@@ -63,6 +66,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
     const [isBuyChecked, setIsBuyChecked] = useState(true); // условие для чекбокса
     const [error, setError] = useState<string | null>(null);
     const { network } = useNetwork();
+    const [receiveValue, setReceiveValue] = useState("0");
 
     const tokens = tokensByChains[chainId || 1]
 
@@ -71,6 +75,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
             setDisplayCurrency('USDT')
         }
     }, [chainId])
+
 
     const handleMax = () => { 
         if (!balance) return
@@ -92,6 +97,9 @@ const DepositForm: React.FC<IDepositForm> = () => {
             .replace(",", ".")
             .replace(/(\..*)\./g, "$1")
             .replace(/^0+(?=\d)/, "");
+
+        const updatedReceiveValue = (parseFloat(cleanedValue) / ANTIX_RATE).toFixed(0);
+        setReceiveValue(updatedReceiveValue);
 
         // Ensure that entered value doesn't exceed balance
         if (Number(cleanedValue) > Number(balance)) {
@@ -215,6 +223,19 @@ const DepositForm: React.FC<IDepositForm> = () => {
                 </div>
             )}
         </div>
+
+        <Input
+            value={receiveValue}
+            title="ANTIX you receive"
+            onChangeValue={() => {}}
+            icon={TokenIcon}
+            price={"$0.03"}
+            style={{
+                background: 'unset',
+                border: '1px solid rgba(255, 255, 255, .1)',
+                marginTop: 12
+            }}
+        />
 
         <DepositButton 
             amount={amount}
