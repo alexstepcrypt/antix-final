@@ -9,6 +9,8 @@ import Link from 'next/link';
 import { TgIcon } from '@/components/GotQuestions/icons/TgIcon';
 import { useConnectWallet } from '@/hooks/useConnectWallet';
 import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar';
+import Pays from '@/components/Pays/Pays';
+import StayUpdated from '@/components/StayUpdated/StayUpdated';
 
 interface ITokenSaleStage1 {
     stage1DateStr: string;
@@ -43,7 +45,7 @@ const TokenSaleStage1:React.FC<ITokenSaleStage1> = ({stage1DateStr, setIsRefModa
             </section>
 
             <div className={styles.discount}>
-                <p>-79%</p>
+                <p>-79% to TGE Price</p>
             </div>
         </div>
 
@@ -58,25 +60,27 @@ const TokenSaleStage1:React.FC<ITokenSaleStage1> = ({stage1DateStr, setIsRefModa
         </div>
 
         <section className={styles.stagePrice}>
-            <h3>Stage 1 price</h3>
+            <h3>Current Price <span>0.03 USD</span></h3>
 
             <div className={styles.prices}>
-                <p>0.03 USDT</p>
-                <p className={styles.prevPrice}>0.14 USDT</p>
+                <p>Listing(TGE) Price</p>
+                <p className={styles.prevPrice}>0.14 USD</p>
             </div>
         </section>
 
         <div className={styles.progress}>
             <RaisedProgressBar
-                segments={11}
-                currentAmount={12798530}
+                segments={17}
+                title='Tokens sold:'
+                currentAmount={14500000}
                 targetAmount={17000000}
+                color='#99FFF9'
             />
         </div>
 
-        <div className={styles.warn}>
+        {/* <div className={styles.warn}>
             <span>Access is limited</span>—don’t miss the chance to participate on the best terms
-        </div>
+        </div> */}
 
         <Link
             className={`${styles.timerButton}`}
@@ -90,106 +94,8 @@ const TokenSaleStage1:React.FC<ITokenSaleStage1> = ({stage1DateStr, setIsRefModa
             and get -79% to TGE Price
         </span>
 
-        <div className={styles.pays}>
-            <h3 className={styles.paysTitle}>Pay with</h3>
-            
-            <div className={styles.paysCards}>
-                <div className={styles.paysCard}>
-                    <Image src={'/svg/tether-icon.svg'} alt="USDT" width={35.45} height={35.45} />
-                    <div>
-                        <span>USDT</span>
-
-                        <div className={styles.networks}>
-                            <Image
-                                className={styles.network}
-                                src={'/svg/ether-icon.svg'}
-                                alt="eth"
-                                width={12.5}
-                                height={12.5}
-                            />
-                            <Image
-                                className={styles.network}
-                                src={'/svg/network-icon.svg'}
-                                alt="bnb"
-                                width={12.5}
-                                height={12.5}
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.paysCard}>
-                    <Image src={'/svg/usdc-icon.svg'} alt="USDC" width={35.45} height={35.45} />
-                    <div>
-                        <span>USDC</span>
-
-                        <div className={styles.networks}>
-                            <Image
-                                className={styles.network}
-                                src={'/svg/ether-icon.svg'}
-                                alt="eth"
-                                width={12.5}
-                                height={12.5}
-                            />
-                            <Image
-                            className={styles.network}
-                                src={'/svg/network-icon.svg'}
-                                alt="bnb"
-                                width={12.5}
-                                height={12.5}
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.paysCard}>
-                    <Image src={'/svg/bnb-icon.svg'} alt="BNB" width={35.45} height={35.45} />
-                    <div>
-                        <span>BNB</span>
-
-                        <div className={styles.networks}>
-                            <Image
-                                className={styles.network}
-                                src={'/svg/network-icon.svg'}
-                                alt="bnb"
-                                width={14.5}
-                                height={14.5}
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div
-                style={{
-                    justifyContent: 'center',
-                    marginTop: 10,
-                    gap: 7
-                }}
-                className={styles.paysCards}
-            >
-                <div className={styles.paysCard1}>
-                    <Image src={'/svg/ether-icon.svg'} alt="USDC" width={17} height={17} />
-                    <span>ETH</span>
-                </div>
-                <div className={styles.paysCard1}>
-                    <Image src={'/dashboard/svg/visa-logo.svg'} alt="visa" width={30.8} height={13} />
-                    <Image src={'/dashboard/svg/mastercard-logo.svg'} alt="mastercard" width={24.77} height={19} />
-                </div>
-            </div>
-        </div>
-
-        <div className={styles.questions}>
-            <span>Stay Updated!</span>
-            Connect to our
-            <button
-                className={styles.btn}
-                onClick={() =>
-                    window.open("https://t.me/antixtoken_bot", "_blank")
-                }
-            >
-                <TgIcon />
-                Telegram bot
-            </button>
-            for stage start alerts or support assistance.
-        </div>
+        <Pays />
+        <StayUpdated />
 
         <div className={styles.referral}>
             <button

@@ -1,20 +1,22 @@
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
-import styles from './TokenSaleStage1CS.module.scss';
+import styles from './TokenSaleStage1AS.module.scss';
 
 import LogoSmall from '/public/svg/logo-small.svg';
 import BgHead from '/public/images/hero-timer-bg-head.png';
 import { HeroTimer } from '@/sections/HeroSection/ui/HeroTimer/HeroTimer';
 import { TgIcon } from '@/components/GotQuestions/icons/TgIcon';
 import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar';
+import StayUpdated from '@/components/StayUpdated/StayUpdated';
+import Pays from '@/components/Pays/Pays';
 
 interface ITokenSaleStage1CS {
   stage1DateStr: string;
   setIsRefModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const TokenSaleStage1CS: React.FC<ITokenSaleStage1CS> = ({
+const TokenSaleStage1AS: React.FC<ITokenSaleStage1CS> = ({
   stage1DateStr,
   setIsRefModal,
 }) => {
@@ -38,15 +40,16 @@ const TokenSaleStage1CS: React.FC<ITokenSaleStage1CS> = ({
 
       <div className={styles.timer}>
         <div className={styles.timerTitle}>
-          <h2 className={styles.timerHeading}>Stage 1 coming soon!</h2>
+          <h2 className={styles.timerHeading}>Stage 1 is about to start!</h2>
         </div>
 
         <div className={styles.progress}>
           <RaisedProgressBar
             segments={15}
-            currentAmount={4201470}
-            targetAmount={4800000}
-            color={'#00A1B2'}
+            currentAmount={14500000}
+            targetAmount={17000000}
+            title={'Tokens sold:'}
+            color={'#99FFF9'}
           />
         </div>
 
@@ -56,22 +59,8 @@ const TokenSaleStage1CS: React.FC<ITokenSaleStage1CS> = ({
           <HeroTimer targetDate={new Date(stage1DateStr)} />
         </div>
 
-        <div className={styles.questions}>
-          Activate
-          <button
-            className={styles.btn}
-            onClick={() => window.open('https://t.me/antixtoken_bot', '_blank')}
-          >
-            <TgIcon />
-            Telegram bot
-          </button>
-          to get notified about the stage start:
-        </div>
-
-        <Link className={`${styles.timerButton}`} href="#">
-          <span className={styles.flare}></span>
-          Notify Me
-        </Link>
+        <Pays />
+        <StayUpdated />
 
         <div className={styles.referral}>
           <button onClick={() => setIsRefModal(true)} className={styles.refBtn}>
@@ -83,4 +72,4 @@ const TokenSaleStage1CS: React.FC<ITokenSaleStage1CS> = ({
   );
 };
 
-export default TokenSaleStage1CS;
+export default TokenSaleStage1AS;

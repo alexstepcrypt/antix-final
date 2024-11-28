@@ -76,22 +76,6 @@
             margin-top: 32px;
         }
 
-        .timerButton {
-            margin-top: 16px;
-            width: 100%;
-            padding: 12px;
-            border-radius: 50px;
-            background: linear-gradient(89.59deg, #12FFF1 14.83%, #99FFF9 85.17%);
-
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 21px;
-            text-align: center;
-            color: #0F0E14;
-
-            position: relative; 
-            overflow-x: hidden; 
-        }
 
         .flare {
             position: absolute;
@@ -103,37 +87,6 @@
             left: -150%;
             background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.6));
             animation: flareAnimation 5s infinite linear;
-        }
-
-        .questions {
-            margin-top: 32px;
-
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0 4px;
-
-            color: #FFFFFF;
-            font-size: 14px;
-            line-height: 21px;
-            font-weight: 400;
-
-            text-align: center;
-
-            .btn {
-                background: none;
-                display: flex;
-                gap: 4px;
-                color: #12FFF1;
-                font-size: inherit;
-                font-weight: inherit;
-                line-height: inherit;
-
-                svg {
-                    width: 20px;
-                    height: 20px;
-                }
-            }
         }
 
         .referral {
@@ -220,12 +173,6 @@
                 margin-top: 22px;
             }
 
-            .timerButton {
-                font-size: 9.96px;
-                line-height: 14.93px;
-                padding: 8.5px;
-            }
-
             .suggestion {
                 font-size: 9.96px;
                 line-height: 14.93px;
@@ -279,27 +226,6 @@
                     }
                 }
             }
-
-            .questions {
-                margin-top: 22px;
-
-                font-size: 10px;
-                line-height: 18px;
-                gap: 0 3px;
-    
-                border-radius: 7px;
-    
-                text-align: center;
-    
-                .btn {
-                    gap: 3px;
-    
-                    svg {
-                        width: 17px;
-                        height: 17px;
-                    }
-                }
-            }
         }
     }
 
@@ -309,7 +235,7 @@
         .timer {
             padding: 25px;
 
-            .stagePrice, .timerContainer, .paysCards, .questions, .progress, .warn {
+            .stagePrice, .timerContainer, .paysCards, .progress, .warn {
                 margin-top: 19.86px;
             }
 
@@ -328,7 +254,7 @@
         .timer {
             padding: 28.45px;
 
-            .stagePrice, .timerContainer, .paysCards, .questions, .progress, .warn {
+            .stagePrice, .timerContainer, .paysCards, .progress, .warn {
                 margin-top: 22px;
             }
 
