@@ -8,6 +8,8 @@ import BgHead from '/public/images/hero-timer-bg-head.png';
 import { HeroTimer } from '@/sections/HeroSection/ui/HeroTimer/HeroTimer';
 import { TgIcon } from '@/components/GotQuestions/icons/TgIcon';
 import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar';
+import Pays from '@/components/Pays/Pays';
+import StayUpdated from '@/components/StayUpdated/StayUpdated';
 
 interface ITokenSaleStage1SO {
   stage1DateStr: string;
@@ -46,7 +48,8 @@ const TokenSaleStage1SO: React.FC<ITokenSaleStage1SO> = ({
                 segments={15}
                 currentAmount={4800000}
                 targetAmount={4800000}
-                color={'#00A1B2'}
+                title='Tokens sold:'
+                color={'#99FFF9'}
               />
             </div>
     
@@ -55,23 +58,9 @@ const TokenSaleStage1SO: React.FC<ITokenSaleStage1SO> = ({
     
               <HeroTimer targetDate={new Date(stage1DateStr)} />
             </div>
-    
-            <div className={styles.questions}>
-              Activate
-              <button
-                className={styles.btn}
-                onClick={() => window.open('https://t.me/antixtoken_bot', '_blank')}
-              >
-                <TgIcon />
-                Telegram bot
-              </button>
-              to get notified about the stage start:
-            </div>
-    
-            <Link className={`${styles.timerButton}`} href="#">
-              <span className={styles.flare}></span>
-              Notify Me
-            </Link>
+
+            <Pays />
+            <StayUpdated />
     
             <div className={styles.referral}>
               <button onClick={() => setIsRefModal(true)} className={styles.refBtn}>
