@@ -243,13 +243,14 @@ const DepositForm: React.FC<IDepositForm> = () => {
             tokenAddress={tokens[displayCurrency]} 
         />
 
-        <div className={styles.agreement}>
+        {/* disable if its not 20:00 */}
+        {/* <div className={styles.agreement}>
             <DepositCheckbox
                 isChecked={isBuyChecked}
                 onChange={()=>setIsBuyChecked(prev=>!prev)}
                 children="Automatically buy ANTIX from deposit when Stage 1 starts"
             />
-        </div>
+        </div> */}
 
         <GotQuestions />
 
