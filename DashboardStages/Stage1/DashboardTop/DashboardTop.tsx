@@ -180,72 +180,44 @@ const DashboardTop = () => {
             </div>
             <div className={styles.rightCol}>
                 <div className={styles.depositWrapper}>
+
+                {/* final content (19:15 and 20:00) */}
                 <div className={styles.headTitle}>
-                    <h2>Stage 1 is about to start!</h2>
+                    <h2>Get early access to Stage 2</h2>
+
+                    {/* <h2>Stage 1 Sold Out!</h2> */}
+                    {/* <div className={styles.discount}>
+                        <p>-79% to TGE Price</p>
+                    </div> */}
                 </div>
 
-                <RaisedProgressBar
+                {/* <RaisedProgressBar
                     segments={17}
-                    currentAmount={14500000}
+                    currentAmount={16809370}
                     targetAmount={17000000}
                     color="#12fff1"
                     title="Tokens sold:"
-                />
+                /> */}
 
                 <div className={styles.timer}>
                     <h5 className={styles.timerTitle}>
-                        Stage 1 is coming in
+                        Stage 2 starts in
                     </h5>
-                    <Timer targetDate={new Date("2024-11-28T16:15:00Z")} />
+                    <Timer targetDate={new Date("2024-12-03T16:30:00Z")} />
                 </div>
 
-                <p className={styles.tg}>
-                    Activate{' '}
-                    <span onClick={() =>  window.open("https://t.me/antixtoken_bot", "_blank")}>
-                        <TgIcon />
-                        Telegram bot
-                    </span>{' '}
-                    to get notified about stage start
-                </p>
-
-                <button
-                    className={styles.tgBtn}
-                    onClick={() => window.open("https://t.me/antixtoken_bot", "_blank")}
-                >
-                    Notify Me
-                </button>
-
-                {/* final content (20:00) */}
-                {/* <div className={styles.headTitle}>
-                    <h2>Get early access</h2>
-
-                    // 19:15
-                    <h2>Get early access</h2>
-                    <div className={styles.discount}>
-                        <p>-79%</p>
-                    </div>
-                </div> */}
-                {/* <div className={styles.timer}>
-                    <h5 className={styles.timerTitle}>
-                        Stage 1 starts in
-                        // 19: 15
-                        Stage 1 ends in
-                    </h5>
-                    <Timer targetDate={new Date("2024-11-28T16:00:00.000Z")} />
-                </div> */}
-
-                {/* <div className={styles.stagePrice}>
+                <div className={styles.stagePrice}>
                     <h5>Current Price</h5>
                     <div className={styles.depositPriceWrapper}>
-                        <h4>0.03 USD</h4>
+                        <h4>0.04 USD</h4>
                         <h4 className={styles.prevPrice}>0.14 USD</h4>
                         <div className={styles.depositDiscount}>
-                            <p>-79% to TGE Price</p>
+                            <p>-73% to TGE Price</p>
                         </div>
                     </div>
-                </div> */}
+                </div>
 
-                {/* 19:15 */}
+                {/* STAGE 1*/}
                 {/* <div className={styles.stagePrice}>
                     <div className={styles.stage1Sold}>
                         <h5>Current Price</h5>
@@ -257,7 +229,16 @@ const DashboardTop = () => {
                     </div>
                 </div> */}
 
-                {/* <DepositForm /> */}
+                {/* <p className={styles.tg}>
+                    Activate{' '}
+                    <span onClick={() =>  window.open("https://t.me/antixtoken_bot", "_blank")}>
+                        <TgIcon />
+                        Telegram bot
+                    </span>{' '}
+                    to get notified about stage start
+                </p> */}
+
+                <DepositForm />
                 </div>
                 <div className={styles.underDeposit}>
                     {underDepositInfo.map((item, index) => (

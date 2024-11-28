@@ -224,19 +224,6 @@ const DepositForm: React.FC<IDepositForm> = () => {
             )}
         </div>
 
-        <Input
-            value={receiveValue}
-            title="ANTIX you receive"
-            onChangeValue={() => {}}
-            icon={TokenIcon}
-            price={"$0.03"}
-            style={{
-                background: 'unset',
-                border: '1px solid rgba(255, 255, 255, .1)',
-                marginTop: 12
-            }}
-        />
-
         <DepositButton 
             amount={amount}
             type={isBuyChecked ? 'BUY' : 'DEPOSIT'} 
@@ -247,7 +234,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
             <DepositCheckbox
                 isChecked={isBuyChecked}
                 onChange={()=>setIsBuyChecked(prev=>!prev)}
-                children="Automatically buy ANTIX from deposit when Stage 1 starts"
+                children="Automatically buy ANTIX from deposit when Stage 2 starts"
             />
         </div>
 
@@ -261,5 +248,19 @@ const DepositForm: React.FC<IDepositForm> = () => {
         </div>
     </div>
 };
+
+// antix you receive input
+// <Input
+        //     value={receiveValue}
+        //     title="ANTIX you receive"
+        //     onChangeValue={() => {}}
+        //     icon={TokenIcon}
+        //     price={"$0.03"}
+        //     style={{
+        //         background: 'unset',
+        //         border: '1px solid rgba(255, 255, 255, .1)',
+        //         marginTop: 12
+        //     }}
+        // />
 
 export default DepositForm;
