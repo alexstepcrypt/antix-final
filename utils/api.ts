@@ -93,6 +93,10 @@ class Api {
     return this.call(`sale/${chainId}/info`)
   }
 
+  stageSoldSum(stageId:number|string){
+    return this.call(`sale/sold/${stageId}/`)
+  }
+
   async login(opts:LoginProps):Promise<ProfileProps> {
     function isMobile () {
 			const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
