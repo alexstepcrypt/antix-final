@@ -22,7 +22,7 @@ import { useUserDepositedBalance } from '@/hooks/useUserDepositedBalance'
 import Image from 'next/image';
 import { useNetwork } from '@/hooks/useNetwork'
 import RaisedProgressBar from './RaisedProgressBar/RaisedProgressBar';
-import { TgIcon } from '@/components/GotQuestions/icons/TgIcon';
+// import { TgIcon } from '@/components/GotQuestions/icons/TgIcon';
 
 // DEPOSIT WRAPPER CONTENT AT 19:00
 /*
@@ -180,59 +180,23 @@ const DashboardTop = () => {
             </div>
             <div className={styles.rightCol}>
                 <div className={styles.depositWrapper}>
+
+                {/* final content (19:15 and 20:00) */}
                 <div className={styles.headTitle}>
-                    <h2>Stage 1 is about to start!</h2>
+                    {/* <h2>Get early access</h2> */}
+
+                    <h2>Stage 1</h2>
+                    <div className={styles.discount}>
+                        <p>-79% to TGE Price</p>
+                    </div>
                 </div>
-
-                <RaisedProgressBar
-                    segments={17}
-                    currentAmount={14500000}
-                    targetAmount={17000000}
-                    color="#12fff1"
-                    title="Tokens sold:"
-                />
-
                 <div className={styles.timer}>
                     <h5 className={styles.timerTitle}>
-                        Stage 1 is coming in
-                    </h5>
-                    <Timer targetDate={new Date("2024-11-28T16:15:00Z")} />
-                </div>
-
-                <p className={styles.tg}>
-                    Activate{' '}
-                    <span onClick={() =>  window.open("https://t.me/antixtoken_bot", "_blank")}>
-                        <TgIcon />
-                        Telegram bot
-                    </span>{' '}
-                    to get notified about stage start
-                </p>
-
-                <button
-                    className={styles.tgBtn}
-                    onClick={() => window.open("https://t.me/antixtoken_bot", "_blank")}
-                >
-                    Notify Me
-                </button>
-
-                {/* final content (20:00) */}
-                {/* <div className={styles.headTitle}>
-                    <h2>Get early access</h2>
-
-                    // 19:15
-                    <h2>Get early access</h2>
-                    <div className={styles.discount}>
-                        <p>-79%</p>
-                    </div>
-                </div> */}
-                {/* <div className={styles.timer}>
-                    <h5 className={styles.timerTitle}>
-                        Stage 1 starts in
-                        // 19: 15
+                        {/* Stage 1 starts in */}
                         Stage 1 ends in
                     </h5>
-                    <Timer targetDate={new Date("2024-11-28T16:00:00.000Z")} />
-                </div> */}
+                    <Timer targetDate={new Date("2024-12-05T16:30:00.000Z")} />
+                </div>
 
                 {/* <div className={styles.stagePrice}>
                     <h5>Current Price</h5>
@@ -246,7 +210,7 @@ const DashboardTop = () => {
                 </div> */}
 
                 {/* 19:15 */}
-                {/* <div className={styles.stagePrice}>
+                <div className={styles.stagePrice}>
                     <div className={styles.stage1Sold}>
                         <h5>Current Price</h5>
                         <h4>0.03 USD</h4>
@@ -255,7 +219,15 @@ const DashboardTop = () => {
                         <h4>Listing(TGE) Price</h4>
                         <h4 className={styles.prevPrice}>0.14 USD</h4>
                     </div>
-                </div> */}
+                </div>
+
+                <RaisedProgressBar
+                    segments={17}
+                    currentAmount={16809370}
+                    targetAmount={17000000}
+                    color="#12fff1"
+                    title="Tokens sold:"
+                />
 
                 <DepositForm />
                 </div>

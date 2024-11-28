@@ -301,17 +301,19 @@
             align-items: center;
             padding: 12px;
 
-            .stage1Sold {
-                display: flex;
-                align-items: center;
-                gap: 6px;
-            }
-
             h5, .stage1Sold>h4 {
                 font-size: 14px;
                 font-weight: 400;
                 line-height: 21px;
                 color: #FFFFFF99;
+            }
+
+            .stage1Sold {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+
+                h4 { color: #fff }
             }
 
             .depositPriceWrapper {
