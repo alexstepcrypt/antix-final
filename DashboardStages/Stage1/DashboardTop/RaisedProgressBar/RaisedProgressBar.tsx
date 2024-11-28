@@ -7,7 +7,6 @@ interface ProgressBarProps {
     segments: number;
     title: string
     color?: string;
-    title?: string;
 }
 
 const RaisedProgressBar: React.FC<ProgressBarProps> = ({
