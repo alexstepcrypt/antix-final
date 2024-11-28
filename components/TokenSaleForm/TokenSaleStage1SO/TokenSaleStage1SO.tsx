@@ -20,6 +20,7 @@ const TokenSaleStage1SO: React.FC<ITokenSaleStage1SO> = ({
     stage1DateStr,
     setIsRefModal,
   }) => {
+    const stage2DateStr = "2024-12-03T16:30:00Z";
     return (
         <div className={styles.container}>
           <div
@@ -46,17 +47,22 @@ const TokenSaleStage1SO: React.FC<ITokenSaleStage1SO> = ({
             <div className={styles.progress}>
               <RaisedProgressBar
                 segments={15}
-                currentAmount={4800000}
-                targetAmount={4800000}
+                currentAmount={17000000}
+                targetAmount={17000000}
                 title='Tokens sold:'
                 color={'#99FFF9'}
               />
             </div>
     
             <div className={styles.timerContainer}>
-              <span className={styles.title}>Stage 2 is coming in</span>
+              <span className={styles.title}>Stage 2 deposits in</span>
     
               <HeroTimer targetDate={new Date(stage1DateStr)} />
+            </div>
+            <div className={styles.timerContainer}>
+              <span className={styles.title}>Stage 2 starts in</span>
+    
+              <HeroTimer targetDate={new Date(stage2DateStr)} />
             </div>
 
             <Pays />

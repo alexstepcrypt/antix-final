@@ -193,7 +193,7 @@ const DashboardTop = () => {
 
                 <RaisedProgressBar
                     segments={17}
-                    currentAmount={16809370}
+                    currentAmount={17000000}
                     targetAmount={17000000}
                     color="#12fff1"
                     title="Tokens sold:"

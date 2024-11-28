@@ -1,24 +1,37 @@
 import Image from 'next/image'
-import React from 'react'
-import styles from "./TokenSaleStage1.module.scss"
+import React, { useEffect } from 'react'
+import styles from "./TokenSaleDeposit2.module.scss"
 
 import LogoSmall from "/public/svg/logo-small.svg";
 import BgHead from "/public/images/hero-timer-bg-head.png";
 import { HeroTimer } from '@/sections/HeroSection/ui/HeroTimer/HeroTimer';
 import Link from 'next/link';
-import { TgIcon } from '@/components/GotQuestions/icons/TgIcon';
 import { useConnectWallet } from '@/hooks/useConnectWallet';
-import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar';
-import Pays from '@/components/Pays/Pays';
+import { useRouter } from 'next/router';
 import StayUpdated from '@/components/StayUpdated/StayUpdated';
+import Pays from '@/components/Pays/Pays';
 
-interface ITokenSaleStage1 {
+interface ITokenSaleDeposit2 {
     stage1DateStr: string;
     setIsRefModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const TokenSaleStage1:React.FC<ITokenSaleStage1> = ({stage1DateStr, setIsRefModal}) => {
-    const { account } = useConnectWallet();
+const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRefModal}) => {
+    const { isConnected, connect } = useConnectWallet();
+    const router = useRouter();
+
+    async function buyHandler(e:React.MouseEvent<HTMLAnchorElement>){
+        e.preventDefault()
+        if (!isConnected) {
+            return connect()
+        }
+        router.push('/dashboard')
+    }
+
+    useEffect(()=>{
+        if (!isConnected || router.pathname !== '/') return
+        router.push('/dashboard')
+    }, [isConnected])
 
     return (
     <div className={styles.container}>
@@ -41,17 +54,17 @@ const TokenSaleStage1:React.FC<ITokenSaleStage1> = ({stage1DateStr, setIsRefModa
     <div className={styles.timer}>
         <div className={styles.timerTitle}>
             <section>
-                <h2 className={styles.timerHeading}>Stage 1</h2>
+                <h2 className={styles.timerHeading}>Get early access to Stage 2</h2>
             </section>
 
             <div className={styles.discount}>
-                <p>-79% to TGE Price</p>
+                <p>-73%</p>
             </div>
         </div>
 
         <div className={styles.timerContainer}>
             <span className={styles.title}>
-                Stage 1 ends in
+                Stage 2 starts in
             </span>
 
             <HeroTimer
@@ -60,39 +73,23 @@ const TokenSaleStage1:React.FC<ITokenSaleStage1> = ({stage1DateStr, setIsRefModa
         </div>
 
         <section className={styles.stagePrice}>
-            <h3>Current Price <span>0.03 USD</span></h3>
+            <h3>Stage 2 price</h3>
 
             <div className={styles.prices}>
-                <p>Listing(TGE) Price</p>
-                <p className={styles.prevPrice}>0.14 USD</p>
+                <p>0.04 USDT</p>
+                <p className={styles.prevPrice}>0.14 USDT</p>
             </div>
         </section>
 
-        <div className={styles.progress}>
-            <RaisedProgressBar
-                segments={17}
-                title='Tokens sold:'
-                currentAmount={16809370}
-                targetAmount={17000000}
-                color='#99FFF9'
-            />
-        </div>
-
-        {/* <div className={styles.warn}>
-            <span>Access is limited</span>—don’t miss the chance to participate on the best terms
-        </div> */}
-
         <Link
             className={`${styles.timerButton}`}
-            href="/dashboard"
+            onClick={buyHandler}
+            href="#buy"
         >
             <span className={styles.flare}></span>
-            {account ? 'Buy Now' : 'Connect Wallet to Buy'}
+            {isConnected ? 'Buy Now' : 'Connect Wallet to Buy'}
         </Link>
 
-        <span className={styles.suggestion}>
-            and get -79% to TGE Price
-        </span>
 
         <Pays />
         <StayUpdated />
@@ -110,4 +107,4 @@ const TokenSaleStage1:React.FC<ITokenSaleStage1> = ({stage1DateStr, setIsRefModa
   )
 }
 
-export default TokenSaleStage1
+export default TokenSaleDeposit2

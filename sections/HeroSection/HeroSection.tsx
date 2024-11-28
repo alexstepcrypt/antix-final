@@ -19,9 +19,10 @@ import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 import Link from "next/link";
 import { useState } from "react";
 import ReferalModal from "./ui/ReferalModal/ReferalModal";
-// import TokenSaleDeposit from "@/components/TokenSaleForm/TokenSaleDeposit/TokenSaleDeposit";
+import TokenSaleDeposit from "@/components/TokenSaleForm/TokenSaleDeposit/TokenSaleDeposit";
+import TokenSaleDeposit2 from "@/components/TokenSaleForm/TokenSaleDeposit2/TokenSaleDeposit2";
 // import TokenSaleStage1AS from "@/components/TokenSaleForm/TokenSaleStage1AS/TokenSaleStage1AS";
-import TokenSaleStage1 from "@/components/TokenSaleForm/TokenSaleStage1/TokenSaleStage1";
+// import TokenSaleStage1 from "@/components/TokenSaleForm/TokenSaleStage1/TokenSaleStage1";
 // import TokenSaleStage1SO from "@/components/TokenSaleForm/TokenSaleStage1SO/TokenSaleStage1SO";
 // import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar'
 
@@ -30,9 +31,10 @@ const HeroSection = () => {
     // const { account } = useConnectWallet();
 
     // DATES FOR CONDITIONS BETWEEN STAGES
-    const stage1DateStr = "2024-11-28T16:30:00Z";
+    const stage1DateStr = "2024-11-28T17:00:00Z";
     const stage1Date = new Date(stage1DateStr);
     const currentDate = new Date();
+    const stage2DateStr = "2024-12-03T17:00:00Z";
     
     return (
         <section className={styles.wrapper} id="Hero">
@@ -190,10 +192,12 @@ const HeroSection = () => {
                 {/* <TokenSaleStage1AS stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} /> */}
                 
                 {/* Stage 1 */}
-                <TokenSaleStage1 stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} />
+                {/* <TokenSaleStage1 stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} /> */}
                 
                 {/* Stage 1 Sold Out */}
                 {/* <TokenSaleStage1SO stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} /> */}
+
+                <TokenSaleDeposit2 stage1DateStr={stage2DateStr} setIsRefModal={setIsRefModal} />
 
             </div>
         </section>
