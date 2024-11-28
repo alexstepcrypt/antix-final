@@ -183,29 +183,22 @@ const DashboardTop = () => {
 
                 {/* final content (19:15 and 20:00) */}
                 <div className={styles.headTitle}>
-                    {/* <h2>Get early access</h2> */}
+                    <h2>Get early access to Stage 2</h2>
 
-                    <h2>Stage 1 Sold Out!</h2>
+                    {/* <h2>Stage 1 Sold Out!</h2> */}
                     {/* <div className={styles.discount}>
                         <p>-79% to TGE Price</p>
                     </div> */}
                 </div>
 
-                <RaisedProgressBar
+                {/* <RaisedProgressBar
                     segments={17}
                     currentAmount={17000000}
                     targetAmount={17000000}
                     color="#12fff1"
                     title="Tokens sold:"
-                />
+                /> */}
 
-                {/* stage 1 sold out */}
-                <div className={styles.timer}>
-                    <h5 className={styles.timerTitle}>
-                        Stage 2 deposits in
-                    </h5>
-                    <Timer targetDate={new Date("2024-11-28T17:00:00.000Z")} />
-                </div>
                 <div className={styles.timer}>
                     <h5 className={styles.timerTitle}>
                         Stage 2 starts in
@@ -213,16 +206,16 @@ const DashboardTop = () => {
                     <Timer targetDate={new Date("2024-12-03T16:30:00Z")} />
                 </div>
 
-                {/* <div className={styles.stagePrice}>
+                <div className={styles.stagePrice}>
                     <h5>Current Price</h5>
                     <div className={styles.depositPriceWrapper}>
-                        <h4>0.03 USD</h4>
+                        <h4>0.04 USD</h4>
                         <h4 className={styles.prevPrice}>0.14 USD</h4>
                         <div className={styles.depositDiscount}>
-                            <p>-79% to TGE Price</p>
+                            <p>-73% to TGE Price</p>
                         </div>
                     </div>
-                </div> */}
+                </div>
 
                 {/* STAGE 1*/}
                 {/* <div className={styles.stagePrice}>
@@ -236,16 +229,16 @@ const DashboardTop = () => {
                     </div>
                 </div> */}
 
-                <p className={styles.tg}>
+                {/* <p className={styles.tg}>
                     Activate{' '}
                     <span onClick={() =>  window.open("https://t.me/antixtoken_bot", "_blank")}>
                         <TgIcon />
                         Telegram bot
                     </span>{' '}
                     to get notified about stage start
-                </p>
+                </p> */}
 
-                {/* <DepositForm /> */}
+                <DepositForm />
                 </div>
                 <div className={styles.underDeposit}>
                     {underDepositInfo.map((item, index) => (
