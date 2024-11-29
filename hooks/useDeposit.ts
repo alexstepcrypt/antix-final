@@ -64,7 +64,6 @@ export const useDeposit = function () {
 		if (!depositTxHash) return
 		Api.saveTx({
 			hash    : depositTxHash,
-			stage   : "1",
 			chainId : Number(chainId),
 			status  : "PENDING",
 			type    : depositDetails.type === 'BUY' ? 'BUY' : 'DEPOSIT',

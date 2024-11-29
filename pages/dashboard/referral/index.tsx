@@ -95,9 +95,10 @@ const Referral = () => {
         if (!chainId) return
         let fetchReferralsTimeout:any = setTimeout(()=>{
             Api.getUserReferrals().then(res=>{
+                console.log(res)
                 setRefStats({
                     count: res.count,
-                    ...res.chain[Number(chainId)]
+                    ...res.stage["1"]
                 })
             })
         }, 333)
@@ -179,7 +180,7 @@ const Referral = () => {
                             </div>
                         </div>
                         <div className={styles.bottomRefBalance}>
-                            <span className={styles.balance}>{formatFiat(refStats?.usd)}</span>
+                            <span className={styles.balance}>{formatFiat(refStats?.reward)}</span>
                             <CurrencyButton
                                 displayCurrency="USDT"
                                 icon={TetherIcon}
@@ -200,7 +201,7 @@ const Referral = () => {
                                         Your Referral USDT Current Phase Balance
                                     </span>
                                 </div>
-                                <span>{formatFiat(refStats?.tokens?.usdt)}</span>
+                                <span>{formatFiat(refStats?.usdt)}</span>
                             </div>
                             <div className={styles.balanceContainer}>
                                 <div className={styles.balanceTop}>
@@ -214,7 +215,7 @@ const Referral = () => {
                                         Your Referral USDC Current Phase Balance
                                     </span>
                                 </div>
-                                <span>{formatFiat(refStats?.tokens?.usdc)}</span>
+                                <span>{formatFiat(refStats?.usdc)}</span>
                             </div>
                         </div>
                         <button className={styles.claimBtn}>

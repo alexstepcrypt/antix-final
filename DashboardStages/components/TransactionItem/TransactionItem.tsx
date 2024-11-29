@@ -41,10 +41,9 @@ export const TransactionItem = ({tx}:{tx:any}) => {
    const tokenSymbol = getTokenSymbol(tx.chainId, tx.token)
    const tokenIcon = tokensIcons[tokenSymbol]
 
-   let received = tx.amount/0.03
-   if (!['USDT', 'USDC'].includes(tokenSymbol)){
-      received = 0
-   }
+   let received = tx.vAntix
+   if (!received || received === '0' || received === '-') received = 0
+
    return (
       <ul
          className={s.transaction}
