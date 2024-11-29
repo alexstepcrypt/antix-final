@@ -103,10 +103,7 @@ const Referral = () => {
         if (!chainId) return
         let fetchReferralsTimeout:any = setTimeout(()=>{
             Api.getUserReferrals().then(res=>{
-                setRefStats({
-                    count: res.count,
-                    ...res.chain[Number(chainId)]
-                })
+                setRefStats(res)
             })
         }, 333)
         return () => clearTimeout(fetchReferralsTimeout)
@@ -186,7 +183,7 @@ const Referral = () => {
                                 <span>Deposit / Stage 1</span>
                             </div>
                             <div className={styles.refEarnings}>
-                                <span className={styles.earnings}>{formatFiat(refStats?.usd)}</span>
+                                <span className={styles.earnings}>{formatFiat(refStats?.stage?.["1"]?.reward)}</span>
                                 <Image
                                     src={UsdtBnbIcon}
                                     alt="UsdtBnb"
@@ -224,7 +221,7 @@ const Referral = () => {
                                         />
                                         vANTIX
                                     </div>
-                                    <span>{String(balances.vesting)}</span>
+                                    <span>{formatFiat(refStats?.stage?.["1"]?.antix)}</span>
                                 </div>
                                 <p>Vested Antix tokens purchased using your referral link.</p>
                             </div>
@@ -242,22 +239,22 @@ const Referral = () => {
                             <BalanceItem
                                 currencySrc={TetherIcon}
                                 title={'USDT'}
-                                balance={formatFiat(refStats?.tokens?.usdt)}
+                                balance={formatFiat(refStats?.stage?.["1"]?.usdt)}
                             />
                             <BalanceItem
                                 currencySrc={USDCIcon}
                                 title={'USDC'}
-                                balance={formatFiat(refStats?.tokens?.usdc)}
+                                balance={formatFiat(refStats?.stage?.["1"]?.usdc)}
                             />
                             <BalanceItem
                                 currencySrc={ETHIcon}
                                 title={'ETH'}
-                                balance={formatFiat(refStats?.tokens?.eth)}
+                                balance={formatFiat(refStats?.stage?.["1"]?.eth)}
                             />
                             <BalanceItem
                                 currencySrc={BNBIcon}
                                 title={'BNB'}
-                                balance={formatFiat(refStats?.tokens?.bnb)}
+                                balance={formatFiat(refStats?.stage?.["1"]?.bnb)}
                             />
                         </div>
                     </div>
