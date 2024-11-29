@@ -69,14 +69,14 @@ const underDepositInfo = [
     },
     {
         title: "Initial unlock",
-        value: "6%",
+        value: "7%",
     },    {
         title: "LockUp period",
         value: "6 months",
     },
     {
         title: "Vesting period",
-        value: "15 months",
+        value: "14 months",
     },
     {
         title: "Claim interval",

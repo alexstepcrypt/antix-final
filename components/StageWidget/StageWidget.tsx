@@ -5,7 +5,7 @@ import s from './StageWidget.module.scss';
 
 
 export const StageWidget = () => {
-   const targetDate = new Date('2024-11-28T16:00:00.000Z');
+   const targetDate = new Date('2024-12-03T17:00:00Z');
    const [timeLeft, setTimeLeft] = useState({
       days: 0,
       hours: 0,
@@ -90,7 +90,7 @@ export const StageWidget = () => {
             </div>
 
             <div className={s.timer}>
-               <h2>Stage 1 starts in</h2>
+               <h2>Stage 2 starts in</h2>
                <div className={s.countdown}>
                   <div>
                      <span>{timeLeft.days.toString().padStart(2, '0')}</span>
