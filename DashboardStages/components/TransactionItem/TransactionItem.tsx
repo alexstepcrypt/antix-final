@@ -41,15 +41,9 @@ export const TransactionItem = ({tx}:{tx:any}) => {
    const tokenSymbol = getTokenSymbol(tx.chainId, tx.token)
    const tokenIcon = tokensIcons[tokenSymbol]
 
-   console.log(tx)
    let received = tx.vAntix
-   if (!received || received === '0'){
-      received = '-'
-   //    received = tx.amount/0.04
-   //    if (!['USDT', 'USDC'].includes(tokenSymbol)){
-   //       received = 0
-   //    }
-   }
+   if (!received || received === '0' || received === '-') received = 0
+
    return (
       <ul
          className={s.transaction}
@@ -69,7 +63,7 @@ export const TransactionItem = ({tx}:{tx:any}) => {
                   {tokenSymbol}
                </p>
          </li>
-         <li>{!!received && received!=='-' && <>
+         <li>{!!received && <>
             <Image
                src={vesting_antix}
                alt="vesting-antix"
