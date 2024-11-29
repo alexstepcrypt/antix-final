@@ -9,7 +9,8 @@ export const StageWidget = () => {
    const [timeLeft, setTimeLeft] = useState({
       days: 0,
       hours: 0,
-      minutes: 0
+      minutes: 0,
+      seconds: 0,
    });
    const [visible, setVisible] = useState(false);
    const lastScrollY = useRef(0);
@@ -23,16 +24,20 @@ export const StageWidget = () => {
             setTimeLeft({
                days: Math.floor(seconds / 86400),
                hours: Math.floor((seconds % 86400) / 3600),
-               minutes: Math.floor((seconds % 3600) / 60)
+               minutes: Math.floor((seconds % 3600) / 60),
+               seconds: Math.floor(seconds % 60),
             });
+         } else {
+            setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+            clearInterval(interval);
          }
       };
 
-      updateTimeLeft();
       const interval = setInterval(updateTimeLeft, 1000);
+      updateTimeLeft(); 
 
       return () => clearInterval(interval);
-   }, []);
+   }, [targetDate]);
 
    useEffect(() => {
       const handleScroll = () => {
@@ -66,12 +71,12 @@ export const StageWidget = () => {
                <div className={s.priceWrapper}>
                   <h2>Current price</h2>
                   <div className={s.mobileDiscount}>
-                     <p>-79%</p>
+                     <p>-73%</p>
                   </div>
                </div>
                <div className={s.wrap}>
                   <div className={s.prices}>
-                     <p>0.03 USDT</p>
+                     <p>0.04 USDT</p>
                      {/* <Image
                         src={'/svg/prev-price.svg'}
                         alt="prev-price"
@@ -84,7 +89,7 @@ export const StageWidget = () => {
                      <span className={s.prevPrice}>0.14 USDT</span>
                   </div>
                   <div className={s.discount}>
-                     <p>-79%</p>
+                     <p>-73%</p>
                   </div>
                </div>
             </div>
@@ -105,6 +110,11 @@ export const StageWidget = () => {
                   <div>
                      <span>{timeLeft.minutes.toString().padStart(2, '0')}</span>
                      <p>min</p>
+                  </div>
+                  :
+                  <div>
+                     <span>{timeLeft.seconds.toString().padStart(2, '0')}</span>
+                     <p>sec</p>
                   </div>
                </div>
             </div>

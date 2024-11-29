@@ -233,16 +233,29 @@
          }
 
          .timer {
-            height: 100%;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
             gap: 4px;
-            padding: 8px 12px;
+            padding: 10px 6px;
 
             h2 {
                font-size: 10px;
                line-height: 16px;
+            }
+
+            .countdown {
+               gap: 2px;
+               div {
+                  span {
+                     font-size: 14px;
+                     line-height: 15.4px;
+                  }
+                  p {
+                     font-size: 7px;
+                     line-height: 7.7px;
+                  }
+               }
             }
          }
 
