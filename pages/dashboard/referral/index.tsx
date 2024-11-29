@@ -211,7 +211,7 @@ const Referral = () => {
                                     </div>
                                     <span>{refStats?.count}</span>
                                 </div>
-                                <p>We count referrals who connected their crypto wallet via your link.</p>
+                                <p>Users who connected their crypto wallet via your link.</p>
                             </div>
                             <div className={styles.refInfoItem}>
                             <div className={styles.refInfoCard}>
@@ -226,7 +226,7 @@ const Referral = () => {
                                     </div>
                                     <span>{String(balances.vesting)}</span>
                                 </div>
-                                <p><span>Vested Antix (vANTIX)</span> tokens will be converted to ANTIX tokens according to the unlock and vesting schedule.</p>
+                                <p>Vested Antix tokens purchased using your referral link.</p>
                             </div>
                         </div>
 
