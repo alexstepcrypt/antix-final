@@ -203,7 +203,7 @@ const DashboardTop = () => {
                     <h5 className={styles.timerTitle}>
                         Stage 2 starts in
                     </h5>
-                    <Timer targetDate={new Date("2024-12-03T16:30:00Z")} />
+                    <Timer targetDate={new Date("2024-12-03T17:00:00Z")} />
                 </div>
 
                 <div className={styles.stagePrice}>
