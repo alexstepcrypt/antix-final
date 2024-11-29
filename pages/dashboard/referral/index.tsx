@@ -12,14 +12,21 @@ import Image from "next/image";
 
 import CopyIcon from "/public/svg/copy-icon.svg";
 import TetherIcon from "/public/svg/tether-icon.svg";
-// import ETHIcon from "/public/svg/ether-icon.svg";
+import ETHIcon from "/public/svg/ether-icon.svg";
 import USDCIcon from "/public/svg/usdc-icon.svg";
-import WalletIcon from "/public/svg/white-wallet-icon.svg";
+import BNBIcon from "/public/svg/bnb-icon.svg";
+import UsdtBnbIcon from "/public/dashboard/svg/usdt-bnb-icon.svg";
+import vAntixIcon from "/public/svg/vantix-icon.svg";
+import ReffIcon from "/public/dashboard/svg/refferals-icon.png";
+
+// import WalletIcon from "/public/svg/white-wallet-icon.svg";
 import Faq from "@/components/Faq/Faq";
 import { useConnectWallet } from '@/hooks/useConnectWallet'
 import { formatAddress, formatFiat } from "@/utils/utils";
 import CurrencyButton from "@/DashboardStages/components/CurrencyButton/CurrencyButton";
 import Api from '@/utils/api'
+import { BalanceItem } from '@/DashboardStages/Stage1/DashboardTop/BalanceItem/BalanceItem';
+import { useUserDepositedBalance } from '@/hooks/useUserDepositedBalance';
 const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false });
 
 
@@ -51,6 +58,7 @@ const Referral = () => {
     const [isCopied, setIsCopied] = useState(false);
     const [refCode, setRefCode] = useState("YOURCODE");
     const { account, profile, chainId } = useConnectWallet();
+    const { balances } = useUserDepositedBalance();
 
     const handleGenerateReferralLink = async () => {
         const refcode = await Api.getUserRefcode()
@@ -95,10 +103,9 @@ const Referral = () => {
         if (!chainId) return
         let fetchReferralsTimeout:any = setTimeout(()=>{
             Api.getUserReferrals().then(res=>{
-                console.log(res)
                 setRefStats({
                     count: res.count,
-                    ...res.stage["1"]
+                    ...res.chain[Number(chainId)]
                 })
             })
         }, 333)
@@ -128,8 +135,8 @@ const Referral = () => {
                     <div className={styles.topInfo}>
                         <h3>Thank уоu for choosing to promote Antix!</h3>
                         <p>
-                            Earn up to 10% reward in USDT on purchases made
-                            through your referral link!
+                            Earn up to 10% USDT (BNB Chain) rewards via your referral link!<br />
+                            Payouts start after Stage 1 ends.
                         </p>
                     </div>
                     <div
@@ -173,55 +180,88 @@ const Referral = () => {
                 </div>
                 <div className={styles.rightCol}>
                     <div className={styles.infoWrapper}>
-                        <div className={styles.topRefBalance}>
-                            <h4>Total Referral Balance</h4>
-                            <div className={styles.walletBtn}>
-                                {refStats?.count} referrals
+                        <div className={styles.topWrapper}>
+                            <div className={styles.rightColTitle}>
+                                <h4>Your Referral Earnings</h4>
+                                <span>Deposit / Stage 1</span>
+                            </div>
+                            <div className={styles.refEarnings}>
+                                <span className={styles.earnings}>{formatFiat(refStats?.usd)}</span>
+                                <Image
+                                    src={UsdtBnbIcon}
+                                    alt="UsdtBnb"
+                                    width={24}
+                                    height={24}
+                                />
+                                <p className={styles.refEarningsCurr}>USDT</p>
                             </div>
                         </div>
-                        <div className={styles.bottomRefBalance}>
-                            <span className={styles.balance}>{formatFiat(refStats?.reward)}</span>
-                            <CurrencyButton
-                                displayCurrency="USDT"
-                                icon={TetherIcon}
-                            />
-                        </div>
-                    </div>
-                    <div className={styles.infoWrapper}>
-                        <div className={styles.balancesWrapper}>
-                            <div className={styles.balanceContainer}>
-                                <div className={styles.balanceTop}>
-                                    <Image
-                                        src={TetherIcon}
-                                        alt=""
-                                        width={24}
-                                        height={24}
-                                    />
-                                    <span>
-                                        Your Referral USDT Current Phase Balance
-                                    </span>
+
+                        <div className={styles.refInfo}>
+                            <div className={styles.refInfoItem}>
+                                <div className={styles.refInfoCard}>
+                                    <div className={styles.refInfoCardTop}>
+                                        <Image
+                                            src={ReffIcon}
+                                            alt="Referrals"
+                                            width={24}
+                                            height={24}
+                                        />
+                                        Referrals
+                                    </div>
+                                    <span>{refStats?.count}</span>
                                 </div>
-                                <span>{formatFiat(refStats?.usdt)}</span>
+                                <p>Users who connected their crypto wallet via your link.</p>
                             </div>
-                            <div className={styles.balanceContainer}>
-                                <div className={styles.balanceTop}>
-                                    <Image
-                                        src={USDCIcon}
-                                        alt="USDC"
-                                        width={24}
-                                        height={24}
-                                    />
-                                    <span>
-                                        Your Referral USDC Current Phase Balance
-                                    </span>
+                            <div className={styles.refInfoItem}>
+                            <div className={styles.refInfoCard}>
+                                    <div className={styles.refInfoCardTop}>
+                                        <Image
+                                            src={vAntixIcon}
+                                            alt="vANTIX"
+                                            width={24}
+                                            height={24}
+                                        />
+                                        vANTIX
+                                    </div>
+                                    <span>{String(balances.vesting)}</span>
                                 </div>
-                                <span>{formatFiat(refStats?.usdc)}</span>
+                                <p>Vested Antix tokens purchased using your referral link.</p>
                             </div>
                         </div>
+
                         <button className={styles.claimBtn}>
                             Claim Referral Earnings
                         </button>
+
+                        <div className={styles.disclaimer}>
+                            Rewards will be available after the current stage is finished. The next payout will happen once Stage #1 ends.
+                        </div>
+
+                        <div className={styles.balancesWrapper}>
+                            <BalanceItem
+                                currencySrc={TetherIcon}
+                                title={'USDT'}
+                                balance={formatFiat(refStats?.tokens?.usdt)}
+                            />
+                            <BalanceItem
+                                currencySrc={USDCIcon}
+                                title={'USDC'}
+                                balance={formatFiat(refStats?.tokens?.usdc)}
+                            />
+                            <BalanceItem
+                                currencySrc={ETHIcon}
+                                title={'ETH'}
+                                balance={formatFiat(refStats?.tokens?.eth)}
+                            />
+                            <BalanceItem
+                                currencySrc={BNBIcon}
+                                title={'BNB'}
+                                balance={formatFiat(refStats?.tokens?.bnb)}
+                            />
+                        </div>
                     </div>
+                          
                     <div className={styles.mobileFaq}>
                         <Faq faqItems={referralFaq} />
                     </div>

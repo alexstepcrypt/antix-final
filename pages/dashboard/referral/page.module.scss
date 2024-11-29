@@ -115,6 +115,112 @@
             color: #ffffff;
         }
 
+        .topWrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            @media screen and (max-width: 1280px) {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .rightColTitle {
+                span {
+                    margin-top: 0;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 21px;
+                    color: #575757;
+                }
+            }
+
+            .refEarnings {
+                display: flex;
+                align-items: center;
+                padding: 12px 24px;
+                border-radius: 8px;
+                background: rgba(87, 87, 87, 0.2);
+                border: 1px solid  rgba(18, 255, 241, 1);
+                box-shadow: 0px 0px 24px 0px rgba(18, 255, 241, 0.32);
+
+                .earnings {
+                    font-size: 20px;
+                    font-weight: 500;
+                    line-height: 36px;
+                    color: #F0F0F0;
+                }
+
+                img {
+                    margin-left: 12px;
+                }
+
+                .refEarningsCurr {
+                    margin-left: 2px;
+                    font-size: 20px;
+                    font-weight: 500;
+                    line-height: 36px;
+                    color: rgba(255, 255, 255, 0.4);
+                }
+            }
+        }
+
+        .refInfo {
+            border-top: 1px solid rgba(87, 87, 87, 0.4);
+            margin-top: 28px;
+            padding-top: 28px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .refInfoItem {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                justify-content: space-between;
+
+                .refInfoCard {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    padding: 16px;
+                    background: rgba(255, 255, 255, 0.04);
+                    border-radius: 8px;
+
+                    font-size: 20px;
+                    font-weight: 500;
+                    line-height: 36px;
+                    color: #FFFFFF;
+
+                    .refInfoCardTop {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 21px;
+                    }
+                }
+
+                p {
+                    max-width: 240px;
+                    width: 100%;
+
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 22px;
+                    color: rgba(255, 255, 255, 0.6);
+
+                    span {
+                        color: #12FFF1;
+                    }
+                }
+            }
+        }
+
         .codeContainer {
             margin-top: 12px;
             padding: 16px;
@@ -185,46 +291,35 @@
             flex-wrap: nowrap;
             gap: 16px;
 
-            .balanceContainer {
-                width: 100%;
-                background: rgba(255, 255, 255, 0.04);
-                padding: 16px;
-                border-radius: 8px;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(87, 87, 87, 0.4);
 
-                .balanceTop {
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-
-                    span {
-                        max-width: 170px;
-                        font-size: 14px;
-                        font-weight: 600;
-                        line-height: 21px;
-                        text-align: left;
-                        color: #ffffff;
-                    }
+            @media screen and (max-width: 1280px) {
+                flex-wrap: wrap;
+                &>div {
+                    width: calc(50% - 8px);
                 }
+            }
 
-                @media screen and (max-width: 1280px) {
-                    .balanceTop {
-                        flex-wrap: wrap;
-                    }
+            @media screen and (max-width: 960px) {
+                flex-wrap: nowrap;
+                &>div {
+                    width: 100%;
                 }
+            }
 
-                span {
-                    margin-top: 4px;
-                    font-size: 20px;
-                    font-weight: 500;
-                    line-height: 36px;
-                    text-align: left;
-                    color: #ffffff;
+            @media screen and (max-width: 640px) {
+                flex-wrap: wrap;
+                gap: 12px;
+                &>div {
+                    width: calc(50% - 6px);
                 }
             }
         }
 
         .claimBtn {
-            margin-top: 36px;
+            margin-top: 28px;
             width: 100%;
             padding: 12px;
             border-radius: 50px;
@@ -236,6 +331,18 @@
             line-height: 21px;
             text-align: center;
             color: #0f0f0f;
+        }
+
+        .disclaimer {
+            padding: 16px 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(18, 255, 241, 0.2);
+
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 22px;
+            color: rgba(240, 240, 240, 0.8);
         }
     }
 
