@@ -23,6 +23,7 @@ import Image from 'next/image';
 import { useNetwork } from '@/hooks/useNetwork'
 import RaisedProgressBar from './RaisedProgressBar/RaisedProgressBar';
 import { TgIcon } from '@/components/GotQuestions/icons/TgIcon';
+import { useConnectWallet } from '@/hooks/useConnectWallet';
 
 // DEPOSIT WRAPPER CONTENT AT 19:00
 /*
@@ -85,10 +86,11 @@ const underDepositInfo = [
 ]
 
 const DashboardTop = () => {
+    const { profile } = useConnectWallet()
     const { balances } = useUserDepositedBalance();
     const { network } = useNetwork();
 
-    let bonus = 0;
+    const bonus = !!profile.referrer ? balances.vesting * 0.05 : 0;
     const refBonus = bonus
         ? `+${bonus.toLocaleString('en-US')} ANTIX Referral Bonus`
         : "";
