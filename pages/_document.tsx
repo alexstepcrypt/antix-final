@@ -61,7 +61,8 @@ export default class MyDocument extends Document {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://token.antix.in" />
         <link rel="canonical" href="https://token.antix.in" />
-        {/* <!-- Google tag (gtag.js) --> */}
+
+
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3X71B2ZGH" />
         <Script
           id="google-analytics"
@@ -71,6 +72,7 @@ export default class MyDocument extends Document {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
+            
               gtag('config', 'G-Z3X71B2ZGH');
             `,
           }}
@@ -96,6 +98,16 @@ export default class MyDocument extends Document {
         />
       </Head>
       <body>
+        <Script strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-M7DFJB2J');
+              `,
+          }}
+        />
         <Main/>
         <NextScript/>
       </body>
