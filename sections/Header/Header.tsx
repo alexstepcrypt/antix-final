@@ -127,6 +127,9 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                             {link.label.toLowerCase() === "claim" && <span>Claiming page will be available after the TGE</span>}
                         </button>
                     ))}
+                    <div className={styles.mobileChooseChain}>
+                        <ChainsDropdown />
+                    </div>
                 </div>
             </div>
             <header
@@ -226,7 +229,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                         </button>
                     )}
                     {account && (
-                        <button className={styles.userButton} onClick={() => setIsDisconnectModal(true)}>
+                        <button className={styles.disconnectButton} onClick={() => setIsDisconnectModal(true)}>
                             <Image src={DisconnectIcon} alt="Disconnect Wallet" width={24} height={24} />
                         </button>
                     )}
