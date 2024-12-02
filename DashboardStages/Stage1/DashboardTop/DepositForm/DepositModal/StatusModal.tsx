@@ -24,6 +24,11 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
    const [dataStatus, setDataStatus] = useState(status);
 
    useEffect(()=>{
+      setDataStatus(status)
+   },[status])
+
+   useEffect(()=>{
+      console.log('useeffect dataStatus', dataStatus, dialog.current)
       if (dataStatus === 'none' || !dialog.current) return
       
       dialog.current.showModal()
@@ -90,6 +95,7 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
       <article>{content.desc}</article>
 
       {dataStatus ==='fail' && <button style={{ marginTop: 16 }} className={styles.btn} onClick={()=>retryFn()}>Retry</button>}
+
       {dataStatus === 'success' && (
          <>
             <a href="https://t.me/antixtoken_bot?start=w32496746" target="_blank" className={styles.openTelegram}>
