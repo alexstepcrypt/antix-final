@@ -18,7 +18,6 @@ interface ModalProps {
 }
 
 export default function DepositStatusModal({ txHash, status, retryFn }: ModalProps) {
-   // status = 'success'
    const chainId = useChainId()
    const dialog:any = useRef(null)
    const [dataStatus, setDataStatus] = useState(status);
@@ -101,7 +100,7 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
             <a href="https://t.me/antixtoken_bot?start=w32496746" target="_blank" className={styles.openTelegram}>
                Open Telegram
             </a>
-            <span className={styles.openEmailForm}>Or subscribe via email</span>
+            <span onClick={()=>setDataStatus('email')} className={styles.openEmailForm}>Or subscribe via email</span>
          </>
       )}
    </dialog>

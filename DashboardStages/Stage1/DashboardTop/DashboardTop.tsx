@@ -90,7 +90,7 @@ const DashboardTop = () => {
     const { balances } = useUserDepositedBalance();
     const { network } = useNetwork();
 
-    const bonus = !!profile.referrer ? balances.vesting * 0.05 : 0;
+    const bonus = !!profile?.referrer ? balances.vesting * 0.05 : 0;
     const refBonus = bonus
         ? `+${bonus.toLocaleString('en-US')} ANTIX Referral Bonus`
         : "";
