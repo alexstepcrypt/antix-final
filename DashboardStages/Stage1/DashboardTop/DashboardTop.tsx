@@ -127,7 +127,7 @@ const DashboardTop = () => {
                     </h5>
                     <p className={styles.infoText}>
                         Make a deposit to gain priority access to the ANTIX token sale with{" "}
-                        <span>-73% to TGE Price.</span>{" "}
+                        <span>-71% to TGE Price.</span>{" "}
                         Limited availability — act promptly to secure the best conditions.
                     </p>
                 </div>
@@ -200,7 +200,7 @@ const DashboardTop = () => {
 
                     <h2>Stage 2</h2>
                     <div className={styles.discount}>
-                        <p>-73% to TGE Price</p>
+                        <p>-71% to TGE Price</p>
                     </div>
                 </div>
 
@@ -218,7 +218,7 @@ const DashboardTop = () => {
                         <h4>0.04 USD</h4>
                         <h4 className={styles.prevPrice}>0.14 USD</h4>
                         <div className={styles.depositDiscount}>
-                            <p>-73% to TGE Price</p>
+                            <p>-71% to TGE Price</p>
                         </div>
                     </div>
                 </div> */}
