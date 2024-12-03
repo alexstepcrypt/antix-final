@@ -111,15 +111,13 @@ const DashboardTop = () => {
 
     const receiveTokens = async () => {
         try {
-            const res = await api.stagesInfo(1);
-            const tokensFromServer = res.stages.reduce((a: any, i: any) => {
-                a.current += +i.sold.toFixed(0);
-                a.target += i.cap;
-
-                return a;
-            }, tokens);
-
-            return tokensFromServer;
+            const [ethRes, bscRes] = await Promise.all([api.stagesInfo(1), api.stagesInfo(56)])
+            return {
+                current : Math.ceil(ethRes.sold + bscRes.sold),
+                target  : ethRes.stages.reduce((a: any, i: any) => {
+                    return a + i.cap;
+                }, 0)
+            };
         } catch (e) { console.log(e) }
     }
 
