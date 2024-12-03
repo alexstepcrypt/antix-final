@@ -41,7 +41,7 @@ export const rightList = [
    {
       title: 'Staking',
       description:
-         'Stake your tokens and boost your rewards. Higher stake, higher earnings.',
+         'Stake your tokens and boost your rewards. Multiple staking tiers offered.',
       icon: lines.src,
    },
 ];
