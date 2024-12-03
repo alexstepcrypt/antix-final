@@ -40,7 +40,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
         if (!isConnected) {
             return connect()
         }
-        router.push('/dashboard')
+        window.location.href = '/dashboard'
     }
 
     const receiveTokens = async () => {
@@ -58,10 +58,6 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
     }
 
     useEffect(() => { receiveTokens().then(r => r && setTokens(r)) }, []);
-    useEffect(() => {
-        if (!isConnected || router.pathname !== '/') return
-        router.push('/dashboard')
-    }, [isConnected])
 
     return (
     <div className={styles.container}>

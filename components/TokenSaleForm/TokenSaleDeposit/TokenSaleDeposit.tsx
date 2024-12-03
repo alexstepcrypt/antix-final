@@ -25,13 +25,8 @@ const TokenSaleDeposit: React.FC<ITokenSaleDeposit> = ({stage1DateStr, setIsRefM
         if (!isConnected) {
             return connect()
         }
-        router.push('/dashboard')
+        window.location.href = '/dashboard'
     }
-
-    useEffect(()=>{
-        if (!isConnected || router.pathname !== '/') return
-        router.push('/dashboard')
-    }, [isConnected])
 
     return (
     <div className={styles.container}>
