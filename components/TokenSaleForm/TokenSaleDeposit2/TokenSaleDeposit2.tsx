@@ -43,21 +43,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
         window.location.href = '/dashboard'
     }
 
-    const receiveTokens = async () => {
-        try {
-            const res: TokenApiResponse = await api.stagesInfo(1);
-            const tokensFromServer = res.stages.reduce((a, i) => {
-                a.current += +i.sold.toFixed(0);
-                a.target += i.cap;
-
-                return a;
-            }, tokens);
-
-            return tokensFromServer;
-        } catch (e) { console.log(e) }
-    }
-
-    useEffect(() => { receiveTokens().then(r => r && setTokens(r)) }, []);
+    useEffect(() => { api.receiveTokens().then(r => r && setTokens(r)) }, []);
 
     return (
     <div className={styles.container}>

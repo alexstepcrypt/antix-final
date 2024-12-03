@@ -109,19 +109,7 @@ const DashboardTop = () => {
 
     const [tokens, setTokens] = useState<TokensSolded>({ current: 0, target: 0 });
 
-    const receiveTokens = async () => {
-        try {
-            const [ethRes, bscRes] = await Promise.all([api.stagesInfo(1), api.stagesInfo(56)])
-            return {
-                current : Math.ceil(ethRes.sold + bscRes.sold),
-                target  : ethRes.stages.reduce((a: any, i: any) => {
-                    return a + i.cap;
-                }, 0)
-            };
-        } catch (e) { console.log(e) }
-    }
-
-    useEffect(() => { receiveTokens().then(r => setTokens(r)) }, []);
+    useEffect(() => { api.receiveTokens().then(r => r && setTokens(r)) }, []);
 
     return (
         <div className={styles.container}>

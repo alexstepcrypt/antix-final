@@ -92,6 +92,17 @@ class Api {
   stagesInfo(chainId:number|string) {
     return this.call(`sale/${chainId}/info`)
   }
+  async receiveTokens() {
+    try {
+        const [ethRes, bscRes] = await Promise.all([this.stagesInfo(1), this.stagesInfo(56)])
+        return {
+            current : Math.ceil(ethRes.sold + bscRes.sold),
+            target  : ethRes.stages.reduce((a: any, i: any) => {
+                return a + i.cap;
+            }, 0)
+        };
+    } catch (e) { console.log(e) }
+  }
 
   stageSoldSum(stageId:number|string){
     return this.call(`sale/sold/${stageId}/`)
