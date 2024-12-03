@@ -24,6 +24,8 @@ import { useNetwork } from '@/hooks/useNetwork'
 import RaisedProgressBar from './RaisedProgressBar/RaisedProgressBar';
 import { TgIcon } from '@/components/GotQuestions/icons/TgIcon';
 import { useConnectWallet } from '@/hooks/useConnectWallet';
+import api from '@/utils/api';
+import { useEffect, useState } from 'react';
 
 // DEPOSIT WRAPPER CONTENT AT 19:00
 /*
@@ -85,6 +87,11 @@ const underDepositInfo = [
     }
 ]
 
+type TokensSolded = {
+    current: number;
+    target: number;
+}
+
 const DashboardTop = () => {
     const { profile } = useConnectWallet()
     const { balances } = useUserDepositedBalance();
@@ -99,6 +106,24 @@ const DashboardTop = () => {
     // useEffect(() => {
     //     if(stageData) console.log(stageData)
     // }, [stageData])
+
+    const [tokens, setTokens] = useState<TokensSolded>({ current: 0, target: 0 });
+
+    const receiveTokens = async () => {
+        try {
+            const res = await api.stagesInfo(1);
+            const tokensFromServer = res.stages.reduce((a: any, i: any) => {
+                a.current += +i.sold.toFixed(0);
+                a.target += i.cap;
+
+                return a;
+            }, tokens);
+
+            return tokensFromServer;
+        } catch (e) { console.log(e) }
+    }
+
+    useEffect(() => { receiveTokens().then(r => setTokens(r)) }, []);
 
     return (
         <div className={styles.container}>
@@ -185,30 +210,23 @@ const DashboardTop = () => {
 
                 {/* final content (19:15 and 20:00) */}
                 <div className={styles.headTitle}>
-                    <h2>Get early access to Stage 2</h2>
+                    {/* <h2>Get early access to Stage 2</h2> */}
 
-                    {/* <h2>Stage 1 Sold Out!</h2> */}
-                    {/* <div className={styles.discount}>
-                        <p>-79% to TGE Price</p>
-                    </div> */}
+                    <h2>Stage 2</h2>
+                    <div className={styles.discount}>
+                        <p>-73% to TGE Price</p>
+                    </div>
                 </div>
 
-                {/* <RaisedProgressBar
-                    segments={17}
-                    currentAmount={17000000}
-                    targetAmount={17000000}
-                    color="#12fff1"
-                    title="Tokens sold:"
-                /> */}
 
                 <div className={styles.timer}>
                     <h5 className={styles.timerTitle}>
-                        Stage 2 starts in
+                        Stage 2 ends in
                     </h5>
-                    <Timer targetDate={new Date("2024-12-03T17:00:00Z")} />
-                </div>
+                    <Timer targetDate={new Date("2024-12-17T17:00:00Z")} />
+                </div> 
 
-                <div className={styles.stagePrice}>
+                {/* <div className={styles.stagePrice}>
                     <h5>Current Price</h5>
                     <div className={styles.depositPriceWrapper}>
                         <h4>0.04 USD</h4>
@@ -217,7 +235,25 @@ const DashboardTop = () => {
                             <p>-73% to TGE Price</p>
                         </div>
                     </div>
+                </div> */}
+
+                <div className={styles.stagePrice}>
+                    <div className={styles.stage1Sold}>
+                        <h5>Current Price</h5>
+                        <h4>0.04 USD</h4>
+                    </div>
+                    <div className={styles.depositPriceWrapper}>
+                        <h4>Listing(TGE) Price</h4>
+                        <h4 className={styles.prevPrice}>0.14 USD</h4>
+                    </div>
                 </div>
+                <RaisedProgressBar
+                    segments={17}
+                    currentAmount={tokens.current}
+                    targetAmount={tokens.target}
+                    color="#12fff1"
+                    title="Tokens sold:"
+                />
 
                 {/* STAGE 1*/}
                 {/* <div className={styles.stagePrice}>
