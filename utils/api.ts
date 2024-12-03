@@ -141,6 +141,10 @@ class Api {
   getUserBalances(chainId:number|string):Promise<any>{
     return this.authCall(`/profile/balance/${chainId}/`)
   }
+
+  getTokensRate(){
+    return this.call('/sale/rate')
+  }
   
   getDepositTx(chainId:number|string, token:string, amount:number|string){
     return this.call(`/sale/${chainId}/depositTxData?token=${token}&amount=${amount}`)

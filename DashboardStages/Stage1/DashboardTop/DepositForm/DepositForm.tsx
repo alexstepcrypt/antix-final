@@ -19,7 +19,7 @@ import { DepositPopover } from "./DepositPopover/DepositPopover";
 import { DepositCheckbox } from "./DepositCheckbox/DepositCheckbox";
 import { useConnectWallet } from '@/hooks/useConnectWallet';
 import { useNetwork } from '@/hooks/useNetwork';
-
+import Api from "@/utils/api";
 
 import CurrencyButton from "../../../components/CurrencyButton/CurrencyButton";
 import { TgIcon } from "../../../../components/GotQuestions/icons/TgIcon";
@@ -54,7 +54,6 @@ interface IDepositForm {
 }
 
 const errString = "Not enough funds to make the deposit";
-const ANTIX_RATE = 0.01;
 
 const DepositForm: React.FC<IDepositForm> = () => {
     const { chainId } = useConnectWallet();
@@ -69,6 +68,13 @@ const DepositForm: React.FC<IDepositForm> = () => {
     const [receiveValue, setReceiveValue] = useState("0");
 
     const tokens = tokensByChains[chainId || 1]
+
+    const [tokensRates, setTokensRates] = useState({} as any)
+    useEffect(()=>{
+        Api.getTokensRate().then(res=>{
+            setTokensRates(res)
+        })
+    }, [])
 
     useEffect(()=>{
         if (!tokens[displayCurrency]) {
@@ -98,7 +104,9 @@ const DepositForm: React.FC<IDepositForm> = () => {
             .replace(/(\..*)\./g, "$1")
             .replace(/^0+(?=\d)/, "");
 
-        const updatedReceiveValue = (parseFloat(cleanedValue) / ANTIX_RATE).toFixed(0);
+        const rate = tokensRates[chainId || 1]?.[tokens[displayCurrency]] || 0.04
+        const updatedReceiveValue = (parseFloat(cleanedValue) / rate).toFixed(0);
+
         setReceiveValue(updatedReceiveValue);
 
         // Ensure that entered value doesn't exceed balance
@@ -108,6 +116,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
             setAmount(cleanedValue === "" ? "0" : cleanedValue);
         }
     }
+
 
     return <div className={styles.sendingWrapepr}>
         <div className={styles.chooseCurrWrapper}>
