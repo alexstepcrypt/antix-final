@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image'
 import React, { useEffect } from 'react'
 import styles from "./TokenSaleDeposit2.module.scss"
@@ -8,15 +10,24 @@ import { HeroTimer } from '@/sections/HeroSection/ui/HeroTimer/HeroTimer';
 import Link from 'next/link';
 import { useConnectWallet } from '@/hooks/useConnectWallet';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import StayUpdated from '@/components/StayUpdated/StayUpdated';
 import Pays from '@/components/Pays/Pays';
+import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar'
+import api from '@/utils/api'
 
 interface ITokenSaleDeposit2 {
     stage1DateStr: string;
     setIsRefModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface TokensSolded {
+    current: number;
+    target: number;
+}
+
 const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRefModal}) => {
+    const [tokens, setTokens] = useState<TokensSolded>({ current: 0, target: 0 });
     const { isConnected, connect } = useConnectWallet();
     const router = useRouter();
 
@@ -28,7 +39,23 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
         router.push('/dashboard')
     }
 
-    useEffect(()=>{
+    const receiveTokens = async () => {
+        try {
+            const res = await api.stagesInfo(1);
+            const tokensFromServer = res.stages.reduce((a, i) => {
+                a.current += +i.sold.toFixed(0);
+                a.target += i.cap;
+
+                return a;
+            }, tokens);
+
+            console.log(res, tokensFromServer);
+            return tokensFromServer;
+        } catch (e) { console.log(e) }
+    }
+
+    useEffect(() => { receiveTokens().then(r => setTokens(r)) }, []);
+    useEffect(() => {
         if (!isConnected || router.pathname !== '/') return
         router.push('/dashboard')
     }, [isConnected])
@@ -54,17 +81,17 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
     <div className={styles.timer}>
         <div className={styles.timerTitle}>
             <section>
-                <h2 className={styles.timerHeading}>Get early access to Stage 2</h2>
+                <h2 className={styles.timerHeading}>Stage 2</h2>
             </section>
 
             <div className={styles.discount}>
-                <p>-73%</p>
+                <p>-73% to TGE Price</p>
             </div>
         </div>
 
         <div className={styles.timerContainer}>
             <span className={styles.title}>
-                Stage 2 starts in
+                Stage 2 ends in
             </span>
 
             <HeroTimer
@@ -72,14 +99,27 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
             />
         </div>
 
-        <section className={styles.stagePrice}>
-            <h3>Stage 2 price</h3>
+        <div className={styles.stagePrice}>
+            <section className={styles.leftPart}>
+                <h3>Current price</h3>
+                <p>0.04 USDT</p>
+            </section>
 
             <div className={styles.prices}>
-                <p>0.04 USDT</p>
-                <p className={styles.prevPrice}>0.14 USDT</p>
+                <p>Listing(TGE) Price</p>
+                <p>0.14 USDT</p>
             </div>
-        </section>
+        </div>
+
+        <div className={styles.progress}>
+            <RaisedProgressBar
+                segments={20}
+                currentAmount={tokens.current}
+                targetAmount={tokens.target}
+                title='Tokens sold:'
+                color="#12fff1"
+            />
+        </div>
 
         <Link
             className={`${styles.timerButton}`}

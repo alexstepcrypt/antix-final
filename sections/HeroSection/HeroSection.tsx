@@ -34,7 +34,7 @@ const HeroSection = () => {
     const stage1DateStr = "2024-11-28T17:00:00Z";
     const stage1Date = new Date(stage1DateStr);
     const currentDate = new Date();
-    const stage2DateStr = "2024-12-03T17:00:00Z";
+    const stage2DateStr = "2024-12-17T17:00:00Z";
     
     return (
         <section className={styles.wrapper} id="Hero">
