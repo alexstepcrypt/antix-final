@@ -24,10 +24,12 @@ const RaisedProgressBar: React.FC<ProgressBarProps> = ({
         <div className={styles.progressBarContainer}>
             <p>
                 {title}{" "}
-                <span>
-                    {currentAmount.toString().replace(regex, ',')} / {' '}
-                    {targetAmount.toString().replace(regex, ',')}
-                </span>
+                {targetAmount === 0 ? <span>Calculating</span> : (
+                    <span>
+                        {currentAmount.toString().replace(regex, ',')} / {' '}
+                        {targetAmount.toString().replace(regex, ',')}
+                    </span>
+                )}
             </p>
             <div className={styles.progressBarSegments}>
                 {Array.from({ length: segments }).map((_, index) => (
