@@ -225,6 +225,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
                 <CurrencyButton displayCurrency={displayCurrency} icon={tokensIcons[displayCurrency]} />
             </div>
 
+
             {error && (
                 <div className={styles.errWrapper}>
                     <DepositErrIcon />
@@ -232,6 +233,18 @@ const DepositForm: React.FC<IDepositForm> = () => {
                 </div>
             )}
         </div>
+        <Input
+            value={receiveValue}
+            title="ANTIX you receive"
+            onChangeValue={() => {}}
+            icon={TokenIcon}
+            price={"$0.04"}
+            style={{
+                background: 'unset',
+                border: '1px solid rgba(255, 255, 255, .1)',
+                marginTop: 12
+            }}
+        />
 
         <DepositButton 
             amount={amount}
@@ -239,13 +252,13 @@ const DepositForm: React.FC<IDepositForm> = () => {
             tokenAddress={tokens[displayCurrency]} 
         />
 
-        <div className={styles.agreement}>
+        {/* <div className={styles.agreement}>
             <DepositCheckbox
                 isChecked={isBuyChecked}
                 onChange={()=>setIsBuyChecked(prev=>!prev)}
                 children="Automatically buy ANTIX from deposit when Stage 2 starts"
             />
-        </div>
+        </div> */}
 
         <GotQuestions />
 

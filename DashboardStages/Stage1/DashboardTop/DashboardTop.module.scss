@@ -305,7 +305,7 @@
                 font-size: 14px;
                 font-weight: 400;
                 line-height: 21px;
-                color: #FFFFFF99;
+                color: #F0F0F0;
             }
 
             .stage1Sold {
@@ -313,7 +313,10 @@
                 align-items: center;
                 gap: 6px;
 
-                h4 { color: #fff }
+                h4 {
+                    color: #fff;
+                    font-weight: 600;
+                }
             }
 
             .depositPriceWrapper {
@@ -323,14 +326,14 @@
 
                 h4 {
                     font-size: 14px;
-                    font-weight: 600;
+                    font-weight: 400;
                     line-height: 21px;
-                    color: #fff; 
+                    color: rgba(240, 240, 240, 0.4); 
                 }
 
                 .prevPrice {
-                    text-decoration: line-through;
                     color: #F0F0F066;
+                    font-weight: 600;
                 }
 
                 .depositDiscount {
