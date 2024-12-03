@@ -21,7 +21,7 @@ export const links: linksType[] = [
     },
     {
         label: "Buy Now",
-        href: "Hero",
+        href: "/dashboard",
     },
 ];
 
@@ -63,7 +63,7 @@ export const mobileLinks: mobileLinksType[] = [
     },
     {
         label: "Buy Now",
-        href: "Hero",
+        href: "/dashboard",
         icon: BuyNowIcon,
     },
     {

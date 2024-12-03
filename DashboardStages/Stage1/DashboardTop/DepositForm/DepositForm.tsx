@@ -105,7 +105,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
             .replace(/^0+(?=\d)/, "");
 
         const rate = tokensRates[chainId || 1]?.[tokens[displayCurrency]] || 0.04
-        const updatedReceiveValue = (parseFloat(cleanedValue) / rate).toFixed(0);
+        const updatedReceiveValue = (parseFloat(cleanedValue === "" ? "0" : cleanedValue) / rate).toFixed(0);
 
         setReceiveValue(updatedReceiveValue);
 
