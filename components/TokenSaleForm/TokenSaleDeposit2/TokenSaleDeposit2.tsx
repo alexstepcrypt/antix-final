@@ -49,7 +49,6 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
                 return a;
             }, tokens);
 
-            console.log(res, tokensFromServer);
             return tokensFromServer;
         } catch (e) { console.log(e) }
     }
