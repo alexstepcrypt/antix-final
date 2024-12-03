@@ -26,6 +26,10 @@ interface TokensSolded {
     target: number;
 }
 
+interface TokenApiResponse {
+    stages: { cap: number, sold: number }[]
+}
+
 const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRefModal}) => {
     const [tokens, setTokens] = useState<TokensSolded>({ current: 0, target: 0 });
     const { isConnected, connect } = useConnectWallet();
@@ -41,7 +45,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
 
     const receiveTokens = async () => {
         try {
-            const res = await api.stagesInfo(1);
+            const res: TokenApiResponse = await api.stagesInfo(1);
             const tokensFromServer = res.stages.reduce((a, i) => {
                 a.current += +i.sold.toFixed(0);
                 a.target += i.cap;
@@ -53,7 +57,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
         } catch (e) { console.log(e) }
     }
 
-    useEffect(() => { receiveTokens().then(r => setTokens(r)) }, []);
+    useEffect(() => { receiveTokens().then(r => r && setTokens(r)) }, []);
     useEffect(() => {
         if (!isConnected || router.pathname !== '/') return
         router.push('/dashboard')
