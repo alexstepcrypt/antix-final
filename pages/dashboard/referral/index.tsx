@@ -27,6 +27,8 @@ import CurrencyButton from "@/DashboardStages/components/CurrencyButton/Currency
 import Api from '@/utils/api'
 import { BalanceItem } from '@/DashboardStages/Stage1/DashboardTop/BalanceItem/BalanceItem';
 import { useUserDepositedBalance } from '@/hooks/useUserDepositedBalance';
+import Earnings from '@/components/Earnings/Earnings';
+import RefHistory from '@/components/RefHistory/RefHistory';
 const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false });
 
 
@@ -133,7 +135,7 @@ const Referral = () => {
                         <h3>Thank уоu for choosing to promote Antix!</h3>
                         <p>
                             Earn up to 10% USDT (BNB Chain) rewards via your referral link!<br />
-                            Payouts start after Stage 1 ends.
+                            Payouts start after Stage 2 ends.
                         </p>
                     </div>
                     <div
@@ -171,6 +173,19 @@ const Referral = () => {
                             )}
                         </div>
                     </div>
+                    <div className={styles.infoWrapper} >
+                        <div className={styles.availableEarnings}>
+                            <div className={styles.availableEarningsTitle}>
+                                <h4>Your available earnings</h4>
+                                <span>Stage 2</span>
+                            </div>
+                            <Earnings
+                                icon={UsdtBnbIcon}
+                                amount={'341.00'}
+                            />
+                        </div>
+                        <button className={styles.availableEarningsButton}>Claim Referral Earnings</button>
+                    </div>
                     <div className={styles.faq}>
                         <Faq faqItems={referralFaq} />
                     </div>
@@ -180,18 +195,9 @@ const Referral = () => {
                         <div className={styles.topWrapper}>
                             <div className={styles.rightColTitle}>
                                 <h4>Your Referral Earnings</h4>
-                                <span>Deposit / Stage 1</span>
+                                <span>Deposit / Stage 2</span>
                             </div>
-                            <div className={styles.refEarnings}>
-                                <span className={styles.earnings}>{formatFiat(refStats?.stage?.["1"]?.reward)}</span>
-                                <Image
-                                    src={UsdtBnbIcon}
-                                    alt="UsdtBnb"
-                                    width={24}
-                                    height={24}
-                                />
-                                <p className={styles.refEarningsCurr}>USDT</p>
-                            </div>
+                            <Earnings icon={UsdtBnbIcon} amount={formatFiat(refStats?.stage?.["1"]?.reward)}/>
                         </div>
 
                         <div className={styles.refInfo}>
@@ -232,7 +238,7 @@ const Referral = () => {
                         </button>
 
                         <div className={styles.disclaimer}>
-                            Rewards will be available after the current stage is finished. The next payout will happen once Stage #1 ends.
+                            Rewards will be available after the current stage is finished. The next payout will happen once Stage 2 ends.
                         </div>
 
                         <div className={styles.balancesWrapper}>
@@ -265,12 +271,12 @@ const Referral = () => {
                 </div>
             </div>
 
-            {/* <div className={styles.refWrapper}>
-                <h3 className={styles.refTitle}>My Referrals</h3>
-                <div className={styles.refContainer}>
-                    <div className={styles.refMessage}>You don't have any referrals yet</div>
+            <div className={styles.historyWrapper}>
+                <h3 className={styles.historyTitle}>History</h3>
+                <RefHistory />
+                <div className={styles.historyContainer}>
                 </div>
-            </div> */}
+            </div>
         </section>
         <Footer style={{
             margin: '100px 16px 16px',

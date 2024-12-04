@@ -149,7 +149,7 @@ const DashboardTop = () => {
                     </div>
                 </DashboardCard>
 
-                {Number(balances.usdc) !== 0 || Number(balances.usdt) !== 0 ? (
+                {Number(balances.usdc) === 0 || Number(balances.usdt) !== 0 ? (
                     <DashboardCard style={{ width: "100%" }}>
                         <div className={styles.balanceTitleWrapper}>
                             <h3 className={styles.balanceTitle}>Deposit Balance</h3>

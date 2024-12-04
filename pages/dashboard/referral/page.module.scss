@@ -134,35 +134,6 @@
                     color: #575757;
                 }
             }
-
-            .refEarnings {
-                display: flex;
-                align-items: center;
-                padding: 12px 24px;
-                border-radius: 8px;
-                background: rgba(87, 87, 87, 0.2);
-                border: 1px solid  rgba(18, 255, 241, 1);
-                box-shadow: 0px 0px 24px 0px rgba(18, 255, 241, 0.32);
-
-                .earnings {
-                    font-size: 20px;
-                    font-weight: 500;
-                    line-height: 36px;
-                    color: #F0F0F0;
-                }
-
-                img {
-                    margin-left: 12px;
-                }
-
-                .refEarningsCurr {
-                    margin-left: 2px;
-                    font-size: 20px;
-                    font-weight: 500;
-                    line-height: 36px;
-                    color: rgba(255, 255, 255, 0.4);
-                }
-            }
         }
 
         .refInfo {
@@ -357,6 +328,45 @@
         }
     }
 
+    .availableEarnings {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media screen and (max-width: 1280px) {
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .availableEarningsTitle {
+            h4 {
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 36px;
+                color: #FFFFFF;
+            }
+
+            span {
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 21px;
+                color: #575757;
+            }
+        }
+    }
+
+    .availableEarningsButton {
+        background: #FFFFFF;
+        padding: 12px;
+        border-radius: 44px;
+        margin-top: 32px;
+
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        text-align: center;
+        color: #0F0F0F;
+    }
+
     .rightCol {
         width: 100%;
 
@@ -427,10 +437,10 @@
     }
 }
 
-.refWrapper {
+.historyWrapper {
     margin-top: 40px;
 
-    .refTitle {
+    .historyTitle {
         font-size: 36px;
         font-weight: 500;
         line-height: 54px;
@@ -440,32 +450,8 @@
     }
 
     @media screen and (max-width: 960px) {
-        .refTitle {
+        .historyTitle {
             text-align: center;
-        }
-    }
-
-    .refContainer {
-        margin-top: 24px;
-        padding: 28px;
-        width: 100%;
-
-        display: flex;
-        background: #141415;
-        border-radius: 12px;
-
-        .refMessage {
-            width: 100%;
-            padding: 20px 16px;
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(34px);
-            border-radius: 9px;
-
-            font-size: 12px;
-            font-weight: 400;
-            line-height: 15.85px;
-            text-align: left;
-            color: rgba(255, 255, 255, 0.6);
         }
     }
 }
