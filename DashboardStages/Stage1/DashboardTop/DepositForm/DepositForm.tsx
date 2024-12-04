@@ -95,7 +95,9 @@ const DepositForm: React.FC<IDepositForm> = () => {
     }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (balance === null || +balance < +amount) setError(errString);
+        if (balance !== null && +balance < +amount) setError(errString);
+
+        const decimals = (displayCurrency==='ETH') ? 18 : 6
 
         let value = e.target.value;
         let cleanedValue = value
@@ -104,14 +106,18 @@ const DepositForm: React.FC<IDepositForm> = () => {
             .replace(/(\..*)\./g, "$1")
             .replace(/^0+(?=\d)/, "");
 
+        const parts = cleanedValue.split('.')
+        if (parts[1]?.length > decimals) {
+            cleanedValue = Number(cleanedValue).toFixed(decimals)
+        }
         const rate = tokensRates[chainId || 1]?.[tokens[displayCurrency]] || 0.04
         const updatedReceiveValue = (parseFloat(cleanedValue === "" ? "0" : cleanedValue) / rate).toFixed(0);
 
         setReceiveValue(updatedReceiveValue);
 
         // Ensure that entered value doesn't exceed balance
-        if (Number(cleanedValue) > Number(balance)) {
-            setAmount(parseFloat(balance || "0").toFixed(6)); // Reset to max balance if exceeded
+        if (Number(balance) > 0 && Number(cleanedValue) > Number(balance)) {
+            setAmount(parseFloat(balance || "0").toFixed(decimals)); // Reset to max balance if exceeded
         } else {
             setAmount(cleanedValue === "" ? "0" : cleanedValue);
         }
