@@ -234,11 +234,11 @@ const DashboardTop = () => {
                     </div>
                 </div>
                 <RaisedProgressBar
-                    segments={17}
+                    segments={20}
                     currentAmount={tokens.current}
                     targetAmount={tokens.target}
                     color="#12fff1"
-                    title="Tokens sold:"
+                    title="USDT Collected:"
                 />
 
                 {/* STAGE 1*/}

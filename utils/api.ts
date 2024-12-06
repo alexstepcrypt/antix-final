@@ -96,10 +96,12 @@ class Api {
     try {
         const [ethRes, bscRes] = await Promise.all([this.stagesInfo(1), this.stagesInfo(56)])
         return {
-            current : Math.ceil(ethRes.sold + bscRes.sold),
-            target  : ethRes.stages.reduce((a: any, i: any) => {
-                return a + i.cap;
-            }, 0)
+            current : Math.ceil(ethRes.sold * 0.03 + bscRes.sold * 0.04),
+            target  : 1230000
+            // todo: update backend data
+            //   ethRes.stages.reduce((a: any, i: any) => {
+            //     return a + i.cap;
+            // }, 0)
         };
     } catch (e) { console.log(e) }
   }
