@@ -22,6 +22,7 @@ import ReffIcon from "/public/dashboard/svg/refferals-icon.png";
 // import WalletIcon from "/public/svg/white-wallet-icon.svg";
 import Faq from "@/components/Faq/Faq";
 import { useConnectWallet } from '@/hooks/useConnectWallet'
+import { useClaimReward } from '@/hooks/useClaimReward'
 import { formatAddress, formatFiat } from "@/utils/utils";
 import CurrencyButton from "@/DashboardStages/components/CurrencyButton/CurrencyButton";
 import Api from '@/utils/api'
@@ -59,8 +60,8 @@ const Referral = () => {
     const [isGenerated, setIsGenerated] = useState(false);
     const [isCopied, setIsCopied] = useState(false);
     const [refCode, setRefCode] = useState("YOURCODE");
-    const { account, profile, chainId } = useConnectWallet();
-    const { balances } = useUserDepositedBalance();
+    const { profile, chainId } = useConnectWallet();
+    const { claimTxHash, status: claimStatus, claimError, makeClaim } = useClaimReward()
 
     const handleGenerateReferralLink = async () => {
         const refcode = await Api.getUserRefcode()
@@ -110,6 +111,7 @@ const Referral = () => {
         }, 333)
         return () => clearTimeout(fetchReferralsTimeout)
     }, [profile, chainId])
+
 
     return <>
         <main
@@ -181,10 +183,12 @@ const Referral = () => {
                             </div>
                             <Earnings
                                 icon={UsdtBnbIcon}
-                                amount={'341.00'}
+                                amount={refStats?.reward?.amount || 0}
                             />
                         </div>
-                        <button className={styles.availableEarningsButton}>Claim Referral Earnings</button>
+                        <button onClick={makeClaim} className={styles.availableEarningsButton}>
+                            Claim Referral Earnings
+                        </button>
                     </div>
                     <div className={styles.faq}>
                         <Faq faqItems={referralFaq} />
