@@ -61,7 +61,16 @@ const Referral = () => {
     const [isCopied, setIsCopied] = useState(false);
     const [refCode, setRefCode] = useState("YOURCODE");
     const { profile, chainId } = useConnectWallet();
+
     const { claimTxHash, status: claimStatus, claimError, makeClaim } = useClaimReward()
+    function claimReward(){
+        makeClaim()
+    }
+    useEffect(()=>{
+        if (claimStatus === 'success') {
+            window.location.reload()
+        }
+    },[claimStatus])
 
     const handleGenerateReferralLink = async () => {
         const refcode = await Api.getUserRefcode()
@@ -186,8 +195,8 @@ const Referral = () => {
                                 amount={refStats?.reward?.amount || 0}
                             />
                         </div>
-                        <button onClick={makeClaim} className={styles.availableEarningsButton}>
-                            Claim Referral Earnings
+                        <button onClick={claimReward} className={styles.availableEarningsButton} disabled={claimStatus==='pending'}>
+                            {claimStatus === 'pending' ? 'Confirm TX...' : 'Claim Referral Earnings'}
                         </button>
                     </div>
                     <div className={styles.faq}>
