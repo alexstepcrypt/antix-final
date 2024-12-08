@@ -5,7 +5,7 @@ import s from './StageWidget.module.scss';
 
 
 export const StageWidget = () => {
-   const targetDate = new Date('2024-12-17T17:00:00Z');
+   const targetDate = new Date('2024-12-22T17:00:00Z');
    const [timeLeft, setTimeLeft] = useState({
       days: 0,
       hours: 0,
@@ -76,7 +76,7 @@ export const StageWidget = () => {
                </div>
                <div className={s.wrap}>
                   <div className={s.prices}>
-                     <p>0.04 USDT</p>
+                     <p>0.05 USDT</p>
                      {/* <Image
                         src={'/svg/prev-price.svg'}
                         alt="prev-price"
@@ -95,7 +95,7 @@ export const StageWidget = () => {
             </div>
 
             <div className={s.timer}>
-               <h2>Stage 2 ends in</h2>
+               <h2>Stage 3 ends in</h2>
                <div className={s.countdown}>
                   <div>
                      <span>{timeLeft.days.toString().padStart(2, '0')}</span>

@@ -95,13 +95,22 @@ class Api {
   async receiveTokens() {
     try {
         const [ethRes, bscRes] = await Promise.all([this.stagesInfo(1), this.stagesInfo(56)])
+
+        const targetInUSD = ethRes.stages.reduce((a: any, i: any) => {
+          return a + (i.cap * i.prices[0]);
+        }, 0)
+        const soldEth = ethRes.stages.reduce((a: any, stage: any, index:number) => {
+          return a + (stage.sold * ethRes.stages[index].prices[0]);
+        }, 0)
+        const soldBsc = bscRes.stages.reduce((a: any, stage: any, index:number) => {
+          return a + (stage.sold * ethRes.stages[index].prices[0]);
+        }, 0)
+        const sold = soldEth+soldBsc
+
+
         return {
-            current : Math.ceil(ethRes.sold * 0.03 + bscRes.sold * 0.04),
-            target  : 1230000
-            // todo: update backend data
-            //   ethRes.stages.reduce((a: any, i: any) => {
-            //     return a + i.cap;
-            // }, 0)
+            current : Math.ceil(sold),
+            target  : Math.ceil(targetInUSD)
         };
     } catch (e) { console.log(e) }
   }

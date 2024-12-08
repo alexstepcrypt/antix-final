@@ -66,7 +66,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
     <div className={styles.timer}>
         <div className={styles.timerTitle}>
             <section>
-                <h2 className={styles.timerHeading}>Stage 2</h2>
+                <h2 className={styles.timerHeading}>Stage 3</h2>
             </section>
 
             <div className={styles.discount}>
@@ -76,7 +76,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
 
         <div className={styles.timerContainer}>
             <span className={styles.title}>
-                Stage 2 ends in
+                Stage 3 ends in
             </span>
 
             <HeroTimer
@@ -87,7 +87,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
         <div className={styles.stagePrice}>
             <section className={styles.leftPart}>
                 <h3>Current price</h3>
-                <p>0.04 USDT</p>
+                <p>0.05 USDT</p>
             </section>
 
             <div className={styles.prices}>

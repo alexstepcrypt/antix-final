@@ -198,7 +198,7 @@ const DashboardTop = () => {
                 <div className={styles.headTitle}>
                     {/* <h2>Get early access to Stage 2</h2> */}
 
-                    <h2>Stage 2</h2>
+                    <h2>Stage 3</h2>
                     <div className={styles.discount}>
                         <p>-71% to TGE Price</p>
                     </div>
@@ -207,9 +207,9 @@ const DashboardTop = () => {
 
                 <div className={styles.timer}>
                     <h5 className={styles.timerTitle}>
-                        Stage 2 ends in
+                        Stage 3 ends in
                     </h5>
-                    <Timer targetDate={new Date("2024-12-17T17:00:00Z")} />
+                    <Timer targetDate={new Date("2024-12-22T17:00:00Z")} />
                 </div> 
 
                 {/* <div className={styles.stagePrice}>
@@ -226,7 +226,7 @@ const DashboardTop = () => {
                 <div className={styles.stagePrice}>
                     <div className={styles.stage1Sold}>
                         <h5>Current Price</h5>
-                        <h4>0.04 USD</h4>
+                        <h4>0.05 USD</h4>
                     </div>
                     <div className={styles.depositPriceWrapper}>
                         <h4>Listing(TGE) Price</h4>
