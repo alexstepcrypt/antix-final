@@ -184,7 +184,7 @@ const HeroSection = () => {
                         src={require("/public/video/hero-video.webm")}
                         type="video/webm"
                     />
-                    Ваш браузер не поддерживает видео.
+                    Your browser does not support video.
                 </video>
                 {/* <TokenSaleDeposit stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} /> */}
                 

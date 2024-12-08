@@ -1,0 +1,302 @@
+{
+  "placeholder": {
+    "title": "Access Denied",
+    "subtitle": "We apologize, but this website is not available in your country"
+  },
+  "header": {
+    "backToMainPage": "Back to the Main Page",
+    "claimPopoverText": "Claiming page will be available after the TGE",
+    "connectWalletButton": "Connect Wallet",
+    "walletButton": "Wallet",
+    "userButton": "User",
+    "disconnectButton": "Disconnect Wallet"
+  },
+  "disConnect": {
+    "modalTitle": "Are you sure you want to disconnect your wallet?",
+    "modalSubtitle": "This will end your session.",
+    "disconnectButton": "Disconnect Wallet"
+  },
+  "heroSection": {
+    "subtitle": "The new era of AI-powered digital humans is here",
+    "title": {
+      "line1": "Ready to be",
+      "line2": "Replaced by AI?"
+    },
+    "description": {
+      "text1": "Step into the $300 billion industry with the",
+      "span": "ANTIX token.",
+      "text2": "Hyper-realistic digital twins for film, content, and beyond"
+    },
+    "videoFallbackText": "Your browser does not support video."
+  },
+  "referalModal": {
+    "subtitle": "Thank you for choosing to promote Antix!",
+    "title": "Earn up to 10% reward in USDT on purchases made through your referral link!",
+    "disconnectedInfo": {
+      "line1": "To get your unique referral link,",
+      "line2": "please connect your wallet first."
+    },
+    "connectButton": "Connect Wallet",
+    "generateCodeButton": "Generate Code",
+    "referralButton": "Referral",
+    "connectedWallet": "Connected Wallet",
+    "copyLink": {
+      "default": "Copy Link",
+      "copied": "Copied"
+    },
+    "referralStatus": "Referral Active",
+    "balanceInfo": {
+      "currentPhase": "Your Referral USDT Current Phase Balance:",
+      "claimable": "Your Referral USDT Claimable Balance:"
+    },
+    "claimButton": "Claim Referral Earnings",
+    "claimPopoverText": "Claim available 1-2 days after each stage ends"
+  },
+  "tokenSaleDeposit2": {
+    "timerHead": "Token Sale",
+    "stageTitle": "Stage 2",
+    "discountText": "-71% to TGE Price",
+    "stageEndsIn": "Stage 2 ends in",
+    "currentPrice": "Current price",
+    "listingPrice": "Listing(TGE) Price",
+    "tokensSold": "Tokens sold:",
+    "buyButton": {
+      "connected": "Buy Now",
+      "disconnected": "Connect Wallet to Buy"
+    },
+    "referralButton": "+ Get referral link"
+  },
+  "heroTimer": {
+    "days": "days",
+    "hours": "hours",
+    "minutes": "min",
+    "seconds": "sec"
+  },
+  "stayUpdated": {
+    "title": "Stay Updated!",
+    "connectText": "Connect to our",
+    "button": "Telegram bot",
+    "description": "for stage start alerts or support assistance."
+  },
+  "platformToReplace": {
+    "title": "Build and monetize AI digital characters that",
+    "highlightedWord": "replace",
+    "listOfRoles": [
+      "Actors",
+      "TV hosts",
+      "Pop singers",
+      "Personal Assistants",
+      "Fitness Instructors",
+      "Game Characters",
+      "Virtual Companions",
+      "support agents",
+      "Brand Ambassadors",
+      "influencers",
+      "Event Hosts"
+    ]
+  },
+  "stageWidget": {
+    "currentPrice": "Current price",
+    "timer": {
+      "title": "Stage 2 ends in",
+      "days": "day",
+      "hours": "hour",
+      "minutes": "min",
+      "seconds": "sec"
+    },
+    "buyButton": "Buy Now"
+  },
+  "marketLeader": {
+    "title": "Giants approve our talent"
+  },
+  "why": {
+    "block1": {
+      "title": "Create and Earn from avatars",
+      "description": "Design, customize, and monetize digital avatars with Antix across various platforms."
+    },
+    "block2": {
+      "title": "True IP ownership with a blockchain",
+      "description": "Your avatars are protected and owned through NFTs, fully tradable and secure."
+    },
+    "block3": {
+      "title": "ANTIX token drives the platform",
+      "description": "Use ANTIX tokens for payments, customization, and rewards, with exclusive discounts."
+    }
+  },
+  "quote": {
+    "title": "That's not an issue that everyone will own their digital twin in upcoming years. The question is how we will manage their rights?",
+    "author": "Alan Kepler"
+  },
+  "statistics": {
+    "showDetails": "Show Details",
+    "hideDetails": "Hide Details",
+    "viewers": {
+      "text": "Antix digital humans: Seen by 100M+ viewers globally across films, marketing, and games."
+    },
+    "costOfProduction": {
+      "text": "Cost of Pre-Antix digital characters: Ultra-realistic digital characters cost $100K-$500K, weeks of production time."
+    },
+    "adoptionRate": {
+      "text": "Adoption in Gaming and VR/AR Industries: 40% of new games and 50% of VR content to feature digital humans by 2025."
+    },
+    "marketGrowth": {
+      "text": "Yearly market growth: $10B in 2023, projected to $30B by 2030, 20% CAGR."
+    },
+    "influencersMarket": {
+      "text": "Virtual influencers market growth: $15B market by 2025, triple the engagement of human."
+    },
+    "costReduction": {
+      "text": "Production cost and time reduction: Antix cuts digital human creation time from weeks to hours, costs down by 90%."
+    },
+    "mobileText": [
+      {
+        "span1": "Antix digital humans:",
+        "description": "Seen by 100M+ viewers globally across films, marketing, and games."
+      },
+      {
+        "description": "Cost of Pre-Antix digital characters: Ultra-realistic digital characters cost $100K-$500K, weeks of production time."
+      },
+      {
+        "span1": "50% adoption in Gaming and VR/AR Industries:",
+        "description": "40% of new games and 50% of VR content to feature digital humans by 2025."
+      },
+      {
+        "span1": "20% yearly market growth:",
+        "description": "$10B in 2023, projected to $30B by 2030, 20% CAGR."
+      },
+      {
+        "span1": "15,000,000,000 virtual influencers market growth:",
+        "description": "$15B market by 2025, triple the engagement of human."
+      },
+      {
+        "span1": "90% production cost and time reduction:",
+        "description": "Antix cuts digital human creation time from weeks to hours, costs down by 90%."
+      }
+    ]
+  },
+  "replacingHumans": {
+    "title": "Antix avatars are replacing humans in",
+    "sourceText": "*Source: Harvard Business Review (2024)",
+    "leftList": [
+      {
+        "title": "Advertisement",
+        "text": "Personalized and dynamic ad campaigns, where brands interact with customers in innovative ways"
+      },
+      {
+        "title": "Fashion and modeling",
+        "text": "AI-driven avatars will transform fashion with customizable, always-available digital models. No more costly shoots or limits—adapt to any style instantly, making fashion faster and more innovative than ever."
+      },
+      {
+        "title": "E-commerce",
+        "text": "Virtual sales assistants and online fitting rooms"
+      },
+      {
+        "title": "Customer Support",
+        "text": "Enhance customer service with AI-powered digital avatars that provide 24/7 assistance, improving response times and customer satisfaction."
+      }
+    ],
+    "rightList": [
+      {
+        "title": "Movie Production",
+        "text": "No more need for actors and shoot days. Customize your characters down to the minute details"
+      },
+      {
+        "title": "Social media",
+        "text": "Boost engagement with automated digital influencers that connect 24/7—proven more effective, popular, and reliable than real influencers*"
+      },
+      {
+        "title": "Education",
+        "text": "Interactive digital teachers and educational programs. Employee training and development"
+      }
+    ]
+  },
+  "about": {
+    "title": "Top influencers about Antix Token",
+    "videos": [
+      {
+        "title": "Beanstock - Crypto & Stocks",
+        "followers": "161K+ followers"
+      },
+      {
+        "title": "Coin Post",
+        "followers": "313K+ followers"
+      },
+      {
+        "title": "Crypto Futuro",
+        "followers": "161K+ followers"
+      },
+      {
+        "title": "Jose HODL",
+        "followers": "313K+ followers"
+      },
+      {
+        "title": "Crypto ZEUS",
+        "followers": "81,2K+ followers"
+      },
+      {
+        "title": "Kripto ShuPak",
+        "followers": "4,03K+ followers"
+      },
+      {
+        "title": "Leo",
+        "followers": "24,6K+ followers"
+      },
+      {
+        "title": "Monsieu Rabbit",
+        "followers": "15,9K+ followers"
+      },
+      {
+        "title": "Foufi",
+        "followers": "12,5K+ followers"
+      },
+      {
+        "title": "Tokenkult",
+        "followers": "43,1K+ followers"
+      },
+      {
+        "title": "Crypto Actu",
+        "followers": "46,1K+ followers"
+      },
+      {
+        "title": "Michal Lewicz",
+        "followers": "18,1K+ followers"
+      },
+      {
+        "title": "Kripto Ofis",
+        "followers": "48,8K+ followers"
+      },
+      {
+        "title": "On The Go Crypto",
+        "followers": "23,4K+ followers"
+      },
+      {
+        "title": "Ben Crypto",
+        "followers": "31,3K+ followers"
+      },
+      {
+        "title": "Soy Vlad Cripto",
+        "followers": "22,7K+ followers"
+      }
+    ]
+  },
+  "amazonSection": {
+    "title": "Amazon of",
+    "highlightedText": "AI digital avatars",
+    "description": "Your digital twin, with all the unique features, belongs to you as a unique NFT, ready to tune, trade or rent."
+  },
+  "antixFeatures": {
+    "title": "Antix features a unique marketplace to",
+    "highlightedText": "buy, rent, or sell",
+    "wordsList": [
+      "digital twins",
+      "skills",
+      "gestures",
+      "clothes",
+      "haircuts",
+      "languages",
+      "accessories",
+      "full outfits",
+      "voices"
+    ]
+  }
+}
