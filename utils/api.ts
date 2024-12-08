@@ -2,7 +2,8 @@ type LoginProps = {
   wallet : string,
   msg    : string,
   sign   : string,
-  refcode: string
+  refcode: string,
+  utms?  : any
 }
 type statusParams = "PENDING" | "SUCCESS" | "ERROR";
 type typeParams   = "DEPOSIT" | "CANCEL" | "BUY" | "CLAIM";

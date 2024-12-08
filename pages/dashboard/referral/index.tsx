@@ -5,6 +5,8 @@ import ConnectWallet from "@/components/ConnectModals/ConnectWallet/ConnectWalle
 import Header from "@/sections/Header/Header";
 import Bg from "/public/images/dashboard-bg.png";
 import dashboardStyles from "../dashboard.module.scss";
+import ClaimStatusModal from './ClaimModal'
+
 
 import { useEffect, useState } from "react";
 import styles from "./page.module.scss";
@@ -188,16 +190,27 @@ const Referral = () => {
                         <div className={styles.availableEarnings}>
                             <div className={styles.availableEarningsTitle}>
                                 <h4>Your available earnings</h4>
-                                <span>Stage 2</span>
+                                <span>Stage 1</span>
                             </div>
                             <Earnings
                                 icon={UsdtBnbIcon}
                                 amount={refStats?.reward?.amount || 0}
                             />
                         </div>
-                        <button onClick={claimReward} className={styles.availableEarningsButton} disabled={claimStatus==='pending'}>
+                        <button onClick={claimReward} className={styles.availableEarningsButton} disabled={claimStatus==='pending' || Number(refStats?.reward?.amount || 0) === 0}>
                             {claimStatus === 'pending' ? 'Confirm TX...' : 'Claim Referral Earnings'}
                         </button>
+
+                        {!!Number(refStats?.reward?.claimed) && <><br />
+                        <div className={styles.availableEarnings}>
+                            <div className={styles.availableEarningsTitle}>
+                                <h4>Total claimed</h4>
+                            </div>
+                            <Earnings
+                                icon={UsdtBnbIcon}
+                                amount={refStats?.reward?.claimed || 0}
+                            />
+                        </div></>}
                     </div>
                     <div className={styles.faq}>
                         <Faq faqItems={referralFaq} />
@@ -208,9 +221,9 @@ const Referral = () => {
                         <div className={styles.topWrapper}>
                             <div className={styles.rightColTitle}>
                                 <h4>Your Referral Earnings</h4>
-                                <span>Deposit / Stage 2</span>
+                                <span>Deposit / Stage 3</span>
                             </div>
-                            <Earnings icon={UsdtBnbIcon} amount={formatFiat(refStats?.stage?.["1"]?.reward)}/>
+                            <Earnings icon={UsdtBnbIcon} amount={formatFiat(refStats?.stage?.["2"]?.reward)}/>
                         </div>
 
                         <div className={styles.refInfo}>
@@ -297,6 +310,9 @@ const Referral = () => {
             overflow: 'hidden'
         }}/>
     </main>
+
+    <ClaimStatusModal txHash={String(claimTxHash)} status={claimStatus} retryFn={claimReward} />
+
     </>
 };
 

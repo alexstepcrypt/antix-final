@@ -1,0 +1,162 @@
+@mixin animate($animation,$duration,$method,$times){
+    animation: $animation $duration $method $times;
+}
+@mixin keyframes($name){
+    @keyframes #{$name}{
+        @content;
+    }
+}
+.modal {
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    background: rgba(87, 87, 87, 0.4);
+    backdrop-filter: blur(5px);
+    padding: 20px 20px 20px 20px;
+
+    width: 400px;
+    min-height: 250px;
+
+    text-align: center;
+    color: #fff;
+
+    &::backdrop {
+        background-color: rgba(15, 15, 15, 0.9);
+    }
+
+    button[data-action="close"] {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: url('./icons/close.svg') no-repeat center;
+        width: 32px;
+        height: 32px;
+    }
+
+    figure {
+        padding: 0;
+        margin: 20px auto;
+        width: 120px;
+        height: 120px;
+    }
+    
+    &[data-status="pending"] {
+        button[data-action="close"] {
+            display: none;
+        }
+        figure {
+            background: url('./icons/pending.svg');
+            @include keyframes(spin){
+                from {
+                    transform:rotate(0deg);
+                }
+                to {
+                    transform:rotate(360deg);
+                }
+            }
+            @include animate(spin, 1.2s, linear, infinite);
+        }
+    }
+    &[data-status="fail"] {
+        figure {
+            background: url('./icons/fail.svg');
+        }
+    }
+    &[data-status="success"], &[data-status="email"] {
+        figure {
+            background: url('./icons/success.svg');
+        }
+    }
+
+    &[data-status="subscribed"] {
+        figure {
+            background: url('./icons/mail-check.svg');
+        }
+    }
+
+    h5 {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    article {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        line-height: 21px;
+        font-weight: 400;
+
+        a {
+            color: #fff;
+            text-decoration: underline;
+        }
+    }
+
+    .successTitle {
+        a {
+            color: #12FFF1;
+            text-decoration: underline;
+        }
+    }
+
+    .successDesc {
+        margin-top: 24px;
+
+        .tgBot {
+            position: relative;
+            top: 5.5px;
+            gap: 2px;
+            margin-top: 2px;
+            display: inline-flex;
+            align-items: center;
+            color: #29A9EA;
+            text-decoration: none;
+    
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    .btn {
+        margin: 30px auto 0 auto;
+        width: 100%;
+        border-radius: 44px;
+        color: rgba(15, 15, 15, 1);
+        background: #fff;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .openTelegram {
+        display: inline-block;
+        width: 100%;
+        margin-top: 12px;
+        padding: 12px 52px 12px 52px;
+    
+        border-radius: 50px;
+        background: linear-gradient(89.59deg, #12fff1 14.83%, #99fff9 85.17%);
+        box-shadow: 0px 0px 29.77px 0px rgba(18, 255, 241, 0.3);
+
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 21px;
+        text-align: center;
+        color: #0F0E14;
+    }
+
+    .openEmailForm {
+        cursor: pointer;
+        text-decoration: underline;
+        display: inline-block;
+        text-align: center;
+        color: #F0F0F066;
+        font-size: 14px;
+        line-height: 21px;
+        font-weight: 400;
+        margin-top: 10px;
+    }
+}
