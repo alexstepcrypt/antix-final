@@ -70,7 +70,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
             </section>
 
             <div className={styles.discount}>
-                <p>-71% to TGE Price</p>
+                <p>-64% to TGE Price</p>
             </div>
         </div>
 
