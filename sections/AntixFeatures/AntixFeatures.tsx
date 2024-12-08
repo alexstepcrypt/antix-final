@@ -4,6 +4,7 @@ import styles from "./AntixFeatures.module.scss";
 
 import Bg from "/public/images/antix-features-bg.png";
 import VerticalCarusel from "../../components/VerticalCarusel/VerticalCarusel";
+import { useTranslation } from "react-i18next";
 
 const words = [
     "digital twins",
@@ -18,6 +19,7 @@ const words = [
 ];
 
 const AntixFeatures = () => {
+    const { t } = useTranslation('landing');
     return (
         <section
             className={styles.wrapper}
@@ -26,10 +28,10 @@ const AntixFeatures = () => {
         >
             <div className={styles.container}>
                 <h4 className={styles.title}>
-                    Antix features a unique marketplace to{" "}
-                    <span>buy, rent, or sell</span>
+                    {t('antixFeatures.title')}{" "}
+                    <span>{t('antixFeatures.highlightedText')}</span>
                 </h4>
-                <VerticalCarusel listOfWords={words} />
+                <VerticalCarusel listOfWords={t('antixFeatures.wordsList', { returnObjects: true })} />
             </div>
         </section>
     );

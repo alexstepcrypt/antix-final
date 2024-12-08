@@ -8,9 +8,11 @@ import styles from "./FeaturedIn.module.scss";
 import { logos } from "./mocdata";
 
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const FeaturedIn: React.FC = () => {
     const swiperRef = useRef<any>(null);
+    const { t } = useTranslation('landing');
     let slidesPerView;
     let windowWidth = typeof window === "undefined" ? 0 : window.innerWidth;
     switch (windowWidth) {
@@ -24,7 +26,7 @@ const FeaturedIn: React.FC = () => {
 
     return (
         <section className={styles.wrapper} id="FeaturedIn">
-            <h4 className={styles.title}>Featured in</h4>
+            <h4 className={styles.title}>{t('featuredIn.title')}</h4>
             <div
                 className={styles.container}
                 onMouseEnter={() => swiperRef.current?.swiper.autoplay.stop()}

@@ -5,11 +5,13 @@ import { gsap } from "gsap";
 import styles from "./MarketLeader.module.scss";
 import { allLogos } from "./data";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const MarketLeader = () => {
     const logoRefs = useRef<HTMLDivElement[]>([]);
     const sectionRef = useRef<HTMLDivElement>(null);
     const hasAnimated = useRef(false);
+    const { t } = useTranslation('landing');
 
     const leftGroup = [0, 1, 3];
     const rightGroup = [2, 4, 5];
@@ -61,7 +63,7 @@ const MarketLeader = () => {
     return (
         <section className={styles.wrapper} id="Partners" ref={sectionRef}>
             <div className={styles.mobileBg} />
-            <h4 className={styles.title}>Giants approve our talent</h4>
+            <h4 className={styles.title}>{t('marketLeader.title')}</h4>
             <div className={styles.container}>
                 {allLogos.map((url, index) => (
                     <div

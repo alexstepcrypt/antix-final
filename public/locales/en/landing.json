@@ -1,15 +1,30 @@
 {
-  "placeholder": {
-    "title": "Access Denied",
-    "subtitle": "We apologize, but this website is not available in your country"
-  },
   "header": {
     "backToMainPage": "Back to the Main Page",
     "claimPopoverText": "Claiming page will be available after the TGE",
     "connectWalletButton": "Connect Wallet",
-    "walletButton": "Wallet",
-    "userButton": "User",
-    "disconnectButton": "Disconnect Wallet"
+    "links": [
+        "Token",
+        "Whitepaper",
+        "Buy Now"
+    ],
+    "linksDashboard": [
+      "Dashboard",
+      "Referral",
+      "Claim"
+    ],
+    "mobileLinks": [
+        "Token",
+        "Whitepaper",
+        "Buy Now",
+        "My Account"
+    ],
+    "mobileLinksDashboard": [
+      "Dashboard",
+      "Claim",
+      "Referral",
+      "Back to the Main Page"
+    ]
   },
   "disConnect": {
     "modalTitle": "Are you sure you want to disconnect your wallet?",
@@ -78,6 +93,9 @@
     "button": "Telegram bot",
     "description": "for stage start alerts or support assistance."
   },
+  "featuredIn": {
+    "title": "Featured in"
+  },
   "platformToReplace": {
     "title": "Build and monetize AI digital characters that",
     "highlightedWord": "replace",
@@ -124,7 +142,7 @@
     }
   },
   "quote": {
-    "title": "That's not an issue that everyone will own their digital twin in upcoming years. The question is how we will manage their rights?",
+    "text": "That's not an issue that everyone will own their digital twin in upcoming years. The question is how we will manage their rights?",
     "author": "Alan Kepler"
   },
   "statistics": {
@@ -419,7 +437,7 @@
     },
     "description": {
       "text_1": "The team has a proven track record of ",
-      "span": "successfully managing business projects.".
+      "span": "successfully managing business projects.",
       "text_2": " They bring significant experience and exceptional knowledge regarding digital humans & Web3 ventures at scale"
     },
     "show_all": "+ Show All",
@@ -480,7 +498,7 @@
         ]
       },
       {
-        "role": "Developed an AAA title".
+        "role": "Developed an AAA title",
         "name": "Dmitri: Chief Technology Officer",
         "description": [
            "A Software Engineer with 15+ years of gamedev experience, having worked at companies like Creat Studios, Trickster Game Studio, Sperasoft, and Mundfish.",

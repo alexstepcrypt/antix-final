@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import s from './StageWidget.module.scss';
+import { useTranslation } from 'react-i18next';
 
 
 export const StageWidget = () => {
@@ -14,6 +15,7 @@ export const StageWidget = () => {
    });
    const [visible, setVisible] = useState(false);
    const lastScrollY = useRef(0);
+   const { t } = useTranslation('landing');
 
    useEffect(() => {
       const updateTimeLeft = () => {
@@ -69,7 +71,7 @@ export const StageWidget = () => {
          <div className={s.stage}>
             <div className={s.info}>
                <div className={s.priceWrapper}>
-                  <h2>Current price</h2>
+                  <h2>{t('stageWidget.currentPrice')}</h2>
                   <div className={s.mobileDiscount}>
                      <p>-71%</p>
                   </div>
@@ -95,26 +97,26 @@ export const StageWidget = () => {
             </div>
 
             <div className={s.timer}>
-               <h2>Stage 2 ends in</h2>
+               <h2>{t('stageWidget.timer.title')}</h2>
                <div className={s.countdown}>
                   <div>
                      <span>{timeLeft.days.toString().padStart(2, '0')}</span>
-                     <p>day</p>
+                     <p>{t('stageWidget.timer.days')}</p>
                   </div>
                   :
                   <div>
                      <span>{timeLeft.hours.toString().padStart(2, '0')}</span>
-                     <p>hour</p>
+                     <p>{t('stageWidget.timer.hours')}</p>
                   </div>
                   :
                   <div>
                      <span>{timeLeft.minutes.toString().padStart(2, '0')}</span>
-                     <p>min</p>
+                     <p>{t('stageWidget.timer.minutes')}</p>
                   </div>
                   :
                   <div>
                      <span>{timeLeft.seconds.toString().padStart(2, '0')}</span>
-                     <p>sec</p>
+                     <p>{t('stageWidget.timer.seconds')}</p>
                   </div>
                </div>
             </div>
@@ -125,7 +127,7 @@ export const StageWidget = () => {
                }}
                className={s.buy}
             >
-               Buy Now
+               {t('stageWidget.buyButton')}
             </button>
          </div>
       </div>
