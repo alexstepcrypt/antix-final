@@ -11,7 +11,7 @@ const AIDriven = () => {
                     src={require("/public/video/ai-driven.webm")}
                     type="video/webm"
                 />
-                Ваш браузер не поддерживает видео.
+                Your browser does not support video.
             </video>
             <div className={styles.textWrapper}>
                 <h3 className={styles.title}><span>AI-Driven</span> Realism</h3>
