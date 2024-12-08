@@ -159,6 +159,10 @@ class Api {
   getUserReferrals():Promise<any>{
     return this.authCall('/profile/referrals')
   }
+  
+  getClaimRewardTx():Promise<any>{
+    return this.authCall('/profile/claim-reward-tx')
+  }
 
   getUserBalances(chainId:number|string):Promise<any>{
     return this.authCall(`/profile/balance/${chainId}/`)
