@@ -1,5 +1,6 @@
 import styles from './ClaimModal.module.scss';
 import { useRef, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useChainId } from 'wagmi';
 
 const explorerUrls: {[key: number]: string} = {
@@ -19,6 +20,8 @@ export default function ClaimStatusModal({ txHash, status, retryFn }: ModalProps
    const dialog:any = useRef(null)
    const [dataStatus, setDataStatus] = useState(status);
 
+   const { t } = useTranslation('dashboard');
+
    useEffect(()=>{
       setDataStatus(status)
    },[status])
@@ -37,17 +40,17 @@ export default function ClaimStatusModal({ txHash, status, retryFn }: ModalProps
 
    const content:any = ({
       pending: {
-         title : 'Waiting for confirmation',
+         title : t('stage.depositModal.pending'),
          desc  : <></>
       },
       fail: {
-         title : 'Error',
-         desc  : <><p>Your transaction has failed. This might be due to the insufficient gas or network congestion.</p>
-            <p style={{ marginTop: 24 }}>Please try again or contact support: <a style={{ color: '#12FFF1' }} href="https://t.me/antixtoken_bot" rel='noopener' target='_blank'>@antixtoken_bot</a></p></>
+         title : t('stage.depositModal.fail.title'),
+         desc  : <><p>{t('stage.depositModal.fail.text_1')}</p>
+            <p style={{ marginTop: 24 }}>{t('stage.depositModal.fail.text_2')}<a style={{ color: '#12FFF1' }} href="https://t.me/antixtoken_bot" rel='noopener' target='_blank'>{t('stage.depositModal.fail.link')}</a></p></>
       },
       success: {
-         title : 'Congrats!',
-         desc  : <p className={styles.successTitle}>You have successfully <a href={txUrl} target='_blank' rel="noopener">claim.</a></p>
+         title : t('stage.depositModal.success.title'),
+         desc  : <p className={styles.successTitle}>{t('stage.referral.claim.successStatus.text')}<a href={txUrl} target='_blank' rel="noopener">{t('stage.referral.claim.successStatus.link')}</a></p>
       }
    } as any)[dataStatus] || {}
 
@@ -64,10 +67,10 @@ export default function ClaimStatusModal({ txHash, status, retryFn }: ModalProps
       {content.title !== '' && <h5>{content.title}</h5>}
       <article>{content.desc}</article>
 
-      {dataStatus ==='fail' && <button style={{ marginTop: 16 }} className={styles.btn} onClick={()=>retryFn()}>Retry</button>}
+      {dataStatus ==='fail' && <button style={{ marginTop: 16 }} className={styles.btn} onClick={()=>retryFn()}>{t('stage.depositModal.fail.retry')}</button>}
 
       {dataStatus === 'success' && (
-         <button style={{ marginTop: 16 }} className={styles.btn} onClick={()=>reloadPage()}>Continue</button>
+         <button style={{ marginTop: 16 }} className={styles.btn} onClick={()=>reloadPage()}>{t('stage.referral.claim.continue')}</button>
       )}
    </dialog>
 }

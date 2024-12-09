@@ -27,6 +27,7 @@ import { DepositErrIcon } from './icons/DepositErrIcon'
 import { GotQuestions } from '@/components/GotQuestions/GotQuestions'
 import DepositStatusModal from './DepositModal/StatusModal'
 import Input from '@/DashboardStages/Stage2/DashboardTop/Input/Input'
+import { useTranslation } from "react-i18next";
 
 
 const tokensByChains:any = {
@@ -53,7 +54,7 @@ const tokensIcons:any = {
 interface IDepositForm {
 }
 
-const errString = "Not enough funds to make the deposit";
+// const errString = "Not enough funds to make the deposit";
 
 const DepositForm: React.FC<IDepositForm> = () => {
     const { chainId } = useConnectWallet();
@@ -66,6 +67,8 @@ const DepositForm: React.FC<IDepositForm> = () => {
     const [error, setError] = useState<string | null>(null);
     const { network } = useNetwork();
     const [receiveValue, setReceiveValue] = useState("0");
+
+    const { t } = useTranslation('dashboard');
 
     const tokens = tokensByChains[chainId || 1]
 
@@ -95,7 +98,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
     }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (balance !== null && +balance < +amount) setError(errString);
+        if (balance !== null && +balance < +amount) setError(t('stage.form.error'));
 
         const decimals = (displayCurrency==='ETH') ? 18 : 6
 
@@ -180,7 +183,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
 
             <span className={styles.divider} />
 
-            <DepositPopover open={openDebit} text="Coming Soon">
+            <DepositPopover open={openDebit} text={t('stage.form.soon')}>
                 <button
                     onClick={() => setOpenDebit((p) => !p)}
                     onBlur={() => setOpenDebit(false)}
@@ -203,13 +206,13 @@ const DepositForm: React.FC<IDepositForm> = () => {
             className={styles.sending}
         >
             <div className={styles.sendingTop}>
-                <span className={styles.sendingTitle}>You send</span>
+                <span className={styles.sendingTitle}>{t('stage.form.send')}</span>
                 <div className={styles.sendingBalance}>
                     <span>
                     <TokenBalance tokenAddress={tokens[displayCurrency]} onChange={setMaxBalance} />
                     </span>
                     <button onClick={handleMax} className={styles.sendingBalanceBtn}>
-                        Max
+                        {t('stage.form.max')}
                     </button>
                 </div>
             </div>
@@ -220,7 +223,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
                     onChange={handleInputChange}
                     className={styles.sendingInput}
                     type="text"
-                    placeholder="Enter amount"
+                    placeholder={t('stage.form.enter')}
                     style={{
                         color:
                             amount === "0"
@@ -241,7 +244,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
         </div>
         <Input
             value={receiveValue}
-            title="ANTIX you receive"
+            title={`ANTIX ${t('stage.form.receive')}`}
             onChangeValue={() => {}}
             icon={TokenIcon}
             price={"$0.05"}
@@ -269,10 +272,8 @@ const DepositForm: React.FC<IDepositForm> = () => {
         <GotQuestions />
 
         <div className={styles.disclaimer}>
-            <span>By clicking "Deposit Now", you confirm that you are not a U.S. citizen
-            or U.S. resident.</span> This investment offer is exclusively intended for
-            non-U.S. persons and is strictly not available to U.S. citizens, U.S.
-            residents, or any entities organized or domiciled in the United States.
+            <span>{t('stage.form.disclaimer.span')}</span>
+            {t('stage.form.disclaimer.text')}
         </div>
     </div>
 };

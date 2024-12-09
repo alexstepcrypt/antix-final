@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import styles from './Timer.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface TimeLeft {
    days: number;
@@ -11,6 +12,8 @@ interface TimeLeft {
 }
 
 export const Timer: React.FC<{ targetDate: Date }> = ({ targetDate }) => {
+   const { t } = useTranslation('dashboard');
+
    const [timeLeft, setTimeLeft] = useState<TimeLeft>({
       days: 0,
       hours: 0,
@@ -44,28 +47,28 @@ export const Timer: React.FC<{ targetDate: Date }> = ({ targetDate }) => {
             <span className={styles.time}>
                {timeLeft.days.toString().padStart(2, '0')}
             </span>
-            <span className={styles.label}>days</span>
+            <span className={styles.label}>{t('stage.timer.days')}</span>
          </div>
          <span className={styles.separator}>:</span>
          <div className={styles.timeSegment}>
             <span className={styles.time}>
                {timeLeft.hours.toString().padStart(2, '0')}
             </span>
-            <span className={styles.label}>hours</span>
+            <span className={styles.label}>{t('stage.timer.hours')}</span>
          </div>
          <span className={styles.separator}>:</span>
          <div className={styles.timeSegment}>
             <span className={styles.time}>
                {timeLeft.minutes.toString().padStart(2, '0')}
             </span>
-            <span className={styles.label}>min</span>
+            <span className={styles.label}>{t('stage.timer.minutes')}</span>
          </div>
          <span className={styles.separator}>:</span>
          <div className={styles.timeSegment}>
             <span className={styles.time}>
                {timeLeft.seconds.toString().padStart(2, '0')}
             </span>
-            <span className={styles.label}>sec</span>
+            <span className={styles.label}>{t('stage.timer.seconds')}</span>
          </div>
       </div>
    );

@@ -1,10 +1,13 @@
+import { useTranslation } from 'react-i18next';
 import s from './GotQuestions.module.scss';
 import { TgIcon } from './icons/TgIcon';
 
 export const GotQuestions = () => {
+   const { t } = useTranslation('dashboard');
+
    return (
       <div className={s.questions}>
-            <p>Got questions?</p>
+            <p>{t('stage.gotQuestions.text')}</p>
             <button
                className={s.btn}
                onClick={() =>
@@ -12,7 +15,7 @@ export const GotQuestions = () => {
                }
             >
                <TgIcon />
-               We're here to help!
+               {t('stage.gotQuestions.text_2')}
             </button>
       </div>
    );

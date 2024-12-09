@@ -4,6 +4,7 @@ import { Dispatch, useRef, useState, SetStateAction } from 'react';
 import Api from '@/utils/api';
 import { DepositErrIcon } from '../icons/DepositErrIcon';
 import { ModalStatus } from './StatusModal';
+import { useTranslation } from 'react-i18next';
 
 interface FormProps {
    setDataStatus: Dispatch<SetStateAction<ModalStatus>>;
@@ -13,6 +14,8 @@ interface FormProps {
 export default function EmailForm({ setDataStatus, dataStatus }: FormProps) {
    const [error, setError] = useState(false);
    const emailRef = useRef<HTMLInputElement>(null);
+
+   const { t } = useTranslation();
 
    function sendEmail() {
       if (emailRef.current?.validity && !emailRef.current?.validity.valid) {
@@ -26,8 +29,7 @@ export default function EmailForm({ setDataStatus, dataStatus }: FormProps) {
    return dataStatus === 'email' &&
       <>
          <p>
-            Enter your email to receive notifications about stage dates, TGE,
-            and unlocks
+            {t('stage.depositModal.email.text')}
          </p>
          <input
             type="email"
@@ -39,11 +41,11 @@ export default function EmailForm({ setDataStatus, dataStatus }: FormProps) {
          {error && (
             <span className={styles.error}>
                <DepositErrIcon />
-               Invalid email format. Please try again
+               {t('stage.depositModal.email.error')}
             </span>
          )}
          <button className={modalStyle.btn} onClick={sendEmail}>
-            Notify me
+            {t('stage.depositModal.email.notify')}
          </button>
       </>
 }

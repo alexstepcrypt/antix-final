@@ -5,7 +5,7 @@
     "whitelisted": "Deposit to get whitelisted for Stage 3",
     "whitelisted_desc": {
       "text_1": "Make a deposit to gain priority access to the ANTIX token sale with ",
-      "span": "-64% to TGE Price.",
+      "span": "-64% to TGE Price",
       "text_2": " Limited availability — act promptly to secure the best conditions."
     },
     "balanceTitle": "Tokens to be received",
@@ -94,7 +94,8 @@
       "amount": "Amount (Currency)",
       "received": "Received",
       "stage": "Stage",
-      "link": "Transaction Link"
+      "link": "Transaction Link",
+      "notify": "There are no transactions yet. Once new operations occur, they will be displayed in this table."
     },
 
     "underDepositInfo": [
@@ -136,11 +137,7 @@
       },
       {
         "title": "More Questions?",
-        "content": {
-          "text_1": "Reach out to us anytime through our ",
-          "link": "Telegram support bot",
-          "text_2": " for additional assistance."
-        }
+        "content": "Reach out to us anytime through our <a href=\"https://t.me/antixtoken_bot\" rel=\"noopener\" target=\"_blank\">Telegram support bot</a> for additional assistance."
       }
     ]
   },
@@ -171,7 +168,7 @@
     "confirmTx": "Confirm TX...",
     "referralEarnings": "Claim Referral Earnings",
     "total": "Total claimed",
-    "stage1": "Stage 1",
+    "stage": "Stage 1",
     "yourEarnings": "Your Referral Earnings",
     "deposit": "Deposit / Stage 3",
     "referrals": "Referrals",

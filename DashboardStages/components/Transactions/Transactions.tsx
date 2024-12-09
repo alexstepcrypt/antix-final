@@ -6,10 +6,12 @@ import s from './Transactions.module.scss';
 import Api from '@/utils/api';
 import { useState, useEffect } from 'react';
 import { useConnectWallet } from '@/hooks/useConnectWallet';
+import { useTranslation } from 'react-i18next';
 
 export const Transactions = () => {
    const { profile } = useConnectWallet()
    const [transactions, setTransactions] = useState<any[]>([])
+   const { t } = useTranslation('dashboard');
 
    useEffect(() => {
       if (!profile) return
@@ -19,7 +21,7 @@ export const Transactions = () => {
    return (
       <section className={s.transactions}>
          <h2 className={s.title}>
-            Transactions
+            {t('stage.transactions.title')}
             <Image
                className={s.mobileSwipe}
                src={'/svg/swap-icon.svg'}
@@ -38,14 +40,14 @@ export const Transactions = () => {
             }}>
             <div className={`${s.wrapper} ${transactions.length > 0 ? '' : s.emptyWrapper}`}>
                <ul className={s.table}>
-                  <li>Date (GMT)</li>
+                  <li>{t('stage.transactions.date')}</li>
 
-                  <li>Type</li>
-                  <li>Amount (Currency)</li>
-                  <li>Received</li>
-                  <li>Stage</li>
+                  <li>{t('stage.transactions.type')}</li>
+                  <li>{t('stage.transactions.amount')}</li>
+                  <li>{t('stage.transactions.received')}</li>
+                  <li>{t('stage.transactions.stage')}</li>
 
-                  <li>Transaction Link</li>
+                  <li>{t('stage.transactions.link')}</li>
                </ul>
 
                {transactions.length > 0 ? (
@@ -57,10 +59,7 @@ export const Transactions = () => {
                   </div>
                ) : (
                   <div className={s.notify}>
-                     <p>
-                        There are no transactions yet. Once new operations
-                        occur, they will be displayed in this table.
-                     </p>
+                     <p> {t('stage.transactions.notify')} </p>
                   </div>
                )}
             </div>
