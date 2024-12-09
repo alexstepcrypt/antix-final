@@ -27,44 +27,6 @@ import { useConnectWallet } from '@/hooks/useConnectWallet';
 import api from '@/utils/api';
 import { useEffect, useState } from 'react';
 
-// DEPOSIT WRAPPER CONTENT AT 19:00
-/*
-<div className={styles.headTitle}>
-                    <h2>Stage 1 is about to start!</h2>
-                </div>
-
-                <RaisedProgressBar
-                    segments={17}
-                    currentAmount={14500000}
-                    targetAmount={17000000}
-                    color="#12fff1"
-                    title="Tokens sold:"
-                />
-
-                <div className={styles.timer}>
-                    <h5 className={styles.timerTitle}>
-                        Stage 1 is coming in
-                    </h5>
-                    <Timer targetDate={new Date("2024-11-28T16:00:00.000Z")} />
-                </div>
-
-                <p className={styles.tg}>
-                    Activate{' '}
-                    <span onClick={() =>  window.open("https://t.me/antixtoken_bot", "_blank")}>
-                        <TgIcon />
-                        Telegram bot
-                    </span>{' '}
-                    to get notified about stage start
-                </p>
-
-                <button
-                    className={styles.tgBtn}
-                    onClick={() => window.open("https://t.me/antixtoken_bot", "_blank")}
-                >
-                    Notify Me
-                </button>
-*/
-
 const underDepositInfo = [
     {
         title: "Listing price",
@@ -117,17 +79,15 @@ const DashboardTop = () => {
             <Steps
                 style={{ margin: "10px 0 30px 0", width: "100%" }}
                 stages={stage1Steps}
-                // 19:15
-                // stages={stage2Steps}
             />
             <div className={styles.leftCol}>
                 <div className={styles.info}>
                     <h5 className={styles.infoTitle}>
-                        Deposit to get whitelisted for Stage 2
+                        Deposit to get whitelisted for Stage 3
                     </h5>
                     <p className={styles.infoText}>
                         Make a deposit to gain priority access to the ANTIX token sale with{" "}
-                        <span>-71% to TGE Price.</span>{" "}
+                        <span>-64% to TGE Price.</span>{" "}
                         Limited availability — act promptly to secure the best conditions.
                     </p>
                 </div>
@@ -149,7 +109,7 @@ const DashboardTop = () => {
                     </div>
                 </DashboardCard>
 
-                {Number(balances.usdc) !== 0 || Number(balances.usdt) !== 0 ? (
+                {Number(balances.usdc) === 0 || Number(balances.usdt) !== 0 ? (
                     <DashboardCard style={{ width: "100%" }}>
                         <div className={styles.balanceTitleWrapper}>
                             <h3 className={styles.balanceTitle}>Deposit Balance</h3>
@@ -198,18 +158,18 @@ const DashboardTop = () => {
                 <div className={styles.headTitle}>
                     {/* <h2>Get early access to Stage 2</h2> */}
 
-                    <h2>Stage 2</h2>
+                    <h2>Stage 3</h2>
                     <div className={styles.discount}>
-                        <p>-71% to TGE Price</p>
+                        <p>-64% to TGE Price</p>
                     </div>
                 </div>
 
 
                 <div className={styles.timer}>
                     <h5 className={styles.timerTitle}>
-                        Stage 2 ends in
+                        Stage 3 ends in
                     </h5>
-                    <Timer targetDate={new Date("2024-12-17T17:00:00Z")} />
+                    <Timer targetDate={new Date("2024-12-22T17:00:00Z")} />
                 </div> 
 
                 {/* <div className={styles.stagePrice}>
@@ -226,7 +186,7 @@ const DashboardTop = () => {
                 <div className={styles.stagePrice}>
                     <div className={styles.stage1Sold}>
                         <h5>Current Price</h5>
-                        <h4>0.04 USD</h4>
+                        <h4>0.05 USD</h4>
                     </div>
                     <div className={styles.depositPriceWrapper}>
                         <h4>Listing(TGE) Price</h4>
@@ -234,11 +194,11 @@ const DashboardTop = () => {
                     </div>
                 </div>
                 <RaisedProgressBar
-                    segments={17}
+                    segments={20}
                     currentAmount={tokens.current}
                     targetAmount={tokens.target}
                     color="#12fff1"
-                    title="Tokens sold:"
+                    title="USDT Collected:"
                 />
 
                 {/* STAGE 1*/}

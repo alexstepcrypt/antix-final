@@ -1,0 +1,127 @@
+.container {
+  margin-top: 24px;
+  padding: 28px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  background: #141415;
+  border-radius: 12px;
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    color: #575757;
+    padding: 0 15px 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+
+    list-style-type: none;
+
+    li {
+      width: 100%;
+
+      &:nth-child(2) {
+        width: 80%;
+      }
+      &:nth-child(3) {
+        width: 130%;
+      }
+      &:nth-child(4) {
+        width: 130%;
+      }
+      &:nth-child(5) {
+        width: 80%;
+      }
+      &:last-child {
+        text-align: right;
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      width: 1200px;
+    }
+    @media (max-width: 680px) {
+      width: 1100px;
+    }
+    @media (max-width: 480px) {
+      width: 1000px;
+    }
+  }
+
+  .bodyItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #f0f0f0;
+    list-style: none;
+    padding: 13px 15px;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+    // gap: 60px;
+
+    .item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &:nth-child(1) {
+        color: #12fff1;
+      }
+      &:nth-child(2) {
+        width: 80%;
+      }
+      &:nth-child(3) {
+        width: 130%;
+      }
+      &:nth-child(4) {
+        width: 130%;
+      }
+      &:nth-child(5) {
+        width: 80%;
+      }
+      &:last-child {
+        text-align: right;
+        justify-content: flex-end;
+        width: 90%;
+      }
+
+      button {
+        border-radius: 70px;
+        background: #f0f0f0;
+        box-shadow: 0px 0px 16px 0px rgba(255, 255, 255, 0.2);
+        padding: 8px 27px;
+        text-align: center;
+      }
+    }
+
+    .address {
+      text-decoration: underline;
+      color: #12fff1;
+    }
+
+    @media (max-width: 1100px) {
+      width: 1200px;
+    }
+    @media (max-width: 680px) {
+      width: 1100px;
+    }
+    @media (max-width: 480px) {
+      width: 1000px;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    overflow-x: auto;
+  }
+}

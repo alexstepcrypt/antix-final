@@ -17,7 +17,7 @@ import { firstList, popoverList, secondList, thirdList } from '../../constants/l
 import { DashboardCard } from '../../components/Card/Card'
 import { stage2Steps } from "../../constants/steps";
 
-const ANTIX_RATE = 0.01;
+const ANTIX_RATE = 0.05;
 
 const DashboardTopStage2 = () => {
     const [payValue, setPayValue] = useState("0");
@@ -176,7 +176,7 @@ const DashboardTopStage2 = () => {
                         onChangeValue={handleReceiveValueChange}
                         title="ANTIX you receive"
                         icon={TokenIcon}
-                        price={"$0.09"}
+                        price={"$0.05"}
                         style={{
                             background: 'unset',
                             border: '1px solid rgba(255, 255, 255, .1)',

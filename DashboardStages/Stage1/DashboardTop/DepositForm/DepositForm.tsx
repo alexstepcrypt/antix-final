@@ -110,7 +110,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
         if (parts[1]?.length > decimals) {
             cleanedValue = Number(cleanedValue).toFixed(decimals)
         }
-        const rate = tokensRates[chainId || 1]?.[tokens[displayCurrency]] || 0.04
+        const rate = tokensRates[chainId || 1]?.[tokens[displayCurrency]] || 0.05
         const updatedReceiveValue = (parseFloat(cleanedValue === "" ? "0" : cleanedValue) / rate).toFixed(0);
 
         setReceiveValue(updatedReceiveValue);
@@ -244,7 +244,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
             title="ANTIX you receive"
             onChangeValue={() => {}}
             icon={TokenIcon}
-            price={"$0.04"}
+            price={"$0.05"}
             style={{
                 background: 'unset',
                 border: '1px solid rgba(255, 255, 255, .1)',
@@ -269,7 +269,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
         <GotQuestions />
 
         <div className={styles.disclaimer}>
-            <span>By clicking "Deposit Now," you confirm that you are not a U.S. citizen
+            <span>By clicking "Deposit Now", you confirm that you are not a U.S. citizen
             or U.S. resident.</span> This investment offer is exclusively intended for
             non-U.S. persons and is strictly not available to U.S. citizens, U.S.
             residents, or any entities organized or domiciled in the United States.

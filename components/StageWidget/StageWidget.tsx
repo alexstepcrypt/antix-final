@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 
 export const StageWidget = () => {
-   const targetDate = new Date('2024-12-17T17:00:00Z');
+   const targetDate = new Date('2024-12-22T17:00:00Z');
    const [timeLeft, setTimeLeft] = useState({
       days: 0,
       hours: 0,
@@ -73,12 +73,12 @@ export const StageWidget = () => {
                <div className={s.priceWrapper}>
                   <h2>{t('stageWidget.currentPrice')}</h2>
                   <div className={s.mobileDiscount}>
-                     <p>-71%</p>
+                     <p>-64%</p>
                   </div>
                </div>
                <div className={s.wrap}>
                   <div className={s.prices}>
-                     <p>0.04 USDT</p>
+                     <p>0.05 USDT</p>
                      {/* <Image
                         src={'/svg/prev-price.svg'}
                         alt="prev-price"
@@ -91,7 +91,7 @@ export const StageWidget = () => {
                      <span className={s.prevPrice}>0.14 USDT</span>
                   </div>
                   <div className={s.discount}>
-                     <p>-71%</p>
+                     <p>-64%</p>
                   </div>
                </div>
             </div>

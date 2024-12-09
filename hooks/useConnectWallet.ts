@@ -106,11 +106,17 @@ export const useConnectWallet = function (): {
 
 	useEffect(() => {
 		if (!signMessageData || !address || !variables?.message) return
+		let utms = {}
+		try {
+			utms = JSON.parse(localStorage.utms)
+		} catch {}
+
         Api.login({
             wallet  : address, 
             msg     : String(variables.message), 
             sign    : signMessageData,
-            refcode : localStorage.refcode
+            refcode : localStorage.refcode,
+			utms    : utms
         }).then((profileInfo:any)=>{
 			if (profileInfo.error) {
 				console.log('Auth error', profileInfo.error)
