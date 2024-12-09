@@ -12,7 +12,7 @@ const JoinUs = () => {
                     src={require("/public/video/join-us-video.webm")}
                     type="video/webm"
                 />
-                Ваш браузер не поддерживает видео.
+                Your browser does not support video.
             </video>
             <div className={styles.content}>
                 <h4 className={styles.title}>Join Us on Our Journey</h4>

@@ -9,7 +9,7 @@ const ExclusiveOffer = () => {
         <section className={styles.container}>
             <div className={styles.content}>
                 <div className={styles.left}>
-                    <h3 className={styles.title}>Join Stage 1</h3>
+                    <h3 className={styles.title}>Join Stage 2</h3>
                     <p className={styles.desc}>
                         Make deposit to secure the best price
                     </p>

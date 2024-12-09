@@ -1,3 +1,211 @@
 {
-  "dashboard": "dashboard"
+  "stage": {
+    "dashboard": "Dashboard",
+    "steps": ["Confirmation", "Transaction (Deposits)", "Success"],
+    "whitelisted": "Deposit to get whitelisted for Stage 3",
+    "whitelisted_desc": {
+      "text_1": "Make a deposit to gain priority access to the ANTIX token sale with ",
+      "span": "-64% to TGE Price.",
+      "text_2": " Limited availability — act promptly to secure the best conditions."
+    },
+    "balanceTitle": "Tokens to be received",
+    "vested": {
+      "bold": "Vested Antix (vANTIX) ",
+      "text": "tokens will be converted to ANTIX tokens according to the unlock and vesting schedule."
+    },
+    "depositBalance": "Deposit Balance",
+    "title": "Stage 3",
+    "referralBonus": "Referral Bonus",
+    "timer": {
+      "title": "Stage 3 ends in",
+      "days": "days",
+      "hours": "hours",
+      "minutes": "min",
+      "seconds": "sec"
+    },
+    "currentPrice": "Current Price",
+    "listing": "Listing(TGE) Price",
+    "progressTitle": "USDT Collected:",
+    
+    "gotQuestions": {
+      "text": "Got questions?",
+      "text_2": "We're here to help!"
+    },
+
+    "depositBtn": {
+      "process": "Processing...",
+      "deposit": "Deposit Now",
+      "switch": "Switch Network",
+      "connect": "Connect wallet",
+      "enter": "Enter amount",
+      "tx": "Please confirm TX...",
+      "approve": "Approve Deposit"
+    },
+
+    "form": {
+      "soon": "Coming Soon",
+      "send": "You send",
+      "max": "Max",
+      "enter": "Enter amount",
+      "error": "Not enough funds to make the deposit",
+      "receive": "you receive",
+      "disclaimer": {
+        "span": "By clicking \"Deposit Now\", you confirm that you are not a U.S. citizen or U.S. resident.",
+        "text": " This investment offer is exclusively intended for non-U.S. persons and is strictly not available to U.S. citizens, U.S. residents, or any entities organized or domiciled in the United States."
+      }
+    },
+
+    "depositModal": {
+      "pending": "Waiting for confirmation",
+      "fail": {
+        "title": "Error",
+        "text_1": "Your transaction has failed. This might be due to the insufficient gas or network congestion.",
+        "text_2": "Please try again or contact support: ",
+        "link": "@antixtoken_bot",
+        "retry": "Retry"
+      },
+      "success": {
+        "title": "Congrats!",
+        "text_2": "You have successfully made a ",
+        "link_1": "deposit.",
+        "text_3": "Subscribe to our ",
+        "link_2": "Telegram Bot",
+        "text_4": " to get Notified about the Token Sale Stages, TGE date, and token distribution",
+        "link_3": "Open Telegram",
+        "subscribe": "Or subscribe via email"
+      },
+      "email": {
+        "text": "Enter your email to receive notifications about stage dates, TGE, and unlocks",
+        "error": "Invalid email format. Please try again",
+        "notify": "Notify Me"
+      },
+      "subscribed": "Thank you! Your email has been successfully registered. You'll now receive updates and notifications."
+    },
+
+    "connectWallet": {
+      "title": "Connect wallet to access token sale",
+      "btn": "Connect Wallet"
+    },
+
+    "transactions": {
+      "title": "Transactions",
+      "date": "Date (GMT)",
+      "type": "Type",
+      "amount": "Amount (Currency)",
+      "received": "Received",
+      "stage": "Stage",
+      "link": "Transaction Link"
+    },
+
+    "underDepositInfo": [
+      {
+        "title": "Listing price",
+        "value": "0.14 USD"
+      },
+      {
+        "title": "Initial unlock",
+        "value": "7%"
+      },
+      {
+        "title": "LockUp period",
+        "value": "6 months"
+      },
+      {
+        "title": "Vesting period",
+        "value": "14 months"
+      },
+      {
+        "title": "Claim interval",
+        "value": "1 month"
+      }
+    ],
+
+
+    "faq": [
+      {
+        "title": "What is a Deposit?",
+        "content": "A deposit secures your place in Stage 1 of the token sale, giving you access to ANTIX tokens at the best price. Tokens are limited in this stage and offered on a first-come, first-served basis."
+      },
+      {
+        "title": "When Can I Purchase Tokens?",
+        "content": "Token purchases will open at the start of Stage 1. Refer to the timer on the main page and dashboard, and set a reminder with our Telegram bot to ensure you don’t miss out."
+      },
+      {
+        "title": "When Will I Receive My Tokens?",
+        "content": "ANTIX tokens have a lock-up and vesting schedule to manage supply pressure. Initial unlocks of 5-10% (depending on purchase stage) will occur at the Token Generation Event (TGE)."
+      },
+      {
+        "title": "More Questions?",
+        "content": {
+          "text_1": "Reach out to us anytime through our ",
+          "link": "Telegram support bot",
+          "text_2": " for additional assistance."
+        }
+      }
+    ]
+  },
+  "referral": {
+    "claim": {
+      "successStatus": {
+        "text": "You have successfully ",
+        "link": "claim."
+      },
+      "continue": "Continue"
+    },
+
+    "title": "Referral",
+    "active": "Active",
+    "inactive": "Inactive",
+    "promote": {
+      "title": "Thank уоu for choosing to promote Antix!",
+      "line_1": "Earn up to 10% USDT (BNB Chain) rewards via your referral link!",
+      "line_2": "Payouts start after Stage 2 ends."
+    },
+    "invite": "Invite Your Friend and Earn Rewards",
+    "generate": "Generate Code",
+    "copy": {
+      "is": "Copied",
+      "to": "Copy Link"
+    },
+    "earnings": "Your available earnings",
+    "confirmTx": "Confirm TX...",
+    "referralEarnings": "Claim Referral Earnings",
+    "total": "Total claimed",
+    "stage1": "Stage 1",
+    "yourEarnings": "Your Referral Earnings",
+    "deposit": "Deposit / Stage 3",
+    "referrals": "Referrals",
+    "connected": "Users who connected their crypto wallet via your link.",
+    "referralVested": "Vested Antix tokens purchased using your referral link.",
+    "disclaimer": "Rewards will be available after the current stage is finished. The next payout will happen once Stage 2 ends.",
+    "faq": [
+      {
+        "title": "How does the referral program work?",
+        "content": "The referral program allows you to earn bonuses for inviting new users. To participate, generate your unique referral code in your account and share it with a friend. Once your friend visits the website, connects their wallet, and makes a purchase, both of you will receive rewards."
+      },
+      {
+        "title": "How do I refer a friend?",
+        "content": "You can refer a friend by sharing your unique referral link, which is available in your Antix account (referral). When your friend connects their wallet and completes a purchase, you will receive 10% of their purchase amount as a reward, and your friend will get a 5% bonus in tokens."
+      },
+      {
+        "title": "Is there a limit to the rewards I can earn?",
+        "content": "There may be limits based on the referral program’s terms, and since only a limited number of tokens are allocated for the sale, restrictions on rewards may apply. However, users are encouraged to invite as many friends as possible to maximize their benefits."
+      },
+      {
+        "title": "When will I receive my referral rewards?",
+        "content": "The 10% reward for the referrer can be claimed after the stage in which it was earned ends, while the 5% bonus tokens for the referred user will be credited after the TGE (Token Generation Event)."
+      }
+    ],
+    "history": {
+      "title": "History",
+      "type": "Type",
+      "refamount": "Referrals amount",
+      "amount": "Amount",
+      "earnings": "Referral earnings",
+      "status": "Status",
+      "link": "Transaction Link",
+      "claim": "Claim",
+      "view": "View Transaction"
+    }
+  }
 }

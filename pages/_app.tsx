@@ -30,6 +30,13 @@ export default function App({Component, pageProps: { session, ...pageProps }}: A
 		if (!refcode || typeof window === 'undefined') return
 		if (localStorage.refcode) return
 		localStorage.refcode = refcode
+
+		const utms = Object.fromEntries(Object.keys(query)
+			.filter(k=>k.startsWith('utm_'))
+			.map(key=>[key,query[key]]))
+
+		localStorage.utms = JSON.stringify(utms)
+
 	}, [query])
 
 

@@ -2,7 +2,8 @@ type LoginProps = {
   wallet : string,
   msg    : string,
   sign   : string,
-  refcode: string
+  refcode: string,
+  utms?  : any
 }
 type statusParams = "PENDING" | "SUCCESS" | "ERROR";
 type typeParams   = "DEPOSIT" | "CANCEL" | "BUY" | "CLAIM";
@@ -95,11 +96,22 @@ class Api {
   async receiveTokens() {
     try {
         const [ethRes, bscRes] = await Promise.all([this.stagesInfo(1), this.stagesInfo(56)])
+
+        const targetInUSD = ethRes.stages.reduce((a: any, i: any) => {
+          return a + (i.cap * i.prices[0]);
+        }, 0)
+        const soldEth = ethRes.stages.reduce((a: any, stage: any, index:number) => {
+          return a + (stage.sold * ethRes.stages[index].prices[0]);
+        }, 0)
+        const soldBsc = bscRes.stages.reduce((a: any, stage: any, index:number) => {
+          return a + (stage.sold * ethRes.stages[index].prices[0]);
+        }, 0)
+        const sold = soldEth+soldBsc
+
+
         return {
-            current : Math.ceil(ethRes.sold + bscRes.sold),
-            target  : ethRes.stages.reduce((a: any, i: any) => {
-                return a + i.cap;
-            }, 0)
+            current : Math.ceil(sold),
+            target  : Math.ceil(targetInUSD)
         };
     } catch (e) { console.log(e) }
   }
@@ -147,6 +159,10 @@ class Api {
 
   getUserReferrals():Promise<any>{
     return this.authCall('/profile/referrals')
+  }
+  
+  getClaimRewardTx():Promise<any>{
+    return this.authCall('/profile/claim-reward-tx')
   }
 
   getUserBalances(chainId:number|string):Promise<any>{

@@ -1,15 +1,28 @@
 .progressBarContainer {
-    p {
-        font-size: 14px;
+    .title {
+        font-size: 12.5px;
         font-weight: 500;
-        line-height: 18px;
+        line-height: 16px;
         letter-spacing: -0.01em;
         color: rgba(255, 255, 255, 0.6);
+    }
+
+    .amounts {
+        font-size: 14px;
+        display: inline;
+        line-height: 18px;
+        color: #FFFFFF;
+        font-weight: 700;
 
         span {
-            color: #FFFFFF;
-            font-weight: 700;
+            color: #12fff1;
+            filter: drop-shadow(0 0 18px #12fff1);
         }
+    }
+
+    span {
+        color: #FFFFFF;
+        font-weight: 700;
     }
 }
 

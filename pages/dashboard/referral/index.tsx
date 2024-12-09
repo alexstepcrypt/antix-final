@@ -5,6 +5,8 @@ import ConnectWallet from "@/components/ConnectModals/ConnectWallet/ConnectWalle
 import Header from "@/sections/Header/Header";
 import Bg from "/public/images/dashboard-bg.png";
 import dashboardStyles from "../dashboard.module.scss";
+import ClaimStatusModal from './ClaimModal'
+
 
 import { useEffect, useState } from "react";
 import styles from "./page.module.scss";
@@ -22,11 +24,14 @@ import ReffIcon from "/public/dashboard/svg/refferals-icon.png";
 // import WalletIcon from "/public/svg/white-wallet-icon.svg";
 import Faq from "@/components/Faq/Faq";
 import { useConnectWallet } from '@/hooks/useConnectWallet'
+import { useClaimReward } from '@/hooks/useClaimReward'
 import { formatAddress, formatFiat } from "@/utils/utils";
 import CurrencyButton from "@/DashboardStages/components/CurrencyButton/CurrencyButton";
 import Api from '@/utils/api'
 import { BalanceItem } from '@/DashboardStages/Stage1/DashboardTop/BalanceItem/BalanceItem';
 import { useUserDepositedBalance } from '@/hooks/useUserDepositedBalance';
+import Earnings from '@/components/Earnings/Earnings';
+import RefHistory from '@/components/RefHistory/RefHistory';
 const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false });
 
 
@@ -57,8 +62,17 @@ const Referral = () => {
     const [isGenerated, setIsGenerated] = useState(false);
     const [isCopied, setIsCopied] = useState(false);
     const [refCode, setRefCode] = useState("YOURCODE");
-    const { account, profile, chainId } = useConnectWallet();
-    const { balances } = useUserDepositedBalance();
+    const { profile, chainId } = useConnectWallet();
+
+    const { claimTxHash, status: claimStatus, claimError, makeClaim } = useClaimReward()
+    function claimReward(){
+        makeClaim()
+    }
+    useEffect(()=>{
+        if (claimStatus === 'success') {
+            window.location.reload()
+        }
+    },[claimStatus])
 
     const handleGenerateReferralLink = async () => {
         const refcode = await Api.getUserRefcode()
@@ -109,6 +123,7 @@ const Referral = () => {
         return () => clearTimeout(fetchReferralsTimeout)
     }, [profile, chainId])
 
+
     return <>
         <main
             className={dashboardStyles.page}
@@ -133,7 +148,7 @@ const Referral = () => {
                         <h3>Thank уоu for choosing to promote Antix!</h3>
                         <p>
                             Earn up to 10% USDT (BNB Chain) rewards via your referral link!<br />
-                            Payouts start after Stage 1 ends.
+                            Payouts start after Stage 2 ends.
                         </p>
                     </div>
                     <div
@@ -171,6 +186,32 @@ const Referral = () => {
                             )}
                         </div>
                     </div>
+                    <div className={styles.infoWrapper} >
+                        <div className={styles.availableEarnings}>
+                            <div className={styles.availableEarningsTitle}>
+                                <h4>Your available earnings</h4>
+                                <span>Stage 1</span>
+                            </div>
+                            <Earnings
+                                icon={UsdtBnbIcon}
+                                amount={refStats?.reward?.amount || 0}
+                            />
+                        </div>
+                        <button onClick={claimReward} className={styles.availableEarningsButton} disabled={claimStatus==='pending' || Number(refStats?.reward?.amount || 0) === 0}>
+                            {claimStatus === 'pending' ? 'Confirm TX...' : 'Claim Referral Earnings'}
+                        </button>
+
+                        {!!Number(refStats?.reward?.claimed) && <><br />
+                        <div className={styles.availableEarnings}>
+                            <div className={styles.availableEarningsTitle}>
+                                <h4>Total claimed</h4>
+                            </div>
+                            <Earnings
+                                icon={UsdtBnbIcon}
+                                amount={refStats?.reward?.claimed || 0}
+                            />
+                        </div></>}
+                    </div>
                     <div className={styles.faq}>
                         <Faq faqItems={referralFaq} />
                     </div>
@@ -180,18 +221,9 @@ const Referral = () => {
                         <div className={styles.topWrapper}>
                             <div className={styles.rightColTitle}>
                                 <h4>Your Referral Earnings</h4>
-                                <span>Deposit / Stage 1</span>
+                                <span>Deposit / Stage 3</span>
                             </div>
-                            <div className={styles.refEarnings}>
-                                <span className={styles.earnings}>{formatFiat(refStats?.stage?.["1"]?.reward)}</span>
-                                <Image
-                                    src={UsdtBnbIcon}
-                                    alt="UsdtBnb"
-                                    width={24}
-                                    height={24}
-                                />
-                                <p className={styles.refEarningsCurr}>USDT</p>
-                            </div>
+                            <Earnings icon={UsdtBnbIcon} amount={formatFiat(refStats?.stage?.["2"]?.reward)}/>
                         </div>
 
                         <div className={styles.refInfo}>
@@ -232,7 +264,7 @@ const Referral = () => {
                         </button>
 
                         <div className={styles.disclaimer}>
-                            Rewards will be available after the current stage is finished. The next payout will happen once Stage #1 ends.
+                            Rewards will be available after the current stage is finished. The next payout will happen once Stage 2 ends.
                         </div>
 
                         <div className={styles.balancesWrapper}>
@@ -265,12 +297,12 @@ const Referral = () => {
                 </div>
             </div>
 
-            {/* <div className={styles.refWrapper}>
-                <h3 className={styles.refTitle}>My Referrals</h3>
-                <div className={styles.refContainer}>
-                    <div className={styles.refMessage}>You don't have any referrals yet</div>
+            <div className={styles.historyWrapper}>
+                <h3 className={styles.historyTitle}>History</h3>
+                <RefHistory />
+                <div className={styles.historyContainer}>
                 </div>
-            </div> */}
+            </div>
         </section>
         <Footer style={{
             margin: '100px 16px 16px',
@@ -278,6 +310,9 @@ const Referral = () => {
             overflow: 'hidden'
         }}/>
     </main>
+
+    <ClaimStatusModal txHash={String(claimTxHash)} status={claimStatus} retryFn={claimReward} />
+
     </>
 };
 
