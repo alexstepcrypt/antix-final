@@ -10,6 +10,7 @@ import Avatar1 from "/public/images/quote/quote-1.png";
 import Avatar2 from "/public/images/quote/quote-2.png";
 import Avatar3 from "/public/images/quote/quote-3.png";
 import Avatar4 from "/public/images/quote/quote-4.png";
+import { useTranslation } from "react-i18next";
 
 const authors = [
     {
@@ -33,6 +34,7 @@ const authors = [
 const Quote = () => {
     const [currentAuthorIndex, setCurrentAuthorIndex] = useState(0);
     const [fadeIn, setFadeIn] = useState(true);
+    const { t } = useTranslation('landing');
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -59,11 +61,9 @@ const Quote = () => {
                     <Image src={Dots} alt="" />
                     <div>
                         <p className={styles.quoteText}>
-                            Thats not an issue that everyone will own their digital
-                            twin in upcoming years. The question is how we will
-                            manage their rights?
+                            {t('quote.text')}
                         </p>
-                        <span className={styles.quoteAuthor}>Alan Kepler</span>
+                        <span className={styles.quoteAuthor}>{t('quote.author')}</span>
                     </div>
                 </div>
                 <div

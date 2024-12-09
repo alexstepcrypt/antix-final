@@ -11,14 +11,22 @@ import Arrow from '@/public/svg/top-arrow.svg';
 import { videos } from './data';
 import AboutSlide from '@/components/AboutSlide/AboutSlide';
 import VideoModal from '@/components/VideoModal/VideoModal';
+import { useTranslation } from 'react-i18next';
+
+type dropDownItemType = {
+  title:string;
+  followers:string
+} 
 
 const About = () => {
   const [openVideo, setOpenVideo] = useState('');
+  const { t } = useTranslation('landing');
+  const videosText = t('about.videos', { returnObjects: true }) as Array<dropDownItemType>;
 
   return (
     <section className={styles.about}>
       {openVideo && <VideoModal videoUrl={openVideo} onClose={setOpenVideo} />}
-      <h3 className={styles.aboutTitle}>Top influencers about Antix Token</h3>
+      <h3 className={styles.aboutTitle}>{t('about.title')}</h3>
       <div className={styles.aboutSlider}>
         <Swiper
           spaceBetween={32}
@@ -35,7 +43,7 @@ const About = () => {
               className={styles.slideWrapper}
               key={`${slide.title}-${index}`}
             >
-              <AboutSlide setOpenVideo={setOpenVideo} {...slide} />
+              <AboutSlide setOpenVideo={setOpenVideo} {...slide} title={videosText[index].title} followers={videosText[index].followers} />
             </SwiperSlide>
           ))}
         </Swiper>

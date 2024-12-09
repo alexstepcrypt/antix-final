@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./Amazon.module.scss";
 import Img from "/public/images/amazon.png";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const Amazon = () => {
+    const { t } = useTranslation('landing');
     return (
         <section className={styles.container}>
             <div className={styles.imgContainer}>
@@ -12,13 +14,10 @@ const Amazon = () => {
             <div className={styles.mobileBg} />
             <div className={styles.textWrapper}>
                 <h3 className={styles.title}>
-                    Amazon of
-                    <span>AI digital avatars</span>
+                    {t('amazonSection.title')}
+                    <span>{t('amazonSection.highlightedText')}</span>
                 </h3>
-                <p className={styles.desc}>
-                    Your digital twin, with all the unique features, belongs to
-                    you as a unique NFT, ready to tune, trade or rent.
-                </p>
+                <p className={styles.desc}>{t('amazonSection.description')}</p>
             </div>
         </section>
     );
