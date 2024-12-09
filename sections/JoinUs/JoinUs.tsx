@@ -3,8 +3,11 @@
 import React from "react";
 import styles from "./JoinUs.module.scss";
 import JoinUsCard from "../../components/JoinUsCard/JoinUsCard";
+import { useTranslation } from "react-i18next";
 
 const JoinUs = () => {
+    const { t } = useTranslation('landing');
+
     return (
         <section className={styles.container} id="JoinUs">
             <video className={styles.backgroundVideo} autoPlay loop muted playsInline>
@@ -12,10 +15,10 @@ const JoinUs = () => {
                     src={require("/public/video/join-us-video.webm")}
                     type="video/webm"
                 />
-                Ваш браузер не поддерживает видео.
+                {t('joinUs.videoError')}
             </video>
             <div className={styles.content}>
-                <h4 className={styles.title}>Join Us on Our Journey</h4>
+                <h4 className={styles.title}>{t('joinUs.title')}</h4>
                 <div className={styles.cardsContainer}>
                     <JoinUsCard
                         platform="x"

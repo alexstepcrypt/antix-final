@@ -424,16 +424,14 @@
     ]
   },
   "tokenomics": {
-    "title": "Tokenomics",
-    "innerChart": {
-      "span": "1,000,000,000",
-      "text": "ANTIX"
-    }
+    "title": "Tokenomics"
   },
   "team": {
     "mobile": {
       "button_1": "Team",
-      "button_2": "Advisors"
+      "button_2": "Advisors",
+      "button_show-less": "Show Less",
+      "button_show-all": "Show All"
     },
     "description": {
       "text_1": "The team has a proven track record of ",

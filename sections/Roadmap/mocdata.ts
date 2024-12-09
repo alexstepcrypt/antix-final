@@ -1,4 +1,18 @@
-export const roadmapList = [
+export interface RoadmapList {
+   title: string;
+   description: string[];
+   isDone: boolean;
+}
+
+export interface RoadmapStageProps {
+   stage: string | null;
+   isCurrent: boolean;
+   year: string;
+   event: string;
+   list: RoadmapList[];
+}
+
+export const roadmapList: RoadmapStageProps[] = [
    {
       stage: null,
       isCurrent: false,

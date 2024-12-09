@@ -2,8 +2,10 @@
 
 import React from "react";
 import styles from "./AIDriven.module.scss";
+import { useTranslation } from "react-i18next";
 
 const AIDriven = () => {
+    const { t } = useTranslation('landing');
     return (
         <section className={styles.container}>
             <video className={styles.backgroundVideo} autoPlay loop muted playsInline>
@@ -11,13 +13,12 @@ const AIDriven = () => {
                     src={require("/public/video/ai-driven.webm")}
                     type="video/webm"
                 />
-                Ваш браузер не поддерживает видео.
+                {t('aiDriven.videoError')}
             </video>
             <div className={styles.textWrapper}>
-                <h3 className={styles.title}><span>AI-Driven</span> Realism</h3>
+                <h3 className={styles.title}><span>{t('aiDriven.title_span')}</span> {t('aiDriven.title')}</h3>
                 <p className={styles.desc}>
-                    We combine 3d-modeling with AI to achieve never-seen levels
-                    of realism.
+                    {t('aiDriven.description')}
                 </p>
             </div>
         </section>

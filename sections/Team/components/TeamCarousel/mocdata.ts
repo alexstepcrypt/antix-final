@@ -4,6 +4,25 @@ import yulia from '/public/images/team/command/yulia.png';
 import anton from '/public/images/team/command/anton.png';
 import dmitri from '/public/images/team/command/dmitri.png';
 import rafal from '/public/images/team/command/rafal.png';
+import { StaticImageData } from 'next/image';
+
+export type teamItemsTextType = {
+   name: string;
+   role: string;
+   description: string[];
+}
+
+export type teamItemType = {
+   role: string;
+   name: string;
+   socialLink: string;
+   image: StaticImageData;
+   description: string[];
+};
+
+export interface teamItemsProps {
+   data: teamItemType[];
+}
 
 export const commandList = [
    {

@@ -8,8 +8,17 @@ import { TokenHead } from './components/TokenHead/TokenHead';
 import { TokenBody } from './components/TokenBody/TokenBody';
 import { mobileList } from './mocdata';
 import s from './AntixToken.module.scss';
+import { useTranslation } from 'react-i18next';
+import { listTextType } from './mocdata';
 
 const AntixToken = () => {
+   const { t } = useTranslation('landing');
+
+   const leftListText = t('antixToken.leftList', { returnObjects: true }) as Array<listTextType>;
+   const midListText = t('antixToken.midList', { returnObjects: true }) as Array<listTextType>;
+   const rightListText = t('antixToken.rightList', { returnObjects: true }) as Array<listTextType>;
+   const mobileTextList = t('antixToken.mobileList', { returnObjects: true }) as Array<listTextType>;
+
    return (
       <div
          style={{ backgroundImage: `url(${glow.src})` }}
@@ -18,7 +27,7 @@ const AntixToken = () => {
       >
          <div id="ANTIXTokens">
             <TokenHead />
-            <TokenBody />
+            <TokenBody leftListText={leftListText} midListText={midListText} rightListText={rightListText} />
 
             <div className={s.mobileToken}>
                <FadeInNew direction='up'>
@@ -34,8 +43,8 @@ const AntixToken = () => {
             </div>
 
             <div className={s.mobileList}>
-               {mobileList.map((item, i) => (
-                  <TokenCard key={i} {...item} />
+               {mobileTextList.map((item, i) => (
+                  <TokenCard key={i} {...item} icon={mobileList[i]} />
                ))}
             </div>
          </div>

@@ -8,23 +8,15 @@ import HiddenBtn from "/public/svg/mobile-hidden-tn.svg";
 
 import ModalBg from "/public/images/advisors/card-bg.png";
 import XMark from "/public/svg/xmark.svg";
+import { useTranslation } from "react-i18next";
+import { teamItemType, teamItemsProps } from "@/sections/Team/components/TeamCarousel/mocdata";
 
-type itemType = {
-    role: string;
-    name: string;
-    socialLink: string;
-    image: StaticImageData;
-    description: string[];
-};
 
-interface TabsProps {
-    data: itemType[];
-}
-
-export const Tabs: React.FC<TabsProps> = ({ data }) => {
-    const [activeTab, setActiveTab] = useState<itemType | null>(null);
+export const Tabs: React.FC<teamItemsProps> = ({ data }) => {
+    const [activeTab, setActiveTab] = useState<teamItemType | null>(null);
     const [isOpen, setIsOpen] = useState(false);
     const contentRef = useRef<HTMLDivElement | null>(null);
+    const { t } = useTranslation('landing');
 
     const adjustHeight = () => {
         const content = contentRef.current;
@@ -46,7 +38,7 @@ export const Tabs: React.FC<TabsProps> = ({ data }) => {
         adjustHeight();
     }, [isOpen, data]);
 
-    const handleClick = (item: itemType | null) => {
+    const handleClick = (item: teamItemType | null) => {
         setActiveTab(item);
     };
 
@@ -154,7 +146,7 @@ export const Tabs: React.FC<TabsProps> = ({ data }) => {
                     onClick={() => setIsOpen((prev) => !prev)}
                     className={styles.hiddenBtn}
                 >
-                    {isOpen ? <p>Show Less</p> : <p>Show All</p>}
+                    {isOpen ? <p>{t('team.mobile.button_show-less')}</p> : <p>{t('team.mobile.button_show-all')}</p>}
                     <Image
                         src={HiddenBtn}
                         alt=""
