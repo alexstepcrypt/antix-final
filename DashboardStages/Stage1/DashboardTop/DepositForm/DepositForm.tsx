@@ -269,7 +269,7 @@ const DepositForm: React.FC<IDepositForm> = () => {
         <GotQuestions />
 
         <div className={styles.disclaimer}>
-            <span>By clicking "Deposit Now," you confirm that you are not a U.S. citizen
+            <span>By clicking "Deposit Now", you confirm that you are not a U.S. citizen
             or U.S. resident.</span> This investment offer is exclusively intended for
             non-U.S. persons and is strictly not available to U.S. citizens, U.S.
             residents, or any entities organized or domiciled in the United States.

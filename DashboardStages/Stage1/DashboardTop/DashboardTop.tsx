@@ -27,44 +27,6 @@ import { useConnectWallet } from '@/hooks/useConnectWallet';
 import api from '@/utils/api';
 import { useEffect, useState } from 'react';
 
-// DEPOSIT WRAPPER CONTENT AT 19:00
-/*
-<div className={styles.headTitle}>
-                    <h2>Stage 1 is about to start!</h2>
-                </div>
-
-                <RaisedProgressBar
-                    segments={17}
-                    currentAmount={14500000}
-                    targetAmount={17000000}
-                    color="#12fff1"
-                    title="Tokens sold:"
-                />
-
-                <div className={styles.timer}>
-                    <h5 className={styles.timerTitle}>
-                        Stage 1 is coming in
-                    </h5>
-                    <Timer targetDate={new Date("2024-11-28T16:00:00.000Z")} />
-                </div>
-
-                <p className={styles.tg}>
-                    Activate{' '}
-                    <span onClick={() =>  window.open("https://t.me/antixtoken_bot", "_blank")}>
-                        <TgIcon />
-                        Telegram bot
-                    </span>{' '}
-                    to get notified about stage start
-                </p>
-
-                <button
-                    className={styles.tgBtn}
-                    onClick={() => window.open("https://t.me/antixtoken_bot", "_blank")}
-                >
-                    Notify Me
-                </button>
-*/
-
 const underDepositInfo = [
     {
         title: "Listing price",
@@ -117,8 +79,6 @@ const DashboardTop = () => {
             <Steps
                 style={{ margin: "10px 0 30px 0", width: "100%" }}
                 stages={stage1Steps}
-                // 19:15
-                // stages={stage2Steps}
             />
             <div className={styles.leftCol}>
                 <div className={styles.info}>
