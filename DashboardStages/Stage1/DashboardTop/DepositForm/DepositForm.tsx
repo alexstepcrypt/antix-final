@@ -31,6 +31,9 @@ import { GotQuestions } from '@/components/GotQuestions/GotQuestions'
 import DepositStatusModal from './DepositModal/StatusModal'
 import Input from '@/DashboardStages/Stage2/DashboardTop/Input/Input'
 
+import Mastercard from "/public/dashboard/svg/mastercard-logo.svg";
+import Visa from "/public/dashboard/svg/visa-logo.svg";
+
 
 const tokensByChains:any = {
 	1: {
@@ -63,7 +66,7 @@ const tokensIcons:any = {
     DEGEN : DEGENIcon,
     MANTRA : MANTRAIcon,
     WETH : WETHIcon,
-    BASE : BASEIcon
+    BASE : BASEIcon,
 }
 
 type AvailableCurrencies = "USDC" | "USDT" | "ETH" | "CBBTC" | "DEGEN" | "MANTRA" | "WETH" | "BNB" | "BASE";
@@ -93,7 +96,7 @@ const DepositForm = () => {
 
     useEffect(()=>{
         if (!tokens[displayCurrency]) {
-            setDisplayCurrency('ETH')
+            setDisplayCurrency('USDC')
         }
     }, [chainId])
 
@@ -147,8 +150,8 @@ const DepositForm = () => {
 
 
     return <div className={styles.sendingWrapepr}>
-        <div className={styles.chooseCurrWrapper}>
-            {network.value === 'ETH' && (
+        <div className={`${styles.chooseCurrWrapper} ${network.value === "BASE" ? styles.baseCurrWrapper : ''}`}>
+            {(network.value === 'ETH' || network.value === 'BASE') && (
                 <button
                     onClick={() => selectCurrency("ETH")}
                     className={`${styles.chooseCurrBtn} ${
@@ -157,7 +160,7 @@ const DepositForm = () => {
 	                    : ""
                     }`}
                 >
-                    <Image src={network.icon} alt={network.value} width={24} height={24} />
+                    <Image src={tokensIcons['ETH']} alt={network.value} width={24} height={24} />
                     <span>ETH</span>
                 </button>
             )}
@@ -176,92 +179,117 @@ const DepositForm = () => {
                 </button>
             )}
 
-            {['ETH','BNB'].includes(network.value) && <button
-                onClick={() => selectCurrency('USDT')}
-                className={`${styles.chooseCurrBtn} ${
-                    displayCurrency === "USDT"
-                        ? styles.activeChooseCurrBtn
-                        : ""
-                }`}
-            >
-                <Image src={USDTIcon} alt="USDT" width={24} height={24} />
-                <span>USDT</span>
-            </button>}
+            {(network.value === "BNB" || network.value === "ETH") && (
+                <>
+                    <button
+                        onClick={() => selectCurrency('USDT')}
+                        className={`${styles.chooseCurrBtn} ${
+                            displayCurrency === "USDT"
+                                ? styles.activeChooseCurrBtn
+                                : ""
+                        }`}
+                    >
+                        <Image src={USDCIcon} alt="USDT" width={24} height={24} />
+                        <span>USDT</span>
+                    </button>
+                    <button
+                        onClick={() => selectCurrency('USDC')}
+                        className={`${styles.chooseCurrBtn} ${
+                            displayCurrency === "USDC"
+                                ? styles.activeChooseCurrBtn
+                                : ""
+                        }`}
+                    >
+                        <Image src={USDCIcon} alt="USDC" width={24} height={24} />
+                        <span>USDC</span>
+                    </button>
 
-            {network.value === 'BASE' && <>
-            <button
-                onClick={() => selectCurrency('BASE')}
-                className={`${styles.chooseCurrBtn} ${
-                displayCurrency === "BASE"
-                    ? styles.activeChooseCurrBtn
-                    : ""
-                }`}
-            >
-                <Image src={network.icon} alt={network.value} width={24} height={24} />
-                <span>BASE</span>
-            </button>
+                    <span className={styles.divider} />
 
-            <button
-                onClick={() => selectCurrency('DEGEN')}
-                className={`${styles.chooseCurrBtn} ${
-                    displayCurrency === "DEGEN"
-                        ? styles.activeChooseCurrBtn
-                        : ""
-                }`}
-            >
-                <Image src={DEGENIcon} alt="DEGEN" width={24} height={24} />
-                <span>DEGEN</span>
-            </button>
+                    <DepositPopover open={openDebit} text="Coming Soon">
+                        <button
+                            onClick={() => setOpenDebit((p) => !p)}
+                            onBlur={() => setOpenDebit(false)}
+                            className={styles.chooseCurrBtn}
+                            style={{ width: 100 }}
+                        >
+                        <Image src={Visa} alt="visa" width={37.7} height={12.73} />
+                        <Image
+                            src={Mastercard}
+                            alt="mastercard"
+                            width={29.2}
+                            height={22.5}
+                        />
+                        </button>
+                    </DepositPopover>
+                </>
+            )}
 
-            <button
-                onClick={() => selectCurrency('WETH')}
-                className={`${styles.chooseCurrBtn} ${
-                    displayCurrency === "WETH"
-                        ? styles.activeChooseCurrBtn
-                        : ""
-                }`}
-            >
-                <Image src={WETHIcon} alt="WETH" width={24} height={24} />
-                <span>WETH</span>
-            </button>
+            {network.value === "BASE" && (
+                <>
+                    <button
+                        onClick={() => selectCurrency('USDC')}
+                        className={`${styles.chooseCurrBtn} ${
+                            displayCurrency === "USDC"
+                                ? styles.activeChooseCurrBtn
+                                : ""
+                        }`}
+                    >
+                        <Image src={USDCIcon} alt="USDC" width={24} height={24} />
+                        <span>USDC</span>
+                    </button>
+          
 
-            <button
-                onClick={() => selectCurrency('CBBTC')}
-                className={`${styles.chooseCurrBtn} ${
-                    displayCurrency === "CBBTC"
-                        ? styles.activeChooseCurrBtn
-                        : ""
-                }`}
-            >
-                <Image src={CBBTCIcon} alt="cbBTC" width={24} height={24} />
-                <span>cbBTC</span>
-            </button>
+                    <button
+                        onClick={() => selectCurrency('DEGEN')}
+                        className={`${styles.chooseCurrBtn} ${
+                            displayCurrency === "DEGEN"
+                                ? styles.activeChooseCurrBtn
+                                : ""
+                        }`}
+                    >
+                        <Image src={DEGENIcon} alt="DEGEN" width={24} height={24} />
+                        <span>DEGEN</span>
+                    </button>
 
-            <button
-                onClick={() => selectCurrency('MANTRA')}
-                className={`${styles.chooseCurrBtn} ${
-                    displayCurrency === "MANTRA"
-                        ? styles.activeChooseCurrBtn
-                        : ""
-                }`}
-            >
-                <Image src={MANTRAIcon} alt="MANTRA" width={24} height={24} />
-                <span>Mantra</span>
-            </button>
-            </>}
+                    <button
+                        onClick={() => selectCurrency('WETH')}
+                        className={`${styles.chooseCurrBtn} ${
+                            displayCurrency === "WETH"
+                                ? styles.activeChooseCurrBtn
+                                : ""
+                        }`}
+                    >
+                        <Image src={WETHIcon} alt="WETH" width={24} height={24} />
+                        <span>WETH</span>
+                    </button>
 
-            <button
-                onClick={() => selectCurrency('USDC')}
-                className={`${styles.chooseCurrBtn} ${
-                    displayCurrency === "USDC"
-                        ? styles.activeChooseCurrBtn
-                        : ""
-                }`}
-            >
-                <Image src={USDCIcon} alt="USDC" width={24} height={24} />
-                <span>USDC</span>
-            </button>
+                    <button
+                        onClick={() => selectCurrency('CBBTC')}
+                        className={`${styles.chooseCurrBtn} ${
+                            displayCurrency === "CBBTC"
+                                ? styles.activeChooseCurrBtn
+                                : ""
+                        }`}
+                    >
+                        <Image src={CBBTCIcon} alt="cbBTC" width={24} height={24} />
+                        <span>cbBTC</span>
+                    </button>
 
+                    <button
+                        onClick={() => selectCurrency('MANTRA')}
+                        className={`${styles.chooseCurrBtn} ${
+                            displayCurrency === "MANTRA"
+                                ? styles.activeChooseCurrBtn
+                                : ""
+                        }`}
+                    >
+                        <Image src={MANTRAIcon} alt="MANTRA" width={24} height={24} />
+                        <span>Mantra</span>
+                    </button>
+                </>
+            )}
+            
         </div>
 
         <div
