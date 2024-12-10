@@ -1,11 +1,7 @@
 import styles from './ClaimModal.module.scss';
 import { useRef, useEffect, useState } from 'react';
 import { useChainId } from 'wagmi';
-
-const explorerUrls: {[key: number]: string} = {
-	1  : 'https://etherscan.io',
-	56 : 'https://bscscan.com'
-}
+import { explorerUrls } from '@/utils/utils'
 
 export type ModalStatus = 'none' | 'pending' | 'success' | 'fail';
 interface ModalProps {

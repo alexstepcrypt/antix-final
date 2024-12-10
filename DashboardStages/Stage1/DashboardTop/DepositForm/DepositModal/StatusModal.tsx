@@ -2,13 +2,9 @@ import styles from './StatusModal.module.scss';
 import { useRef, useEffect, useState } from 'react';
 import { useChainId } from 'wagmi';
 import EmailForm from './EmailForm';
-import Link from 'next/link'
+// import Link from 'next/link'
 import { TgIcon } from '@/components/GotQuestions/icons/TgIcon'
-
-const explorerUrls: {[key: number]: string} = {
-	1  : 'https://etherscan.io',
-	56 : 'https://bscscan.com'
-}
+import { explorerUrls } from '@/utils/utils'
 
 export type ModalStatus = 'none' | 'pending' | 'success' | 'email' | 'subscribed' | 'fail';
 interface ModalProps {
