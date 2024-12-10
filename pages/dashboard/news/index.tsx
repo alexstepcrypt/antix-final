@@ -86,6 +86,13 @@ const News = () => {
                   />
                   <span>{country}</span>
                 </div>
+                <Image
+                  src={BackIcon}
+                  alt=""
+                  width={44}
+                  height={44}
+                  className={styles.sliderArrow}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
