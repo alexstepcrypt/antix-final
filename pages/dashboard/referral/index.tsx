@@ -297,12 +297,12 @@ const Referral = () => {
                 </div>
             </div>
 
-            <div className={styles.historyWrapper}>
+            {/* <div className={styles.historyWrapper}>
                 <h3 className={styles.historyTitle}>History</h3>
                 <RefHistory />
                 <div className={styles.historyContainer}>
                 </div>
-            </div>
+            </div> */}
         </section>
         <Footer style={{
             margin: '100px 16px 16px',
