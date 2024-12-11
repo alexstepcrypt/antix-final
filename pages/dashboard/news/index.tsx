@@ -12,6 +12,7 @@ import { Navigation } from 'swiper/modules';
 import Arrow from '@/public/svg/top-arrow.svg';
 
 import styles from './news.module.scss';
+import NewsItem from '@/components/NewsItem/NewsItem';
 
 const countries = [
   'Brazilian',
@@ -60,6 +61,14 @@ const News = () => {
           <h4 className={styles.allMediaTitle}>All media</h4>
         </div>
 
+        <div className={styles.newsWrapper}>
+          <NewsItem date='2024-11-01' image='/images/featured-in/1.png' text="Antix Entra em Cripto com o Lançamento do Token ANTIX, Oferecendo Acesso Antecipado a Humanos Digitais Potencializados por IA" />
+          <NewsItem date='2024-11-01' image='/images/featured-in/2.png' text="Antix Entra em Cripto com o Lançamento do Token ANTIX, Oferecendo Acesso Antecipado a Humanos Digitais Potencializados por IA" />
+          <NewsItem date='2024-11-01' image='/images/featured-in/3.png' text="Antix Entra em Cripto com o Lançamento do Token ANTIX, Oferecendo Acesso Antecipado a Humanos Digitais Potencializados por IA" />
+          <NewsItem date='2024-11-01' image='/images/featured-in/4.png' text="Antix Entra em Cripto com o Lançamento do Token ANTIX, Oferecendo Acesso Antecipado a Humanos Digitais Potencializados por IA" />
+        </div>
+      </section>
+      <div className={styles.sliderWrapper}>
         <div className={styles.sliderTitle}>Read your local Antix news in</div>
         <div className={styles.slider}>
           <Swiper
@@ -103,7 +112,7 @@ const News = () => {
             <Image src={Arrow} alt="Next" width={20} height={10} />
           </div>
         </div>
-      </section>
+      </div>
       <Footer />
     </main>
   );
