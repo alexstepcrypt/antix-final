@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '@/sections/Header/Header';
-import Footer from '@/sections/Footer/Footer';
+const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false });
 import Image from 'next/image';
 
 import 'swiper/scss';
@@ -13,6 +13,7 @@ import Arrow from '@/public/svg/top-arrow.svg';
 
 import styles from './news.module.scss';
 import NewsItem from '@/components/NewsItem/NewsItem';
+import dynamic from 'next/dynamic';
 
 const countries = [
   'Brazilian',
