@@ -14,6 +14,7 @@ import Arrow from '@/public/svg/top-arrow.svg';
 import styles from './news.module.scss';
 import NewsItem from '@/components/NewsItem/NewsItem';
 import dynamic from 'next/dynamic';
+import { newsList } from '@/components/NewsItem/mocdata';
 
 const countries = [
   'Brazilian',
@@ -63,10 +64,7 @@ const News = () => {
         </div>
 
         <div className={styles.newsWrapper}>
-          <NewsItem date='2024-11-01' image='/images/featured-in/1.png' text="Antix Entra em Cripto com o Lançamento do Token ANTIX, Oferecendo Acesso Antecipado a Humanos Digitais Potencializados por IA" />
-          <NewsItem date='2024-11-01' image='/images/featured-in/2.png' text="Antix Entra em Cripto com o Lançamento do Token ANTIX, Oferecendo Acesso Antecipado a Humanos Digitais Potencializados por IA" />
-          <NewsItem date='2024-11-01' image='/images/featured-in/3.png' text="Antix Entra em Cripto com o Lançamento do Token ANTIX, Oferecendo Acesso Antecipado a Humanos Digitais Potencializados por IA" />
-          <NewsItem date='2024-11-01' image='/images/featured-in/4.png' text="Antix Entra em Cripto com o Lançamento do Token ANTIX, Oferecendo Acesso Antecipado a Humanos Digitais Potencializados por IA" />
+          {newsList.map(item => <NewsItem {...item} key={item.url + item.image} />)}
         </div>
       </section>
       <div className={styles.sliderWrapper}>
