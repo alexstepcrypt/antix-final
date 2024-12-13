@@ -32,9 +32,10 @@ import usePlaceholderStore from '@/stores/usePlaceholderStore';
 
 interface HeaderProps {
     isDashboard?: boolean;
+    isNews?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
+const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [isDisconnectModal, setIsDisconnectModal] = useState(false);
@@ -146,7 +147,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard }) => {
                             isOpen ? styles.openLogoFull : ""
                         }`}
                     />
-                    {isDashboard &&  (
+                    {isDashboard && !isNews &&  (
                         <Link href={"/"} className={styles.backToMainButton}>
                             Back to the Main Page
                         </Link>
