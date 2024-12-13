@@ -24,9 +24,11 @@ import SouthKoreaPoint from "/public/images/digital-map/south-korea-point.png";
 import AustraliaPoint from "/public/images/digital-map/australia-point.png";
 
 import HandIcon from "/public/svg/swap-icon.svg";
+import { useTranslation } from "react-i18next";
 
 const DigitalMap = () => {
     const [openVideo, setOpenVideo] = useState("");
+    const { t } = useTranslation('landing');
     return (
         <section className={styles.container}>
             {openVideo && (
@@ -35,15 +37,13 @@ const DigitalMap = () => {
             <div className={styles.topContent}>
                 <div className={styles.descWrapper}>
                     <p className={styles.desc}>
-                        <span>Yesterday:</span> exclusively available to large
-                        Hollywood studios, $50000+, weeks of work
+                        <span>{t('digitalMap.desc_1.span')}</span>{t('digitalMap.desc_1.text')}
                     </p>
                     <p className={styles.desc}>
-                        <span>Today:</span> available to YOU, instantly created
-                        with AI, starting from $100
+                        <span>{t('digitalMap.desc_2.span')}</span>{t('digitalMap.desc_2.text')}
                     </p>
                 </div>
-                <h4 className={styles.title}>Digital humans everywhere</h4>
+                <h4 className={styles.title}>{t('digitalMap.title')}</h4>
                 <Image
                     className={styles.hand}
                     src={HandIcon}

@@ -4,7 +4,12 @@ import { useChainId } from 'wagmi';
 import EmailForm from './EmailForm';
 // import Link from 'next/link'
 import { TgIcon } from '@/components/GotQuestions/icons/TgIcon'
-import { explorerUrls } from '@/utils/utils'
+import { useTranslation } from 'react-i18next';
+
+const explorerUrls: {[key: number]: string} = {
+	1  : 'https://etherscan.io',
+	56 : 'https://bscscan.com'
+}
 
 export type ModalStatus = 'none' | 'pending' | 'success' | 'email' | 'subscribed' | 'fail';
 interface ModalProps {
@@ -17,6 +22,8 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
    const chainId = useChainId()
    const dialog:any = useRef(null)
    const [dataStatus, setDataStatus] = useState(status);
+
+   const { t } = useTranslation();
 
    useEffect(()=>{
       setDataStatus(status)
@@ -36,22 +43,22 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
    const txUrl = explorerUrls[chainId] + '/tx/' + txHash
    const content:any = ({
       pending: {
-         title : 'Waiting for confirmation',
+         title : t('stage.depositModal.pending'),
          desc  : <></>
       },
       fail: {
-         title : 'Error',
-         desc  : <><p>Your transaction has failed. This might be due to the insufficient gas or network congestion.</p>
-            <p style={{ marginTop: 24 }}>Please try again or contact support: <a style={{ color: '#12FFF1' }} href="https://t.me/antixtoken_bot" rel='noopener' target='_blank'>@antixtoken_bot</a></p></>
+         title : t('stage.depositModal.fail.title'),
+         desc  : <><p>{t('stage.depositModal.fail.text_1')}</p>
+            <p style={{ marginTop: 24 }}>{t('stage.depositModal.fail.text_2')}<a style={{ color: '#12FFF1' }} href="https://t.me/antixtoken_bot" rel='noopener' target='_blank'>{t('stage.depositModal.fail.link')}</a></p></>
       },
       success: {
-         title : 'Congrats!',
+         title : t('stage.depositModal.success.title'),
          desc  : (
             <>
-               <p className={styles.successTitle}>You have successfully made a <a href={txUrl} target='_blank' rel="noopener">deposit.</a></p>
+               <p className={styles.successTitle}>{t('stage.depositModal.success.title')}<a href={txUrl} target='_blank' rel="noopener">{t('stage.depositModal.success.link_1')}</a></p>
 
                <p className={styles.successDesc}>
-                  Subscribe to our{" "}
+                  {t('stage.depositModal.success.text_3')}
                   <a
                      className={styles.tgBot}
                      href="https://t.me/antixtoken_bot?start=w32496746"
@@ -59,9 +66,9 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
                      rel='noopener'
                   >
                      <TgIcon />
-                     Telegram Bot
+                     {t('stage.depositModal.success.link_2')}
                   </a>{" "}
-                  to get Notified about the Token Sale Stages, TGE date, and token distribution
+                  {t('stage.depositModal.success.text_4')}
                </p>
             </>
          )
@@ -74,8 +81,7 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
          title: '',
          desc: (
             <p>
-               Thank you! Your email has been successfully registered. You'll now
-               receive updates and notifications.
+               {t('stage.depositModal.subscribed')}
             </p>
          )
       }
@@ -89,14 +95,14 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
       {content.title !== '' && <h5>{content.title}</h5>}
       <article>{content.desc}</article>
 
-      {dataStatus ==='fail' && <button style={{ marginTop: 16 }} className={styles.btn} onClick={()=>retryFn()}>Retry</button>}
+      {dataStatus ==='fail' && <button style={{ marginTop: 16 }} className={styles.btn} onClick={()=>retryFn()}>{t('stage.depositModal.fail.retry')}</button>}
 
       {dataStatus === 'success' && (
          <>
             <a href="https://t.me/antixtoken_bot?start=w32496746" target="_blank" className={styles.openTelegram}>
-               Open Telegram
+               {t('stage.depositModal.success.link_3')}
             </a>
-            <span onClick={()=>setDataStatus('email')} className={styles.openEmailForm}>Or subscribe via email</span>
+            <span onClick={()=>setDataStatus('email')} className={styles.openEmailForm}>{t('stage.depositModal.success.subscribe')}</span>
          </>
       )}
    </dialog>

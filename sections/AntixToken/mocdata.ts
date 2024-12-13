@@ -5,46 +5,14 @@ import lines from '/public/svg/token/lines.svg';
 import stars from '/public/svg/token/stars.svg';
 import subscription from '/public/svg/token/subscription.svg';
 
-export const leftList = [
-   {
-      title: 'NFT Auction & Promos',
-      description: 'Lend or sell avatars and assets. Promote to earn more.',
-      icon: hummer.src,
-   },
-   {
-      title: 'Asset Tuning',
-      description: 'Upgrade your digital assets — keep them trendy and fresh.',
-      icon: stars.src,
-   },
-];
+export type listTextType = {
+   title: string;
+   description: string;
+};
 
-export const midList = [
-   {
-      title: 'Subscriptions',
-      description: 'Unlock premium tools for digital creation with ANTIX.',
-      icon: subscription.src,
-   },
-   {
-      title: 'Marketplace',
-      description:
-         'Trade and customize your digital assets in the marketplace.',
-      icon: shop.src,
-   },
-];
-
-export const rightList = [
-   {
-      title: 'Governance',
-      description: 'Vote on creators and rewards. Shape the future with ANTIX.',
-      icon: handshake.src,
-   },
-   {
-      title: 'Staking',
-      description:
-         'Stake your tokens and boost your rewards. Multiple staking tiers offered.',
-      icon: lines.src,
-   },
-];
+export const leftList = [ hummer.src, stars.src ];
+export const midList = [ subscription.src, shop.src ];
+export const rightList = [ handshake.src, lines.src ];
 
 export const mobileList = [
    midList[0],

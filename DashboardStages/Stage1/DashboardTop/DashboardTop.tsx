@@ -14,7 +14,6 @@ import { Steps } from "../../components/Steps/Steps";
 import { stage1Steps, stage2Steps } from "../../constants/steps";
 import { DashboardCard } from "../../components/Card/Card";
 import { BalanceItem } from "./BalanceItem/BalanceItem";
-import { faqItems } from "./FaqAccordion/mocdata";
 // import { FaqAccordion } from "./FaqAccordion/FaqAccordion";
 import Faq from '@/components/Faq/Faq';
 // import useStageStore from '@/stores/useStageStore';
@@ -26,66 +25,8 @@ import { TgIcon } from '@/components/GotQuestions/icons/TgIcon';
 import { useConnectWallet } from '@/hooks/useConnectWallet';
 import api from '@/utils/api';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
-// DEPOSIT WRAPPER CONTENT AT 19:00
-/*
-<div className={styles.headTitle}>
-                    <h2>Stage 1 is about to start!</h2>
-                </div>
-
-                <RaisedProgressBar
-                    segments={17}
-                    currentAmount={14500000}
-                    targetAmount={17000000}
-                    color="#12fff1"
-                    title="Tokens sold:"
-                />
-
-                <div className={styles.timer}>
-                    <h5 className={styles.timerTitle}>
-                        Stage 1 is coming in
-                    </h5>
-                    <Timer targetDate={new Date("2024-11-28T16:00:00.000Z")} />
-                </div>
-
-                <p className={styles.tg}>
-                    Activate{' '}
-                    <span onClick={() =>  window.open("https://t.me/antixtoken_bot", "_blank")}>
-                        <TgIcon />
-                        Telegram bot
-                    </span>{' '}
-                    to get notified about stage start
-                </p>
-
-                <button
-                    className={styles.tgBtn}
-                    onClick={() => window.open("https://t.me/antixtoken_bot", "_blank")}
-                >
-                    Notify Me
-                </button>
-*/
-
-const underDepositInfo = [
-    {
-        title: "Listing price",
-        value: "0.14 USD",
-    },
-    {
-        title: "Initial unlock",
-        value: "7%",
-    },    {
-        title: "LockUp period",
-        value: "6 months",
-    },
-    {
-        title: "Vesting period",
-        value: "14 months",
-    },
-    {
-        title: "Claim interval",
-        value: "1 month",
-    }
-]
 
 type TokensSolded = {
     current: number;
@@ -96,10 +37,14 @@ const DashboardTop = () => {
     const { profile } = useConnectWallet()
     const { balances } = useUserDepositedBalance();
     const { network } = useNetwork();
+    const { t } = useTranslation('dashboard');
+
+    const underDepositInfo = t('stage.underDepositInfo', { returnObjects: true }) as Array<{title:string;value:string}>;
+    const faqInfo = t('stage.faq', { returnObjects: true }) as Array<{title:string;content:string}>;
 
     const bonus = !!profile?.referrer ? balances.vesting * 0.05 : 0;
     const refBonus = bonus
-        ? `+${bonus.toLocaleString('en-US')} ANTIX Referral Bonus`
+        ? `+${bonus.toLocaleString('en-US')} ANTIX ${t('stage.referralBonus')}`
         : "";
     
     // const { stageData } = useStageStore();
@@ -113,27 +58,25 @@ const DashboardTop = () => {
 
     return (
         <div className={styles.container}>
-            <h2 className={styles.title}>Dashboard</h2>
+            <h2 className={styles.title}>{t('stage.dashboard')}</h2>
             <Steps
                 style={{ margin: "10px 0 30px 0", width: "100%" }}
                 stages={stage1Steps}
-                // 19:15
-                // stages={stage2Steps}
             />
             <div className={styles.leftCol}>
                 <div className={styles.info}>
                     <h5 className={styles.infoTitle}>
-                        Deposit to get whitelisted for Stage 3
+                        {t('stage.whitelisted')}
                     </h5>
                     <p className={styles.infoText}>
-                        Make a deposit to gain priority access to the ANTIX token sale with{" "}
-                        <span>-64% to TGE Price.</span>{" "}
-                        Limited availability — act promptly to secure the best conditions.
+                        {t('stage.whitelisted_desc.text_1')}
+                        <span>{t('stage.whitelisted_desc.span')}</span>
+                        {t('stage.whitelisted_desc.text_2')}
                     </p>
                 </div>
                 <DashboardCard style={{ width: "100%" }}>
                     <h3 className={styles.balanceTitle}>
-                        Tokens to be received
+                        {t('stage.balanceTitle')}
                     </h3>
 
                     <div className={styles.balanceItemsWrapper}>
@@ -144,7 +87,7 @@ const DashboardTop = () => {
                             bottomText={refBonus}
                         />
                         <p className={styles.vested}>
-                            <b>Vested Antix (vANTIX)</b> tokens will be converted to ANTIX tokens according to the unlock and vesting schedule.
+                            <b>{t('stage.vested.bold')}</b>{t('stage.vested.text')}
                         </p>
                     </div>
                 </DashboardCard>
@@ -152,7 +95,7 @@ const DashboardTop = () => {
                 {(Number(balances.usdc) !== 0 || Number(balances.usdt) !== 0) && network.value !== 'BASE' ? (
                     <DashboardCard style={{ width: "100%" }}>
                         <div className={styles.balanceTitleWrapper}>
-                            <h3 className={styles.balanceTitle}>Deposit Balance</h3>
+                            <h3 className={styles.balanceTitle}>{t('stage.depositBalance')}</h3>
                             <span className={styles.balanceChain}>
                                 <Image
                                     src={network.icon}
@@ -188,7 +131,7 @@ const DashboardTop = () => {
 
 
                 <div className={styles.faq}>
-                    <Faq faqItems={faqItems} />
+                    <Faq faqItems={faqInfo} />
                 </div>
             </div>
             <div className={styles.rightCol}>
@@ -198,16 +141,16 @@ const DashboardTop = () => {
                 <div className={styles.headTitle}>
                     {/* <h2>Get early access to Stage 2</h2> */}
 
-                    <h2>Stage 3</h2>
+                    <h2>{t('stage.title')}</h2>
                     <div className={styles.discount}>
-                        <p>-64% to TGE Price</p>
+                        <p>{t('stage.whitelisted_desc.span')}</p>
                     </div>
                 </div>
 
 
                 <div className={styles.timer}>
                     <h5 className={styles.timerTitle}>
-                        Stage 3 ends in
+                        {t('stage.timer.title')}
                     </h5>
                     <Timer targetDate={new Date("2024-12-22T17:00:00Z")} />
                 </div> 
@@ -225,11 +168,11 @@ const DashboardTop = () => {
 
                 <div className={styles.stagePrice}>
                     <div className={styles.stage1Sold}>
-                        <h5>Current Price</h5>
+                        <h5>{t('stage.currentPrice')}</h5>
                         <h4>0.05 USD</h4>
                     </div>
                     <div className={styles.depositPriceWrapper}>
-                        <h4>Listing(TGE) Price</h4>
+                        <h4>{t('stage.listing')}</h4>
                         <h4 className={styles.prevPrice}>0.14 USD</h4>
                     </div>
                 </div>
@@ -238,7 +181,7 @@ const DashboardTop = () => {
                     currentAmount={tokens.current}
                     targetAmount={tokens.target}
                     color="#12fff1"
-                    title="USDT Collected:"
+                    title={t('stage.progressTitle')}
                 />
 
                 {/* STAGE 1*/}
@@ -274,7 +217,7 @@ const DashboardTop = () => {
                 </div>
             </div>
             <div className={styles.mobileFaq}>
-                <Faq faqItems={faqItems} />
+                <Faq faqItems={faqInfo} />
             </div>
         </div>
     );

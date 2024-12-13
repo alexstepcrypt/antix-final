@@ -7,6 +7,7 @@ import { useNetwork } from '@/hooks/useNetwork'
 import { useState, useEffect} from "react";
 import { parseUnits, formatUnits } from 'viem';
 import DepositStatusModal from './DepositModal/StatusModal'
+import { useTranslation } from "react-i18next";
 
 const contractsAddresses:any = {
     1    : process.env.TOKENSALE_ETH,
@@ -78,6 +79,8 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
     const contractAddress = contractsAddresses[chainId || 1]
 	const tokensDecimals = tokensDecimalsByChains[chainId || 1]
 
+	const { t } = useTranslation('dashboard');
+
 	const isNativeCoin = nativeCoins.includes(tokenAddress)
 
     const allowanceResult:any = useReadContract({
@@ -131,7 +134,7 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 	// First connect wallet
 	if (!isConnected) {
 		return <button onClick={() => connect()} className={styles.depositBtn}>
-			Connect wallet
+			{t('stage.depositBtn.connect')}
 			<span className={styles.flare}></span>
 		</button>
 	}
@@ -139,7 +142,7 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 	// Switch network 
 	if (!Object.keys(contractsAddresses).includes(String(chainId))) {
 		return <button onClick={() => switchNetwork(1)} className={styles.depositBtn}>
-			Switch network
+			{t('stage.depositBtn.switch')}
 		</button>
 	}
 
@@ -147,8 +150,8 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 	if (!isNativeCoin && (allowance < Number(amount) || Number(amount) === 0)) {
 		return <button onClick={() => approve()} disabled={apprveInProgress || Number(amount) <= 0} className={styles.depositBtn}>
             {Number(amount) <= 0 
-                ? 'Enter amount' 
-                : apprveInProgress ? 'Please confirm TX...' : 'Approve Deposit'
+                ? t('stage.depositBtn.enter')
+                : apprveInProgress ? t('stage.depositBtn.tx') : t('stage.depositBtn.approve')
             }
 			<span className={styles.flare}></span>
         </button>
@@ -157,7 +160,7 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
     // Deposit
     return <>
         <button onClick={deposit} className={styles.depositBtn} disabled={!Number(amount)}>
-            {status==='pending' ? "Processing..." : "Deposit Now"}
+            {status==='pending' ? t('stage.depositBtn.process') : t('stage.depositBtn.deposit')}
 			<span className={styles.flare}></span>
 		</button>
 

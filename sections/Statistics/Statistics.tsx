@@ -25,10 +25,12 @@ import { mobileText } from "./data";
 
 import MobileBtn from "/public/svg/mobile-hidden-tn.svg";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Statistics = () => {
     const [isOpen, setIsOpen] = useState(false);
     const contentRef = useRef<HTMLDivElement | null>(null);
+    const { t } = useTranslation('landing');
 
     useEffect(() => {
         if (contentRef.current) {
@@ -41,6 +43,8 @@ const Statistics = () => {
         }
     }, [isOpen]);
 
+    const mobileJSText = t('statistics.mobileText', { returnObjects: true }) as Array<{span1:string;description:string}>;
+    
     return (
         <>
             <section className={styles.mobileWrapper}>
@@ -50,10 +54,10 @@ const Statistics = () => {
                         isOpen ? styles.open : ""
                     }`}
                 >
-                    {mobileText.map((item, index) => (
+                    {mobileJSText.map((item, index) => (
                         <div key={index} className={styles.mobileItem}>
-                            <Image src={item.img} alt="" />
-                            <p className={styles.mobileText}>{item.text}</p>
+                            <Image src={mobileText[index].img} alt="" />
+                            <p className={styles.mobileText}>{item.span1 ? <span>item.span1</span> : ''} {item.description}</p>
                         </div>
                     ))}
                 </div>
@@ -61,7 +65,7 @@ const Statistics = () => {
                     onClick={() => setIsOpen((prev) => !prev)}
                     className={styles.mobileBtn}
                 >
-                    {isOpen ? <p>Hide Details</p> : <p>Show Details</p>}
+                    {isOpen ? <p>{t('statistics.hideDetails')}</p> : <p>{t('statistics.showDetails')}</p>}
                     <Image
                         src={MobileBtn}
                         alt=""
@@ -82,10 +86,7 @@ const Statistics = () => {
                         <div>
                             <div>
                                 <span>100M+</span>
-                                <p>
-                                    Antix digital humans: Seen by 100M+ viewers
-                                    globally across films, marketing, and games.
-                                </p>
+                                <p>{t('statistics.viewers.text')}</p>
                             </div>
                         </div>
                     </FadeInNew>
@@ -107,11 +108,7 @@ const Statistics = () => {
                                     <Image src={StickIcon} alt="" />
                                     <span>$500K</span>
                                 </div>
-                                <p>
-                                    Cost of Pre-Antix digital characters:{" "}
-                                    Ultra-realistic digital characters cost
-                                    $100K-$500K, weeks of production time.
-                                </p>
+                                <p>{t('statistics.costOfProduction.text')}</p>
                             </div>
                         </div>
                     </FadeInNew>
@@ -119,11 +116,7 @@ const Statistics = () => {
                         <div>
                             <div>
                                 <span>50%</span>
-                                <p>
-                                    Adoption in Gaming and VR/AR Industries: 40%
-                                    of new games and 50% of VR content to
-                                    feature digital humans by 2025.
-                                </p>
+                                <p>{t('statistics.adoptionRate.text')}</p>
                             </div>
                         </div>
                     </FadeInNew>
@@ -140,10 +133,7 @@ const Statistics = () => {
                     <FadeInNew direction="right" distance={"50%"}>
                         <div>
                             <div>
-                                <p>
-                                    Yearly market growth: $10B in 2023,
-                                    projected to $30B by 2030, 20% CAGR.
-                                </p>
+                                <p>{t('statistics.marketGrowth.text')}</p>
                                 <span>20%</span>
                             </div>
                         </div>
@@ -155,11 +145,7 @@ const Statistics = () => {
                                     <p className={styles.count}>15,000,</p>
                                     <p className={styles.zeros}>000,000</p>
                                 </div>
-                                <p>
-                                    Virtual influencers market growth: $15B
-                                    market by 2025, triple the engagement of
-                                    human.
-                                </p>
+                                <p>{t('statistics.influencersMarket.text')}</p>
                             </div>
                             <div>
                                 <ImgBox
@@ -174,11 +160,7 @@ const Statistics = () => {
                         <div>
                             <div>
                                 <span>90%</span>
-                                <p>
-                                    Production cost and time reduction: Antix
-                                    cuts digital human creation time from weeks
-                                    to hours, costs down by 90%.
-                                </p>
+                                <p>{t('statistics.costReduction.text')}</p>
                             </div>
                         </div>
                     </FadeInNew>

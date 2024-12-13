@@ -9,6 +9,7 @@ import Image from "next/image";
 import CloseIcon from "/public/dashboard/svg/close-icon.svg";
 import CopyIcon from "/public/svg/copy-icon.svg";
 import { DepositPopover } from "@/DashboardStages/Stage1/DashboardTop/DepositForm/DepositPopover/DepositPopover";
+import { useTranslation } from "react-i18next";
 
 
 interface IReferalModal {
@@ -22,6 +23,7 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
     const [isCopied, setIsCopied] = useState(false);
     const [refCode, setRefCode] = useState("");
     const [openPopover, setOpenPopover] = useState(false);
+    const { t } = useTranslation('landing');
 
     const handleCopy = () => {
         if (navigator.clipboard) {
@@ -73,16 +75,14 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                         />
                     </button>
                     <p className={styles.subtitle}>
-                        Thank уоu for choosing to promote Antix!
+                        {t('referalModal.subtitle')}
                     </p>
                     <h3 className={styles.title}>
-                        Earn up to 10% reward in USDT on purchases made through
-                        your referral link!
+                        {t('referalModal.title')}
                     </h3>
                     {!account && (
                         <span className={styles.disConnectInfo}>
-                            То get your unique referral link, <br /> please
-                            connect your wallet first.
+                            {t('referalModal.disconnectedInfo.line1')} <br /> {t('referalModal.disconnectedInfo.line2')}
                         </span>
                     )}
                     {account ? (
@@ -97,12 +97,12 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                             className={styles.connectBtn}
                             onClick={() => setStage(2)}
                         >
-                            Connect Wallet
+                            {t('referalModal.connectButton')}
                         </button>
                     )}
                     {account && (
                         <div className={styles.generateBtn}>
-                            Connected Wallet {formatAddress(account)}
+                            {t('referalModal.connectedWallet')} {formatAddress(account)}
                         </div>
                     )}
                 </div>
@@ -123,11 +123,10 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                         />
                     </button>
                     <p className={styles.subtitle}>
-                        Thank уоu for choosing to promote Antix!
+                        {t('referalModal.subtitle')}
                     </p>
                     <h3 className={styles.title}>
-                        Earn up to 10% reward in USDT on purchases made through
-                        your referral link!
+                        {t('referalModal.title')}
                     </h3>
 
                     <div className={styles.copyWrapper}>
@@ -139,26 +138,26 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                                 width={24}
                                 height={24}
                             />
-                            {isCopied ? "Copied" : "Copy Link"}
+                            {isCopied ? t('referalModal.copyLink.copied') : t('referalModal.copyLink.default')}
                         </button>
                     </div>
 
                     <div className={styles.generateBtn}>
-                        Connected Wallet {account && formatAddress(account)}
+                        {t('referalModal.connectedWallet')} {account && formatAddress(account)}
                     </div>
 
                     <div className={styles.hr} />
 
                     <div className={styles.bottomInfo}>
                         <span className={styles.refStatus}>
-                            Referral Active
+                            {t('referalModal.referralStatus')}
                         </span>
                         <div className={styles.balanceInfo}>
-                            Your Referral USDT Current Phase Balance:{" "}
+                            {t('referalModal.balanceInfo.currentPhase')}{" "}
                             <span>0.00</span>
                         </div>
                         <div className={styles.balanceInfo}>
-                            Your Referral USDT Claimable Balance:{" "}
+                            {t('referalModal.balanceInfo.claimable')}{" "}
                             <span>0.00</span>
                         </div>
 
@@ -166,14 +165,14 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                             <DepositPopover
                                 style={{bottom: "120%", top: "auto", width: "200%", left: 50}}
                                 open={openPopover}
-                                text="Claim available 1-2 days after each stage ends"
+                                text={t('referalModal.claimPopoverText')}
                             >
                                 <button
                                     className={styles.claimBtn}
                                     onClick={() => setOpenPopover((p) => !p)}
                                     onBlur={() => setOpenPopover(false)}
                                 >
-                                    Claim Referral Earnings
+                                    {t('referalModal.claimButton')}
                                 </button>
                             </DepositPopover>
                         </div>

@@ -7,7 +7,7 @@ import { OpenIcon } from './icon/OpenIcon';
 interface FaqProps {
    id: number;
    title: string;
-   content: string | React.ReactNode;
+   content: string;
    openedId: number | null;
    setOpenedId: Dispatch<SetStateAction<number | null>>;
 }
@@ -34,9 +34,10 @@ export const FaqAccordion = ({
             </button>
          </section>
 
-         <p className={`${s.content} ${isOpened && s.activeText}`}>
-            {content}
-         </p>
+         <div
+            className={`${s.content} ${isOpened && s.activeText}`}
+            dangerouslySetInnerHTML={{ __html: content }}
+         />
       </div>
    );
 };

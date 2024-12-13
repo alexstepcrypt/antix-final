@@ -5,22 +5,9 @@ import checked from '/public/svg/roadmap-check.svg';
 import notChecked from '/public/svg/roadmap-list-item.svg';
 import tracker from '/public/svg/tracker.svg';
 import s from './Stage.module.scss';
+import { RoadmapStageProps } from '../mocdata';
 
-interface List {
-   title: string;
-   description: string[];
-   isDone: boolean;
-}
-
-interface StageProps {
-   stage: string | null;
-   isCurrent: boolean;
-   year: string;
-   event: string;
-   list: List[];
-}
-
-export const Stage = ({ event, isCurrent, list, stage, year }: StageProps) => {
+export const Stage = ({ event, isCurrent, list, stage, year }: RoadmapStageProps) => {
    return (
       <section className={`${s.container} ${isCurrent && s.active}`}>
          {stage && (

@@ -8,11 +8,14 @@ import styles from "./FeaturedIn.module.scss";
 import { logos } from "./mocdata";
 
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
+import { useRouter } from 'next/router'
 
 const FeaturedIn: React.FC = () => {
     const swiperRef = useRef<any>(null);
-    const router = useRouter();
+    const { t } = useTranslation('landing');
+    const { push } = useRouter();
+
     let slidesPerView;
     let windowWidth = typeof window === "undefined" ? 0 : window.innerWidth;
     switch (windowWidth) {
@@ -26,7 +29,7 @@ const FeaturedIn: React.FC = () => {
 
     return (
         <section className={styles.wrapper} id="FeaturedIn">
-            <h4 className={styles.title}>Featured in</h4>
+            <h4 className={styles.title}>{t('featuredIn.title')}</h4>
             <div
                 className={styles.container}
                 onMouseEnter={() => swiperRef.current?.swiper.autoplay.stop()}
@@ -67,7 +70,7 @@ const FeaturedIn: React.FC = () => {
             </div>
             <button
                 className={styles.btnShowAll}
-                onClick={() => router.push('/dashboard/news')}
+                onClick={() => push('/dashboard/news')}
             >
                 Show All
             </button>

@@ -1,0 +1,703 @@
+{
+  "header": {
+    "backToMainPage": "Back to the Main Page",
+    "claimPopoverText": "Claiming page will be available after the TGE",
+    "connectWalletButton": "Connect Wallet",
+    "links": [
+        "Token",
+        "Whitepaper",
+        "Buy Now"
+    ],
+    "linksDashboard": [
+      "Dashboard",
+      "Referral",
+      "Claim"
+    ],
+    "mobileLinks": [
+        "Token",
+        "Whitepaper",
+        "Buy Now",
+        "My Account"
+    ],
+    "mobileLinksDashboard": [
+      "Dashboard",
+      "Claim",
+      "Referral",
+      "Back to the Main Page"
+    ]
+  },
+  "disConnect": {
+    "modalTitle": "Are you sure you want to disconnect your wallet?",
+    "modalSubtitle": "This will end your session.",
+    "disconnectButton": "Disconnect Wallet"
+  },
+  "heroSection": {
+    "subtitle": "The new era of AI-powered digital humans is here",
+    "title": {
+      "line1": "Ready to be",
+      "line2": "Replaced by AI?"
+    },
+    "description": {
+      "text1": "Step into the $300 billion industry with the",
+      "span": "ANTIX token.",
+      "text2": "Hyper-realistic digital twins for film, content, and beyond"
+    },
+    "videoFallbackText": "Your browser does not support video."
+  },
+  "referalModal": {
+    "subtitle": "Thank you for choosing to promote Antix!",
+    "title": "Earn up to 10% reward in USDT on purchases made through your referral link!",
+    "disconnectedInfo": {
+      "line1": "To get your unique referral link,",
+      "line2": "please connect your wallet first."
+    },
+    "connectButton": "Connect Wallet",
+    "generateCodeButton": "Generate Code",
+    "referralButton": "Referral",
+    "connectedWallet": "Connected Wallet",
+    "copyLink": {
+      "default": "Copy Link",
+      "copied": "Copied"
+    },
+    "referralStatus": "Referral Active",
+    "balanceInfo": {
+      "currentPhase": "Your Referral USDT Current Phase Balance:",
+      "claimable": "Your Referral USDT Claimable Balance:"
+    },
+    "claimButton": "Claim Referral Earnings",
+    "claimPopoverText": "Claim available 1-2 days after each stage ends"
+  },
+  "tokenSaleDeposit2": {
+    "timerHead": "Token Sale",
+    "stageTitle": "Stage 2",
+    "discountText": "-71% to TGE Price",
+    "stageEndsIn": "Stage 2 ends in",
+    "currentPrice": "Current price",
+    "listingPrice": "Listing(TGE) Price",
+    "tokensSold": "Tokens sold:",
+    "buyButton": {
+      "connected": "Buy Now",
+      "disconnected": "Connect Wallet to Buy"
+    },
+    "referralButton": "+ Get referral link"
+  },
+  "heroTimer": {
+    "days": "days",
+    "hours": "hours",
+    "minutes": "min",
+    "seconds": "sec"
+  },
+  "stayUpdated": {
+    "title": "Stay Updated!",
+    "connectText": "Connect to our",
+    "button": "Telegram bot",
+    "description": "for stage start alerts or support assistance."
+  },
+  "featuredIn": {
+    "title": "Featured in"
+  },
+  "platformToReplace": {
+    "title": "Build and monetize AI digital characters that",
+    "highlightedWord": "replace",
+    "listOfRoles": [
+      "Actors",
+      "TV hosts",
+      "Pop singers",
+      "Personal Assistants",
+      "Fitness Instructors",
+      "Game Characters",
+      "Virtual Companions",
+      "support agents",
+      "Brand Ambassadors",
+      "influencers",
+      "Event Hosts"
+    ]
+  },
+  "stageWidget": {
+    "currentPrice": "Current price",
+    "timer": {
+      "title": "Stage 2 ends in",
+      "days": "day",
+      "hours": "hour",
+      "minutes": "min",
+      "seconds": "sec"
+    },
+    "buyButton": "Buy Now"
+  },
+  "marketLeader": {
+    "title": "Giants approve our talent"
+  },
+  "why": {
+    "block1": {
+      "title": "Create and Earn from avatars",
+      "description": "Design, customize, and monetize digital avatars with Antix across various platforms."
+    },
+    "block2": {
+      "title": "True IP ownership with a blockchain",
+      "description": "Your avatars are protected and owned through NFTs, fully tradable and secure."
+    },
+    "block3": {
+      "title": "ANTIX token drives the platform",
+      "description": "Use ANTIX tokens for payments, customization, and rewards, with exclusive discounts."
+    }
+  },
+  "quote": {
+    "text": "That's not an issue that everyone will own their digital twin in upcoming years. The question is how we will manage their rights?",
+    "author": "Alan Kepler"
+  },
+  "statistics": {
+    "showDetails": "Show Details",
+    "hideDetails": "Hide Details",
+    "viewers": {
+      "text": "Antix digital humans: Seen by 100M+ viewers globally across films, marketing, and games."
+    },
+    "costOfProduction": {
+      "text": "Cost of Pre-Antix digital characters: Ultra-realistic digital characters cost $100K-$500K, weeks of production time."
+    },
+    "adoptionRate": {
+      "text": "Adoption in Gaming and VR/AR Industries: 40% of new games and 50% of VR content to feature digital humans by 2025."
+    },
+    "marketGrowth": {
+      "text": "Yearly market growth: $10B in 2023, projected to $30B by 2030, 20% CAGR."
+    },
+    "influencersMarket": {
+      "text": "Virtual influencers market growth: $15B market by 2025, triple the engagement of human."
+    },
+    "costReduction": {
+      "text": "Production cost and time reduction: Antix cuts digital human creation time from weeks to hours, costs down by 90%."
+    },
+    "mobileText": [
+      {
+        "span1": "Antix digital humans:",
+        "description": "Seen by 100M+ viewers globally across films, marketing, and games."
+      },
+      {
+        "description": "Cost of Pre-Antix digital characters: Ultra-realistic digital characters cost $100K-$500K, weeks of production time."
+      },
+      {
+        "span1": "50% adoption in Gaming and VR/AR Industries:",
+        "description": "40% of new games and 50% of VR content to feature digital humans by 2025."
+      },
+      {
+        "span1": "20% yearly market growth:",
+        "description": "$10B in 2023, projected to $30B by 2030, 20% CAGR."
+      },
+      {
+        "span1": "15,000,000,000 virtual influencers market growth:",
+        "description": "$15B market by 2025, triple the engagement of human."
+      },
+      {
+        "span1": "90% production cost and time reduction:",
+        "description": "Antix cuts digital human creation time from weeks to hours, costs down by 90%."
+      }
+    ]
+  },
+  "replacingHumans": {
+    "title": "Antix avatars are replacing humans in",
+    "sourceText": "*Source: Harvard Business Review (2024)",
+    "leftList": [
+      {
+        "title": "Advertisement",
+        "text": "Personalized and dynamic ad campaigns, where brands interact with customers in innovative ways"
+      },
+      {
+        "title": "Fashion and modeling",
+        "text": "AI-driven avatars will transform fashion with customizable, always-available digital models. No more costly shoots or limits—adapt to any style instantly, making fashion faster and more innovative than ever."
+      },
+      {
+        "title": "E-commerce",
+        "text": "Virtual sales assistants and online fitting rooms"
+      },
+      {
+        "title": "Customer Support",
+        "text": "Enhance customer service with AI-powered digital avatars that provide 24/7 assistance, improving response times and customer satisfaction."
+      }
+    ],
+    "rightList": [
+      {
+        "title": "Movie Production",
+        "text": "No more need for actors and shoot days. Customize your characters down to the minute details"
+      },
+      {
+        "title": "Social media",
+        "text": "Boost engagement with automated digital influencers that connect 24/7—proven more effective, popular, and reliable than real influencers*"
+      },
+      {
+        "title": "Education",
+        "text": "Interactive digital teachers and educational programs. Employee training and development"
+      }
+    ]
+  },
+  "about": {
+    "title": "Top influencers about Antix Token",
+    "videos": [
+      {
+        "title": "Beanstock - Crypto & Stocks",
+        "followers": "161K+ followers"
+      },
+      {
+        "title": "Coin Post",
+        "followers": "313K+ followers"
+      },
+      {
+        "title": "Crypto Futuro",
+        "followers": "161K+ followers"
+      },
+      {
+        "title": "Jose HODL",
+        "followers": "313K+ followers"
+      },
+      {
+        "title": "Crypto ZEUS",
+        "followers": "81,2K+ followers"
+      },
+      {
+        "title": "Kripto ShuPak",
+        "followers": "4,03K+ followers"
+      },
+      {
+        "title": "Leo",
+        "followers": "24,6K+ followers"
+      },
+      {
+        "title": "Monsieu Rabbit",
+        "followers": "15,9K+ followers"
+      },
+      {
+        "title": "Foufi",
+        "followers": "12,5K+ followers"
+      },
+      {
+        "title": "Tokenkult",
+        "followers": "43,1K+ followers"
+      },
+      {
+        "title": "Crypto Actu",
+        "followers": "46,1K+ followers"
+      },
+      {
+        "title": "Michal Lewicz",
+        "followers": "18,1K+ followers"
+      },
+      {
+        "title": "Kripto Ofis",
+        "followers": "48,8K+ followers"
+      },
+      {
+        "title": "On The Go Crypto",
+        "followers": "23,4K+ followers"
+      },
+      {
+        "title": "Ben Crypto",
+        "followers": "31,3K+ followers"
+      },
+      {
+        "title": "Soy Vlad Cripto",
+        "followers": "22,7K+ followers"
+      }
+    ]
+  },
+  "amazonSection": {
+    "title": "Amazon of",
+    "highlightedText": "AI digital avatars",
+    "description": "Your digital twin, with all the unique features, belongs to you as a unique NFT, ready to tune, trade or rent."
+  },
+  "antixFeatures": {
+    "title": "Antix features a unique marketplace to",
+    "highlightedText": "buy, rent, or sell",
+    "wordsList": [
+      "digital twins",
+      "skills",
+      "gestures",
+      "clothes",
+      "haircuts",
+      "languages",
+      "accessories",
+      "full outfits",
+      "voices"
+    ]
+  },
+  "nftPassport": {
+    "title": "Unique NFT Passport",
+    "subtitle_1_line": "Blockchain-proven",
+    "subtitle_2_line": "ownership",
+    "desc_1": "All your digital humans and assets are ",
+    "span_1": "backed by blockchain",
+    "desc_2": ", giving you ",
+    "span_2": "full control and intellectual property rights",
+    "desc_3": " over your creations. This NFT Passport certifies the ownership and authenticity of your avatar, ensuring both ",
+    "span_3": "security and rights to your digital assets."
+  },
+  "creations": {
+    "title": "Monetize your creations",
+    "creations_items": [
+       {
+          "title": "Create",
+          "text": "Use your characters to create digital content, such as Films, Ads, Reels, Shorts, Games or more."
+       },
+       {
+          "title": "Rent",
+          "text": "Rent out your characters to brands and creators."
+       },
+       {
+          "title": "Sell",
+          "text": "Sell your digital people and unique accessories on our marketplace."
+       }
+    ]
+  },
+  "digitalMap": {
+    "desc_1": {
+      "span": "Yesterday:",
+      "text": " exclusively available to large Hollywood studios, $50000+, weeks of work"
+    },
+    "desc_2": {
+      "span": "Today:",
+      "text": " available to YOU, instantly created with AI, starting from $100"
+    },
+    "title": "Digital humans everywhere"
+  },
+  "aiDriven": {
+    "title_span": "AI-Driven",
+    "title": "Realism",
+    "description": "We combine 3d-modeling with AI to achieve never-seen levels of realism.",
+    "videoError": "Your browser does not support video."
+  },
+  "antixToken": {
+    "title": "ANTIX Token",
+    "whitepaper": "Whitepaper",
+    "description": "ANTIX is central to the Antix ecosystem. Here’s how the token creates value and drives demand within the platform.",
+    "leftList": [
+      {
+        "title": "NFT Auction & Promos",
+        "description": "Lend or sell avatars and assets. Promote to earn more."
+      },
+      {
+        "title": "Asset Tuning",
+        "description": "Upgrade your digital assets — keep them trendy and fresh."
+      }
+    ],
+    "midList": [
+      {
+        "title": "Subscriptions",
+        "description": "Unlock premium tools for digital creation with ANTIX."
+      },
+      {
+        "title": "Marketplace",
+        "description": "Trade and customize your digital assets in the marketplace."
+      }
+    ],
+    "rightList": [
+      {
+        "title": "Governance",
+        "description": "Vote on creators and rewards. Shape the future with ANTIX."
+      },
+      {
+        "title": "Staking",
+        "description": "Stake your tokens and boost your rewards. Multiple staking tiers offered."
+      }
+    ],
+    "mobileList": [
+      {
+        "title": "Subscriptions",
+        "description": "Unlock premium tools for digital creation with ANTIX."
+      },
+      {
+        "title": "Governance",
+        "description": "Vote on creators and rewards. Shape the future with ANTIX."
+      },
+      {
+        "title": "Staking",
+        "description": "Stake your tokens and boost your rewards. Multiple staking tiers offered."
+      },
+      {
+        "title": "Marketplace",
+        "description": "Trade and customize your digital assets in the marketplace."
+      },
+      {
+        "title": "Asset Tuning",
+        "description": "Upgrade your digital assets — keep them trendy and fresh."
+      },
+      {
+        "title": "NFT Auction & Promos",
+        "description": "Lend or sell avatars and assets. Promote to earn more."
+      }
+    ]
+  },
+  "tokenomics": {
+    "title": "Tokenomics"
+  },
+  "team": {
+    "mobile": {
+      "button_1": "Team",
+      "button_2": "Advisors",
+      "button_show-less": "Show Less",
+      "button_show-all": "Show All"
+    },
+    "description": {
+      "text_1": "The team has a proven track record of ",
+      "span": "successfully managing business projects.",
+      "text_2": " They bring significant experience and exceptional knowledge regarding digital humans & Web3 ventures at scale"
+    },
+    "show_all": "+ Show All",
+    "title": "Team",
+    "word": {
+      "text_1": "Word From ",
+      "text_2": "The Founder"
+    },
+    "statistic": [
+      {
+        "title": "20+",
+        "description": "Existing Clients"
+      },
+      {
+        "title": "20",
+        "description": "Completed Projects"
+      },
+      {
+        "title": "10",
+        "description": "R&D Completed"
+      },
+      {
+        "title": "70+",
+        "description": "Cinematic Created"
+      }
+    ],
+    "list": [
+      {
+        "role": "Ex-regional director at Disney",
+        "name": "Marina: Founder & President",
+        "description": [
+           "An international investor and entrepreneur, visionary in business and tech startups, with deep expertise in media, entertainment, investment, and banking sectors.",
+           "Marina held top management roles for nearly 30 years, including management of the CIS office of Walt Disney, where she led business development across 11 countries for over 13 years."
+        ]
+      },
+      {
+        "role": "Top-10 Global Talents",
+        "name": "Roman: Founder & CEO",
+        "description": [
+           "Roman Cyganov, founder and CEO of Antix, is recognized as one of the Top 10 Global Talents, with a strong background in creative and tech industries.",
+           "At Antix, Roman introduced Avagen technology, creating photorealistic AI Digital Humans that revolutionize customer interactions for global brands."
+        ]
+      },
+      {
+        "role": "Saved $100M in costs",
+        "name": "Yulia: Chief Operations Officer",
+        "description": [
+           "A financial executive with 18+ years of experience in financial transformation, tax strategy, and risk management. As Deputy CFO at EuroChem and tech companies, she secured $50M+ in annual financing and saved $100M.",
+           "During 16 years at Deloitte, Yulia built strategic partnerships with major clients like Yandex and Coca-Cola, enhancing financial efficiency and driving global growth."
+        ]
+      },
+      {
+        "role": "Ex-Big 4 Professional",
+        "name": "Anton: Chief Financial Officer",
+        "description": [
+           "A finance professional with 15+ years of international experience in financial reporting, IFRS/GAAP, and financial controls, leading teams in tech, healthcare, and education.",
+           "As Finance Manager at Antix Interactive, Anton has optimized financial processes and supported key business decisions for multinational organizations."
+        ]
+      },
+      {
+        "role": "Developed an AAA title",
+        "name": "Dmitri: Chief Technology Officer",
+        "description": [
+           "A Software Engineer with 15+ years of gamedev experience, having worked at companies like Creat Studios, Trickster Game Studio, Sperasoft, and Mundfish.",
+           "As Technical Director at Antix, Dmitry Tikhonov has contributed to projects ranging from casual and mobile games to full-cycle development of in-house AAA titles."
+         ]
+      },
+      {
+        "role": "Technological Startup Expert",
+        "name": "Rafal: Project Leader",
+        "description": [
+           "A digital marketing and business expert with 20+ years of experience, specializing in Web3 and blockchain ventures, excelling in ICOs, tokenomics, and fundraising.",
+           "Rafał has led key projects, driving marketing strategies, community building on Telegram and Discord, and merging traditional business models with blockchain solutions in B2C and B2B sectors."
+        ]
+      }
+    ]
+  },
+  "advisors": {
+    "title": "Advisors",
+    "description": {
+      "text_1": "The Antix advisory team brings ",
+      "span": "80 years of combined experience ",
+      "text_2": "in successful investing, offering deep business expertise and exceptional knowledge of the Web3 sector."
+    },
+    "list": [
+      {
+        "role": "AI Innovator",
+        "name": "Marcello Mari ",
+        "description": [
+            "Co-founder and CEO of SingularityDAO, pioneering AI in decentralized finance, and a two-time TEDx speaker with deep expertise in DeFi and blockchain.",
+            "Marcello played a key role in founding SingularityNET and worked closely with Sophia the Robot, regularly speaking at international events."
+        ]
+      },
+      {
+        "role": "Entrepreneur, Investor",
+        "name": "Juwan Lee",
+        "description": [
+            "A seasoned entrepreneur and investor with 30+ years in the investment industry, Founder and Chairman of NexChange Group, specializing in blockchain, fintech, AI, and smart cities.",
+            "Lee organized blockchain events, held roles at JP Morgan and SAC Capital, and is Honorary Chairman for the US Commerce Department's Blockchain Trade Mission."
+        ]
+      },
+      {
+        "role": "Startup Builder, Web3 Expert",
+        "name": "Marta Zarosa",
+        "description": [
+            "A passionate entrepreneur with a proven track record of building startups like IndaHash and Skey Network, and facilitating the launch of numerous Web3 ventures.",
+            "As a Business Associate at Bering Waters Ventures, specialize in fundraising, sales, and marketing, and lead DAO Maker KOL management, supporting 30+ successful launches."
+        ]
+      },
+      {
+        "role": "Blockchain Leader, Venture Founder",
+        "name": "Alexander Filatov",
+        "description": [
+            "Co-Founder and CEO of EverX, the core developer of the Everscale Network, with 25 years of experience, including executive roles at RM, RM-Terex, and Chelpipe.",
+            "After leaving the corporate world in 2015, he co-founded Industry 4.0., a venture fund for emerging technologies, and led YPO's Russia chapter in 2019/20."
+        ]
+      }
+    ]
+  },
+  "roadmap": {
+    "title": "Road Map",
+    "list": [
+       {
+          "event": "Laying the Foundation",
+          "list": [
+             {
+                "title": "Company Formation",
+                "description": ["Established and secured key contracts."]
+             },
+             {
+                "title": "Major Collaborations",
+                "description": ["HBO & Warner Brothers, Tencent, and others"]
+             }
+          ]
+       },
+       {
+          "event": "Expansion and Partnerships",
+          "list": [
+             {
+                "title": "New Leadership",
+                "description": ["Marina, ex EMEA director of Disney, joins as co-founder."]
+             },
+             {
+                "title": "Key Partnerships",
+                "description": ["Wargaming (World of Tanks) and EA Games (FIFA)"]
+             },
+             {
+                "title": "Global Recognition",
+                "description": [
+                   "Awarded Top 10 Global Talents",
+                   "Antic Digital Humans Displayed in Times Square, Tokyo, and Beijing."
+                ]
+             }
+          ]
+       },
+       {
+          "event": "Diversification and Innovation",
+          "list": [
+             {
+                "title": "AI Digital Human Platform foundation  Launched",
+                "description": []
+             },
+             {
+                "title": "Fashion Collaborations",
+                "description": ["Alexander McQueen and Ouroboros Showcased digital fashion at major events."]
+             },
+             {
+                "title": "Entering Beauty Industry",
+                "description": ["Digital Humans presented in Vogue Business and Gloamour"]
+             },
+             {
+                "title": "Global Collaborations",
+                "description": ["Partnered with Double Trouble Creative."]
+             }
+          ]
+       },
+       {
+          "stage": "Stage 1",
+          "event": "Platform Beta release",
+          "list": [
+             {
+                "title": "Create Avatars",
+                "description": ["Upload photos or use cameras to generate digital twins."]
+             },
+             {
+                "title": "Customization",
+                "description": ["Modify body, facial features, and styles."]
+             },
+             {
+                "title": "Use Avatars for Content Generation",
+                "description": ["Generate voice (40+ languages supported), animations, and preset phrases."]
+             },
+             {
+                "title": "Live Stream",
+                "description": ["Real-time movement and lip-sync for live platforms like YouTube and Twitch."]
+             }
+          ]
+       },
+       {
+          "stage": "Stage 2",
+          "event": "Expanded Capabilities",
+          "list": [
+             {
+                "title": "Environment Creation",
+                "description": ["Customize surroundings for avatars."]
+             },
+             {
+                "title": "Gaming & Media Integration",
+                "description": ["Seamless use of avatars in games and media."]
+             },
+             {
+                "title": "Animation & Content Creation",
+                "description": ["AI-driven animations, motion capture, and video production."]
+             },
+             {
+                "title": "Voice Recognition",
+                "description": ["Interact naturally with avatars using voice commands."]
+             }
+          ]
+       },
+       {
+          "stage": "Stage 3",
+          "event": "Business Development & Integration",
+          "list": [
+             {
+                "title": "Marketplace & Brand Integration",
+                "description": ["Virtual clothing, AI-style recommendations, and easy purchases."]
+             },
+             {
+                "title": "API Integration",
+                "description": ["Use avatars in chatbots, websites, and personalized conversations."]
+             },
+             {
+                "title": "Automation & Personalization",
+                "description": ["Digital assistants for employee support, customer engagement, and personal tasks."]
+             }
+          ]
+       }
+    ]
+  },
+  "joinUs": {
+    "title": "Join Us on Our Journey",
+    "videoError": "Your browser does not support video."
+  },
+  "exclusiveOffer": {
+    "title": "Join Stage 2",
+    "desc": "Make deposit to secure the best price",
+    "btn": "Join Now"
+  },
+  "footer": {
+    "follow": "Follow us:",
+    "contact": "For business inquiries contact us:",
+    "link_1": "Advisors",
+    "link_2": "ANTIX Token",
+    "link_3": "Tokenomics",
+    "link_4": "About project",
+    "link_5": "Community",
+    "link_6": "Road map",
+    "link_7": "Partners",
+    "link_8": "Team",
+    "link_9": "Privacy Policy",
+    "link_10": "Terms of Use",
+    "desc": "Domicile Province of Panama, district of Panama, Betania, Vía Ricardo J. Alfaro, PH The Century Tower, office 317"
+  }
+}

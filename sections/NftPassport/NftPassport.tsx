@@ -7,8 +7,10 @@ import vector from '/public/svg/passport-vector.svg';
 import bg from '/public/images/nft-passport-bg.png';
 import s from './NftPassport.module.scss';
 import { FadeInNew } from '../../components/FadeInNew/FadeInNew';
+import { useTranslation } from 'react-i18next';
 
 const NftPassport = () => {
+   const { t } = useTranslation('landing');
    return (
       <div style={{ backgroundImage: `url(${bg.src})` }} className={s.wrapper}>
          <div className={s.content}>
@@ -16,10 +18,10 @@ const NftPassport = () => {
 
             <section>
                <div className={`${s.passport} df jcc`}>
-                  <p>Unique NFT Passport</p>
+                  <p>{t('nftPassport.title')}</p>
                </div>
                <h2 className={s.title}>
-                  Blockchain-proven <br /> ownership
+               {t('nftPassport.subtitle_1_line')} <br /> {t('nftPassport.subtitle_2_line')}
                </h2>
             </section>
 
@@ -62,12 +64,10 @@ const NftPassport = () => {
             </div>
 
             <p className={s.description}>
-               All your digital humans and assets are{' '}
-               <span>backed by blockchain</span>, giving you{' '}
-               <span>full control and intellectual property rights</span> over
-               your creations. This NFT Passport certifies the ownership and
-               authenticity of your avatar, ensuring both{' '}
-               <span>security and rights to your digital assets.</span>
+               {t('nftPassport.desc_1')}{' '}
+               <span>{t('nftPassport.span_1')}</span>{t('nftPassport.desc_2')}{' '}
+               <span>{t('nftPassport.span_2')}</span>{t('nftPassport.desc_3')}{' '}
+               <span>{t('nftPassport.span_3')}</span>
             </p>
          </div>
       </div>

@@ -15,6 +15,7 @@ import StayUpdated from '@/components/StayUpdated/StayUpdated';
 import Pays from '@/components/Pays/Pays';
 import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar'
 import api from '@/utils/api'
+import { useTranslation } from 'react-i18next';
 
 import ETHIcon from '@/public/svg/ether-icon.svg';
 import BNBIcon from '@/public/svg/bnb-icon.svg';
@@ -38,6 +39,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
     const [tokens, setTokens] = useState<TokensSolded>({ current: 0, target: 0 });
     const { isConnected, connect } = useConnectWallet();
     const router = useRouter();
+    const { t } = useTranslation('landing');
 
     async function buyHandler(e:React.MouseEvent<HTMLAnchorElement>){
         e.preventDefault()
@@ -86,24 +88,24 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
                 alt="Logo"
                 className={styles.logo}
             />
-            Token Sale
+            {t('tokenSaleDeposit2.timerHead')}
         </div>
     </div>
 
     <div className={styles.timer}>
         <div className={styles.timerTitle}>
             <section>
-                <h2 className={styles.timerHeading}>Stage 3</h2>
+                <h2 className={styles.timerHeading}>{t('tokenSaleDeposit2.stageTitle')}</h2>
             </section>
 
             <div className={styles.discount}>
-                <p>-64% to TGE Price</p>
+                <p>{t('tokenSaleDeposit2.discountText')}</p>
             </div>
         </div>
 
         <div className={styles.timerContainer}>
             <span className={styles.title}>
-                Stage 3 ends in
+                {t('tokenSaleDeposit2.stageEndsIn')}
             </span>
 
             <HeroTimer
@@ -113,12 +115,12 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
 
         <div className={styles.stagePrice}>
             <section className={styles.leftPart}>
-                <h3>Current price</h3>
+                <h3>{t('tokenSaleDeposit2.currentPrice')}</h3>
                 <p>0.05 USDT</p>
             </section>
 
             <div className={styles.prices}>
-                <p>Listing(TGE) Price</p>
+                <p>{t('tokenSaleDeposit2.listingPrice')}</p>
                 <p>0.14 USDT</p>
             </div>
         </div>
@@ -128,7 +130,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
                 segments={20}
                 currentAmount={tokens.current}
                 targetAmount={tokens.target}
-                title='USDT Collected:'
+                title={t('tokenSaleDeposit2.tokensSold')}
                 color="#12fff1"
             />
         </div>
@@ -139,7 +141,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
             href="#buy"
         >
             <span className={styles.flare}></span>
-            {isConnected ? 'Buy Now' : 'Connect Wallet to Buy'}
+            {isConnected ? t('tokenSaleDeposit2.buyButton.connected') : t('tokenSaleDeposit2.buyButton.disconnected')}
         </Link>
 
 
@@ -151,7 +153,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
                 onClick={() => setIsRefModal(true)}
                 className={styles.refBtn}
             >
-                + Get referral link
+                {t('tokenSaleDeposit2.referralButton')}
             </button>
         </div>
     </div>

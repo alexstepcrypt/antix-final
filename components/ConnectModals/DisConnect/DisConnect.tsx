@@ -8,10 +8,12 @@ import DisconnectIcon from "/public/dashboard/svg/disconnect-icon.svg";
 
 import Image from "next/image";
 import { useConnectWallet } from '@/hooks/useConnectWallet'
+import { useTranslation } from "react-i18next";
 
 
 const DisConnect = ({setIsOpen}: {setIsOpen: React.Dispatch<React.SetStateAction<boolean>>}) => {
     const { disconnect } = useConnectWallet()
+    const { t } = useTranslation('landing');
 
     const handleClick = () => {
         disconnect()
@@ -31,13 +33,13 @@ const DisConnect = ({setIsOpen}: {setIsOpen: React.Dispatch<React.SetStateAction
                 </button>
                 <Image src={DisconnectIcon} alt={""} width={44} height={44} />
                 <p className={styles.modalTitle}>
-                    Are you sure you want to disconnect your wallet?
+                    {t('disConnect.modalTitle')}
                 </p>
                 <p className={styles.modalSubtitle}>
-                    This will end your session.
+                    {t('disConnect.modalSubtitle')}
                 </p>
                 <button onClick={handleClick} className={styles.modalBtn}>
-                    Disconnect Wallet
+                    {t('disConnect.disconnectButton')}
                 </button>
             </div>
         </>
