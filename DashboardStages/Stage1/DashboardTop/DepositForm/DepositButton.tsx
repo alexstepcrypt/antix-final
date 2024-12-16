@@ -157,7 +157,8 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 		return <button onClick={() => approve()} disabled={apprveInProgress || Number(amount) <= 0} className={styles.depositBtn}>
             {Number(amount) <= 0 
                 ? 'Enter amount' 
-                : apprveInProgress ? 'Please confirm TX...' : 'Approve Deposit'
+                : apprveInProgress ? 'Please confirm TX...' : 'Buy Now'
+                // : apprveInProgress ? 'Please confirm TX...' : 'Approve Deposit'
             }
 			<span className={styles.flare}></span>
         </button>

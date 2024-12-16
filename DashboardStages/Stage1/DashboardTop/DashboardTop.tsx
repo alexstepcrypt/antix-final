@@ -238,7 +238,7 @@ const DashboardTop = () => {
                     currentAmount={tokens.current}
                     targetAmount={tokens.target}
                     color="#12fff1"
-                    title="USDT Collected:"
+                    title="Tokens Sold:"
                 />
 
                 {/* STAGE 1*/}
