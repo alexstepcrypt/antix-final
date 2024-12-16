@@ -7,6 +7,12 @@ import {parseUnits} from 'viem';
 import { waitForTransactionReceipt } from '@wagmi/core'
 import { wagmiConfig } from "@/utils/wagmiConfig"
 
+declare global {
+	interface Window {
+	  dataLayer: Record<string, any>[];
+	}
+}
+
 const nativeCoins = [
 	'0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
 	'0x0000000000000000000000000000000000000000',
@@ -71,6 +77,7 @@ export const useDeposit = function () {
 			amount  : String(depositDetails.amount || depositDetails.value), 
 			details : { extraInfo: "Transaction details here" },
 		})
+		window.dataLayer?.push({'event':'perfu_congrats','conversionValue':depositDetails.token })
 	}, [depositTxHash])
 
 	// Error transaction

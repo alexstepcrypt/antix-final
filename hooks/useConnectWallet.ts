@@ -4,6 +4,11 @@ import { useSignMessage, useDisconnect } from "wagmi";
 import { useAppKit, useAppKitAccount, useAppKitNetwork} from '@reown/appkit/react'
 import Api from "@/utils/api";
 
+declare global {
+	interface Window {
+	  dataLayer: Record<string, any>[];
+	}
+}
 interface ProfileState {
     profile: any;
     setProfile: (data: any) => void;
@@ -111,15 +116,11 @@ export const useConnectWallet = function (): {
 
 	useEffect(() => {
 		if (!signMessageData || !address || !variables?.message) return
-		console.log('localStorage.utms', localStorage.utms)
+
 		let utms = {}
 		try {
-			console.log('parse')
 			utms = JSON.parse(localStorage.utms)
-			console.log('parsed')
 		} catch {}
-
-		console.log('login utms', utms)
 
         Api.login({
             wallet  : address, 
@@ -133,6 +134,8 @@ export const useConnectWallet = function (): {
 				return
 			}
 			setProfile(profileInfo)
+
+			window.dataLayer?.push({'event':'perfu_connect','conversionValue':address}); 
         }).catch(error => console.log(error))
 	}, [signMessageData])
 

@@ -8,6 +8,12 @@ import { useState, useEffect} from "react";
 import { parseUnits, formatUnits } from 'viem';
 import DepositStatusModal from './DepositModal/StatusModal'
 
+declare global {
+	interface Window {
+	  dataLayer: Record<string, any>[];
+	}
+}
+
 const contractsAddresses:any = {
     1    : process.env.TOKENSALE_ETH,
     56   : process.env.TOKENSALE_BSC,
@@ -120,6 +126,9 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 		if (!approveTxHash) return
 		setApproveInProgress(false)
 		setApproveData({ ...approveData, approved: isApproveConfirmed })
+		if (apprveInProgress) {
+			window.dataLayer?.push({'event':'perfu_appr','conversionValue':tokenAddress })
+		}
 	}, [isApproveConfirmed])
 
 
