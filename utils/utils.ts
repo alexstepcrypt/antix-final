@@ -6,6 +6,11 @@ export function isMobile () {
     return regex.test(navigator.userAgent)
 }
 
+export function isIos () {
+    const regex = /iPhone|iPad|iPod/i
+    return regex.test(navigator.userAgent)
+}
+
 export default function numberFormat(num: number, thousandSeparator = " ", decimalSeparator = ",", decimalsDigits = "2", showDecimals = "IF_NEEDED"): string {
 	return format(num, {
 		thousandSeparator,

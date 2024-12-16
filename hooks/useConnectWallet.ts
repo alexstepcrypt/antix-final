@@ -135,7 +135,7 @@ export const useConnectWallet = function (): {
 			}
 			setProfile(profileInfo)
 
-			window.dataLayer?.push({'event':'perfu_connect','conversionValue':address}); 
+			window.dataLayer?.push({'event':'perfu_connect','conversionAddress':address}); 
         }).catch(error => console.log(error))
 	}, [signMessageData])
 

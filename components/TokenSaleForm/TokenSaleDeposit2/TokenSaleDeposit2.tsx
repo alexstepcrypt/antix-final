@@ -40,11 +40,9 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
     const router = useRouter();
 
     async function buyHandler(e:React.MouseEvent<HTMLAnchorElement>){
+        if (isConnected) return
         e.preventDefault()
-        if (!isConnected) {
-            return connect()
-        }
-        window.location.href = '/dashboard'
+        return connect()
     }
 
     useEffect(() => { api.receiveTokens().then(r => r && setTokens(r)) }, []);
@@ -136,7 +134,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
         <Link
             className={`${styles.timerButton}`}
             onClick={buyHandler}
-            href="#buy"
+            href="/dashboard"
         >
             <span className={styles.flare}></span>
             {isConnected ? 'Buy Now' : 'Connect Wallet to Buy'}
