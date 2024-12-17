@@ -162,7 +162,8 @@ class Api {
   }
 
   genReferralLink(refcode:string){
-    return 'https://'+location.host+'/?refcode='+refcode
+    const host = typeof window !== 'undefined' ? window.location.host : 'token.antix.in'
+    return 'https://'+host+'/?refcode='+refcode
   }
 
   getUserReferrals():Promise<any>{
