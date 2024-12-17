@@ -3,6 +3,15 @@ import Document, { Head, Html, Main, NextScript } from 'next/document';
 import Script from "next/script";
 import React from 'react';
 
+const DOMAINS = {
+  'token.antix.in'    : {},
+  'sale.antix.in'     : {},
+  'launch.antix.in'   : {},
+  'tokens.antix.in'   : {},
+  'presale.antix.in'  : {},
+  'tokensale.antix.in': {},
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://token.antix.in"),
   title: "Antix: Tokensale",

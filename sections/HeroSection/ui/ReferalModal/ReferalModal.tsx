@@ -9,6 +9,7 @@ import Image from "next/image";
 import CloseIcon from "/public/dashboard/svg/close-icon.svg";
 import CopyIcon from "/public/svg/copy-icon.svg";
 import { DepositPopover } from "@/DashboardStages/Stage1/DashboardTop/DepositForm/DepositPopover/DepositPopover";
+import Api from "@/utils/api";
 
 
 interface IReferalModal {
@@ -24,9 +25,10 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
     const [openPopover, setOpenPopover] = useState(false);
 
     const handleCopy = () => {
+        const link = Api.genReferralLink(refCode)
         if (navigator.clipboard) {
             navigator.clipboard
-                .writeText(`${process.env.REFERRAL_LINK}${refCode}`)
+                .writeText(link)
                 .then(() => {
                     setIsCopied(true);
                     setTimeout(() => setIsCopied(false), 2000);
@@ -36,7 +38,7 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                 });
         } else {
             const textArea = document.createElement("textarea");
-            textArea.value = `${process.env.REFERRAL_LINK}${refCode}`;
+            textArea.value = link;
             document.body.appendChild(textArea);
             textArea.select();
             document.execCommand("copy");

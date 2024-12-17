@@ -12,7 +12,10 @@ const wagmiAdapter = new WagmiAdapter({
 
 const customWallets = []
 
+let domain = 'token.antix.in'
 if (typeof window !== 'undefined' && isMobile() && !window.ethereum) {
+	domain = window.location.hostname
+
 	const link = isIos()
 		? 'dapp://'+location.host+'/dashboard/'+location.search
 		: 'https://metamask.app.link/dapp/https://'+location.host+'\\/dashboard\\/'+location.search
@@ -35,7 +38,7 @@ export const AppKit = createAppKit({
 	metadata: {
 		name: 'Antix.in',
 		description: 'The new era of AI-powered digital humans is here',
-		url: 'https://' + process.env.DOMAIN,
+		url: 'https://' + domain,
 		icons: ['https://token.antix.in/_next/static/media/logo-full.723219c1.svg']
 	},
 	allWallets: 'HIDE',

@@ -126,6 +126,7 @@ export const useConnectWallet = function (): {
             wallet  : address, 
             msg     : String(variables.message), 
             sign    : signMessageData,
+			host    : location.host,
             refcode : localStorage.refcode,
 			utms    : utms
         }).then((profileInfo:any)=>{
