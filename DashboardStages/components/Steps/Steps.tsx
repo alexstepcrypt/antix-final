@@ -1,5 +1,6 @@
 import { type CSSProperties, Fragment } from 'react';
 import s from './Steps.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface Stage {
    step: number;
@@ -13,6 +14,9 @@ interface StepsProps {
 }
 
 export const Steps = ({ stages, style }: StepsProps) => {
+   const { t } = useTranslation('dashboard');
+   const teamItems = t('stage.steps', { returnObjects: true }) as Array<string>;
+
    return (
       <div
          style={style}
@@ -28,7 +32,7 @@ export const Steps = ({ stages, style }: StepsProps) => {
                      <h2 className={s.title}>
                         {step}
                      </h2>
-                     <p>{title}</p>
+                     <p>{teamItems[i]}</p>
                   </section>
 
                   {!isLast && (

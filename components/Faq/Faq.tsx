@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import styles from "./Faq.module.scss";
 import { FaqAccordion } from "@/DashboardStages/Stage1/DashboardTop/FaqAccordion/FaqAccordion";
-import { faqItemsTypes } from "@/DashboardStages/Stage1/DashboardTop/FaqAccordion/mocdata";
 
 // interface IFaqItem {
 //     id: number;
@@ -12,7 +11,10 @@ import { faqItemsTypes } from "@/DashboardStages/Stage1/DashboardTop/FaqAccordio
 // }
 
 interface IFaq {
-    faqItems: faqItemsTypes[];
+    faqItems: {
+        title: string;
+        content: string;
+    }[];
 }
 
 const Faq: React.FC<IFaq> = ({ faqItems }) => {
@@ -29,6 +31,7 @@ const Faq: React.FC<IFaq> = ({ faqItems }) => {
                         openedId={openedId}
                         setOpenedId={setOpenedId}
                         {...item}
+                        id={i}
                     />
                 ))}
             </div>

@@ -5,8 +5,10 @@ import Bg from "/public/images/why/why-bg.png";
 import Bg1 from "/public/svg/why/why-item-bg1.svg";
 import Bg2 from "/public/svg/why/why-item-bg2.svg";
 import Bg3 from "/public/svg/why/why-item-bg3.svg";
+import { useTranslation } from "react-i18next";
 
 const Why = () => {
+    const { t } = useTranslation('landing');
     return (
         <section
             className={styles.wrapper}
@@ -18,11 +20,8 @@ const Why = () => {
                         className={styles.item}
                         style={{ backgroundImage: `url(${Bg1.src})` }}
                     >
-                        <h4>Create and Earn from avatars</h4>
-                        <p>
-                            Design, customize, and monetize digital avatars with
-                            Antix across various platforms.
-                        </p>
+                        <h4>{t('why.block1.title')}</h4>
+                        <p>{t('why.block1.description')}</p>
                     </div>
                 </FadeInNew>
                 <FadeInNew direction="right" delay={0.3}>
@@ -30,11 +29,8 @@ const Why = () => {
                         className={styles.item}
                         style={{ backgroundImage: `url(${Bg2.src})` }}
                     >
-                        <h4>True IP ownership with a blockchain</h4>
-                        <p>
-                            Your avatars are protected and owned through NFTs,
-                            fully tradable and secure.
-                        </p>
+                        <h4>{t('why.block2.title')}</h4>
+                        <p>{t('why.block2.description')}</p>
                     </div>
                 </FadeInNew>
                 <FadeInNew direction="right" delay={0.5}>
@@ -42,11 +38,8 @@ const Why = () => {
                         className={styles.item}
                         style={{ backgroundImage: `url(${Bg3.src})` }}
                     >
-                        <h4>ANTIX token drives the platform</h4>
-                        <p>
-                            Use ANTIX tokens for payments, customization, and
-                            rewards, with exclusive discounts.
-                        </p>
+                        <h4>{t('why.block3.title')}</h4>
+                        <p>{t('why.block3.description')}</p>
                     </div>
                 </FadeInNew>
             </div>

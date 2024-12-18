@@ -15,6 +15,7 @@ import StayUpdated from '@/components/StayUpdated/StayUpdated';
 import Pays from '@/components/Pays/Pays';
 import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar'
 import api from '@/utils/api'
+import { useTranslation } from 'react-i18next';
 
 import ETHIcon from '@/public/svg/ether-icon.svg';
 import BNBIcon from '@/public/svg/bnb-icon.svg';
@@ -38,6 +39,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
     const [tokens, setTokens] = useState<TokensSolded>({ current: 0, target: 0 });
     const { isConnected, connect } = useConnectWallet();
     const router = useRouter();
+    const { t } = useTranslation('landing');
 
     async function buyHandler(e:React.MouseEvent<HTMLAnchorElement>){
         if (isConnected) return
@@ -53,29 +55,6 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
         className={styles.timerHead}
         style={{ backgroundImage: `url(${BgHead.src})` }}
     >
-        <div className={styles.timerLogos}>
-            <Image
-                src={ETHIcon}
-                width={23}
-                height={23}
-                alt="ETH"
-                className={styles.logo}
-            />
-            <Image
-                src={BNBIcon}
-                width={23}
-                height={23}
-                alt="BNB"
-                className={styles.logo}
-            />
-            <Image
-                src={BaseIcon}
-                width={23}
-                height={23}
-                alt="Base"
-                className={styles.logo}
-            />
-        </div>
         <div className={styles.timerWrapperTitle}>
             <Image
                 src={LogoSmall}
@@ -84,24 +63,24 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
                 alt="Logo"
                 className={styles.logo}
             />
-            Token Sale
+            {t('tokenSaleDeposit2.timerHead')}
         </div>
     </div>
 
     <div className={styles.timer}>
         <div className={styles.timerTitle}>
             <section>
-                <h2 className={styles.timerHeading}>Stage 3</h2>
+                <h2 className={styles.timerHeading}>{t('tokenSaleDeposit2.stageTitle')}</h2>
             </section>
 
             <div className={styles.discount}>
-                <p>-64% to TGE Price</p>
+                <p>{t('tokenSaleDeposit2.discountText')}</p>
             </div>
         </div>
 
         <div className={styles.timerContainer}>
             <span className={styles.title}>
-                Stage 3 ends in
+                {t('tokenSaleDeposit2.stageEndsIn')}
             </span>
 
             <HeroTimer
@@ -111,13 +90,13 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
 
         <div className={styles.stagePrice}>
             <section className={styles.leftPart}>
-                <h3>Current price</h3>
-                <p>0.05 USDT</p>
+                <h3>{t('tokenSaleDeposit2.currentPrice')}</h3>
+                <p>0.05 USD</p>
             </section>
 
             <div className={styles.prices}>
-                <p>Listing(TGE) Price</p>
-                <p>0.14 USDT</p>
+                <p>{t('tokenSaleDeposit2.listingPrice')}</p>
+                <p>0.14 USD</p>
             </div>
         </div>
 
@@ -126,7 +105,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
                 segments={20}
                 currentAmount={tokens.current}
                 targetAmount={tokens.target}
-                title='Tokens Sold:'
+                title={t('tokenSaleDeposit2.tokensSold')}
                 color="#12fff1"
             />
         </div>
@@ -137,7 +116,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
             href="/dashboard"
         >
             <span className={styles.flare}></span>
-            {isConnected ? 'Buy Now' : 'Connect Wallet to Buy'}
+            {isConnected ? t('tokenSaleDeposit2.buyButton.connected') : t('tokenSaleDeposit2.buyButton.disconnected')}
         </Link>
 
 
@@ -149,7 +128,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
                 onClick={() => setIsRefModal(true)}
                 className={styles.refBtn}
             >
-                + Get referral link
+                {t('tokenSaleDeposit2.referralButton')}
             </button>
         </div>
     </div>

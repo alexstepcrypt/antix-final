@@ -5,6 +5,7 @@ import Image from 'next/image';
 import vesting_antix from '/public/svg/vantix-icon.svg';
 import TetherIcon from '/public/dashboard/svg/usdt-bnb-icon.svg';
 import BNBIcon from "/public/svg/bnb-icon.svg";
+import { useTranslation } from 'react-i18next';
 // import USDCIcon from "/public/svg/usdc-icon.svg";
 // import ETHIcon from "/public/svg/ether-icon.svg";
 
@@ -49,15 +50,17 @@ const history: historyType[] = [
 ];
 
 const RefHistory = () => {
+  const { t } = useTranslation('dashboard');
+
   return (
     <div className={styles.container}>
       <ul className={styles.head}>
-        <li>Type</li>
-        <li>Referrals amount</li>
-        <li>Amount</li>
-        <li>Referral earnings</li>
-        <li>Status</li>
-        <li>Transaction Link</li>
+        <li>{t('referral.history.type')}</li>
+        <li>{t('referral.history.refamount')}</li>
+        <li>{t('referral.history.amount')}</li>
+        <li>{t('referral.history.earnings')}</li>
+        <li>{t('referral.history.status')}</li>
+        <li>{t('referral.history.link')}</li>
       </ul>
 
       <ul className={styles.body}>
@@ -87,7 +90,7 @@ const RefHistory = () => {
               {item.referralEarnings} vAntix
             </div>
             <div className={styles.item}>
-              {item.status === 'Claim' ? <button>Claim</button> : item.status}
+              {item.status === 'Claim' ? <button>{t('referral.history.claim')}</button> : item.status}
             </div>
             {item.transactionLink === '' ? (
               <div className={`${styles.item}`}>-</div>
@@ -96,7 +99,7 @@ const RefHistory = () => {
                 href={item.transactionLink}
                 className={`${styles.item} ${styles.address}`}
               >
-                View Transaction
+                {t('referral.history.view')}
               </a>
             )}
           </li>

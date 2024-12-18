@@ -6,26 +6,32 @@ import coin from '/public/svg/token/coin.svg';
 import bg from '/public/svg/token/coin-bg.svg';
 import { TokenCard } from '../TokenCard/TokenCard';
 import s from './TokenBody.module.scss';
-import { leftList, midList, rightList } from '../../mocdata'
+import { leftList, listTextType, midList, rightList } from '../../mocdata'
 
-export const TokenBody = () => {
+interface TokenBodyProps {
+   leftListText: listTextType[];
+   midListText: listTextType[];
+   rightListText: listTextType[];
+}
+
+export const TokenBody: React.FC<TokenBodyProps> = ({ leftListText, midListText, rightListText }) => {
    return (
       <div
          style={{ backgroundImage: `url(${bg.src})` }}
          className={s.container}>
          <div className={s.left}>
-            {leftList.map((item, i) => (
-               <TokenCard key={i} {...item} />
+            {leftListText.map((item, i) => (
+               <TokenCard key={i} {...item} icon={leftList[i]} />
             ))}
          </div>
          <div className={s.middle}>
-            {midList.map((item, i) => (
-               <TokenCard key={i} {...item} />
+            {midListText.map((item, i) => (
+               <TokenCard key={i} {...item} icon={midList[i]} />
             ))}
          </div>
          <div className={s.right}>
-            {rightList.map((item, i) => (
-               <TokenCard key={i} {...item} />
+            {rightListText.map((item, i) => (
+               <TokenCard key={i} {...item} icon={rightList[i]} />
             ))}
          </div>
 

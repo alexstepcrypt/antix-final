@@ -29,6 +29,8 @@ import arrow from '/public/dashboard/svg/arrow-down.svg';
 import ChainsDropdown from '@/components/ChainsDropdown/ChainsDropdown';
 import { useUserCountry } from '@/hooks/useUserCountry';
 import usePlaceholderStore from '@/stores/usePlaceholderStore';
+import { useTranslation } from 'react-i18next';
+import SelectLanguage from '@/components/SelectLanguage/SelectLanguage'
 
 interface HeaderProps {
     isDashboard?: boolean;
@@ -47,6 +49,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
 
     const { setBlocked } = usePlaceholderStore();
     const countryCode = useUserCountry();
+    const { t } = useTranslation('landing');
 
     useEffect(() => {
         if (countryCode === "US" && account) {
@@ -103,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
                         isOpen ? styles.activeMobileMenu : ""
                     }`}
                 >
-                    {mobileLinksList.map((link) => (
+                    {mobileLinksList.map((link, index) => (
                         <Link
                             href={link.href}
                             key={link.label}
@@ -123,11 +126,12 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
                                     />
                                 </div>
                             )}
-                            {link.label}
-                            {link.label.toLowerCase() === "claim" && <span>Claiming page will be available after the TGE</span>}
+                            {isDashboard ? t(`header.mobileLinksDashboard.${index}`) : t(`header.mobileLinks.${index}`)}
+                            {link.label.toLowerCase() === "claim" && <span>{t('header.claimPopoverText')}</span>}
                         </Link>
                     ))}
                     <div className={styles.mobileChooseChain}>
+                        <SelectLanguage />
                         <ChainsDropdown />
                     </div>
                 </div>
@@ -148,7 +152,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
                     />
                     {isDashboard && !isNews &&  (
                         <Link href={"/"} className={styles.backToMainButton}>
-                            Back to the Main Page
+                            {t('header.backToMainPage')}
                         </Link>
                     )}
                     <Image
@@ -160,7 +164,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
                     />
                 </div>
                 <div className={styles.linksContainer}>
-                    {linksList.map((link) => {
+                    {linksList.map((link, index) => {
                         const isClaim = link.label.toLowerCase() === "claim";
                         return (
                         <>
@@ -177,8 +181,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
                                         />
                                         <div className={styles.popoverContent}>
                                             <p>
-                                                Claiming page will be available
-                                                after the TGE
+                                                {t('header.claimPopoverText')}
                                             </p>
                                         </div>
                                     </div>
@@ -194,12 +197,13 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
                                 onBlur={() => isClaim && setOpenPopover(false)}
                                 disabled={link.disabled}
                                 >
-                                {link.label}
+                                {isDashboard ? t(`header.linksDashboard.${index}`) : t(`header.links.${index}`)}
                             </button>
                         </>
                     )})}
                 </div>
                 <div className={styles.chooseChain}>
+                    <SelectLanguage />
                     <ChainsDropdown />
                 </div>
                 <div className={styles.connectContainer}>
@@ -218,7 +222,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
                             onClick={connect}
                             className={styles.connectButton}
                         >
-                            Connect Wallet
+                            {t('header.connectWalletButton')}
                         </button>
                     )}
                     </>}

@@ -11,18 +11,19 @@ import logo4 from '/public/svg/team/ico4.svg';
 import { StatisticCard } from '../StatisticCard/StatisticCard';
 import s from './TeamPreview.module.scss';
 import VideoModal from '../../../../components/VideoModal/VideoModal'
-
-const statisticList = [
-   { title: '20+', description: 'Existing Clients' },
-   { title: '20', description: 'Completed Projects' },
-   { title: '10', description: 'R&D Completed' },
-   { title: '70+', description: 'Cinematic Created' },
-];
+import { useTranslation } from 'react-i18next';
 
 const logosList = [logo1, logo2, logo3, logo4];
 
+type statisticItemsType = {
+   title: string;
+   description: string;
+}
+
 export const TeamPreview = () => {
    const [openVideo, setOpenVideo] = useState("");
+   const { t } = useTranslation('landing');
+   const statisticItems = t('team.statistic', { returnObjects: true }) as Array<statisticItemsType>;
 
    return (
       <div className={s.preview}>
@@ -32,7 +33,7 @@ export const TeamPreview = () => {
 
          <div>
             <section className={s.wrapper}>
-               <h2 className={s.title}>Team</h2>
+               <h2 className={s.title}>{t('team.title')}</h2>
 
                <div className={s.founderWrapper}>
                   <Image
@@ -47,22 +48,21 @@ export const TeamPreview = () => {
                   />
 
                   <p className={s.word}>
-                     Word from
+                     {t('team.word.text_1')}
                      <br />
-                     the Founder
+                     {t('team.word.text_2')}
                   </p>
                </div>
             </section>
             <p className={s.description}>
-               The team has a proven track record of{' '}
-               <span>successfully managing business projects.</span> They bring
-               significant experience and exceptional knowledge regarding
-               digital humans & Web3 ventures at scale
+               {t('team.description.text_1')}
+               <span>{t('team.description.span')}</span>
+               {t('team.description.text_2')}
             </p>
          </div>
 
          <div className={s.statistic}>
-            {statisticList.map((item, i) => (
+            {statisticItems.map((item, i) => (
                <StatisticCard key={i} {...item} />
             ))}
          </div>

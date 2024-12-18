@@ -9,11 +9,13 @@ import Bg from "/public/images/tokenomics-bg.png";
 import TokenomicsLabel from "/public/svg/tokenomics-labels.svg";
 import TokenomicsChart from "/public/svg/tokenomics-chart.svg";
 import TokenomicsLabelMobile from "/public/images/tokenomics-labels-mobile.png";
+import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Tokenomics = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
+    const { t } = useTranslation('landing');
 
     useEffect(() => {
         const el = sectionRef.current;
@@ -41,7 +43,7 @@ const Tokenomics = () => {
             id="Tokenomics"
         >
             <h4 className={styles.title}>
-                Tokenomics
+                {t('tokenomics.title')}
             </h4>
             <div className={styles.chartWrapper} ref={sectionRef}>
                 <div className={styles.innerChartText}>

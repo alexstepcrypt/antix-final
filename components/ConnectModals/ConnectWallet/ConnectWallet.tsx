@@ -1,10 +1,12 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
 import styles from "./ConnectWallet.module.scss";
 import { useConnectWallet } from '@/hooks/useConnectWallet'
 
 const ConnectWallet: React.FC = () => {
     const { isConnected, isReady, connect } = useConnectWallet()
+    const { t } = useTranslation('dashboard');
 
     if (isConnected) return <></>
 
@@ -12,13 +14,13 @@ const ConnectWallet: React.FC = () => {
         <div className={styles.bg} />
         {isReady && <div className={styles.modal}>
             <p className={styles.modalTitle}>
-                Connect wallet to access token sale
+                {t('stage.connectWallet.title')}
             </p>
             <button
                 className={styles.connectBtn}
                 onClick={connect}
             >
-                Connect Wallet
+                {t('stage.connectWallet.btn')}
             </button>
         </div>}
     </>

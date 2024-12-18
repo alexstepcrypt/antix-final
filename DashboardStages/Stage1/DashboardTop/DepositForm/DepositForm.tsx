@@ -30,6 +30,7 @@ import { DepositErrIcon } from './icons/DepositErrIcon'
 import { GotQuestions } from '@/components/GotQuestions/GotQuestions'
 import DepositStatusModal from './DepositModal/StatusModal'
 import Input from '@/DashboardStages/Stage2/DashboardTop/Input/Input'
+import { useTranslation } from "react-i18next";
 
 import Mastercard from "/public/dashboard/svg/mastercard-logo.svg";
 import Visa from "/public/dashboard/svg/visa-logo.svg";
@@ -71,7 +72,7 @@ const tokensIcons:any = {
 
 type AvailableCurrencies = "USDC" | "USDT" | "ETH" | "CBBTC" | "DEGEN" | "MANTRA" | "WETH" | "BNB" | "BASE";
 
-const errString = "Not enough funds to make the deposit";
+// const errString = "Not enough funds to make the deposit";
 
 const DepositForm = () => {
     const { chainId } = useConnectWallet();
@@ -84,6 +85,8 @@ const DepositForm = () => {
     const [error, setError] = useState<string | null>(null);
     const { network } = useNetwork();
     const [receiveValue, setReceiveValue] = useState("0");
+
+    const { t } = useTranslation('dashboard');
 
     const tokens = tokensByChains[chainId || 1]
 
@@ -113,9 +116,10 @@ const DepositForm = () => {
     }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (balance !== null && +balance < +amount) setError(errString);
+        if (balance !== null && +balance < +amount) setError(t('stage.form.error'));
         setAmountAndRecive(e.target.value)
     }
+
 
     function setAmountAndRecive(value:string){
         const decimals = (displayCurrency==='ETH') ? 18 : 6
@@ -151,7 +155,7 @@ const DepositForm = () => {
 
     return <div className={styles.sendingWrapepr}>
         <div className={`${styles.chooseCurrWrapper} ${network.value === "BASE" ? styles.baseCurrWrapper : ''}`}>
-            {(network.value === 'ETH' || network.value === 'BASE') && (
+        {(network.value === 'ETH' || network.value === 'BASE') && (
                 <button
                     onClick={() => selectCurrency("ETH")}
                     className={`${styles.chooseCurrBtn} ${
@@ -206,7 +210,7 @@ const DepositForm = () => {
 
                     <span className={styles.divider} />
 
-                    <DepositPopover open={openDebit} text="Coming Soon">
+                    <DepositPopover open={openDebit} text={t('stage.form.soon')}>
                         <button
                             onClick={() => setOpenDebit((p) => !p)}
                             onBlur={() => setOpenDebit(false)}
@@ -238,7 +242,6 @@ const DepositForm = () => {
                         <Image src={USDCIcon} alt="USDC" width={24} height={24} />
                         <span>USDC</span>
                     </button>
-          
 
                     <button
                         onClick={() => selectCurrency('DEGEN')}
@@ -289,7 +292,6 @@ const DepositForm = () => {
                     </button>
                 </>
             )}
-            
         </div>
 
         <div
@@ -297,13 +299,13 @@ const DepositForm = () => {
             className={styles.sending}
         >
             <div className={styles.sendingTop}>
-                <span className={styles.sendingTitle}>You send</span>
+                <span className={styles.sendingTitle}>{t('stage.form.send')}</span>
                 <div className={styles.sendingBalance}>
                     <span>
                     <TokenBalance tokenAddress={tokens[displayCurrency]} onChange={setMaxBalance} />
                     </span>
                     <button onClick={handleMax} className={styles.sendingBalanceBtn}>
-                        Max
+                        {t('stage.form.max')}
                     </button>
                 </div>
             </div>
@@ -314,7 +316,7 @@ const DepositForm = () => {
                     onChange={handleInputChange}
                     className={styles.sendingInput}
                     type="text"
-                    placeholder="Enter amount"
+                    placeholder={t('stage.form.enter')}
                     style={{
                         color:
                             amount === "0"
@@ -335,7 +337,7 @@ const DepositForm = () => {
         </div>
         <Input
             value={receiveValue}
-            title="ANTIX you receive"
+            title={`ANTIX ${t('stage.form.receive')}`}
             onChangeValue={() => {}}
             icon={TokenIcon}
             price={"$0.05"}
@@ -363,10 +365,8 @@ const DepositForm = () => {
         <GotQuestions />
 
         <div className={styles.disclaimer}>
-            <span>By clicking "Deposit Now," you confirm that you are not a U.S. citizen
-            or U.S. resident.</span> This investment offer is exclusively intended for
-            non-U.S. persons and is strictly not available to U.S. citizens, U.S.
-            residents, or any entities organized or domiciled in the United States.
+            <span>{t('stage.form.disclaimer.span')}</span>
+            {t('stage.form.disclaimer.text')}
         </div>
     </div>
 };

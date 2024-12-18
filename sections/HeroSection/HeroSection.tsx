@@ -21,6 +21,7 @@ import { useState } from "react";
 import ReferalModal from "./ui/ReferalModal/ReferalModal";
 import TokenSaleDeposit from "@/components/TokenSaleForm/TokenSaleDeposit/TokenSaleDeposit";
 import TokenSaleDeposit2 from "@/components/TokenSaleForm/TokenSaleDeposit2/TokenSaleDeposit2";
+import { useTranslation } from "react-i18next";
 // import TokenSaleStage1AS from "@/components/TokenSaleForm/TokenSaleStage1AS/TokenSaleStage1AS";
 // import TokenSaleStage1 from "@/components/TokenSaleForm/TokenSaleStage1/TokenSaleStage1";
 // import TokenSaleStage1SO from "@/components/TokenSaleForm/TokenSaleStage1SO/TokenSaleStage1SO";
@@ -36,7 +37,8 @@ const HeroSection = () => {
     const currentDate = new Date();
     const stage2DateStr = "2024-12-17T17:00:00Z";
     const stage3DateStr = "2024-12-22T17:00:00Z";
-    
+    const { t } = useTranslation('landing');
+
     return (
         <section className={styles.wrapper} id="Hero">
             <video
@@ -65,17 +67,17 @@ const HeroSection = () => {
                     <FadeInNew direction="right" distance="50%">
                         <>
                             <span className={styles.subtitle}>
-                                The new era of AI-powered digital humans is here
+                                {t('heroSection.subtitle')}
                             </span>
                             <h1 className={styles.title}>
-                                Ready to be
+                                {t('heroSection.title.line1')}
                                 <br />
-                                <span>Replaced by AI?</span>
+                                <span>{t('heroSection.title.line2')}</span>
                             </h1>
                             <p className={styles.description}>
-                                Step into the $300 billion industry with the{" "}
-                                <span>ANTIX token</span>. Hyper-realistic
-                                digital twins for film, content, and beyond
+                                {t('heroSection.description.text1')}{" "}
+                                <span>{t('heroSection.description.span')}</span>{" "}
+                                {t('heroSection.description.text2')}
                             </p>
                         </>
                     </FadeInNew>
@@ -185,7 +187,7 @@ const HeroSection = () => {
                         src={require("/public/video/hero-video.webm")}
                         type="video/webm"
                     />
-                    Ваш браузер не поддерживает видео.
+                    {t('heroSection.videoFallbackText')}
                 </video>
                 {/* <TokenSaleDeposit stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} /> */}
                 
