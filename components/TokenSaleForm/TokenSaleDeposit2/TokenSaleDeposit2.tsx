@@ -42,11 +42,9 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
     const { t } = useTranslation('landing');
 
     async function buyHandler(e:React.MouseEvent<HTMLAnchorElement>){
+        if (isConnected) return
         e.preventDefault()
-        if (!isConnected) {
-            return connect()
-        }
-        window.location.href = '/dashboard'
+        return connect()
     }
 
     useEffect(() => { api.receiveTokens().then(r => r && setTokens(r)) }, []);
@@ -138,7 +136,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
         <Link
             className={`${styles.timerButton}`}
             onClick={buyHandler}
-            href="#buy"
+            href="/dashboard"
         >
             <span className={styles.flare}></span>
             {isConnected ? t('tokenSaleDeposit2.buyButton.connected') : t('tokenSaleDeposit2.buyButton.disconnected')}

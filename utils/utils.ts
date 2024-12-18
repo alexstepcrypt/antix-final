@@ -1,5 +1,16 @@
 import { format } from "number-currency-format";
 
+export function isMobile () {
+	if (typeof navigator === 'undefined') return false
+    const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+    return regex.test(navigator.userAgent)
+}
+
+export function isIos () {
+    const regex = /iPhone|iPad|iPod/i
+    return regex.test(navigator.userAgent)
+}
+
 export default function numberFormat(num: number, thousandSeparator = " ", decimalSeparator = ",", decimalsDigits = "2", showDecimals = "IF_NEEDED"): string {
 	return format(num, {
 		thousandSeparator,

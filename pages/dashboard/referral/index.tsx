@@ -91,7 +91,7 @@ const Referral = () => {
     },[profile])
 
     const handleCopy = () => {
-        const link = process.env.REFERRAL_LINK + refCode
+        const link = Api.genReferralLink(refCode)
         if (navigator.clipboard) {
             navigator.clipboard
                 .writeText(link)
@@ -159,7 +159,7 @@ const Referral = () => {
                         <h4>{t('referral.invite')}</h4>
                         <div className={styles.codeContainer}>
                             <input
-                                value={process.env.REFERRAL_LINK + refCode}
+                                value={Api.genReferralLink(refCode)}
                                 readOnly
                                 className={`${styles.code} ${
                                     isGenerated ? styles.genCode : ""

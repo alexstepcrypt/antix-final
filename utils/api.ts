@@ -3,6 +3,7 @@ type LoginProps = {
   msg    : string,
   sign   : string,
   refcode: string,
+  host   : string,
   utms?  : any
 }
 type statusParams = "PENDING" | "SUCCESS" | "ERROR";
@@ -158,6 +159,11 @@ class Api {
   async getUserRefcode():Promise<string> {
     const res = await this.authCall('/profile/refcode')
     return res.refcode
+  }
+
+  genReferralLink(refcode:string){
+    const host = typeof window !== 'undefined' ? window.location.host : 'token.antix.in'
+    return 'https://'+host+'/?refcode='+refcode
   }
 
   getUserReferrals():Promise<any>{

@@ -106,15 +106,14 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
                     }`}
                 >
                     {mobileLinksList.map((link, index) => (
-                        <button
-                            onClick={() => handleClick(link.href)}
+                        <Link
+                            href={link.href}
                             key={link.label}
                             className={styles.mobileLink}
                             style={{
                                 justifyContent: link.icon ? "" : "center",
                                 background: link.href === pathName ? "#F0F0F033" : "#F0F0F00A"
                             }}
-                            disabled={link.disabled}
                         >
                             {link.icon && (
                                 <div className={styles.mobileLinkImg}>
@@ -128,7 +127,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
                             )}
                             {isDashboard ? t(`header.mobileLinksDashboard.${index}`) : t(`header.mobileLinks.${index}`)}
                             {link.label.toLowerCase() === "claim" && <span>{t('header.claimPopoverText')}</span>}
-                        </button>
+                        </Link>
                     ))}
                     <div className={styles.mobileChooseChain}>
                         <ChainsDropdown />
