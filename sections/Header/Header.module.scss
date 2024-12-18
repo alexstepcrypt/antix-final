@@ -203,6 +203,9 @@
 }
 
 .chooseChain {
+    display: flex;
+    gap: 12px;
+    align-items: center;
     margin-right: 12px;
 
     @media screen and (max-width: 960px) {
@@ -219,6 +222,9 @@
     height: 48px;
     margin-top: 20px;
     align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .connectContainer {

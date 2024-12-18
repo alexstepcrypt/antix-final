@@ -30,6 +30,7 @@ import ChainsDropdown from '@/components/ChainsDropdown/ChainsDropdown';
 import { useUserCountry } from '@/hooks/useUserCountry';
 import usePlaceholderStore from '@/stores/usePlaceholderStore';
 import { useTranslation } from 'react-i18next';
+import SelectLanguage from '@/components/SelectLanguage/SelectLanguage'
 
 interface HeaderProps {
     isDashboard?: boolean;
@@ -130,6 +131,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
                         </Link>
                     ))}
                     <div className={styles.mobileChooseChain}>
+                        <SelectLanguage />
                         <ChainsDropdown />
                     </div>
                 </div>
@@ -201,6 +203,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
                     )})}
                 </div>
                 <div className={styles.chooseChain}>
+                    <SelectLanguage />
                     <ChainsDropdown />
                 </div>
                 <div className={styles.connectContainer}>
