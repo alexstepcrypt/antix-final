@@ -55,29 +55,6 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
         className={styles.timerHead}
         style={{ backgroundImage: `url(${BgHead.src})` }}
     >
-        <div className={styles.timerLogos}>
-            <Image
-                src={ETHIcon}
-                width={23}
-                height={23}
-                alt="ETH"
-                className={styles.logo}
-            />
-            <Image
-                src={BNBIcon}
-                width={23}
-                height={23}
-                alt="BNB"
-                className={styles.logo}
-            />
-            <Image
-                src={BaseIcon}
-                width={23}
-                height={23}
-                alt="Base"
-                className={styles.logo}
-            />
-        </div>
         <div className={styles.timerWrapperTitle}>
             <Image
                 src={LogoSmall}
@@ -114,12 +91,12 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
         <div className={styles.stagePrice}>
             <section className={styles.leftPart}>
                 <h3>{t('tokenSaleDeposit2.currentPrice')}</h3>
-                <p>0.05 USDT</p>
+                <p>0.05 USD</p>
             </section>
 
             <div className={styles.prices}>
                 <p>{t('tokenSaleDeposit2.listingPrice')}</p>
-                <p>0.14 USDT</p>
+                <p>0.14 USD</p>
             </div>
         </div>
 

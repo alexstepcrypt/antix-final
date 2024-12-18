@@ -69,12 +69,12 @@
   },
   "tokenSaleDeposit2": {
     "timerHead": "Token Sale",
-    "stageTitle": "Stage 2",
-    "discountText": "-71% to TGE Price",
-    "stageEndsIn": "Stage 2 ends in",
+    "stageTitle": "Stage 3",
+    "discountText": "-64% to TGE Price",
+    "stageEndsIn": "Stage 3 ends in",
     "currentPrice": "Current price",
     "listingPrice": "Listing(TGE) Price",
-    "tokensSold": "Tokens sold:",
+    "tokensSold": "Tokens Sold (USD):",
     "buyButton": {
       "connected": "Buy Now",
       "disconnected": "Connect Wallet to Buy"
@@ -116,7 +116,7 @@
   "stageWidget": {
     "currentPrice": "Current price",
     "timer": {
-      "title": "Stage 2 ends in",
+      "title": "Stage 3 ends in",
       "days": "day",
       "hours": "hour",
       "minutes": "min",
