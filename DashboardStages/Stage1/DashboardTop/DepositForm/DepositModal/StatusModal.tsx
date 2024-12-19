@@ -23,7 +23,7 @@ export default function DepositStatusModal({ txHash, status, retryFn }: ModalPro
    const dialog:any = useRef(null)
    const [dataStatus, setDataStatus] = useState(status);
 
-   const { t } = useTranslation('dashboard');
+   const { t } = useTranslation("dashboard");
 
    useEffect(()=>{
       setDataStatus(status)
