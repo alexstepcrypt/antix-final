@@ -15,7 +15,7 @@ export default function EmailForm({ setDataStatus, dataStatus }: FormProps) {
    const [error, setError] = useState(false);
    const emailRef = useRef<HTMLInputElement>(null);
 
-   const { t } = useTranslation();
+   const { t } = useTranslation("dashboard");
 
    function sendEmail() {
       if (emailRef.current?.validity && !emailRef.current?.validity.valid) {
