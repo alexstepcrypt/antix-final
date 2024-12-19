@@ -57,7 +57,7 @@ const Statistics = () => {
                     {mobileJSText.map((item, index) => (
                         <div key={index} className={styles.mobileItem}>
                             <Image src={mobileText[index].img} alt="" />
-                            <p className={styles.mobileText}>{item.span1 ? <span>item.span1</span> : ''} {item.description}</p>
+                            <p className={styles.mobileText}>{item.span1 ? <span>{item.span1}</span> : ''} {item.description}</p>
                         </div>
                     ))}
                 </div>
