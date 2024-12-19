@@ -42,7 +42,13 @@ const DashboardTop = () => {
     const underDepositInfo = t('stage.underDepositInfo', { returnObjects: true }) as Array<{title:string;value:string}>;
     const faqInfo = t('stage.faq', { returnObjects: true }) as Array<{title:string;content:string}>;
 
-    const bonus = !!profile?.referrer ? balances.vesting * 0.05 : 0;
+    let bonus = !!profile?.referrer ? balances.vesting * 0.05 : 0;
+
+    // disable bonus for refoce '119d5145'
+    if (profile?.referrer === 'bdbc25e1-6dd5-4506-a98c-903a2f29a7ae') {
+        bonus = 0
+    }
+
     const refBonus = bonus
         ? `+${bonus.toLocaleString('en-US')} ANTIX ${t('stage.referralBonus')}`
         : "";
