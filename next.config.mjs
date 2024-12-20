@@ -14,7 +14,7 @@ const nextConfig = {
     images: {
         unoptimized: true, 
     },
-    trailingSlash: true,
+    // trailingSlash: true,
     output: 'export',
     transpilePackages: ['gsap'],
     webpack: config => {

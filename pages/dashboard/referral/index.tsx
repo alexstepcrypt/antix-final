@@ -139,7 +139,7 @@ const Referral = () => {
 
         <section className={styles.container}>
             <div className={styles.titleWrapper}>
-                <h1 className={styles.title}>{t('referral.title')}</h1>
+                <h1 className={styles.title}>{t('referral.title')} :</h1>
                 {isGenerated ? (
                     <span>{t('referral.active')}</span>
                 ) : (
