@@ -225,7 +225,7 @@ const Referral = () => {
                                 <h4>{t('referral.yourEarnings')}</h4>
                                 <span>{t('referral.deposit')}</span>
                             </div>
-                            <Earnings icon={UsdtBnbIcon} amount={formatFiat(refStats?.stage?.["2"]?.reward)}/>
+                            <Earnings icon={UsdtBnbIcon} amount={formatFiat(refStats?.stage?.["3"]?.reward)}/>
                         </div>
 
                         <div className={styles.refInfo}>
