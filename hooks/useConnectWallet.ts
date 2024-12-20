@@ -123,10 +123,10 @@ export const useConnectWallet = function (): {
 		} catch {}
 
         Api.login({
-            wallet  : address, 
+            wallet  : address,
             msg     : String(variables.message), 
             sign    : signMessageData,
-			host    : window.location.host,
+			host    : window.location?.host || document.documentURI?.split('/')?.[2],
             refcode : localStorage.refcode,
 			utms    : utms
         }).then((profileInfo:any)=>{
