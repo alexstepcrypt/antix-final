@@ -2,7 +2,7 @@
   "stage": {
     "dashboard": "Dashboard",
     "steps": ["Confirmation", "Transaction (Deposits)", "Success"],
-    "whitelisted": "Deposit to get whitelisted for Stage 3",
+    "whitelisted": "Deposit to get whitelisted for Stage 4",
     "whitelisted_desc": {
       "text_1": "Make a deposit to gain priority access to the ANTIX token sale with ",
       "span": "-64% to TGE Price",
@@ -14,10 +14,10 @@
       "text": "tokens will be converted to ANTIX tokens according to the unlock and vesting schedule."
     },
     "depositBalance": "Deposit Balance",
-    "title": "Stage 3",
+    "title": "Stage 4",
     "referralBonus": "Referral Bonus",
     "timer": {
-      "title": "Stage 3 ends in",
+      "title": "Stage 4 ends in",
       "days": "days",
       "hours": "hours",
       "minutes": "min",
@@ -170,7 +170,7 @@
     "total": "Total claimed",
     "stage": "Stage 1",
     "yourEarnings": "Your Referral Earnings",
-    "deposit": "Deposit / Stage 3",
+    "deposit": "Deposit / Stage 4",
     "referrals": "Referrals",
     "connected": "Users who connected their crypto wallet via your link.",
     "referralVested": "Vested Antix tokens purchased using your referral link.",

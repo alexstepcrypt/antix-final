@@ -14,10 +14,10 @@
       "text": "se convertirán en tokens ANTIX de acuerdo con el calendario de desbloqueo y adquisición de derechos."
     },
     "depositBalance": "Saldo de depósitos",
-"title": "Etapa 3",
+"title": "Etapa 4",
 "referralBonus": "Referral Bonus",
 "timer": {
-"title": "Etapa 3 termina en",
+"title": "Etapa 4 termina en",
 "days": "días",
 "hours": "horas",
 "minutes": "min",
@@ -170,7 +170,7 @@
     "total": "Total reclamado",
     "stage": "Etapa 1",
     "yourEarnings": "Sus ganancias por recomendación",
-    "deposit": "Depósito / Etapa 3",
+    "deposit": "Depósito / Etapa 4",
     "referrals": "Remisiones",
     "connected": "Usuarios que conectaron su monedero criptográfico a través de su enlace.",
     "referralVested": "Fichas Antix adquiridas utilizando su enlace de referencia.",

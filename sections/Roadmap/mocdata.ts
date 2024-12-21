@@ -158,7 +158,7 @@ export const roadmapList: RoadmapStageProps[] = [
       ],
    },
    {
-      stage: 'Stage 3',
+      stage: 'Stage 4',
       isCurrent: false,
       year: 'Q3 2025',
       event: 'Business Development & Integration',

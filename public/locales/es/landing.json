@@ -69,9 +69,9 @@
   },
   "tokenSaleDeposit2": {
     "timerHead": "Venta de fichas",
-    "stageTitle": "Etapa 3",
+    "stageTitle": "Etapa 4",
     "discountText": "-71% al precio TGE",
-    "stageEndsIn": "La etapa 3 termina en",
+    "stageEndsIn": "La etapa 4 termina en",
     "currentPrice": "Precio actual",
     "listingPrice": "Cotización(TGE) Precio",
     "tokensSold": "Fichas vendidas:",
@@ -116,7 +116,7 @@
   "stageWidget": {
     "currentPrice": "Precio actual",
     "timer": {
-      "title": "La etapa 3 termina en",
+      "title": "La etapa 4 termina en",
       "days": "día",
       "hours": "hora",
       "minutes": "min",
@@ -657,7 +657,7 @@
           ]
        },
        {
-          "stage": "Etapa 3",
+          "stage": "Etapa 4",
           "event": "Desarrollo empresarial e integración",
           "list": [
              {

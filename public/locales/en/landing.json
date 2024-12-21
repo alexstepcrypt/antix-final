@@ -69,9 +69,9 @@
   },
   "tokenSaleDeposit2": {
     "timerHead": "Token Sale",
-    "stageTitle": "Stage 3",
+    "stageTitle": "Stage 4",
     "discountText": "-64% to TGE Price",
-    "stageEndsIn": "Stage 3 ends in",
+    "stageEndsIn": "Stage 4 ends in",
     "currentPrice": "Current price",
     "listingPrice": "Listing(TGE) Price",
     "tokensSold": "Tokens Sold (USD):",
@@ -116,7 +116,7 @@
   "stageWidget": {
     "currentPrice": "Current price",
     "timer": {
-      "title": "Stage 3 ends in",
+      "title": "Stage 4 ends in",
       "days": "day",
       "hours": "hour",
       "minutes": "min",
@@ -657,7 +657,7 @@
           ]
        },
        {
-          "stage": "Stage 3",
+          "stage": "4",
           "event": "Business Development & Integration",
           "list": [
              {
