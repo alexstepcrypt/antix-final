@@ -102,13 +102,13 @@ class Api {
           return a + (i.cap * i.prices[0]);
         }, 0)
         const soldEth = ethRes.stages.reduce((a: any, stage: any, index:number) => {
-          return a + (stage.sold * ethRes.stages[index].prices[0]);
+          return a + (stage.sold * ethRes.stages[index]?.prices[0] || 0.06);
         }, 0)
         const soldBsc = bscRes.stages.reduce((a: any, stage: any, index:number) => {
-          return a + (stage.sold * ethRes.stages[index].prices[0]);
+          return a + (stage.sold * ethRes.stages[index]?.prices[0] || 0.06);
         }, 0)
         const soldBase = baseRes.stages.reduce((a: any, stage: any, index:number) => {
-          return a + (stage.sold * ethRes.stages[index].prices[0]);
+          return a + (stage.sold * ethRes.stages[index]?.prices[0] || 0.06);
         }, 0)
         const sold = soldEth+soldBsc+soldBase
 
