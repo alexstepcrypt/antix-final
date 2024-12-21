@@ -5,7 +5,7 @@
     "whitelisted": "Deposit to get whitelisted for Stage 4",
     "whitelisted_desc": {
       "text_1": "Make a deposit to gain priority access to the ANTIX token sale with ",
-      "span": "-64% to TGE Price",
+      "span": "-57% to TGE Price",
       "text_2": " Limited availability — act promptly to secure the best conditions."
     },
     "balanceTitle": "Tokens to be received",
@@ -105,7 +105,7 @@
       },
       {
         "title": "Initial unlock",
-        "value": "7%"
+        "value": "9%"
       },
       {
         "title": "LockUp period",
@@ -113,7 +113,7 @@
       },
       {
         "title": "Vesting period",
-        "value": "14 months"
+        "value": "12 months"
       },
       {
         "title": "Claim interval",

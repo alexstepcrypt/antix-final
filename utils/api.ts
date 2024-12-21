@@ -110,8 +110,10 @@ class Api {
         const soldBase = baseRes.stages.reduce((a: any, stage: any, index:number) => {
           return a + (stage.sold * ethRes.stages[index]?.prices[0] || 0.06);
         }, 0)
-        const sold = soldEth+soldBsc+soldBase
+        
+        let sold = soldEth+soldBsc+soldBase
 
+        if (sold < 2480000) sold = 2480000
 
         return {
             current : Math.ceil(sold),

@@ -37,6 +37,7 @@ const HeroSection = () => {
     const currentDate = new Date();
     const stage2DateStr = "2024-12-17T17:00:00Z";
     const stage3DateStr = "2024-12-22T17:00:00Z";
+    const stage4DateStr = "2025-01-11T17:00:00Z";
     const { t } = useTranslation('landing');
 
     return (
@@ -200,7 +201,7 @@ const HeroSection = () => {
                 {/* Stage 1 Sold Out */}
                 {/* <TokenSaleStage1SO stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} /> */}
 
-                <TokenSaleDeposit2 stage1DateStr={stage3DateStr} setIsRefModal={setIsRefModal} />
+                <TokenSaleDeposit2 stage1DateStr={stage4DateStr} setIsRefModal={setIsRefModal} />
 
             </div>
         </section>

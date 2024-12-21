@@ -5,7 +5,7 @@
     "whitelisted": "Depósito para entrar en la lista blanca de la Fase 3",
     "whitelisted_desc": {
       "text_1": "Realice un depósito para obtener acceso prioritario a la venta de fichas ANTIX con ",
-      "span": "-64% al precio TGE",
+      "span": "-57% al precio TGE",
       "text_2": " Disponibilidad limitada: actúe con rapidez para asegurarse las mejores condiciones."
     },
     "balanceTitle": "Fichas por recibir",
@@ -105,7 +105,7 @@
       },
       {
         "title": "Desbloqueo inicial",
-        "value": "7%"
+        "value": "9%"
       },
       {
         "title": "Periodo de bloqueo",
@@ -113,7 +113,7 @@
       },
       {
         "title": "Periodo de devengo",
-        "value": "14 meses"
+        "value": "12 meses"
       },
       {
         "title": "Intervalo de reclamaciones",

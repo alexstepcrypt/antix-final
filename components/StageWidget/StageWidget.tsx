@@ -73,7 +73,7 @@ export const StageWidget = () => {
                <div className={s.priceWrapper}>
                   <h2>{t('stageWidget.currentPrice')}</h2>
                   <div className={s.mobileDiscount}>
-                     <p>-64%</p>
+                     <p>-57%</p>
                   </div>
                </div>
                <div className={s.wrap}>
@@ -91,7 +91,7 @@ export const StageWidget = () => {
                      <span className={s.prevPrice}>0.14 USDT</span>
                   </div>
                   <div className={s.discount}>
-                     <p>-64%</p>
+                     <p>-57%</p>
                   </div>
                </div>
             </div>

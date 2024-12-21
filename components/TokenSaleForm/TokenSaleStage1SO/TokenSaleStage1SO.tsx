@@ -22,6 +22,7 @@ const TokenSaleStage1SO: React.FC<ITokenSaleStage1SO> = ({
   }) => {
     const stage2DateStr = "2024-12-03T16:30:00Z";
     const stage3DateStr = "2024-12-22T17:00:00Z";
+    const stage4DateStr = "2025-01-11T17:00:00Z";
     return (
         <div className={styles.container}>
           <div
@@ -63,7 +64,7 @@ const TokenSaleStage1SO: React.FC<ITokenSaleStage1SO> = ({
             <div className={styles.timerContainer}>
               <span className={styles.title}>Stage 2 starts in</span>
     
-              <HeroTimer targetDate={new Date(stage3DateStr)} />
+              <HeroTimer targetDate={new Date(stage4DateStr)} />
             </div>
 
             <Pays />
