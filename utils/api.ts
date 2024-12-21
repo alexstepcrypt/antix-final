@@ -98,22 +98,17 @@ class Api {
     try {
         const [ethRes, bscRes, baseRes] = await Promise.all([this.stagesInfo(1), this.stagesInfo(56), this.stagesInfo(8453)])
 
+        const defaultPrice = 0.06
+        const curStage = ethRes.stage.current
+
         const targetInUSD = ethRes.stages.reduce((a: any, i: any) => {
           return a + (i.cap * i.prices[0]);
         }, 0)
-        const soldEth = ethRes.stages.reduce((a: any, stage: any, index:number) => {
-          return a + (stage.sold * ethRes.stages[index]?.prices[0] || 0.06);
-        }, 0)
-        const soldBsc = bscRes.stages.reduce((a: any, stage: any, index:number) => {
-          return a + (stage.sold * ethRes.stages[index]?.prices[0] || 0.06);
-        }, 0)
-        const soldBase = baseRes.stages.reduce((a: any, stage: any, index:number) => {
-          return a + (stage.sold * ethRes.stages[index]?.prices[0] || 0.06);
-        }, 0)
-        
-        let sold = soldEth+soldBsc+soldBase
 
-        if (sold < 2480000) sold = 2480000
+        const sold = 2480000
+          + (ethRes.stages[curStage].sold  * ethRes.stages[curStage]?.prices[0] || defaultPrice)
+          + (bscRes.stages[curStage].sold  * bscRes.stages[curStage]?.prices[0] || defaultPrice)
+          + (baseRes.stages[curStage].sold * baseRes.stages[curStage]?.prices[0] || defaultPrice)
 
         return {
             current : Math.ceil(sold),
