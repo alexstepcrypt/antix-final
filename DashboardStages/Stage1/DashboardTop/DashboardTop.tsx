@@ -10,8 +10,6 @@ import vAntixIcon from "/public/svg/vantix-icon.svg";
 
 import { Timer } from "./Timer/Timer";
 const DepositForm = dynamic(() => import("./DepositForm/DepositForm"), { ssr: false });
-import { Steps } from "../../components/Steps/Steps";
-import { stage1Steps, stage2Steps } from "../../constants/steps";
 import { DashboardCard } from "../../components/Card/Card";
 import { BalanceItem } from "./BalanceItem/BalanceItem";
 // import { FaqAccordion } from "./FaqAccordion/FaqAccordion";
@@ -65,10 +63,6 @@ const DashboardTop = () => {
     return (
         <div className={styles.container}>
             <h2 className={styles.title}>{t('stage.dashboard')}</h2>
-            <Steps
-                style={{ margin: "10px 0 30px 0", width: "100%" }}
-                stages={stage1Steps}
-            />
             <div className={styles.leftCol}>
                 <div className={styles.info}>
                     <h5 className={styles.infoTitle}>
@@ -76,7 +70,8 @@ const DashboardTop = () => {
                     </h5>
                     <p className={styles.infoText}>
                         {t('stage.whitelisted_desc.text_1')}
-                        <span>{t('stage.whitelisted_desc.span')}</span>
+                    </p>
+                    <p className={styles.infoText}>
                         {t('stage.whitelisted_desc.text_2')}
                     </p>
                 </div>
@@ -182,11 +177,10 @@ const DashboardTop = () => {
                         <h4 className={styles.prevPrice}>0.14 USD</h4>
                     </div>
                 </div>
+
                 <RaisedProgressBar
-                    segments={20}
                     currentAmount={tokens.current}
                     targetAmount={tokens.target}
-                    color="#12fff1"
                     title={t('stage.progressTitle')}
                 />
 
