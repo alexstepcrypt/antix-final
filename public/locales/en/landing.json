@@ -2,11 +2,11 @@
   "header": {
     "backToMainPage": "Back to the Main Page",
     "claimPopoverText": "Claiming page will be available after the TGE",
-    "connectWalletButton": "Connect Wallet",
+    "connectWalletButton": "Buy Now",
     "links": [
         "Token",
         "Whitepaper",
-        "Buy Now"
+        "Team"
     ],
     "linksDashboard": [
       "Dashboard",
@@ -16,7 +16,7 @@
     "mobileLinks": [
         "Token",
         "Whitepaper",
-        "Buy Now",
+        "Team",
         "My Account"
     ],
     "mobileLinksDashboard": [
