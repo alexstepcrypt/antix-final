@@ -2,11 +2,11 @@
   "header": {
     "backToMainPage": "Volver a la página principal",
     "claimPopoverText": "La página de reclamaciones estará disponible después del GET",
-    "connectWalletButton": "Cartera Connect",
+    "connectWalletButton": "Comprar ahora",
     "links": [
         "Token",
 "Whitepaper",
-"Comprar ahora"
+"Equipo"
     ],
     "linksDashboard": [
       "Cuadro de mandos",
