@@ -2,7 +2,7 @@
 
 import { useConnectWallet } from '@/hooks/useConnectWallet'
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Header.module.scss";
@@ -87,6 +87,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
     const mobileLinksList = isDashboard ? mobileLinksDashboard : mobileLinks;
 
     const pathName = usePathname()
+    const { push } = useRouter();
 
     return (
         <>
@@ -212,7 +213,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
                     {isConnected ? (
                         <button
                             className={styles.walletButton}
-                            onClick={() => setIsDisconnectModal(true)}
+                            onClick={() => push('/dashboard')}
                         >
                             <Image src={WalletIcon} alt="User" />
                             {account ? formatAddress(account) : ""}

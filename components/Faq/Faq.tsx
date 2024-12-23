@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import styles from "./Faq.module.scss";
 import { FaqAccordion } from "@/DashboardStages/Stage1/DashboardTop/FaqAccordion/FaqAccordion";
+import { usePathname } from 'next/navigation'
+import { useTranslation } from 'react-i18next'
 
 // interface IFaqItem {
 //     id: number;
@@ -19,10 +21,14 @@ interface IFaq {
 
 const Faq: React.FC<IFaq> = ({ faqItems }) => {
     const [openedId, setOpenedId] = useState<number | null>(null);
+    const pathname = usePathname();
+    const { t } = useTranslation('dashboard');
 
     return (
         <div className={styles.faq}>
-            <h5 className={styles.faqTitle}>FAQ</h5>
+            <h5 className={styles.faqTitle}>
+                {pathname !== '/dashboard/referral' ? 'FAQ' : t('referral.faqTitle')}
+            </h5>
 
             <div className={styles.faqItems}>
                 {faqItems.map((item, i) => (

@@ -159,7 +159,7 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 	if (!isNativeCoin && (allowance < Number(amount) || Number(amount) === 0)) {
 		return <button onClick={() => approve()} disabled={apprveInProgress || Number(amount) <= 0} className={styles.depositBtn}>
             {Number(amount) <= 0 
-                ? t('stage.depositBtn.enter')
+                ? t('stage.depositBtn.buy')
                 : apprveInProgress ? t('stage.depositBtn.tx') : t('stage.depositBtn.approve')
             }
 			<span className={styles.flare}></span>
