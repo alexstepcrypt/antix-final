@@ -102,11 +102,9 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
 
         <div className={styles.progress}>
             <RaisedProgressBar
-                segments={20}
                 currentAmount={tokens.current}
                 targetAmount={tokens.target}
                 title={t('tokenSaleDeposit2.tokensSold')}
-                color="#12fff1"
             />
         </div>
 

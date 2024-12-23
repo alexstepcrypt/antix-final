@@ -69,13 +69,13 @@ const TokenSaleStage1:React.FC<ITokenSaleStage1> = ({stage1DateStr, setIsRefModa
         </section>
 
         <div className={styles.progress}>
-            <RaisedProgressBar
+            {/* <RaisedProgressBar
                 segments={17}
                 title='Tokens sold:'
                 currentAmount={16809370}
                 targetAmount={17000000}
                 color='#99FFF9'
-            />
+            /> */}
         </div>
 
         {/* <div className={styles.warn}>

@@ -1,208 +1,208 @@
 {
-  "stage": {
-    "dashboard": "Salpicadero",
-    "steps": ["Confirmación", "Transacción (Depósitos)", "Éxito"],
-    "whitelisted": "Depósito para entrar en la lista blanca de la Fase 3",
-    "whitelisted_desc": {
-      "text_1": "Realice un depósito para obtener acceso prioritario a la venta de fichas ANTIX con ",
-      "span": "-57% al precio TGE",
-      "text_2": " Disponibilidad limitada: actúe con rapidez para asegurarse las mejores condiciones."
-    },
-    "balanceTitle": "Fichas por recibir",
-    "vested": {
-      "bold": "Vested Antix (vANTIX) ",
-      "text": "se convertirán en tokens ANTIX de acuerdo con el calendario de desbloqueo y adquisición de derechos."
-    },
-    "depositBalance": "Saldo de depósitos",
-"title": "Etapa 4",
-"referralBonus": "Referral Bonus",
-"timer": {
-"title": "Etapa 4 termina en",
-"days": "días",
-"hours": "horas",
-"minutes": "min",
-"seconds": "seg"
-    },
-    "currentPrice": "Precio actual",
-    "listing": "Cotización(TGE) Precio",
-    "progressTitle": "USDT Recaudados:",
-    
-    "gotQuestions": {
-      "text": "¿Tiene alguna pregunta?",
-      "text_2": "Estamos aquí para ayudarle"
-    },
+   "stage": {
+      "dashboard": "Salpicadero",
+      "steps": ["Confirmación", "Transacción (Depósitos)", "Éxito"],
+      "whitelisted": "Compra Tokens en la Etapa 4",
+      "whitelisted_desc": {
+         "text_1": "Compra tokens ANTIX directamente utilizando múltiples criptomonedas en tres blockchains: Ethereum, BNB Chain y Base.",
+         "span": "-57% al precio TGE",
+         "text_2": "Disfruta de transacciones sin complicaciones con tu moneda preferida y asegura tu parte de la venta de tokens con un descuento del -57% respecto al precio de TGE. La disponibilidad de esta etapa es limitada."
+      },
+      "balanceTitle": "Fichas por recibir",
+      "vested": {
+         "bold": "Vested Antix (vANTIX) ",
+         "text": "se convertirán en tokens ANTIX de acuerdo con el calendario de desbloqueo y adquisición de derechos."
+      },
+      "depositBalance": "Saldo de depósitos",
+      "title": "Etapa 4",
+      "referralBonus": "Referral Bonus",
+      "timer": {
+         "title": "Etapa 4 termina en",
+         "days": "días",
+         "hours": "horas",
+         "minutes": "min",
+         "seconds": "seg"
+      },
+      "currentPrice": "Precio actual",
+      "listing": "Cotización(TGE) Precio",
+      "progressTitle": "Fichas vendidas (USD):",
 
-    "depositBtn": {
-      "process": "Procesando...",
-      "deposit": "Depositar ahora",
-      "switch": "Red de conmutación",
-      "connect": "Conectar monedero",
-      "enter": "Introduzca el importe",
-      "tx": "Por favor, confirme TX...",
-      "approve": "Aprobar el depósito"
-    },
+      "gotQuestions": {
+         "text": "¿Tiene alguna pregunta?",
+         "text_2": "Estamos aquí para ayudarle"
+      },
 
-    "form": {
-      "soon": "Próximamente",
-      "send": "Usted envía",
-      "max": "Max",
-      "enter": "Introduzca el importe",
-      "error": "No hay fondos suficientes para realizar el ingreso",
-      "receive": "usted recibe",
-      "disclaimer": {
-        "span": "Al hacer clic en \"Depositar ahora\", confirma que no es ciudadano ni residente estadounidense.",
-        "text": " Esta oferta de inversión se dirige exclusivamente a personas no estadounidenses y está estrictamente prohibida a ciudadanos estadounidenses, residentes en Estados Unidos o entidades constituidas o domiciliadas en Estados Unidos."
+      "depositBtn": {
+         "process": "Procesando...",
+         "deposit": "Depositar ahora",
+         "switch": "Red de conmutación",
+         "connect": "Conectar monedero",
+         "buy": "Comprar ahora",
+         "tx": "Por favor, confirme TX...",
+         "approve": "Aprobar el depósito"
+      },
+
+      "form": {
+         "soon": "Próximamente",
+         "send": "Usted envía",
+         "max": "Max",
+         "enter": "Introduzca el importe",
+         "error": "No hay fondos suficientes para realizar el ingreso",
+         "receive": "usted recibe",
+         "disclaimer": {
+            "span": "Al hacer clic en \"Depositar ahora\", confirma que no es ciudadano ni residente estadounidense.",
+            "text": " Esta oferta de inversión se dirige exclusivamente a personas no estadounidenses y está estrictamente prohibida a ciudadanos estadounidenses, residentes en Estados Unidos o entidades constituidas o domiciliadas en Estados Unidos."
+         }
+      },
+
+      "depositModal": {
+         "pending": "A la espera de confirmación",
+         "fail": {
+            "title": "Fallo",
+            "text_1": "Su transacción ha fallado. Esto puede deberse a la insuficiencia de gas o a la congestión de la red.",
+            "text_2": "Vuelva a intentarlo o póngase en contacto con el servicio de asistencia: ",
+            "link": "@antixtoken_bot",
+            "retry": "Reintentar"
+         },
+         "success": {
+            "title": "¡Felicidades!",
+            "text_2": "Ha realizado correctamente un",
+            "link_1": "depósito.",
+            "text_3": "Suscríbase a nuestro ",
+            "link_2": "Telegram Bot",
+            "text_4": " para recibir notificaciones sobre las etapas de la venta de tokens, la fecha de la TGE y la distribución de tokens.",
+            "link_3": "Abrir Telegram",
+            "subscribe": "O suscríbase por correo electrónico"
+         },
+         "email": {
+            "text": "Introduce tu correo electrónico para recibir notificaciones sobre fechas de escenarios, TGE y desbloqueos",
+            "error": "Formato de correo electrónico no válido. Por favor, inténtelo de nuevo",
+            "notify": "Notifícame"
+         },
+         "subscribed": "Muchas gracias. Su correo electrónico se ha registrado correctamente. Ahora recibirá actualizaciones y notificaciones."
+      },
+
+      "connectWallet": {
+         "title": "Conectar el monedero para acceder a la venta de fichas",
+         "btn": "Billetera Connect"
+      },
+
+      "transactions": {
+         "title": "Transacciones",
+         "date": "Fecha (GMT)",
+         "type": "Tipo",
+         "amount": "Importe (divisa)",
+         "received": "Recibido",
+         "stage": "Etapa",
+         "link": "Enlace de transacciones",
+         "notify": "Aún no hay operaciones. En cuanto se produzcan nuevas operaciones, se mostrarán en esta tabla."
+      },
+
+      "underDepositInfo": [
+         {
+            "title": "Precio de venta",
+            "value": "0.14 USD"
+         },
+         {
+            "title": "Desbloqueo inicial",
+            "value": "9%"
+         },
+         {
+            "title": "Periodo de bloqueo",
+            "value": "6 meses"
+         },
+         {
+            "title": "Periodo de devengo",
+            "value": "12 meses"
+         },
+         {
+            "title": "Intervalo de reclamaciones",
+            "value": "1 mes"
+         }
+      ],
+
+      "faq": [
+         {
+            "title": "¿Qué es un depósito?",
+            "content": "Un depósito asegura tu plaza en la Fase 1 de la venta de tokens, dándote acceso a los tokens ANTIX al mejor precio. Los tokens son limitados en esta fase y se ofrecen por orden de llegada."
+         },
+         {
+            "title": "¿Cuándo puedo comprar fichas?",
+            "content": "La compra de fichas se abrirá al comienzo de la Fase 1. Consulta el temporizador en la página principal y en el panel de control, y establece un recordatorio con nuestro bot de Telegram para asegurarte de que no te lo pierdes."
+         },
+         {
+            "title": "¿Cuándo recibiré mis fichas?",
+            "content": "Los tokens ANTIX tienen un calendario de bloqueo y adquisición de derechos para gestionar la presión del suministro. Los desbloqueos iniciales del 5-10% (dependiendo de la fase de compra) se producirán en el Evento de Generación de Fichas (TGE).."
+         },
+         {
+            "title": "¿Más preguntas?",
+            "content": "Póngase en contacto con nosotros en cualquier momento a través de nuestro <a href=\"https://t.me/antixtoken_bot\" rel=\"noopener\" target=\"_blank\">Telegram support bot</a> para obtener más ayuda."
+         }
+      ]
+   },
+   "referral": {
+      "claim": {
+         "successStatus": {
+            "text": "Has conseguido",
+            "link": "reclamar."
+         },
+         "continue": "Continuar"
+      },
+
+      "title": "Remisión",
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "promote": {
+         "title": "¡Gracias por elegir promover Antix!",
+         "line_1": "¡Gana hasta un 10% de recompensas USDT (Cadena BNB) a través de tu enlace de referencia!",
+         "line_2": "Los pagos comienzan una vez finalizada la Etapa 2."
+      },
+      "invite": "Invita a tus amigos y gana premios",
+      "generate": "Generar código",
+      "copy": {
+         "is": "Copiado",
+         "to": "Copiar enlace"
+      },
+      "earnings": "Sus ingresos disponibles",
+      "confirmTx": "Confirmar TX...",
+      "referralEarnings": "Reclamar ganancias por recomendación",
+      "total": "Total reclamado",
+      "stage": "Etapa 1",
+      "yourEarnings": "Sus ganancias por recomendación",
+      "deposit": "Depósito / Etapa 4",
+      "referrals": "Remisiones",
+      "connected": "Usuarios que conectaron su monedero criptográfico a través de su enlace.",
+      "referralVested": "Fichas Antix adquiridas utilizando su enlace de referencia.",
+      "disclaimer": "Las recompensas estarán disponibles una vez finalizada la etapa actual. El siguiente pago tendrá lugar cuando termine la fase 2.",
+      "faqTitle": "FAQ: Enlaces de Referencia y Bonos",
+      "faq": [
+         {
+            "title": "¿Cómo obtengo bonos por compras realizadas a través de un enlace de referencia?",
+            "content": "Para obtener bonos, un usuario debe hacer clic en tu enlace de referencia y conectar su wallet por primera vez. Si un usuario ya ha conectado su wallet usando un enlace normal, no podrá recibir bonos si realiza una compra a través de un enlace de referencia."
+         },
+         {
+            "title": "¿Qué pasa si ya conecté mi wallet usando un enlace normal y luego hago clic en un enlace de referencia?",
+            "content": "Si ya conectaste tu wallet usando un enlace normal, no podrás recibir bonos si realizas una compra a través de un enlace de referencia. Para obtener bonos, debes conectar tu wallet por primera vez usando un enlace de referencia."
+         },
+         {
+            "title": "¿Quién recibe bonos si me registré a través del enlace de otra persona?",
+            "content": "Si te registraste a través del enlace de otra persona, los bonos por todas las compras irán al creador de ese enlace."
+         },
+         {
+            "title": "¿Puedo reconectar mi wallet usando un enlace de referencia si ya la conecté con un enlace normal?",
+            "content": "No, las wallets que ya se conectaron previamente con un enlace de referencia no pueden ser referidas por otra persona, incluso si se vuelven a conectar usando un enlace de referencia."
+         }
+      ],
+      "history": {
+         "title": "Historia",
+         "type": "Tipo",
+         "refamount": "Importe de las remisiones",
+         "amount": "Importe",
+         "earnings": "Ingresos por remisión",
+         "status": "Status",
+         "link": "Enlace de transacciones",
+         "claim": "Reclamación",
+         "view": "Ver transacción"
       }
-    },
-
-    "depositModal": {
-      "pending": "A la espera de confirmación",
-      "fail": {
-        "title": "Fallo",
-        "text_1": "Su transacción ha fallado. Esto puede deberse a la insuficiencia de gas o a la congestión de la red.",
-        "text_2": "Vuelva a intentarlo o póngase en contacto con el servicio de asistencia: ",
-        "link": "@antixtoken_bot",
-        "retry": "Reintentar"
-      },
-      "success": {
-        "title": "¡Felicidades!",
-        "text_2": "Ha realizado correctamente un",
-        "link_1": "depósito.",
-        "text_3": "Suscríbase a nuestro ",
-        "link_2": "Telegram Bot",
-        "text_4": " para recibir notificaciones sobre las etapas de la venta de tokens, la fecha de la TGE y la distribución de tokens.",
-        "link_3": "Abrir Telegram",
-        "subscribe": "O suscríbase por correo electrónico"
-      },
-      "email": {
-        "text": "Introduce tu correo electrónico para recibir notificaciones sobre fechas de escenarios, TGE y desbloqueos",
-        "error": "Formato de correo electrónico no válido. Por favor, inténtelo de nuevo",
-        "notify": "Notifícame"
-      },
-      "subscribed": "Muchas gracias. Su correo electrónico se ha registrado correctamente. Ahora recibirá actualizaciones y notificaciones."
-    },
-
-    "connectWallet": {
-      "title": "Conectar el monedero para acceder a la venta de fichas",
-      "btn": "Billetera Connect"
-    },
-
-    "transactions": {
-      "title": "Transacciones",
-      "date": "Fecha (GMT)",
-      "type": "Tipo",
-      "amount": "Importe (divisa)",
-      "received": "Recibido",
-      "stage": "Etapa",
-      "link": "Enlace de transacciones",
-      "notify": "Aún no hay operaciones. En cuanto se produzcan nuevas operaciones, se mostrarán en esta tabla."
-    },
-
-    "underDepositInfo": [
-      {
-        "title": "Precio de venta",
-        "value": "0.14 USD"
-      },
-      {
-        "title": "Desbloqueo inicial",
-        "value": "9%"
-      },
-      {
-        "title": "Periodo de bloqueo",
-        "value": "6 meses"
-      },
-      {
-        "title": "Periodo de devengo",
-        "value": "12 meses"
-      },
-      {
-        "title": "Intervalo de reclamaciones",
-        "value": "1 mes"
-      }
-    ],
-
-
-    "faq": [
-      {
-        "title": "¿Qué es un depósito?",
-        "content": "Un depósito asegura tu plaza en la Fase 1 de la venta de tokens, dándote acceso a los tokens ANTIX al mejor precio. Los tokens son limitados en esta fase y se ofrecen por orden de llegada."
-      },
-      {
-        "title": "¿Cuándo puedo comprar fichas?",
-        "content": "La compra de fichas se abrirá al comienzo de la Fase 1. Consulta el temporizador en la página principal y en el panel de control, y establece un recordatorio con nuestro bot de Telegram para asegurarte de que no te lo pierdes."
-      },
-      {
-        "title": "¿Cuándo recibiré mis fichas?",
-        "content": "Los tokens ANTIX tienen un calendario de bloqueo y adquisición de derechos para gestionar la presión del suministro. Los desbloqueos iniciales del 5-10% (dependiendo de la fase de compra) se producirán en el Evento de Generación de Fichas (TGE).."
-      },
-      {
-        "title": "¿Más preguntas?",
-        "content": "Póngase en contacto con nosotros en cualquier momento a través de nuestro <a href=\"https://t.me/antixtoken_bot\" rel=\"noopener\" target=\"_blank\">Telegram support bot</a> para obtener más ayuda."
-      }
-    ]
-  },
-  "referral": {
-    "claim": {
-      "successStatus": {
-        "text": "Has conseguido",
-        "link": "reclamar."
-      },
-      "continue": "Continuar"
-    },
-
-    "title": "Remisión",
-    "active": "Activo",
-    "inactive": "Inactivo",
-    "promote": {
-      "title": "¡Gracias por elegir promover Antix!",
-      "line_1": "¡Gana hasta un 10% de recompensas USDT (Cadena BNB) a través de tu enlace de referencia!",
-      "line_2": "Los pagos comienzan una vez finalizada la Etapa 2."
-    },
-    "invite": "Invita a tus amigos y gana premios",
-    "generate": "Generar código",
-    "copy": {
-      "is": "Copiado",
-      "to": "Copiar enlace"
-    },
-    "earnings": "Sus ingresos disponibles",
-    "confirmTx": "Confirmar TX...",
-    "referralEarnings": "Reclamar ganancias por recomendación",
-    "total": "Total reclamado",
-    "stage": "Etapa 1",
-    "yourEarnings": "Sus ganancias por recomendación",
-    "deposit": "Depósito / Etapa 4",
-    "referrals": "Remisiones",
-    "connected": "Usuarios que conectaron su monedero criptográfico a través de su enlace.",
-    "referralVested": "Fichas Antix adquiridas utilizando su enlace de referencia.",
-    "disclaimer": "Las recompensas estarán disponibles una vez finalizada la etapa actual. El siguiente pago tendrá lugar cuando termine la fase 2.",
-    "faq": [
-      {
-        "title": "¿Cómo funciona el programa de recomendación?",
-        "content": "El programa de recomendación te permite ganar bonificaciones por invitar a nuevos usuarios. Para participar, genera tu código de recomendación único en tu cuenta y compártelo con un amigo. Una vez que tu amigo visite el sitio web, conecte su monedero y realice una compra, ambos recibiréis recompensas."
-      },
-      {
-        "title": "¿Cómo puedo recomendar a un amigo?",
-        "content": "Puedes recomendar a un amigo compartiendo tu enlace de recomendación único, que está disponible en tu cuenta Antix (recomendación). Cuando tu amigo conecte su monedero y complete una compra, recibirás el 10% del importe de su compra como recompensa, y tu amigo obtendrá una bonificación del 5% en tokens."
-      },
-      {
-        "title": "¿Hay algún límite a las recompensas que puedo ganar?",
-        "content": "Puede haber límites en función de las condiciones del programa de recomendación y, dado que sólo se asigna un número limitado de fichas para la venta, pueden aplicarse restricciones a las recompensas. Sin embargo, se anima a los usuarios a invitar a tantos amigos como sea posible para maximizar sus beneficios."
-      },
-      {
-        "title": "¿Cuándo recibiré mis recompensas por recomendación?",
-        "content": "La recompensa del 10% para el recomendante puede reclamarse una vez finalizada la etapa en la que se obtuvo, mientras que las fichas de bonificación del 5% para el usuario recomendado se abonarán tras el TGE (Evento de Generación de Fichas)."
-      }
-    ],
-    "history": {
-      "title": "Historia",
-      "type": "Tipo",
-      "refamount": "Importe de las remisiones",
-      "amount": "Importe",
-      "earnings": "Ingresos por remisión",
-      "status": "Status",
-      "link": "Enlace de transacciones",
-      "claim": "Reclamación",
-      "view": "Ver transacción"
-    }
-  }
+   }
 }

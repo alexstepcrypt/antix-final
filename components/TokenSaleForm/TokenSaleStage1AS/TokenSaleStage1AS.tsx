@@ -44,13 +44,13 @@ const TokenSaleStage1AS: React.FC<ITokenSaleStage1CS> = ({
         </div>
 
         <div className={styles.progress}>
-          <RaisedProgressBar
+          {/* <RaisedProgressBar
             segments={15}
             currentAmount={14500000}
             targetAmount={17000000}
             title={'Tokens sold:'}
             color={'#99FFF9'}
-          />
+          /> */}
         </div>
 
         <div className={styles.timerContainer}>
