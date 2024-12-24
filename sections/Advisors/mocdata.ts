@@ -15,16 +15,6 @@ export const advisorsList = [
         ],
     },
     {
-        role: "Entrepreneur, Investor",
-        name: "Juwan Lee",
-        socialLink: "https://www.linkedin.com/in/juwanlee/",
-        image: Img2,
-        description: [
-            "A seasoned entrepreneur and investor with 30+ years in the investment industry, Founder and Chairman of NexChange Group, specializing in blockchain, fintech, AI, and smart cities.",
-            "Lee organized blockchain events, held roles at JP Morgan and SAC Capital, and is Honorary Chairman for the US Commerce Department's Blockchain Trade Mission.",
-        ],
-    },
-    {
         role: "Startup Builder, Web3 Expert",
         name: "Marta Zarosa",
         socialLink: "https://www.linkedin.com/in/marta-zarosa/",

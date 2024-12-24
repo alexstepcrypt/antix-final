@@ -2,11 +2,11 @@
   "header": {
     "backToMainPage": "Back to the Main Page",
     "claimPopoverText": "Claiming page will be available after the TGE",
-    "connectWalletButton": "Connect Wallet",
+    "connectWalletButton": "Buy Now",
     "links": [
         "Token",
         "Whitepaper",
-        "Buy Now"
+        "Team"
     ],
     "linksDashboard": [
       "Dashboard",
@@ -16,7 +16,7 @@
     "mobileLinks": [
         "Token",
         "Whitepaper",
-        "Buy Now",
+        "Claim",
         "My Account"
     ],
     "mobileLinksDashboard": [
@@ -549,14 +549,6 @@
         "description": [
             "Co-founder and CEO of SingularityDAO, pioneering AI in decentralized finance, and a two-time TEDx speaker with deep expertise in DeFi and blockchain.",
             "Marcello played a key role in founding SingularityNET and worked closely with Sophia the Robot, regularly speaking at international events."
-        ]
-      },
-      {
-        "role": "Entrepreneur, Investor",
-        "name": "Juwan Lee",
-        "description": [
-            "A seasoned entrepreneur and investor with 30+ years in the investment industry, Founder and Chairman of NexChange Group, specializing in blockchain, fintech, AI, and smart cities.",
-            "Lee organized blockchain events, held roles at JP Morgan and SAC Capital, and is Honorary Chairman for the US Commerce Department's Blockchain Trade Mission."
         ]
       },
       {

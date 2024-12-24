@@ -20,8 +20,8 @@ export const links: linksType[] = [
         href: "https://antix.gitbook.io/antix-white-paper",
     },
     {
-        label: "Buy Now",
-        href: "/dashboard",
+        label: "Team",
+        href: "Team",
     },
 ];
 
