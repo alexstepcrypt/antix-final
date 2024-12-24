@@ -5,22 +5,16 @@ import { TeamPreview } from './components/TeamPreview/TeamPreview';
 import { LogoCarousel } from './components/LogoCarousel/LogoCarousel';
 import { TeamCarousel } from './components/TeamCarousel/TeamCarousel';
 import s from './Team.module.scss';
-import { commandList, teamItemsTextType } from './components/TeamCarousel/mocdata';
 import { advisorsList } from '../Advisors/mocdata';
 import { Tabs } from '../../components/Tabs/Tabs';
 import { useTabStore } from '../../stores/useTabStore'
 import { useTranslation } from 'react-i18next';
+import { teamItemType } from './components/TeamCarousel/mocdata'
 
 const Team = () => {
    const { setTab, tab } = useTabStore();
    const { t } = useTranslation('landing');
-   const teamItems = t('team.list', { returnObjects: true }) as Array<teamItemsTextType>;
-
-   const transformedList = teamItems.map((item, i) => ({
-      ...item,
-      image: commandList[i].image,
-      socialLink: commandList[i].socialLink,
-   }));   
+   const commandList = t('team.list', { returnObjects: true }) as teamItemType[];
 
    return (
       <>
@@ -40,7 +34,7 @@ const Team = () => {
                </button>
             </div>
             <p className={s.mobileDesc}>{t('team.description.text_1')} <span>{t('team.description.span')}</span>{t('team.description.text_2')}</p>
-            <Tabs data={tab === "team" ? transformedList : advisorsList} />
+            <Tabs data={tab === "team" ? commandList : advisorsList} />
          </div>
          <div
             id="Team"
@@ -50,9 +44,8 @@ const Team = () => {
             <TeamPreview />
             <div>
                <LogoCarousel />
-               <TeamCarousel data={transformedList} />
+               <TeamCarousel />
             </div>
-
          </div>
       </>
    );

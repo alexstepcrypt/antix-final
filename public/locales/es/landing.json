@@ -1,703 +1,742 @@
 {
-  "header": {
-    "backToMainPage": "Volver a la página principal",
-    "claimPopoverText": "La página de reclamaciones estará disponible después del GET",
-    "connectWalletButton": "Cartera Connect",
-    "links": [
-        "Token",
-"Whitepaper",
-"Comprar ahora"
-    ],
-    "linksDashboard": [
-      "Cuadro de mandos",
-"Remisión",
-"Reclamación"
-    ],
-    "mobileLinks": [
-       "Token",
-"Whitepaper",
-"Comprar ahora",
-"Mi cuenta"
-    ],
-    "mobileLinksDashboard": [
-      "Cuadro de mando",
-"Reclamación",
-"Remisión",
-"Volver a la página principal"
-    ]
-  },
-  "disConnect": {
-    "modalTitle": "¿Seguro que quieres desconectar tu cartera?",
-    "modalSubtitle": "Esto finalizará su sesión.",
-    "disconnectButton": "Desconectar Cartera"
-  },
-  "heroSection": {
-    "subtitle": "La nueva era de los humanos digitales potenciados por la IA ya está aquí",
-    "title": {
-      "line1": "Listo para ser",
-      "line2": "¿Sustituido por la IA?"
-    },
-    "description": {
-      "text1": "Entre en esta industria de 300.000 millones de dólares con el",
-      "span": "ANTIX token.",
-      "text2": "Gemelos digitales hiperrealistas para películas, contenidos y mucho más"
-    },
-    "videoFallbackText": "Su navegador no soporta vídeo."
-  },
-  "referalModal": {
-    "subtitle": "¡Gracias por elegir promocionar Antix!",
-    "title": "Gane hasta un 10% de recompensa en USDT por las compras realizadas a través de su enlace de recomendación.",
-    "disconnectedInfo": {
-      "line1": "Para obtener su enlace de referencia único,",
-      "line2": "conecte primero su monedero."
-    },
-    "connectButton": "Conectar la cartera",
-    "generateCodeButton": "Generar código",
-    "referralButton": "Remisión",
-    "connectedWallet": "Cartera conectada",
-    "copyLink": {
-      "default": "Copiar enlace",
-      "copied": "Copiado"
-    },
-    "referralStatus": "Remisión Activa",
-    "balanceInfo": {
-      "currentPhase": "Tu Referido USDT Saldo Actual de la Fase:",
-      "claimable": "Su saldo reclamable de USDT de referencia:"
-    },
-    "claimButton": "Reclamar ganancias por recomendación",
-    "claimPopoverText": "Reclamación disponible 1-2 días después de que finalice cada etapa"
-  },
-  "tokenSaleDeposit2": {
-    "timerHead": "Venta de fichas",
-    "stageTitle": "Etapa 4",
-    "discountText": "-71% al precio TGE",
-    "stageEndsIn": "La etapa 4 termina en",
-    "currentPrice": "Precio actual",
-    "listingPrice": "Cotización(TGE) Precio",
-    "tokensSold": "Fichas vendidas:",
-    "buyButton": {
-      "connected": "Comprar ahora",
-      "disconnected": "Conectar la cartera para comprar"
-    },
-    "referralButton": "+ Obtener enlace de referencia"
-  },
-  "heroTimer": {
-    "days": "días",
-    "hours": "horas",
-    "minutes": "min",
-    "seconds": "seg"
-  },
-  "stayUpdated": {
-    "title": "Manténgase al día",
-    "connectText": "Conéctese a nuestro",
-    "button": "Telegram bot",
-    "description": "para recibir alertas de inicio de etapa o asistencia."
-  },
-  "featuredIn": {
-    "title": "Destacado en"
-  },
-  "platformToReplace": {
-    "title": "Construir y monetizar personajes digitales de IA que",
-    "highlightedWord": "sustituir",
-    "listOfRoles": [
-      "Actores",
-"Presentadores de TV",
-"Cantantes pop",
-"Asistentes personales",
-"Instructores de fitness",
-"Personajes de juegos",
-"Compañeros virtuales",
-"Agentes de apoyo",
-"Embajadores de marca",
-"Influenciadores",
-"Anfitriones de eventos"
-    ]
-  },
-  "stageWidget": {
-    "currentPrice": "Precio actual",
-    "timer": {
-      "title": "La etapa 4 termina en",
-      "days": "día",
-      "hours": "hora",
+   "header": {
+      "backToMainPage": "Volver a la página principal",
+      "claimPopoverText": "La página de reclamaciones estará disponible después del GET",
+      "connectWalletButton": "Cartera Connect",
+      "links": ["Token", "Whitepaper", "Comprar ahora"],
+      "linksDashboard": ["Cuadro de mandos", "Remisión", "Reclamación"],
+      "mobileLinks": ["Token", "Whitepaper", "Comprar ahora", "Mi cuenta"],
+      "mobileLinksDashboard": [
+         "Cuadro de mando",
+         "Reclamación",
+         "Remisión",
+         "Volver a la página principal"
+      ]
+   },
+   "disConnect": {
+      "modalTitle": "¿Seguro que quieres desconectar tu cartera?",
+      "modalSubtitle": "Esto finalizará su sesión.",
+      "disconnectButton": "Desconectar Cartera"
+   },
+   "heroSection": {
+      "subtitle": "La nueva era de los humanos digitales potenciados por la IA ya está aquí",
+      "title": {
+         "line1": "Listo para ser",
+         "line2": "¿Sustituido por la IA?"
+      },
+      "description": {
+         "text1": "Entre en esta industria de 300.000 millones de dólares con el",
+         "span": "ANTIX token.",
+         "text2": "Gemelos digitales hiperrealistas para películas, contenidos y mucho más"
+      },
+      "videoFallbackText": "Su navegador no soporta vídeo."
+   },
+   "referalModal": {
+      "subtitle": "¡Gracias por elegir promocionar Antix!",
+      "title": "Gane hasta un 10% de recompensa en USDT por las compras realizadas a través de su enlace de recomendación.",
+      "disconnectedInfo": {
+         "line1": "Para obtener su enlace de referencia único,",
+         "line2": "conecte primero su monedero."
+      },
+      "connectButton": "Conectar la cartera",
+      "generateCodeButton": "Generar código",
+      "referralButton": "Remisión",
+      "connectedWallet": "Cartera conectada",
+      "copyLink": {
+         "default": "Copiar enlace",
+         "copied": "Copiado"
+      },
+      "referralStatus": "Remisión Activa",
+      "balanceInfo": {
+         "currentPhase": "Tu Referido USDT Saldo Actual de la Fase:",
+         "claimable": "Su saldo reclamable de USDT de referencia:"
+      },
+      "claimButton": "Reclamar ganancias por recomendación",
+      "claimPopoverText": "Reclamación disponible 1-2 días después de que finalice cada etapa"
+   },
+   "tokenSaleDeposit2": {
+      "timerHead": "Venta de fichas",
+      "stageTitle": "Etapa 4",
+      "discountText": "-71% al precio TGE",
+      "stageEndsIn": "La etapa 4 termina en",
+      "currentPrice": "Precio actual",
+      "listingPrice": "Cotización(TGE) Precio",
+      "tokensSold": "Fichas vendidas:",
+      "buyButton": {
+         "connected": "Comprar ahora",
+         "disconnected": "Conectar la cartera para comprar"
+      },
+      "referralButton": "+ Obtener enlace de referencia"
+   },
+   "heroTimer": {
+      "days": "días",
+      "hours": "horas",
       "minutes": "min",
       "seconds": "seg"
-    },
-    "buyButton": "Comprar ahora"
-  },
-  "marketLeader": {
-    "title": "Los gigantes aprueban nuestro talento"
-  },
-  "why": {
-    "block1": {
-      "title": "Crear y ganar con avatares",
-      "description": "Diseña, personaliza y monetiza avatares digitales con Antix en varias plataformas."
-    },
-    "block2": {
-      "title": "Auténtica propiedad intelectual con una cadena de bloques",
-      "description": "Tus avatares están protegidos y son propiedad de NFT, totalmente negociables y seguros."
-    },
-    "block3": {
-      "title": "El token ANTIX impulsa la plataforma",
-      "description": "Usa tokens ANTIX para pagos, personalización y recompensas, con descuentos exclusivos."
-    }
-  },
-  "quote": {
-    "text": "No se trata de que todo el mundo sea propietario de su gemelo digital en los próximos años. La cuestión es cómo gestionaremos sus derechos.",
-    "author": "Alan Kepler"
-  },
-  "statistics": {
-    "showDetails": "Mostrar detalles",
-    "hideDetails": "Ocultar detalles",
-    "viewers": {
-      "text": "Antix digital humans: Vistos por más de 100 millones de espectadores en todo el mundo en películas, marketing y juegos."
-    },
-    "costOfProduction": {
-      "text": "Coste de los personajes digitales pre-Antix: Los personajes digitales ultrarrealistas cuestan entre 100.000 y 500.000 dólares, semanas de producción."
-    },
-    "adoptionRate": {
-      "text": "Adopción en las industrias del juego y la RV/RA: El 40% de los nuevos juegos y el 50% de los contenidos de RV incluirán humanos digitales en 2025."
-    },
-    "marketGrowth": {
-      "text": "Crecimiento anual del mercado: 10.000 millones de dólares en 2023 y 30.000 millones en 2030, con una tasa de crecimiento anual constante del 20%."
-    },
-    "influencersMarket": {
-      "text": "Crecimiento del mercado de influenciadores virtuales: 15.000 millones de dólares de mercado en 2025, el triple de participación que los humanos."
-    },
-    "costReduction": {
-      "text": "Reducción de costes y plazos de producción: Antix reduce el tiempo de creación humana digital de semanas a horas, los costes bajan un 90%."
-    },
-    "mobileText": [
-      {
-        "span1": "Antix digital humans:",
-        "description": "Visto por más de 100 millones de espectadores en todo el mundo a través de películas, marketing y juegos."
+   },
+   "stayUpdated": {
+      "title": "Manténgase al día",
+      "connectText": "Conéctese a nuestro",
+      "button": "Telegram bot",
+      "description": "para recibir alertas de inicio de etapa o asistencia."
+   },
+   "featuredIn": {
+      "title": "Destacado en"
+   },
+   "platformToReplace": {
+      "title": "Construir y monetizar personajes digitales de IA que",
+      "highlightedWord": "sustituir",
+      "listOfRoles": [
+         "Actores",
+         "Presentadores de TV",
+         "Cantantes pop",
+         "Asistentes personales",
+         "Instructores de fitness",
+         "Personajes de juegos",
+         "Compañeros virtuales",
+         "Agentes de apoyo",
+         "Embajadores de marca",
+         "Influenciadores",
+         "Anfitriones de eventos"
+      ]
+   },
+   "stageWidget": {
+      "currentPrice": "Precio actual",
+      "timer": {
+         "title": "La etapa 4 termina en",
+         "days": "día",
+         "hours": "hora",
+         "minutes": "min",
+         "seconds": "seg"
       },
-      {
-        "description": "Coste de los personajes digitales pre-Antix: Los personajes digitales ultrarrealistas cuestan entre 100.000 y 500.000 dólares, semanas de producción."
+      "buyButton": "Comprar ahora"
+   },
+   "marketLeader": {
+      "title": "Los gigantes aprueban nuestro talento"
+   },
+   "why": {
+      "block1": {
+         "title": "Crear y ganar con avatares",
+         "description": "Diseña, personaliza y monetiza avatares digitales con Antix en varias plataformas."
       },
-      {
-        "span1": "50% de adopción en las industrias del juego y la RV/AR:",
-        "description": "El 40% de los nuevos juegos y el 50% de los contenidos de RV incluirán humanos digitales en 2025."
+      "block2": {
+         "title": "Auténtica propiedad intelectual con una cadena de bloques",
+         "description": "Tus avatares están protegidos y son propiedad de NFT, totalmente negociables y seguros."
       },
-      {
-        "span1": "20% de crecimiento anual del mercado:",
-        "description": "10.000 millones de dólares en 2023 y 30.000 millones en 2030, con una tasa de crecimiento interanual del 20%."
-      },
-      {
-        "span1": "15.000.000.000 de crecimiento del mercado de influencers virtuales:",
-        "description": "Un mercado de 15.000 millones de dólares en 2025, el triple que el humano."
-      },
-      {
-        "span1": "Reducción del 90% de los costes y plazos de producción:",
-        "description": "Antix reduce el tiempo de creación humana digital de semanas a horas, y los costes en un 90%."
+      "block3": {
+         "title": "El token ANTIX impulsa la plataforma",
+         "description": "Usa tokens ANTIX para pagos, personalización y recompensas, con descuentos exclusivos."
       }
-    ]
-  },
-  "replacingHumans": {
-    "title": "Los avatares Antix sustituyen a los humanos en",
-    "sourceText": "*Fuente: Harvard Business Review (2024)",
-    "leftList": [
-      {
-        "title": "Publicidad",
-        "text": "Campañas publicitarias personalizadas y dinámicas, en las que las marcas interactúan con los clientes de forma innovadora."
+   },
+   "quote": {
+      "text": "No se trata de que todo el mundo sea propietario de su gemelo digital en los próximos años. La cuestión es cómo gestionaremos sus derechos.",
+      "author": "Alan Kepler"
+   },
+   "statistics": {
+      "showDetails": "Mostrar detalles",
+      "hideDetails": "Ocultar detalles",
+      "viewers": {
+         "text": "Antix digital humans: Vistos por más de 100 millones de espectadores en todo el mundo en películas, marketing y juegos."
       },
-      {
-        "title": "Moda y modelaje",
-        "text": "Los avatares impulsados por IA transformarán la moda con modelos digitales personalizables y siempre disponibles. Se acabaron los costosos rodajes y los límites: se adaptarán a cualquier estilo al instante, para que la moda sea más rápida e innovadora que nunca."
+      "costOfProduction": {
+         "text": "Coste de los personajes digitales pre-Antix: Los personajes digitales ultrarrealistas cuestan entre 100.000 y 500.000 dólares, semanas de producción."
       },
-      {
-        "title": "Comercio electrónico",
-        "text": "Asistentes de ventas virtuales y probadores en línea"
+      "adoptionRate": {
+         "text": "Adopción en las industrias del juego y la RV/RA: El 40% de los nuevos juegos y el 50% de los contenidos de RV incluirán humanos digitales en 2025."
       },
-      {
-        "title": "Atención al cliente",
-        "text": "Mejore el servicio al cliente con avatares digitales impulsados por IA que proporcionan asistencia 24/7, mejorando los tiempos de respuesta y la satisfacción del cliente."
-      }
-    ],
-    "rightList": [
-      {
-        "title": "Producción cinematográfica",
-        "text": "Se acabaron los actores y los días de rodaje. Personaliza tus personajes hasta el más mínimo detalle"
+      "marketGrowth": {
+         "text": "Crecimiento anual del mercado: 10.000 millones de dólares en 2023 y 30.000 millones en 2030, con una tasa de crecimiento anual constante del 20%."
       },
-      {
-        "title": "Redes sociales",
-        "text": "Aumente la participación con personas influyentes digitales automatizadas que se conectan las 24 horas del día, los 7 días de la semana, y que han demostrado ser más eficaces, populares y fiables que las personas influyentes reales*."
+      "influencersMarket": {
+         "text": "Crecimiento del mercado de influenciadores virtuales: 15.000 millones de dólares de mercado en 2025, el triple de participación que los humanos."
       },
-      {
-        "title": "Educación",
-        "text": "Profesores digitales interactivos y programas educativos. Formación y desarrollo de los empleados"
-      }
-    ]
-  },
-  "about": {
-    "title": "Personas más influyentes sobre Antix Token",
-    "videos": [
-      {
-        "title": "Beanstock - Criptomonedas y acciones",
-        "followers": "161K+ seguidores"
+      "costReduction": {
+         "text": "Reducción de costes y plazos de producción: Antix reduce el tiempo de creación humana digital de semanas a horas, los costes bajan un 90%."
       },
-      {
-        "title": "Coin Post",
-        "followers": "313K+ seguidores"
+      "mobileText": [
+         {
+            "span1": "Antix digital humans:",
+            "description": "Visto por más de 100 millones de espectadores en todo el mundo a través de películas, marketing y juegos."
+         },
+         {
+            "description": "Coste de los personajes digitales pre-Antix: Los personajes digitales ultrarrealistas cuestan entre 100.000 y 500.000 dólares, semanas de producción."
+         },
+         {
+            "span1": "50% de adopción en las industrias del juego y la RV/AR:",
+            "description": "El 40% de los nuevos juegos y el 50% de los contenidos de RV incluirán humanos digitales en 2025."
+         },
+         {
+            "span1": "20% de crecimiento anual del mercado:",
+            "description": "10.000 millones de dólares en 2023 y 30.000 millones en 2030, con una tasa de crecimiento interanual del 20%."
+         },
+         {
+            "span1": "15.000.000.000 de crecimiento del mercado de influencers virtuales:",
+            "description": "Un mercado de 15.000 millones de dólares en 2025, el triple que el humano."
+         },
+         {
+            "span1": "Reducción del 90% de los costes y plazos de producción:",
+            "description": "Antix reduce el tiempo de creación humana digital de semanas a horas, y los costes en un 90%."
+         }
+      ]
+   },
+   "replacingHumans": {
+      "title": "Los avatares Antix sustituyen a los humanos en",
+      "sourceText": "*Fuente: Harvard Business Review (2024)",
+      "leftList": [
+         {
+            "title": "Publicidad",
+            "text": "Campañas publicitarias personalizadas y dinámicas, en las que las marcas interactúan con los clientes de forma innovadora."
+         },
+         {
+            "title": "Moda y modelaje",
+            "text": "Los avatares impulsados por IA transformarán la moda con modelos digitales personalizables y siempre disponibles. Se acabaron los costosos rodajes y los límites: se adaptarán a cualquier estilo al instante, para que la moda sea más rápida e innovadora que nunca."
+         },
+         {
+            "title": "Comercio electrónico",
+            "text": "Asistentes de ventas virtuales y probadores en línea"
+         },
+         {
+            "title": "Atención al cliente",
+            "text": "Mejore el servicio al cliente con avatares digitales impulsados por IA que proporcionan asistencia 24/7, mejorando los tiempos de respuesta y la satisfacción del cliente."
+         }
+      ],
+      "rightList": [
+         {
+            "title": "Producción cinematográfica",
+            "text": "Se acabaron los actores y los días de rodaje. Personaliza tus personajes hasta el más mínimo detalle"
+         },
+         {
+            "title": "Redes sociales",
+            "text": "Aumente la participación con personas influyentes digitales automatizadas que se conectan las 24 horas del día, los 7 días de la semana, y que han demostrado ser más eficaces, populares y fiables que las personas influyentes reales*."
+         },
+         {
+            "title": "Educación",
+            "text": "Profesores digitales interactivos y programas educativos. Formación y desarrollo de los empleados"
+         }
+      ]
+   },
+   "about": {
+      "title": "Personas más influyentes sobre Antix Token",
+      "videos": [
+         {
+            "title": "Beanstock - Criptomonedas y acciones",
+            "followers": "161K+ seguidores"
+         },
+         {
+            "title": "Coin Post",
+            "followers": "313K+ seguidores"
+         },
+         {
+            "title": "Crypto Futuro",
+            "followers": "161K+ seguidores"
+         },
+         {
+            "title": "Jose HODL",
+            "followers": "313K+ seguidores"
+         },
+         {
+            "title": "Crypto ZEUS",
+            "followers": "81,2K+ seguidores"
+         },
+         {
+            "title": "Kripto ShuPak",
+            "followers": "4,03K+ seguidores"
+         },
+         {
+            "title": "Leo",
+            "followers": "24,6K+ seguidores"
+         },
+         {
+            "title": "Monsieu Rabbit",
+            "followers": "15,9K+ seguidores"
+         },
+         {
+            "title": "Foufi",
+            "followers": "12,5K+ seguidores"
+         },
+         {
+            "title": "Tokenkult",
+            "followers": "43,1K+ seguidores"
+         },
+         {
+            "title": "Crypto Actu",
+            "followers": "46,1K+ seguidores"
+         },
+         {
+            "title": "Michal Lewicz",
+            "followers": "18,1K+ seguidores"
+         },
+         {
+            "title": "Kripto Ofis",
+            "followers": "48,8K+ seguidores"
+         },
+         {
+            "title": "On The Go Crypto",
+            "followers": "23,4K+ seguidores"
+         },
+         {
+            "title": "Ben Crypto",
+            "followers": "31,3K+ seguidores"
+         },
+         {
+            "title": "Soy Vlad Cripto",
+            "followers": "22,7K+ seguidores"
+         }
+      ]
+   },
+   "amazonSection": {
+      "title": "Amazon de",
+      "highlightedText": "Avatares digitales de IA",
+      "description": "Tu gemelo digital, con todas sus características exclusivas, te pertenece como NFT único, listo para tunear, intercambiar o alquilar."
+   },
+   "antixFeatures": {
+      "title": "Antix ofrece un mercado único para",
+      "highlightedText": "comprar, alquilar o vender",
+      "wordsList": [
+         "gemelos digitales",
+         "habilidades",
+         "gestos",
+         "ropa",
+         "cortes de pelo",
+         "idiomas",
+         "accesorios",
+         "trajes completos",
+         "voces"
+      ]
+   },
+   "nftPassport": {
+      "title": "Pasaporte único NFT",
+      "subtitle_1_line": "Blockchain probado",
+      "subtitle_2_line": "propiedad",
+      "desc_1": "Todos tus humanos y activos digitales están ",
+      "span_1": "respaldado por blockchain",
+      "desc_2": ", dándote ",
+      "span_2": "pleno control y derechos de propiedad intelectual",
+      "desc_3": " sobre tus creaciones. Este Pasaporte NFT certifica la propiedad y autenticidad de tu avatar, garantizando tanto ",
+      "span_3": "seguridad y derechos sobre sus activos digitales."
+   },
+   "creations": {
+      "title": "Monetice sus creaciones",
+      "creations_items": [
+         {
+            "title": "Cree",
+            "text": "Utiliza tus personajes para crear contenidos digitales, como películas, anuncios, carretes, cortometrajes, juegos y mucho más."
+         },
+         {
+            "title": "Alquiler",
+            "text": "Alquila tus personajes a marcas y creadores."
+         },
+         {
+            "title": "Vender",
+            "text": "Vende tu gente digital y accesorios únicos en nuestro mercado."
+         }
+      ]
+   },
+   "digitalMap": {
+      "desc_1": {
+         "span": "Ayer:",
+         "text": " disponible exclusivamente para grandes estudios de Hollywood, $50000+, semanas de trabajo"
       },
-      {
-        "title": "Crypto Futuro",
-        "followers": "161K+ seguidores"
+      "desc_2": {
+         "span": "Hoy:",
+         "text": " disponibles para TI, creadas al instante con IA, a partir de 100 $."
       },
-      {
-        "title": "Jose HODL",
-        "followers": "313K+ seguidores"
+      "title": "Humanos digitales en todas partes"
+   },
+   "aiDriven": {
+      "title_span": "La inteligencia artificial",
+      "title": "Realismo",
+      "description": "Combinamos el modelado 3D con la IA para alcanzar niveles de realismo nunca vistos.",
+      "videoError": "Su navegador no soporta vídeo."
+   },
+   "antixToken": {
+      "title": "ANTIX Token",
+      "whitepaper": "Whitepaper",
+      "description": "ANTIX es fundamental para el ecosistema Antix. He aquí cómo el token crea valor e impulsa la demanda dentro de la plataforma.",
+      "leftList": [
+         {
+            "title": "NFT Auction & Promos",
+            "description": "Presta o vende avatares y activos. Promociona para ganar más."
+         },
+         {
+            "title": "Ajuste de activos",
+            "description": "Actualice sus activos digitales y manténgalos a la última."
+         }
+      ],
+      "midList": [
+         {
+            "title": "Suscripciones",
+            "description": "Desbloquea herramientas premium para la creación digital con ANTIX."
+         },
+         {
+            "title": "Mercado",
+            "description": "Comercia y personaliza tus activos digitales en el mercado."
+         }
+      ],
+      "rightList": [
+         {
+            "title": "Gobernanza",
+            "description": "Vota a los creadores y las recompensas. Moldea el futuro con ANTIX."
+         },
+         {
+            "title": "Staking",
+            "description": "Apueste sus fichas y aumente sus recompensas. Se ofrecen varios niveles de apuesta."
+         }
+      ],
+      "mobileList": [
+         {
+            "title": "Suscripciones",
+            "description": "Desbloquea herramientas premium para la creación digital con ANTIX."
+         },
+         {
+            "title": "Gobernanza",
+            "description": "Vota a los creadores y las recompensas. Moldea el futuro con ANTIX."
+         },
+         {
+            "title": "Staking",
+            "description": "Apueste sus fichas y aumente sus recompensas. Se ofrecen varios niveles de apuesta."
+         },
+         {
+            "title": "Mercado",
+            "description": "Comercia y personaliza tus activos digitales en el mercado."
+         },
+         {
+            "title": "Ajuste de activos",
+            "description": "Actualice sus activos digitales y manténgalos a la última."
+         },
+         {
+            "title": "NFT Auction & Promos",
+            "description": "Presta o vende avatares y activos. Promociona para ganar más."
+         }
+      ]
+   },
+   "tokenomics": {
+      "title": "Tokenomics"
+   },
+   "team": {
+      "mobile": {
+         "button_1": "Equipo",
+         "button_2": "Asesores",
+         "button_show-less": "Mostrar menos",
+         "button_show-all": "Mostrar todo"
       },
-      {
-        "title": "Crypto ZEUS",
-        "followers": "81,2K+ seguidores"
+      "description": {
+         "text_1": "El equipo tiene un historial probado de ",
+         "span": "gestionar con éxito proyectos empresariales.",
+         "text_2": " Aportan una experiencia significativa y unos conocimientos excepcionales sobre los humanos digitales y las empresas Web3 a escala"
       },
-      {
-        "title": "Kripto ShuPak",
-        "followers": "4,03K+ seguidores"
+      "show_all": "+ Mostrar todo",
+      "title": "Equipo",
+      "word": {
+         "text_1": "Palabra De ",
+         "text_2": "El Fundador"
       },
-      {
-        "title": "Leo",
-        "followers": "24,6K+ seguidores"
-      },
-      {
-        "title": "Monsieu Rabbit",
-        "followers": "15,9K+ seguidores"
-      },
-      {
-        "title": "Foufi",
-        "followers": "12,5K+ seguidores"
-      },
-      {
-        "title": "Tokenkult",
-        "followers": "43,1K+ seguidores"
-      },
-      {
-        "title": "Crypto Actu",
-        "followers": "46,1K+ seguidores"
-      },
-      {
-        "title": "Michal Lewicz",
-        "followers": "18,1K+ seguidores"
-      },
-      {
-        "title": "Kripto Ofis",
-        "followers": "48,8K+ seguidores"
-      },
-      {
-        "title": "On The Go Crypto",
-        "followers": "23,4K+ seguidores"
-      },
-      {
-        "title": "Ben Crypto",
-        "followers": "31,3K+ seguidores"
-      },
-      {
-        "title": "Soy Vlad Cripto",
-        "followers": "22,7K+ seguidores"
-      }
-    ]
-  },
-  "amazonSection": {
-    "title": "Amazon de",
-    "highlightedText": "Avatares digitales de IA",
-    "description": "Tu gemelo digital, con todas sus características exclusivas, te pertenece como NFT único, listo para tunear, intercambiar o alquilar."
-  },
-  "antixFeatures": {
-    "title": "Antix ofrece un mercado único para",
-    "highlightedText": "comprar, alquilar o vender",
-    "wordsList": [
-      "gemelos digitales",
-"habilidades",
-"gestos",
-"ropa",
-"cortes de pelo",
-"idiomas",
-"accesorios",
-"trajes completos",
-"voces"
-    ]
-  },
-  "nftPassport": {
-    "title": "Pasaporte único NFT",
-    "subtitle_1_line": "Blockchain probado",
-    "subtitle_2_line": "propiedad",
-    "desc_1": "Todos tus humanos y activos digitales están ",
-    "span_1": "respaldado por blockchain",
-    "desc_2": ", dándote ",
-    "span_2": "pleno control y derechos de propiedad intelectual",
-    "desc_3": " sobre tus creaciones. Este Pasaporte NFT certifica la propiedad y autenticidad de tu avatar, garantizando tanto ",
-    "span_3": "seguridad y derechos sobre sus activos digitales."
-  },
-  "creations": {
-    "title": "Monetice sus creaciones",
-    "creations_items": [
-       {
-          "title": "Cree",
-          "text": "Utiliza tus personajes para crear contenidos digitales, como películas, anuncios, carretes, cortometrajes, juegos y mucho más."
-       },
-       {
-          "title": "Alquiler",
-          "text": "Alquila tus personajes a marcas y creadores."
-       },
-       {
-          "title": "Vender",
-          "text": "Vende tu gente digital y accesorios únicos en nuestro mercado."
-       }
-    ]
-  },
-  "digitalMap": {
-    "desc_1": {
-      "span": "Ayer:",
-      "text": " disponible exclusivamente para grandes estudios de Hollywood, $50000+, semanas de trabajo"
-    },
-    "desc_2": {
-      "span": "Hoy:",
-      "text": " disponibles para TI, creadas al instante con IA, a partir de 100 $."
-    },
-    "title": "Humanos digitales en todas partes"
-  },
-  "aiDriven": {
-    "title_span": "La inteligencia artificial",
-    "title": "Realismo",
-    "description": "Combinamos el modelado 3D con la IA para alcanzar niveles de realismo nunca vistos.",
-    "videoError": "Su navegador no soporta vídeo."
-  },
-  "antixToken": {
-    "title": "ANTIX Token",
-    "whitepaper": "Whitepaper",
-    "description": "ANTIX es fundamental para el ecosistema Antix. He aquí cómo el token crea valor e impulsa la demanda dentro de la plataforma.",
-    "leftList": [
-      {
-        "title": "NFT Auction & Promos",
-        "description": "Presta o vende avatares y activos. Promociona para ganar más."
-      },
-      {
-        "title": "Ajuste de activos",
-        "description": "Actualice sus activos digitales y manténgalos a la última."
-      }
-    ],
-    "midList": [
-      {
-        "title": "Suscripciones",
-        "description": "Desbloquea herramientas premium para la creación digital con ANTIX."
-      },
-      {
-        "title": "Mercado",
-        "description": "Comercia y personaliza tus activos digitales en el mercado."
-      }
-    ],
-    "rightList": [
-      {
-        "title": "Gobernanza",
-        "description": "Vota a los creadores y las recompensas. Moldea el futuro con ANTIX."
-      },
-      {
-        "title": "Staking",
-        "description": "Apueste sus fichas y aumente sus recompensas. Se ofrecen varios niveles de apuesta."
-      }
-    ],
-    "mobileList": [
-      {
-        "title": "Suscripciones",
-        "description": "Desbloquea herramientas premium para la creación digital con ANTIX."
-      },
-      {
-        "title": "Gobernanza",
-        "description": "Vota a los creadores y las recompensas. Moldea el futuro con ANTIX."
-      },
-      {
-        "title": "Staking",
-        "description": "Apueste sus fichas y aumente sus recompensas. Se ofrecen varios niveles de apuesta."
-      },
-      {
-        "title": "Mercado",
-        "description": "Comercia y personaliza tus activos digitales en el mercado."
-      },
-      {
-        "title": "Ajuste de activos",
-        "description": "Actualice sus activos digitales y manténgalos a la última."
-      },
-      {
-        "title": "NFT Auction & Promos",
-        "description": "Presta o vende avatares y activos. Promociona para ganar más."
-      }
-    ]
-  },
-  "tokenomics": {
-    "title": "Tokenomics"
-  },
-  "team": {
-    "mobile": {
-      "button_1": "Equipo",
-      "button_2": "Asesores",
-      "button_show-less": "Mostrar menos",
-      "button_show-all": "Mostrar todo"
-    },
-    "description": {
-      "text_1": "El equipo tiene un historial probado de ",
-      "span": "gestionar con éxito proyectos empresariales.",
-      "text_2": " Aportan una experiencia significativa y unos conocimientos excepcionales sobre los humanos digitales y las empresas Web3 a escala"
-    },
-    "show_all": "+ Mostrar todo",
-    "title": "Equipo",
-    "word": {
-      "text_1": "Palabra De ",
-      "text_2": "El Fundador"
-    },
-    "statistic": [
-      {
-        "title": "20+",
-        "description": "Clientes actuales"
-      },
-      {
-        "title": "20",
-        "description": "Proyectos finalizados"
-      },
-      {
-        "title": "10",
-        "description": "I+D finalizado"
-      },
-      {
-        "title": "70+",
-        "description": "Creado cinematográficamente"
-      }
-    ],
-    "list": [
-      {
-        "role": "Ex director regional de Disney",
-        "name": "Marina: Fundadora y Presidenta",
-        "description": [
-           "Inversor y emprendedor internacional, visionario en negocios y startups tecnológicas, con profunda experiencia en los sectores de los medios de comunicación, el entretenimiento, la inversión y la banca.",
-           "Marina ocupó puestos de alta dirección durante casi 30 años, incluida la dirección de la oficina de la CEI de Walt Disney, donde dirigió el desarrollo empresarial en 11 países durante más de 13 años."
-        ]
-      },
-      {
-        "role": "Los 10 mejores talentos mundiales",
-        "name": "Roman: Fundador y CEO",
-        "description": [
-           "Roman Cyganov, fundador y Consejero Delegado de Antix, está reconocido como uno de los 10 mejores talentos mundiales, con una sólida experiencia en las industrias creativa y tecnológica.",
-           "En Antix, Roman introdujo la tecnología Avagen, creando AI Digital Humans fotorrealistas que revolucionan las interacciones con los clientes para marcas globales."
-        ]
-      },
-      {
-        "role": "Ahorro de 100 millones de dólares en costes",
-        "name": "Yulia: Director de Operaciones",
-        "description": [
-           "Ejecutiva financiera con más de 18 años de experiencia en transformación financiera, estrategia fiscal y gestión de riesgos. Como directora financiera adjunta en EuroChem y en empresas tecnológicas, consiguió más de 50 millones de dólares de financiación anual y ahorró 100 millones de dólares.",
-           "Durante 16 años en Deloitte, Yulia creó asociaciones estratégicas con grandes clientes como Yandex y Coca-Cola, mejorando la eficiencia financiera e impulsando el crecimiento global."
-        ]
-      },
-      {
-        "role": "Ex-Big 4 Professional",
-        "name": "Anton: Director Financiero",
-        "description": [
-           "Profesional de las finanzas con más de 15 años de experiencia internacional en informes financieros, IFRS/GAAP y controles financieros, liderando equipos en tecnología, sanidad y educación.",
-           "Como Director Financiero en Antix Interactive, Anton ha optimizado los procesos financieros y apoyado decisiones empresariales clave para organizaciones multinacionales."
-        ]
-      },
-      {
-        "role": "Desarrollado un título AAA",
-        "name": "Dmitri: Director de Tecnología",
-        "description": [
-           "Ingeniero de software con más de 15 años de experiencia en desarrollo de juegos, ha trabajado en empresas como Creat Studios, Trickster Game Studio, Sperasoft y Mundfish.",
-           "Como Director Técnico de Antix, Dmitry Tikhonov ha contribuido a proyectos que van desde juegos casuales y para móviles hasta el desarrollo completo de títulos AAA internos."
-         ]
-      },
-      {
-        "role": "Experto en startups tecnológicas",
-        "name": "Rafal: Jefe de proyecto",
-        "description": [
-           "Experto en marketing digital y negocios con más de 20 años de experiencia, especializado en emprendimientos Web3 y blockchain, destacando en ICOs, tokenomics y fundraising.",
-           "Rafał ha dirigido proyectos clave, impulsando estrategias de marketing, creación de comunidades en Telegram y Discord, y fusionando modelos de negocio tradicionales con soluciones blockchain en sectores B2C y B2B."
-        ]
-      }
-    ]
-  },
-  "advisors": {
-    "title": "Asesores",
-    "description": {
-      "text_1": "El equipo asesor de Antix aporta ",
-      "span": "80 años de experiencia combinada ",
-      "text_2": "en inversiones de éxito, ofreciendo una profunda experiencia empresarial y un conocimiento excepcional del sector Web3."
-    },
-    "list": [
-      {
-        "role": "Innovador en IA",
-        "name": "Marcello Mari ",
-        "description": [
-            "Cofundador y consejero delegado de SingularityDAO, pionera de la IA en las finanzas descentralizadas, y dos veces ponente en TEDx con profundos conocimientos en DeFi y blockchain.",
-            "Marcello desempeñó un papel clave en la fundación de SingularityNET y colaboró estrechamente con Sophia the Robot, interviniendo regularmente en actos internacionales."
-        ]
-      },
-      {
-        "role": "Empresario, inversor",
-        "name": "Juwan Lee",
-        "description": [
-            "Empresario e inversor experimentado con más de 30 años en el sector de la inversión, fundador y presidente de NexChange Group, especializado en blockchain, fintech, IA y ciudades inteligentes.",
-            "Lee organizó eventos sobre blockchain, ocupó cargos en JP Morgan y SAC Capital, y es Presidente Honorario de la Misión Comercial Blockchain del Departamento de Comercio de Estados Unidos."
-        ]
-      },
-      {
-        "role": "Creador de startups, experto en Web3",
-        "name": "Marta Zarosa",
-        "description": [
-            "Empresario apasionado con un historial probado de creación de empresas emergentes como IndaHash y Skey Network, y de facilitación del lanzamiento de numerosas empresas Web3.",
-            "Como Business Associate en Bering Waters Ventures, me especialicé en recaudación de fondos, ventas y marketing, y dirigí la gestión de DAO Maker KOL, apoyando más de 30 lanzamientos exitosos."
-        ]
-      },
-      {
-        "role": "Líder de Blockchain, fundador de una empresa",
-        "name": "Alexander Filatov",
-        "description": [
-            "Cofundador y Consejero Delegado de EverX, el principal desarrollador de la red Everscale, con 25 años de experiencia, incluidos cargos ejecutivos en RM, RM-Terex y Chelpipe.",
-            "Tras dejar el mundo empresarial en 2015, cofundó Industry 4.0., un fondo de riesgo para tecnologías emergentes, y dirigió el capítulo de YPO en Rusia en 2019/20."
-        ]
-      }
-    ]
-  },
-  "roadmap": {
-    "title": "Mapa de carreteras",
-    "list": [
-       {
-          "event": "Sentar las bases",
-          "list": [
-             {
-                "title": "Constitución de empresas",
-                "description": ["Establecimiento y obtención de contratos clave."]
-             },
-             {
-                "title": "Principales colaboraciones",
-                "description": ["HBO y Warner Brothers, Tencent y otros"]
-             }
+      "statistic": [
+         {
+            "title": "20+",
+            "description": "Clientes actuales"
+         },
+         {
+            "title": "20",
+            "description": "Proyectos finalizados"
+         },
+         {
+            "title": "10",
+            "description": "I+D finalizado"
+         },
+         {
+            "title": "70+",
+            "description": "Creado cinematográficamente"
+         }
+      ],
+      "list": [
+         {
+            "role": "Ex director regional de Disney",
+            "name": "Marina: Fundadora y Presidenta",
+            "socialLink": "https://www.linkedin.com/in/marina-jigalova/",
+            "image": "/images/team/command/marina.png",
+            "description": [
+               "Inversor y emprendedor internacional, visionario en negocios y startups tecnológicas, con profunda experiencia en los sectores de los medios de comunicación, el entretenimiento, la inversión y la banca.",
+               "Marina ocupó puestos de alta dirección durante casi 30 años, incluida la dirección de la oficina de la CEI de Walt Disney, donde dirigió el desarrollo empresarial en 11 países durante más de 13 años."
+            ]
+         },
+         {
+            "role": "Los 10 mejores talentos mundiales",
+            "name": "Roman: Fundador y CEO",
+            "socialLink": "https://www.linkedin.com/in/cyganovroman/",
+            "image": "/images/team/command/roman.png",
+            "description": [
+               "Roman Cyganov, fundador y Consejero Delegado de Antix, está reconocido como uno de los 10 mejores talentos mundiales, con una sólida experiencia en las industrias creativa y tecnológica.",
+               "En Antix, Roman introdujo la tecnología Avagen, creando AI Digital Humans fotorrealistas que revolucionan las interacciones con los clientes para marcas globales."
+            ]
+         },
+         {
+            "role": "Ahorro de 100 millones de dólares en costes",
+            "name": "Yulia: Director de Operaciones",
+            "socialLink": "https://www.linkedin.com/in/yulia-unal-1a976415/",
+            "image": "/images/team/command/yulia.png",
+            "description": [
+               "Ejecutiva financiera con más de 18 años de experiencia en transformación financiera, estrategia fiscal y gestión de riesgos. Como directora financiera adjunta en EuroChem y en empresas tecnológicas, consiguió más de 50 millones de dólares de financiación anual y ahorró 100 millones de dólares.",
+               "Durante 16 años en Deloitte, Yulia creó asociaciones estratégicas con grandes clientes como Yandex y Coca-Cola, mejorando la eficiencia financiera e impulsando el crecimiento global."
+            ]
+         },
+         {
+            "role": "Ex-Big 4 Professional",
+            "name": "Anton: Director Financiero",
+            "socialLink": "https://www.linkedin.com/in/anton-galkin-finance/",
+            "image": "/images/team/command/anton.png",
+            "description": [
+               "Profesional de las finanzas con más de 15 años de experiencia internacional en informes financieros, IFRS/GAAP y controles financieros, liderando equipos en tecnología, sanidad y educación.",
+               "Como Director Financiero en Antix Interactive, Anton ha optimizado los procesos financieros y apoyado decisiones empresariales clave para organizaciones multinacionales."
+            ]
+         },
+         {
+            "role": "Desarrollado un título AAA",
+            "name": "Dmitri: Director de Tecnología",
+            "socialLink": "https://il.linkedin.com/in/dima-tihonov-261b1466?trk=people-guest_people_search-card",
+            "image": "/images/team/command/dmitri.png",
+            "description": [
+               "Ingeniero de software con más de 15 años de experiencia en desarrollo de juegos, ha trabajado en empresas como Creat Studios, Trickster Game Studio, Sperasoft y Mundfish.",
+               "Como Director Técnico de Antix, Dmitry Tikhonov ha contribuido a proyectos que van desde juegos casuales y para móviles hasta el desarrollo completo de títulos AAA internos."
+            ]
+         },
+         {
+            "role": "Experto en startups tecnológicas",
+            "name": "Rafal: Jefe de proyecto",
+            "socialLink": "https://www.linkedin.com/in/rafalplewinski/",
+            "image": "/images/team/command/rafal.png",
+            "description": [
+               "Experto en marketing digital y negocios con más de 20 años de experiencia, especializado en emprendimientos Web3 y blockchain, destacando en ICOs, tokenomics y fundraising.",
+               "Rafał ha dirigido proyectos clave, impulsando estrategias de marketing, creación de comunidades en Telegram y Discord, y fusionando modelos de negocio tradicionales con soluciones blockchain en sectores B2C y B2B."
+            ]
+         },
+         {
+          "role": "Web3 Growth Strategist",
+          "name": "MD Jobaidur Rahman: Director General de Desarrollo Comercial",
+          "socialLink": "",
+          "image": "/images/team/command/jobaidur.png",
+          "description": [
+             "Profesional en Gestión Empresarial y Desarrollo de Negocios con más de 10 años de experiencia internacional, especializado en liderar estrategias de desarrollo empresarial y planes de ejecución para soluciones tecnológicas de vanguardia.",
+             "Enfocado en expandir la presencia en los EAU liderando el crecimiento de proyectos Web3 y fomentando ecosistemas impulsados por la comunidad."
           ]
-       },
-       {
-          "event": "Expansión y asociaciones",
-          "list": [
-             {
-                "title": "Nuevo liderazgo",
-                "description": ["Marina, ex directora de EMEA de Disney, se incorpora como cofundadora."]
-             },
-             {
-                "title": "Asociaciones clave",
-                "description": ["Wargaming (World of Tanks) y EA Games (FIFA)"]
-             },
-             {
-                "title": "Reconocimiento mundial",
-                "description": [
-                   "Galardonado entre los 10 mejores talentos mundiales",
-                   "Antic Digital Humans se exhibe en Times Square, Tokio y Pekín."
-                ]
-             }
-          ]
-       },
-       {
-          "event": "Diversificación e innovación",
-          "list": [
-             {
-                "title": "Lanzamiento de la fundación AI Digital Human Platform",
-                "description": []
-             },
-             {
-                "title": "Colaboraciones de moda",
-                "description": ["Alexander McQueen y Ouroboros presentaron la moda digital en grandes eventos."]
-             },
-             {
-                "title": "Entrar en la industria de la belleza",
-                "description": ["Digital Humans se presenta en Vogue Business y Gloamour"]
-             },
-             {
-                "title": "Colaboraciones globales",
-                "description": ["Asociado con Double Trouble Creative."]
-             }
-          ]
-       },
-       {
-          "stage": "Etapa 1",
-          "event": "Plataforma Beta",
-          "list": [
-             {
-                "title": "Crear avatares",
-                "description": ["Sube fotos o utiliza cámaras para generar gemelos digitales."]
-             },
-             {
-                "title": "Personalización",
-                "description": ["Modificar el cuerpo, los rasgos faciales y los estilos."]
-             },
-             {
-                "title": "Utilice avatares para generar contenidos",
-                "description": ["Genera voz (compatible con más de 40 idiomas), animaciones y frases preestablecidas."]
-             },
-             {
-                "title": "Retransmisión en directo",
-                "description": ["Movimiento y sincronización labial en tiempo real para plataformas en directo como YouTube y Twitch."]
-             }
-          ]
-       },
-       {
-          "stage": "Etapa 2",
-          "event": "Capacidades ampliadas",
-          "list": [
-             {
-                "title": "Creación de un entorno",
-                "description": ["Personaliza el entorno de los avatares."]
-             },
-             {
-                "title": "Juegos e integración multimedia",
-                "description": ["Uso fluido de avatares en juegos y medios de comunicación."]
-             },
-             {
-                "title": "Animación y creación de contenidos",
-                "description": ["Animaciones basadas en IA, captura de movimientos y producción de vídeo."]
-             },
-             {
-                "title": "Reconocimiento de voz",
-                "description": ["Interactúa de forma natural con avatares mediante comandos de voz."]
-             }
-          ]
-       },
-       {
-          "stage": "Etapa 4",
-          "event": "Desarrollo empresarial e integración",
-          "list": [
-             {
-                "title": "Mercado e integración de marcas",
-                "description": ["Ropa virtual, recomendaciones de inteligencia artificial y compras sencillas"]
-             },
-             {
-                "title": "Integración API",
-                "description": ["Utilice avatares en chatbots, sitios web y conversaciones personalizadas."]
-             },
-             {
-                "title": "Automatización y personalización",
-                "description": ["Asistentes digitales para asistencia a empleados, atención al cliente y tareas personales."]
-             }
-          ]
-       }
-    ]
-  },
-  "joinUs": {
-    "title": "Acompáñenos en nuestro viaje",
-    "videoError": "Su navegador no soporta vídeo."
-  },
-  "exclusiveOffer": {
-    "title": "Únete a la Etapa 4",
-    "desc": "Haga un depósito para asegurarse el mejor precio",
-    "btn": "Únete ahora"
-  },
-  "footer": {
-    "follow": "Síguenos:",
-    "contact": "Para consultas comerciales, póngase en contacto con nosotros:",
-    "link_1": "Asesores",
-    "link_2": "ANTIX Token",
-    "link_3": "Tokenomics",
-    "link_4": "Sobre el proyecto",
-    "link_5": "Comunidad",
-    "link_6": "Mapa de carreteras",
-    "link_7": "Socios",
-    "link_8": "Equipo",
-    "link_9": "Política de privacidad",
-    "link_10": "Condiciones de uso",
-    "desc": "Domicilio Provincia de Panamá, distrito de Panamá, Betania, Vía Ricardo J. Alfaro, PH The Century Tower, oficina 317"
-  }
+        }
+      ]
+   },
+   "advisors": {
+      "title": "Asesores",
+      "description": {
+         "text_1": "El equipo asesor de Antix aporta ",
+         "span": "80 años de experiencia combinada ",
+         "text_2": "en inversiones de éxito, ofreciendo una profunda experiencia empresarial y un conocimiento excepcional del sector Web3."
+      },
+      "list": [
+         {
+            "role": "Innovador en IA",
+            "name": "Marcello Mari ",
+            "description": [
+               "Cofundador y consejero delegado de SingularityDAO, pionera de la IA en las finanzas descentralizadas, y dos veces ponente en TEDx con profundos conocimientos en DeFi y blockchain.",
+               "Marcello desempeñó un papel clave en la fundación de SingularityNET y colaboró estrechamente con Sophia the Robot, interviniendo regularmente en actos internacionales."
+            ]
+         },
+         {
+            "role": "Empresario, inversor",
+            "name": "Juwan Lee",
+            "description": [
+               "Empresario e inversor experimentado con más de 30 años en el sector de la inversión, fundador y presidente de NexChange Group, especializado en blockchain, fintech, IA y ciudades inteligentes.",
+               "Lee organizó eventos sobre blockchain, ocupó cargos en JP Morgan y SAC Capital, y es Presidente Honorario de la Misión Comercial Blockchain del Departamento de Comercio de Estados Unidos."
+            ]
+         },
+         {
+            "role": "Creador de startups, experto en Web3",
+            "name": "Marta Zarosa",
+            "description": [
+               "Empresario apasionado con un historial probado de creación de empresas emergentes como IndaHash y Skey Network, y de facilitación del lanzamiento de numerosas empresas Web3.",
+               "Como Business Associate en Bering Waters Ventures, me especialicé en recaudación de fondos, ventas y marketing, y dirigí la gestión de DAO Maker KOL, apoyando más de 30 lanzamientos exitosos."
+            ]
+         },
+         {
+            "role": "Líder de Blockchain, fundador de una empresa",
+            "name": "Alexander Filatov",
+            "description": [
+               "Cofundador y Consejero Delegado de EverX, el principal desarrollador de la red Everscale, con 25 años de experiencia, incluidos cargos ejecutivos en RM, RM-Terex y Chelpipe.",
+               "Tras dejar el mundo empresarial en 2015, cofundó Industry 4.0., un fondo de riesgo para tecnologías emergentes, y dirigió el capítulo de YPO en Rusia en 2019/20."
+            ]
+         }
+      ]
+   },
+   "roadmap": {
+      "title": "Mapa de carreteras",
+      "list": [
+         {
+            "event": "Sentar las bases",
+            "list": [
+               {
+                  "title": "Constitución de empresas",
+                  "description": [
+                     "Establecimiento y obtención de contratos clave."
+                  ]
+               },
+               {
+                  "title": "Principales colaboraciones",
+                  "description": ["HBO y Warner Brothers, Tencent y otros"]
+               }
+            ]
+         },
+         {
+            "event": "Expansión y asociaciones",
+            "list": [
+               {
+                  "title": "Nuevo liderazgo",
+                  "description": [
+                     "Marina, ex directora de EMEA de Disney, se incorpora como cofundadora."
+                  ]
+               },
+               {
+                  "title": "Asociaciones clave",
+                  "description": [
+                     "Wargaming (World of Tanks) y EA Games (FIFA)"
+                  ]
+               },
+               {
+                  "title": "Reconocimiento mundial",
+                  "description": [
+                     "Galardonado entre los 10 mejores talentos mundiales",
+                     "Antic Digital Humans se exhibe en Times Square, Tokio y Pekín."
+                  ]
+               }
+            ]
+         },
+         {
+            "event": "Diversificación e innovación",
+            "list": [
+               {
+                  "title": "Lanzamiento de la fundación AI Digital Human Platform",
+                  "description": []
+               },
+               {
+                  "title": "Colaboraciones de moda",
+                  "description": [
+                     "Alexander McQueen y Ouroboros presentaron la moda digital en grandes eventos."
+                  ]
+               },
+               {
+                  "title": "Entrar en la industria de la belleza",
+                  "description": [
+                     "Digital Humans se presenta en Vogue Business y Gloamour"
+                  ]
+               },
+               {
+                  "title": "Colaboraciones globales",
+                  "description": ["Asociado con Double Trouble Creative."]
+               }
+            ]
+         },
+         {
+            "stage": "Etapa 1",
+            "event": "Plataforma Beta",
+            "list": [
+               {
+                  "title": "Crear avatares",
+                  "description": [
+                     "Sube fotos o utiliza cámaras para generar gemelos digitales."
+                  ]
+               },
+               {
+                  "title": "Personalización",
+                  "description": [
+                     "Modificar el cuerpo, los rasgos faciales y los estilos."
+                  ]
+               },
+               {
+                  "title": "Utilice avatares para generar contenidos",
+                  "description": [
+                     "Genera voz (compatible con más de 40 idiomas), animaciones y frases preestablecidas."
+                  ]
+               },
+               {
+                  "title": "Retransmisión en directo",
+                  "description": [
+                     "Movimiento y sincronización labial en tiempo real para plataformas en directo como YouTube y Twitch."
+                  ]
+               }
+            ]
+         },
+         {
+            "stage": "Etapa 2",
+            "event": "Capacidades ampliadas",
+            "list": [
+               {
+                  "title": "Creación de un entorno",
+                  "description": ["Personaliza el entorno de los avatares."]
+               },
+               {
+                  "title": "Juegos e integración multimedia",
+                  "description": [
+                     "Uso fluido de avatares en juegos y medios de comunicación."
+                  ]
+               },
+               {
+                  "title": "Animación y creación de contenidos",
+                  "description": [
+                     "Animaciones basadas en IA, captura de movimientos y producción de vídeo."
+                  ]
+               },
+               {
+                  "title": "Reconocimiento de voz",
+                  "description": [
+                     "Interactúa de forma natural con avatares mediante comandos de voz."
+                  ]
+               }
+            ]
+         },
+         {
+            "stage": "Etapa 4",
+            "event": "Desarrollo empresarial e integración",
+            "list": [
+               {
+                  "title": "Mercado e integración de marcas",
+                  "description": [
+                     "Ropa virtual, recomendaciones de inteligencia artificial y compras sencillas"
+                  ]
+               },
+               {
+                  "title": "Integración API",
+                  "description": [
+                     "Utilice avatares en chatbots, sitios web y conversaciones personalizadas."
+                  ]
+               },
+               {
+                  "title": "Automatización y personalización",
+                  "description": [
+                     "Asistentes digitales para asistencia a empleados, atención al cliente y tareas personales."
+                  ]
+               }
+            ]
+         }
+      ]
+   },
+   "joinUs": {
+      "title": "Acompáñenos en nuestro viaje",
+      "videoError": "Su navegador no soporta vídeo."
+   },
+   "exclusiveOffer": {
+      "title": "Únete a la Etapa 4",
+      "desc": "Haga un depósito para asegurarse el mejor precio",
+      "btn": "Únete ahora"
+   },
+   "footer": {
+      "follow": "Síguenos:",
+      "contact": "Para consultas comerciales, póngase en contacto con nosotros:",
+      "link_1": "Asesores",
+      "link_2": "ANTIX Token",
+      "link_3": "Tokenomics",
+      "link_4": "Sobre el proyecto",
+      "link_5": "Comunidad",
+      "link_6": "Mapa de carreteras",
+      "link_7": "Socios",
+      "link_8": "Equipo",
+      "link_9": "Política de privacidad",
+      "link_10": "Condiciones de uso",
+      "desc": "Domicilio Provincia de Panamá, distrito de Panamá, Betania, Vía Ricardo J. Alfaro, PH The Century Tower, oficina 317"
+   }
 }
