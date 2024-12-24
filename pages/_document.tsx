@@ -102,6 +102,9 @@ export default class MyDocument extends Document {
             'tokensale.antix.in': {
               gtag: ['GTM-P6NRWGBW'],
             },
+            'join.antix.in'     : {
+              gtag: ['GTM-MFCLN3HJ'],
+            },
           }
 
           function initGTM(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
