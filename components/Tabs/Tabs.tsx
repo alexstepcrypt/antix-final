@@ -69,6 +69,8 @@ export const Tabs: React.FC<teamItemsProps> = ({ data }) => {
                             <Image
                                 src={activeTab.image}
                                 alt={activeTab.name}
+                                width={60}
+                                height={60}
                                 className={styles.leftImg}
                             />
                             <p>{activeTab.name}</p>
@@ -112,6 +114,8 @@ export const Tabs: React.FC<teamItemsProps> = ({ data }) => {
                             <Image
                                 src={item.image}
                                 alt={item.name}
+                                width={70}
+                                height={70}
                                 className={styles.leftImg}
                             />
                             <div className={styles.tabInfo}>

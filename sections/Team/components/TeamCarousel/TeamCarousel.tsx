@@ -3,20 +3,22 @@
 import { useState } from "react";
 
 import TeamComponent from "../../../../components/TeamComponent/TeamComponent";
-import { commandList, teamItemsProps } from "./mocdata";
+import { teamItemType } from "./mocdata";
 import s from "./TeamCarousel.module.scss";
 import { useTranslation } from "react-i18next";
 
 
-export const TeamCarousel:React.FC<teamItemsProps> = ({data}) => {
+export const TeamCarousel = () => {
     const [isActive, setIsActive] = useState(false);
     const { t } = useTranslation('landing');
+
+    const commandList = t('team.list', { returnObjects: true }) as teamItemType[];
 
     return (
         <div className={s.container}>
             <div className={`${s.content} ${isActive ? s.activeContent : ""}`}>
-                {data.map((employee, i) => (
-                    <TeamComponent key={i} {...employee} image={commandList[i].image} socialLink={commandList[i].socialLink} />
+                {commandList.map((employee, i) => (
+                    <TeamComponent key={i} {...employee} />
                 ))}
             </div>
             <button

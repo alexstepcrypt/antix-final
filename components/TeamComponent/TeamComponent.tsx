@@ -26,7 +26,7 @@ const TeamComponent: React.FC<TeamComponentProps> = ({
         <div className={styles.container}>
             <div
                 className={styles.content}
-                style={{ backgroundImage: `url(${image.src})` }}
+                style={{ backgroundImage: `url(${image})` }}
             >
                 <span className={styles.role}>{role}</span>
                 <div className={styles.bottom}>
