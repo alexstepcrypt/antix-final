@@ -109,6 +109,8 @@
          "minutes": "min",
          "seconds": "seg"
       },
+      "buyButton": "Comprar ahora"
+   },
       "stayUpdated": {
          "title": "Manténgase al día",
          "connectText": "Conéctese a nuestro",
@@ -766,5 +768,4 @@
          "link_10": "Condiciones de uso",
          "desc": "Domicilio Provincia de Panamá, distrito de Panamá, Betania, Vía Ricardo J. Alfaro, PH The Century Tower, oficina 317"
       }
-   }
 }
