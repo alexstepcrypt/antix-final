@@ -13,6 +13,8 @@ import { useMobile } from '../../hooks/useMobile';
 import { useTabStore } from '../../stores/useTabStore'
 import styles from './Footer.module.scss';
 import { useTranslation } from 'react-i18next';
+import Link from 'next/link'
+import SelectLanguage from '@/components/SelectLanguage/SelectLanguage'
 
 const Footer = ({ style }: { style?: CSSProperties }) => {
    const { setTab } = useTabStore();
@@ -58,6 +60,9 @@ const Footer = ({ style }: { style?: CSSProperties }) => {
                         className={styles.mailLink}>
                         hello@antix.in
                      </a>
+                     <div className={styles.selectLanguage}>
+                        <SelectLanguage />
+                     </div>
                      <div className={styles.centerLinksWrapper}>
                         <div className={styles.linkWrapper}>
                            <button
@@ -97,18 +102,23 @@ const Footer = ({ style }: { style?: CSSProperties }) => {
                         </div>
 
                         <div className={styles.linkWrapper}>
-                           <button className={styles.mobileLink} onClick={() => scrollToId('JoinUs')}>
-                              {t('footer.link_5')}
-                           </button>
-                           <button onClick={() => scrollToId('/privacy_policy.pdf')}>
+                           <button onClick={() => window.open("https://antix.in/", "_blank")}>
                               {t('footer.link_9')}
                            </button>
-                           <button onClick={() => scrollToId('/terms_of_use.pdf')}>
+                           <span className={styles.divider} />
+                           <button onClick={() => scrollToId('/privacy_policy.pdf')}>
                               {t('footer.link_10')}
+                           </button>
+                           <button onClick={() => scrollToId('/terms_of_use.pdf')}>
+                              {t('footer.link_11')}
                            </button>
                         </div>
                      </div>
                   </div>
+               </div>
+
+               <div className={styles.mobileSelectLanguage}>
+                  <SelectLanguage />
                </div>
 
                <div className={styles.bootomLinkWrapper}>
