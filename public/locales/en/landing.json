@@ -1,28 +1,32 @@
 {
   "header": {
-    "backToMainPage": "Back to the Main Page",
+    "backToMainPage": "Back to the Homepage",
     "claimPopoverText": "Claiming page will be available after the TGE",
     "connectWalletButton": "Buy Now",
     "links": [
         "Token",
         "Whitepaper",
-        "Team"
+        "Team",
+        "Main"
     ],
     "linksDashboard": [
       "Dashboard",
       "Referral",
-      "Claim"
+      "Claim",
+      "Main"
     ],
     "mobileLinks": [
         "Token",
         "Whitepaper",
-        "Claim",
+        "Team",
+        "Main",
         "My Account"
     ],
     "mobileLinksDashboard": [
       "Dashboard",
       "Claim",
       "Referral",
+      "Main",
       "Back to the Main Page"
     ]
   },
@@ -710,8 +714,9 @@
     "link_6": "Road map",
     "link_7": "Partners",
     "link_8": "Team",
-    "link_9": "Privacy Policy",
-    "link_10": "Terms of Use",
+    "link_9": "Main",
+    "link_10": "Privacy Policy",
+    "link_11": "Terms of Use",
     "desc": "Domicile Province of Panama, district of Panama, Betania, Vía Ricardo J. Alfaro, PH The Century Tower, office 317"
   }
 }

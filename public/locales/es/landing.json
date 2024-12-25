@@ -3,13 +3,14 @@
       "backToMainPage": "Volver a la página principal",
       "claimPopoverText": "La página de reclamaciones estará disponible después del GET",
       "connectWalletButton": "Comprar ahora",
-      "links": ["Token", "Whitepaper", "Equipo"],
-      "linksDashboard": ["Cuadro de mandos", "Remisión", "Reclamación"],
-      "mobileLinks": ["Token", "Whitepaper", "Comprar ahora", "Mi cuenta"],
+      "links": ["Token", "Whitepaper", "Equipo", "Portada"],
+      "linksDashboard": ["Cuadro de mandos", "Remisión", "Reclamación", "Portada"],
+      "mobileLinks": ["Token", "Whitepaper", "Equipo", "Portada", "Mi cuenta"],
       "mobileLinksDashboard": [
          "Cuadro de mando",
          "Reclamación",
          "Remisión",
+         "Portada",
          "Volver a la página principal"
       ]
    },
@@ -74,32 +75,6 @@
       "minutes": "min",
       "seconds": "seg"
    },
-   "stayUpdated": {
-      "title": "Manténgase al día",
-      "connectText": "Conéctese a nuestro",
-      "button": "Telegram bot",
-      "description": "para recibir alertas de inicio de etapa o asistencia."
-   },
-   "featuredIn": {
-      "title": "Destacado en"
-   },
-   "platformToReplace": {
-      "title": "Construir y monetizar personajes digitales de IA que",
-      "highlightedWord": "sustituir",
-      "listOfRoles": [
-         "Actores",
-         "Presentadores de TV",
-         "Cantantes pop",
-         "Asistentes personales",
-         "Instructores de fitness",
-         "Personajes de juegos",
-         "Compañeros virtuales",
-         "Agentes de apoyo",
-         "Embajadores de marca",
-         "Influenciadores",
-         "Anfitriones de eventos"
-      ]
-   },
    "stageWidget": {
       "currentPrice": "Precio actual",
       "timer": {
@@ -136,17 +111,6 @@
             "Influenciadores",
             "Anfitriones de eventos"
          ]
-      },
-      "stageWidget": {
-         "currentPrice": "Precio actual",
-         "timer": {
-            "title": "La etapa 4 termina en",
-            "days": "día",
-            "hours": "hora",
-            "minutes": "min",
-            "seconds": "seg"
-         },
-         "buyButton": "Comprar ahora"
       },
       "marketLeader": {
          "title": "Los gigantes aprueban nuestro talento"
@@ -764,8 +728,9 @@
          "link_6": "Mapa de carreteras",
          "link_7": "Socios",
          "link_8": "Equipo",
-         "link_9": "Política de privacidad",
-         "link_10": "Condiciones de uso",
+         "link_9": "Portada",
+         "link_10": "Política de privacidad",
+         "link_11": "Condiciones de uso",
          "desc": "Domicilio Provincia de Panamá, distrito de Panamá, Betania, Vía Ricardo J. Alfaro, PH The Century Tower, oficina 317"
       }
 }

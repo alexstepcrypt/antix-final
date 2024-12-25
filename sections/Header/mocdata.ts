@@ -1,8 +1,8 @@
 import TokenIcon from "/public/svg/mobile-menu/token.svg";
 import WhitepaperIcon from "/public/svg/mobile-menu/whitepaper.svg";
-import BuyNowIcon from "/public/svg/mobile-menu/buy-now.svg";
 import MyAccountIcon from "/public/svg/mobile-menu/my-account.svg";
-
+import TeamIcon from '/public/svg/mobile-menu/team-icon.svg';
+import AntixIcon from '/public/svg/mobile-menu/antix.svg';
 
 type linksType = {
     label: string;
@@ -23,6 +23,10 @@ export const links: linksType[] = [
         label: "Team",
         href: "Team",
     },
+    {
+        label: "Main",
+        href: "https://antix.in/",
+    },
 ];
 
 export const linksDashboard: linksType[] = [
@@ -39,6 +43,11 @@ export const linksDashboard: linksType[] = [
     {
         label: "Claim",
         href: "",
+        disabled: false,
+    },
+    {
+        label: "Main",
+        href: "https://antix.in/",
         disabled: false,
     },
 ];
@@ -62,9 +71,14 @@ export const mobileLinks: mobileLinksType[] = [
         icon: WhitepaperIcon,
     },
     {
-        label: "Buy Now",
-        href: "/dashboard",
-        icon: BuyNowIcon,
+        label: "Team",
+        href: "Team1",
+        icon: TeamIcon,
+    },
+    {
+        label: "Main",
+        href: "https://antix.in/",
+        icon: AntixIcon
     },
     {
         label: "My Account",
@@ -78,7 +92,6 @@ export const mobileLinksDashboard: mobileLinksType[] = [
         label: "Dashboard",
         href: "/dashboard",
         disabled: false,
-
     },
     {
         label: "Claim",
@@ -89,6 +102,11 @@ export const mobileLinksDashboard: mobileLinksType[] = [
         label: "Referral",
         href: "/dashboard/referral",
         disabled: false,
+    },
+    {
+        label: "Main",
+        href: "https://antix.in/",
+        disabled: false
     },
     {
         label: "Back to the Main Page",
