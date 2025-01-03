@@ -58,7 +58,7 @@ const DashboardTop = () => {
 
     const [tokens, setTokens] = useState<TokensSolded>({ current: 0, target: 0 });
 
-    useEffect(() => { api.receiveTokens().then(r => r && setTokens(r)) }, []);
+    useEffect(() => { api.soldProgress().then(r => r && setTokens(r)) }, []);
 
     return (
         <div className={styles.container}>

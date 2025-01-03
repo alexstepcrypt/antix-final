@@ -94,27 +94,9 @@ class Api {
   stagesInfo(chainId:number|string) {
     return this.call(`sale/${chainId}/info`)
   }
-  async receiveTokens() {
-    try {
-        const [ethRes, bscRes, baseRes] = await Promise.all([this.stagesInfo(1), this.stagesInfo(56), this.stagesInfo(8453)])
 
-        const defaultPrice = 0.06
-        const curStage = ethRes.stage.current
-
-        const targetInUSD = ethRes.stages.reduce((a: any, i: any) => {
-          return a + (i.cap * i.prices[0]);
-        }, 0)
-
-        const sold = 2480000
-          + (ethRes.stages[curStage].sold  * ethRes.stages[curStage]?.prices[0] || defaultPrice)
-          + (bscRes.stages[curStage].sold  * bscRes.stages[curStage]?.prices[0] || defaultPrice)
-          + (baseRes.stages[curStage].sold * baseRes.stages[curStage]?.prices[0] || defaultPrice)
-
-        return {
-            current : Math.ceil(sold),
-            target  : Math.ceil(targetInUSD)
-        };
-    } catch (e) { console.log(e) }
+  soldProgress() {
+    return this.call(`sale/sold-progress`)
   }
 
   stageSoldSum(stageId:number|string){
