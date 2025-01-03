@@ -47,7 +47,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
         return connect()
     }
 
-    useEffect(() => { api.receiveTokens().then(r => r && setTokens(r)) }, []);
+    useEffect(() => { api.soldProgress().then(r => r && setTokens(r)) }, []);
 
     return (
     <div className={styles.container}>
