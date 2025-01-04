@@ -35,7 +35,7 @@ import { useTranslation } from "react-i18next";
 import Mastercard from "/public/dashboard/svg/mastercard-logo.svg";
 import Visa from "/public/dashboard/svg/visa-logo.svg";
 
-
+const minBuyAmount = 800
 const tokensByChains:any = {
 	1: {
         ETH  : '0x0000000000000000000000000000000000000000',
@@ -138,6 +138,10 @@ const DepositForm = () => {
         const updatedReceiveValue = (parseFloat(cleanedValue === "" ? "0" : cleanedValue) / rate).toFixed(0);
 
         setReceiveValue(updatedReceiveValue);
+        
+        if (Number(updatedReceiveValue) < minBuyAmount) {
+            setError(t('stage.form.minamount'));
+        }
 
         // Ensure that entered value doesn't exceed balance
         if (Number(balance) > 0 && Number(cleanedValue) > Number(balance)) {
@@ -349,6 +353,7 @@ const DepositForm = () => {
         />
 
         <DepositButton 
+            disabled={Number(receiveValue) < minBuyAmount}
             amount={amount}
             type={isBuyChecked ? 'BUY' : 'DEPOSIT'} 
             tokenAddress={tokens[displayCurrency]} 

@@ -48,6 +48,7 @@
          "max": "Max",
          "enter": "Introduzca el importe",
          "error": "No hay fondos suficientes para realizar el ingreso",
+         "minamount": "El mínimo de compra es de 800 ANTIX ~ 50$",
          "receive": "usted recibe",
          "disclaimer": {
             "span": "Al hacer clic en \"Depositar ahora\", confirma que no es ciudadano ni residente estadounidense.",

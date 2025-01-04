@@ -77,9 +77,10 @@ interface IDepositButton {
     amount: string|number
     type: 'BUY' | 'DEPOSIT'
     tokenAddress: `0x${string}`
+    disabled: boolean
 }
 
-export default function DepositButton({amount, type, tokenAddress}:IDepositButton){
+export default function DepositButton({amount, type, tokenAddress, disabled}:IDepositButton){
     const { address, isConnected, chainId, connect } = useConnectWallet()
     const { switchNetwork } = useNetwork()
     const contractAddress = contractsAddresses[chainId || 1]
@@ -142,7 +143,7 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 
 	// First connect wallet
 	if (!isConnected) {
-		return <button onClick={() => connect()} className={styles.depositBtn}>
+		return <button onClick={() => connect()} className={styles.depositBtn} disabled={disabled}>
 			{t('stage.depositBtn.connect')}
 			<span className={styles.flare}></span>
 		</button>
@@ -150,14 +151,14 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 
 	// Switch network 
 	if (!Object.keys(contractsAddresses).includes(String(chainId))) {
-		return <button onClick={() => switchNetwork(1)} className={styles.depositBtn}>
+		return <button onClick={() => switchNetwork(1)} className={styles.depositBtn} disabled={disabled}>
 			{t('stage.depositBtn.switch')}
 		</button>
 	}
 
 	// Approve amount
 	if (!isNativeCoin && (allowance < Number(amount) || Number(amount) === 0)) {
-		return <button onClick={() => approve()} disabled={apprveInProgress || Number(amount) <= 0} className={styles.depositBtn}>
+		return <button onClick={() => approve()} disabled={apprveInProgress || Number(amount) <= 0 || disabled} className={styles.depositBtn}>
             {Number(amount) <= 0 
                 ? t('stage.depositBtn.buy')
                 : apprveInProgress ? t('stage.depositBtn.tx') : t('stage.depositBtn.approve')
@@ -168,7 +169,7 @@ export default function DepositButton({amount, type, tokenAddress}:IDepositButto
 
     // Deposit
     return <>
-        <button onClick={deposit} className={styles.depositBtn} disabled={!Number(amount)}>
+        <button onClick={deposit} className={styles.depositBtn} disabled={!Number(amount) || disabled}>
             {status==='pending' ? t('stage.depositBtn.process') : t('stage.depositBtn.deposit')}
 			<span className={styles.flare}></span>
 		</button>

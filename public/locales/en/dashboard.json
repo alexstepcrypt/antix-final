@@ -48,6 +48,7 @@
       "max": "Max",
       "enter": "Enter amount",
       "error": "Not enough funds to make the deposit",
+      "minamount": "Minimum buy amount is 800 ANTIX ~ 50$",
       "receive": "you receive",
       "disclaimer": {
         "span": "By clicking \"Deposit Now\", you confirm that you are not a U.S. citizen or U.S. resident.",
