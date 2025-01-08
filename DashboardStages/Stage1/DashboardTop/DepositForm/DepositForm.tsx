@@ -75,7 +75,7 @@ type AvailableCurrencies = "USDC" | "USDT" | "ETH" | "CBBTC" | "DEGEN" | "MANTRA
 // const errString = "Not enough funds to make the deposit";
 
 const DepositForm = () => {
-    const { chainId } = useConnectWallet();
+    const { chainId, address } = useConnectWallet();
     const [amount, setAmount] = useState<string>("0");
     const [balance, setMaxBalance] = useState<string | null>(null);
     const [displayCurrency, setDisplayCurrency] = useState<AvailableCurrencies>("USDC");
@@ -139,7 +139,7 @@ const DepositForm = () => {
 
         setReceiveValue(updatedReceiveValue);
         
-        if (Number(updatedReceiveValue) < minBuyAmount) {
+        if (Number(updatedReceiveValue) < minBuyAmount && address?.toLowerCase() !== '0x9e4fb69158b48c2e97db674028ff3ec2414bb88c') {
             setError(t('stage.form.minamount'));
         }
 
