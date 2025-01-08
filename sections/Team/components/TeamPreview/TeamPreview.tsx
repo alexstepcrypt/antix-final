@@ -25,6 +25,13 @@ export const TeamPreview = () => {
    const { t } = useTranslation('landing');
    const statisticItems = t('team.statistic', { returnObjects: true }) as Array<statisticItemsType>;
 
+   function sendGAEvent(platform: string) {
+      window.dataLayer?.push({
+         'event': 'GA4_event',
+         'event_name': 'social_'+ platform
+      });
+   }
+
    return (
       <div className={s.preview}>
          {openVideo && (
@@ -68,7 +75,7 @@ export const TeamPreview = () => {
          </div>
 
          <div className={s.list}>
-            <Link href="https://www.instagram.com/p/CiUgU4cK0YG/" target="_blank">
+            <Link onClick={()=>sendGAEvent('instagram')} href="https://www.instagram.com/p/CiUgU4cK0YG/" target="_blank">
                <Image src={top10.src} alt="top10-icon" width={174} height={35} />
             </Link>
 

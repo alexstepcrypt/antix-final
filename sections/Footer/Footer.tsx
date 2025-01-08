@@ -22,6 +22,13 @@ const Footer = ({ style }: { style?: CSSProperties }) => {
 
    const { t } = useTranslation('landing');
 
+   function sendGAEvent(platform: string) {
+      window.dataLayer?.push({
+         'event': 'GA4_event',
+         'event_name': 'social_'+ platform
+      });
+   }
+
    return (
       <div
          style={style}
@@ -34,18 +41,21 @@ const Footer = ({ style }: { style?: CSSProperties }) => {
                      <span className={styles.smallTitle}>{t('footer.follow')}</span>
                      <div className={styles.socials}>
                         <a
+                           onClick={()=>sendGAEvent('x')}
                            href="https://x.com/antix_in"
                            target="_blank"
                            className={styles.socialLink}>
                            <Image src={socialX} alt="X" />
                         </a>
                         <a
+                           onClick={()=>sendGAEvent('discord')}
                            href="https://discord.com/invite/bKcMXChRRT"
                            target="_blank"
                            className={styles.socialLink}>
                            <Image src={socialDiscord} alt="Discord" />
                         </a>
                         <a
+                           onClick={()=>sendGAEvent('telegram')}
                            href="https://t.me/antix_in"
                            target="_blank"
                            className={styles.socialLink}>

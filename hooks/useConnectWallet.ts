@@ -1,7 +1,7 @@
 import { create } from "zustand"
 import { useState, useEffect } from "react";
 import { useSignMessage, useDisconnect } from "wagmi";
-import { useAppKit, useAppKitAccount, useAppKitNetwork} from '@reown/appkit/react'
+import { useAppKit, useAppKitAccount, useAppKitNetwork, useWalletInfo} from '@reown/appkit/react'
 import Api from "@/utils/api";
 
 declare global {
@@ -57,13 +57,24 @@ export const useConnectWallet = function (): {
 	const { open, close } = useAppKit()
 	const { isConnected, status, address } = useAppKitAccount()
 	const { chainId } = useAppKitNetwork()
-
+	const { walletInfo } = useWalletInfo()
     const { disconnect } = useDisconnect()
 	const { profile, setProfile } = useProfileStore()
 	const [ web3modalOpen, setWeb3modalOpen ] = useState(false)
 	const { data: signMessageData, signMessage, variables, error: signError } = useSignMessage()
 	const [ ready, setReady ] = useState(isConnected || !!status || !!profile)
 
+
+	useEffect(()=>{
+		if (!walletInfo?.name) return
+		const walletType = ['metamask', 'coinbase', 'walletconnect'].find(wallet => walletInfo?.name?.includes(wallet))
+		if (!walletType) return
+
+		window.dataLayer?.push({
+			'event': 'GA4_event',
+			'event_name': 'select_wallet_'+ walletType
+		});
+	}, [walletInfo])
 
 	const checkAuth = () => {
         if (!address) return
@@ -99,6 +110,10 @@ export const useConnectWallet = function (): {
 			close()
 			clearLocalStorage()
 			setTimeout(()=>{
+				window.dataLayer?.push({
+					'event': 'GA4_event',
+					'event_name': 'click_connect_wallet'
+				});
 				setWeb3modalOpen(true)
 				open()
 			},333)

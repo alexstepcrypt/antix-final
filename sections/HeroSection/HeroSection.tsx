@@ -40,6 +40,13 @@ const HeroSection = () => {
     const stage4DateStr = "2025-01-11T17:00:00Z";
     const { t } = useTranslation('landing');
 
+    function sendGAEvent(platform: string) {
+        window.dataLayer?.push({
+            'event': 'GA4_event',
+            'event_name': 'social_'+ platform
+        });
+    }
+
     return (
         <section className={styles.wrapper} id="Hero">
             <video
@@ -84,6 +91,7 @@ const HeroSection = () => {
                     </FadeInNew>
                     <div className={styles.actions}>
                         <Link
+                            onClick={()=>sendGAEvent('x')}
                             className={styles.socialLink}
                             href="https://x.com/antix_in"
                             target="_blank"
@@ -95,6 +103,7 @@ const HeroSection = () => {
                         </Link>
                         <Link
                             className={styles.socialLink}
+                            onClick={()=>sendGAEvent('telegram')}
                             href="https://t.me/antix_in"
                             target="_blank"
                         >
@@ -105,6 +114,7 @@ const HeroSection = () => {
                         </Link>
                         <Link
                             className={styles.socialLink}
+                            onClick={()=>sendGAEvent('discord')}
                             href="https://discord.com/invite/bKcMXChRRT"
                             target="_blank"
                         >
@@ -156,12 +166,13 @@ const HeroSection = () => {
                             alt=""
                         />
                         <Image
-                            onClick={() =>
+                            onClick={() =>{
+                                sendGAEvent('instagram')
                                 window.open(
                                     "https://www.instagram.com/p/CiUgU4cK0YG/",
                                     "_blank"
                                 )
-                            }
+                            }}
                             src={Awords5}
                             alt=""
                         />

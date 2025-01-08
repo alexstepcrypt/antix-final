@@ -52,10 +52,18 @@ const JoinUsCard: React.FC<JoinUsCardProps> = ({
             break;
     }
 
+    function sendGAEvent() {
+        window.dataLayer?.push({
+            'event': 'GA4_event',
+            'event_name': 'social_'+ platform
+        });
+    }
+
     return (
         <a
             href={link}
             target="_blank"
+            onClick={sendGAEvent}
             className={styles.cardContainer}
             style={{ backgroundImage: `url(${bgImage.src})` }}
         >
