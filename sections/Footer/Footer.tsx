@@ -15,19 +15,13 @@ import styles from './Footer.module.scss';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link'
 import SelectLanguage from '@/components/SelectLanguage/SelectLanguage'
+import { sendSocialGAEvent } from '@/utils/utils';
 
 const Footer = ({ style }: { style?: CSSProperties }) => {
    const { setTab } = useTabStore();
    const isMobile = useMobile(960);
 
    const { t } = useTranslation('landing');
-
-   function sendGAEvent(platform: string) {
-      window.dataLayer?.push({
-         'event': 'GA4_event',
-         'event_name': 'social_'+ platform
-      });
-   }
 
    return (
       <div
@@ -41,21 +35,21 @@ const Footer = ({ style }: { style?: CSSProperties }) => {
                      <span className={styles.smallTitle}>{t('footer.follow')}</span>
                      <div className={styles.socials}>
                         <a
-                           onClick={()=>sendGAEvent('x')}
+                           onClick={()=>sendSocialGAEvent('x')}
                            href="https://x.com/antix_in"
                            target="_blank"
                            className={styles.socialLink}>
                            <Image src={socialX} alt="X" />
                         </a>
                         <a
-                           onClick={()=>sendGAEvent('discord')}
+                           onClick={()=>sendSocialGAEvent('discord')}
                            href="https://discord.com/invite/bKcMXChRRT"
                            target="_blank"
                            className={styles.socialLink}>
                            <Image src={socialDiscord} alt="Discord" />
                         </a>
                         <a
-                           onClick={()=>sendGAEvent('telegram')}
+                           onClick={()=>sendSocialGAEvent('telegram')}
                            href="https://t.me/antix_in"
                            target="_blank"
                            className={styles.socialLink}>

@@ -11,6 +11,7 @@ import { useConnectWallet } from '@/hooks/useConnectWallet';
 import RaisedProgressBar from '@/DashboardStages/Stage1/DashboardTop/RaisedProgressBar/RaisedProgressBar';
 import Pays from '@/components/Pays/Pays';
 import StayUpdated from '@/components/StayUpdated/StayUpdated';
+import { sendGA4Event } from '@/utils/utils';
 
 interface ITokenSaleStage1 {
     stage1DateStr: string;
@@ -85,6 +86,7 @@ const TokenSaleStage1:React.FC<ITokenSaleStage1> = ({stage1DateStr, setIsRefModa
         <Link
             className={`${styles.timerButton}`}
             href="/dashboard"
+            onClick={()=>sendGA4Event('click_buy_now')}
         >
             <span className={styles.flare}></span>
             {account ? 'Buy Now' : 'Connect Wallet to Buy'}

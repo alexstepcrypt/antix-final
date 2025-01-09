@@ -10,6 +10,7 @@ import { useConnectWallet } from '@/hooks/useConnectWallet';
 import { useRouter } from 'next/router';
 import StayUpdated from '@/components/StayUpdated/StayUpdated';
 import Pays from '@/components/Pays/Pays';
+import { sendGA4Event } from '@/utils/utils';
 
 interface ITokenSaleDeposit {
     stage1DateStr: string;
@@ -22,6 +23,8 @@ const TokenSaleDeposit: React.FC<ITokenSaleDeposit> = ({stage1DateStr, setIsRefM
 
     async function buyHandler(e:React.MouseEvent<HTMLAnchorElement>){
         e.preventDefault()
+        sendGA4Event('click_buy_now')
+        
         if (!isConnected) {
             return connect()
         }

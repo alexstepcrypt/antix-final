@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useSignMessage, useDisconnect } from "wagmi";
 import { useAppKit, useAppKitAccount, useAppKitNetwork, useWalletInfo} from '@reown/appkit/react'
 import Api from "@/utils/api";
+import { sendGAEvent, sendGA4Event } from "@/utils/utils";
 
 declare global {
 	interface Window {
@@ -68,12 +69,7 @@ export const useConnectWallet = function (): {
 	useEffect(()=>{
 		if (!walletInfo?.name) return
 		const walletType = ['metamask', 'coinbase', 'walletconnect'].find(wallet => walletInfo?.name?.includes(wallet))
-		if (!walletType) return
-
-		window.dataLayer?.push({
-			'event': 'GA4_event',
-			'event_name': 'select_wallet_'+ walletType
-		});
+		sendGA4Event(walletType ? 'select_wallet_'+ walletType : 'select_wallet')
 	}, [walletInfo])
 
 	const checkAuth = () => {
@@ -110,10 +106,7 @@ export const useConnectWallet = function (): {
 			close()
 			clearLocalStorage()
 			setTimeout(()=>{
-				window.dataLayer?.push({
-					'event': 'GA4_event',
-					'event_name': 'click_connect_wallet'
-				});
+				sendGA4Event('click_connect_wallet')
 				setWeb3modalOpen(true)
 				open()
 			},333)
@@ -151,7 +144,7 @@ export const useConnectWallet = function (): {
 			}
 			setProfile(profileInfo)
 
-			window.dataLayer?.push({'event':'perfu_connect','conversionAddress':address}); 
+			sendGAEvent({event:'perfu_connect', conversionAddress:address })
         }).catch(error => console.log(error))
 	}, [signMessageData])
 

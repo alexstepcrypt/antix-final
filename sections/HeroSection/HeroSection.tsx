@@ -22,6 +22,7 @@ import ReferalModal from "./ui/ReferalModal/ReferalModal";
 import TokenSaleDeposit from "@/components/TokenSaleForm/TokenSaleDeposit/TokenSaleDeposit";
 import TokenSaleDeposit2 from "@/components/TokenSaleForm/TokenSaleDeposit2/TokenSaleDeposit2";
 import { useTranslation } from "react-i18next";
+import { sendSocialGAEvent } from "@/utils/utils";
 // import TokenSaleStage1AS from "@/components/TokenSaleForm/TokenSaleStage1AS/TokenSaleStage1AS";
 // import TokenSaleStage1 from "@/components/TokenSaleForm/TokenSaleStage1/TokenSaleStage1";
 // import TokenSaleStage1SO from "@/components/TokenSaleForm/TokenSaleStage1SO/TokenSaleStage1SO";
@@ -39,13 +40,6 @@ const HeroSection = () => {
     const stage3DateStr = "2024-12-22T17:00:00Z";
     const stage4DateStr = "2025-01-11T17:00:00Z";
     const { t } = useTranslation('landing');
-
-    function sendGAEvent(platform: string) {
-        window.dataLayer?.push({
-            'event': 'GA4_event',
-            'event_name': 'social_'+ platform
-        });
-    }
 
     return (
         <section className={styles.wrapper} id="Hero">
@@ -91,7 +85,7 @@ const HeroSection = () => {
                     </FadeInNew>
                     <div className={styles.actions}>
                         <Link
-                            onClick={()=>sendGAEvent('x')}
+                            onClick={()=>sendSocialGAEvent('x')}
                             className={styles.socialLink}
                             href="https://x.com/antix_in"
                             target="_blank"
@@ -103,7 +97,7 @@ const HeroSection = () => {
                         </Link>
                         <Link
                             className={styles.socialLink}
-                            onClick={()=>sendGAEvent('telegram')}
+                            onClick={()=>sendSocialGAEvent('telegram')}
                             href="https://t.me/antix_in"
                             target="_blank"
                         >
@@ -114,7 +108,7 @@ const HeroSection = () => {
                         </Link>
                         <Link
                             className={styles.socialLink}
-                            onClick={()=>sendGAEvent('discord')}
+                            onClick={()=>sendSocialGAEvent('discord')}
                             href="https://discord.com/invite/bKcMXChRRT"
                             target="_blank"
                         >
@@ -167,7 +161,7 @@ const HeroSection = () => {
                         />
                         <Image
                             onClick={() =>{
-                                sendGAEvent('instagram')
+                                sendSocialGAEvent('instagram')
                                 window.open(
                                     "https://www.instagram.com/p/CiUgU4cK0YG/",
                                     "_blank"

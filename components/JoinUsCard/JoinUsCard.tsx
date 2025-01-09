@@ -9,6 +9,7 @@ import BgMobile from "/public/images/join-us-card-bg-mobile.png";
 import XIcon from "/public/svg/social-x.svg";
 import TgIcon from "/public/svg/social-telegram.svg";
 import DiscordIcon from "/public/svg/social-discord.svg";
+import { sendSocialGAEvent } from "@/utils/utils";
 
 interface JoinUsCardProps {
     platform: "x" | "discord" | "telegram";
@@ -52,18 +53,11 @@ const JoinUsCard: React.FC<JoinUsCardProps> = ({
             break;
     }
 
-    function sendGAEvent() {
-        window.dataLayer?.push({
-            'event': 'GA4_event',
-            'event_name': 'social_'+ platform
-        });
-    }
-
     return (
         <a
             href={link}
             target="_blank"
-            onClick={sendGAEvent}
+            onClick={()=>sendSocialGAEvent(platform)}
             className={styles.cardContainer}
             style={{ backgroundImage: `url(${bgImage.src})` }}
         >

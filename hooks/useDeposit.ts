@@ -6,6 +6,7 @@ import { useNetwork } from '@/hooks/useNetwork';
 import {parseUnits} from 'viem';
 import { waitForTransactionReceipt } from '@wagmi/core'
 import { wagmiConfig } from "@/utils/wagmiConfig"
+import { sendGAEvent } from "@/utils/utils";
 
 declare global {
 	interface Window {
@@ -77,7 +78,38 @@ export const useDeposit = function () {
 			amount  : String(depositDetails.amount || depositDetails.value), 
 			details : { extraInfo: "Transaction details here" },
 		})
-		window.dataLayer?.push({'event':'perfu_congrats','conversionValue':depositDetails.token })
+		sendGAEvent({event:'perfu_congrats', conversionValue:depositDetails.token })
+
+		;(async ()=>{
+			const [info, rates] = await Promise.all([
+				Api.stagesInfo(1),
+				Api.getTokensRate()
+			])
+			
+			const amount = depositDetails.amount || depositDetails.value
+			const rate = rates[chainId || 1]?.[depositDetails.token] || 0.06
+			const vAntixAmount = Number(amount)/rate
+			const vAntixPrice  = info.stages[info.stage.current].prices[0]
+			
+			sendGAEvent({
+				event: "purchase",
+				ecommerce: {
+				  transaction_id: depositTxHash,
+				  value: (vAntixAmount*vAntixPrice).toFixed(2),  //общая сумма депозита в USD
+				  currency: "USD",
+				  items: [
+				  {
+					item_id: depositTxHash,
+					item_name: "vAntix",
+					item_category: depositDetails.type === 'BUY' ? 'Buy' : 'Deposit',
+					price: vAntixPrice,  //цена за один токен
+					quantity: vAntixAmount  //количество токенов
+				  }]
+				}
+			})
+		})()
+
+		  
 	}, [depositTxHash])
 
 	// Error transaction

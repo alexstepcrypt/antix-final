@@ -77,3 +77,21 @@ export const explorerUrls: {[key: number]: string} = {
 	56   : 'https://bscscan.com',
 	8453 : 'https://basescan.org/'
 }
+
+
+export const sendGAEvent = (opts:any) => {
+	if (typeof window === 'undefined') return
+	if (window.location.host !== 'tokensale.antix.in') return
+	window.dataLayer?.push(opts)
+}
+
+export const sendGA4Event = (eventName:string) => {
+	sendGAEvent({
+		'event': 'GA4_event',
+		'event_name': eventName
+	});
+}
+export const sendSocialGAEvent = (platform:string) => {
+	sendGA4Event('social_'+ platform)
+}
+

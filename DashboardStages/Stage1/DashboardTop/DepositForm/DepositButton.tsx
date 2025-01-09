@@ -8,6 +8,7 @@ import { useState, useEffect} from "react";
 import { parseUnits, formatUnits } from 'viem';
 import DepositStatusModal from './DepositModal/StatusModal'
 import { useTranslation } from "react-i18next";
+import { sendGAEvent } from "@/utils/utils";
 
 declare global {
 	interface Window {
@@ -131,7 +132,7 @@ export default function DepositButton({amount, type, tokenAddress, disabled}:IDe
 		setApproveInProgress(false)
 		setApproveData({ ...approveData, approved: isApproveConfirmed })
 		if (apprveInProgress) {
-			window.dataLayer?.push({'event':'perfu_appr','conversionValue':tokenAddress })
+			sendGAEvent({event:'perfu_appr', conversionValue:tokenAddress })
 		}
 	}, [isApproveConfirmed])
 

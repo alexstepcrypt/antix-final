@@ -12,6 +12,7 @@ import { StatisticCard } from '../StatisticCard/StatisticCard';
 import s from './TeamPreview.module.scss';
 import VideoModal from '../../../../components/VideoModal/VideoModal'
 import { useTranslation } from 'react-i18next';
+import { sendSocialGAEvent } from '@/utils/utils';
 
 const logosList = [logo1, logo2, logo3, logo4];
 
@@ -24,13 +25,6 @@ export const TeamPreview = () => {
    const [openVideo, setOpenVideo] = useState("");
    const { t } = useTranslation('landing');
    const statisticItems = t('team.statistic', { returnObjects: true }) as Array<statisticItemsType>;
-
-   function sendGAEvent(platform: string) {
-      window.dataLayer?.push({
-         'event': 'GA4_event',
-         'event_name': 'social_'+ platform
-      });
-   }
 
    return (
       <div className={s.preview}>
@@ -75,7 +69,7 @@ export const TeamPreview = () => {
          </div>
 
          <div className={s.list}>
-            <Link onClick={()=>sendGAEvent('instagram')} href="https://www.instagram.com/p/CiUgU4cK0YG/" target="_blank">
+            <Link onClick={()=>sendSocialGAEvent('instagram')} href="https://www.instagram.com/p/CiUgU4cK0YG/" target="_blank">
                <Image src={top10.src} alt="top10-icon" width={174} height={35} />
             </Link>
 
