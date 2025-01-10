@@ -48,14 +48,14 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
     const {connect, isConnected, isReady, account} = useConnectWallet()
 
     const { setBlocked } = usePlaceholderStore();
-    const countryCode = useUserCountry();
+    // const countryCode = useUserCountry();
     const { t } = useTranslation('landing');
 
-    useEffect(() => {
-        if (countryCode === "US" && account) {
-            setBlocked(true);
-        }
-    }, [account, countryCode]);
+    // useEffect(() => {
+    //     if (countryCode === "US" && account) {
+    //         setBlocked(true);
+    //     }
+    // }, [account, countryCode]);
 
     useEffect(() => {
         const handleScroll = () => {
