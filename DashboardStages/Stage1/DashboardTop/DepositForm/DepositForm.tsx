@@ -136,7 +136,7 @@ const DepositForm = () => {
         if (parts[1]?.length > decimals) {
             cleanedValue = Number(cleanedValue).toFixed(decimals)
         }
-        const rate = tokensRates[chainId || 1]?.[tokens[displayCurrency]] || 0.06
+        const rate = tokensRates[chainId || 1]?.[tokens[displayCurrency]] || 0.07
         const updatedReceiveValue = (parseFloat(cleanedValue === "" ? "0" : cleanedValue) / rate).toFixed(0);
 
         setReceiveValue(updatedReceiveValue);
@@ -346,7 +346,7 @@ const DepositForm = () => {
             title={`ANTIX ${t('stage.form.receive')}`}
             onChangeValue={() => {}}
             icon={TokenIcon}
-            price={"$0.06"}
+            price={"$0.07"}
             style={{
                 background: 'unset',
                 border: '1px solid rgba(255, 255, 255, .1)',

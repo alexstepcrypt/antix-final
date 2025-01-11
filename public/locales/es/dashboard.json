@@ -2,11 +2,11 @@
    "stage": {
       "dashboard": "Salpicadero",
       "steps": ["Confirmación", "Transacción (Depósitos)", "Éxito"],
-      "whitelisted": "Compra Tokens en la Etapa 4",
+      "whitelisted": "Compra Tokens en la Etapa 5",
       "whitelisted_desc": {
          "text_1": "Compra tokens ANTIX directamente utilizando múltiples criptomonedas en tres blockchains: Ethereum, BNB Chain y Base.",
-         "span": "-57% al precio TGE",
-         "text_2": "Disfruta de transacciones sin complicaciones con tu moneda preferida y asegura tu parte de la venta de tokens con un descuento del -57% respecto al precio de TGE. La disponibilidad de esta etapa es limitada."
+         "span": "-50% al precio TGE",
+         "text_2": "Disfruta de transacciones sin complicaciones con tu moneda preferida y asegura tu parte de la venta de tokens con un descuento del -50% respecto al precio de TGE. La disponibilidad de esta etapa es limitada."
       },
       "balanceTitle": "Fichas por recibir",
       "vested": {
@@ -14,10 +14,10 @@
          "text": "se convertirán en tokens ANTIX de acuerdo con el calendario de desbloqueo y adquisición de derechos."
       },
       "depositBalance": "Saldo de depósitos",
-      "title": "Etapa 4",
+      "title": "Etapa 5",
       "referralBonus": "Referral Bonus",
       "timer": {
-         "title": "Etapa 4 termina en",
+         "title": "Etapa 5 termina en",
          "days": "días",
          "hours": "horas",
          "minutes": "min",
@@ -170,7 +170,7 @@
       "total": "Total reclamado",
       "stage": "Etapa 1",
       "yourEarnings": "Sus ganancias por recomendación",
-      "deposit": "Depósito / Etapa 4",
+      "deposit": "Depósito / Etapa 5",
       "referrals": "Remisiones",
       "connected": "Usuarios que conectaron su monedero criptográfico a través de su enlace.",
       "referralVested": "Fichas Antix adquiridas utilizando su enlace de referencia.",

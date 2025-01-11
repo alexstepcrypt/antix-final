@@ -40,7 +40,7 @@ const DashboardTop = () => {
     const underDepositInfo = t('stage.underDepositInfo', { returnObjects: true }) as Array<{title:string;value:string}>;
     const faqInfo = t('stage.faq', { returnObjects: true }) as Array<{title:string;content:string}>;
 
-    let bonus = !!profile?.referrer ? balances.vesting * 0.06 : 0;
+    let bonus = !!profile?.referrer ? balances.vesting * 0.07 : 0;
 
     // disable bonus for refoce '119d5145'
     if (profile?.referrer === 'bdbc25e1-6dd5-4506-a98c-903a2f29a7ae') {
@@ -153,7 +153,7 @@ const DashboardTop = () => {
                     <h5 className={styles.timerTitle}>
                         {t('stage.timer.title')}
                     </h5>
-                    <Timer targetDate={new Date("2025-01-11T17:00:00Z")} />
+                    <Timer targetDate={new Date("2025-01-25T13:00:00Z")} />
                 </div> 
 
                 {/* <div className={styles.stagePrice}>
@@ -170,7 +170,7 @@ const DashboardTop = () => {
                 <div className={styles.stagePrice}>
                     <div className={styles.stage1Sold}>
                         <h5>{t('stage.currentPrice')}</h5>
-                        <h4>0.06 USD</h4>
+                        <h4>0.07 USD</h4>
                     </div>
                     <div className={styles.depositPriceWrapper}>
                         <h4>{t('stage.listing')}</h4>

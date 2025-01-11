@@ -22,7 +22,7 @@ const TokenSaleStage1SO: React.FC<ITokenSaleStage1SO> = ({
   }) => {
     const stage2DateStr = "2024-12-03T16:30:00Z";
     const stage3DateStr = "2024-12-22T17:00:00Z";
-    const stage4DateStr = "2025-01-11T17:00:00Z";
+    const stage4DateStr = "2025-01-25T13:00:00Z";
     return (
         <div className={styles.container}>
           <div
