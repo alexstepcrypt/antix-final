@@ -39,8 +39,10 @@ const useAccountStore = create<AccountState>((set) => ({
 
 function clearLocalStorage(){
 	const utms = localStorage.utms
+	const subid = localStorage.subid
 	localStorage.clear()
 	localStorage.utms = utms
+	localStorage.subid = subid
 	sessionStorage.clear()
 }
 
