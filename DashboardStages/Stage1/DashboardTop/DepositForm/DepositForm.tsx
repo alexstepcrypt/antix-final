@@ -199,7 +199,7 @@ const DepositForm = () => {
                                 : ""
                         }`}
                     >
-                        <Image src={USDCIcon} alt="USDT" width={24} height={24} />
+                        <Image src={USDTIcon} alt="USDT" width={24} height={24} />
                         <span>USDT</span>
                     </button>
                     <button

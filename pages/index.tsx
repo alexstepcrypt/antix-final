@@ -29,6 +29,7 @@ import usePlaceholderStore from "@/stores/usePlaceholderStore";
 import Placeholder from "@/components/Placeholder/Placeholder";
 import { StageWidget } from '@/components/StageWidget/StageWidget'
 import About from "@/sections/About/About";
+import TakeChance from '@/sections/TakeChance/TakeChance'
 // import FloatingWidget from "@/components/FloatingWidget/FloatingWidget";
 
 const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false });
@@ -53,6 +54,7 @@ export default function Home() {
         <div className={styles.container}>
             <Header />
             <HeroSection />
+            <TakeChance />
             <FeaturedIn />
             <PlatformToReplace />
             {/* <FloatingWidget /> */}

@@ -1,0 +1,213 @@
+.gradient {
+   background: linear-gradient(
+      123.32deg,
+      #12fff1 -11.29%,
+      rgba(15, 15, 15, 0.3) 109.37%
+   );
+
+   border-radius: 12px;
+   max-width: 1200px;
+   margin: 0 auto;
+   box-shadow: 0 0 150px 0 #12fff133;
+   margin-bottom: 110px;
+   padding: 2px;
+   backdrop-filter: blur(24px);
+
+   .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: #0f0e14;
+      padding: 36px;
+      border-radius: 12px;
+
+      background-position: right;
+      background-repeat: no-repeat;
+
+      .preview {
+         h2 {
+            font-weight: 600;
+            line-height: 40px;
+            letter-spacing: -2%;
+            font-size: 36px;
+            color: white;
+
+            span {
+               color: #12fff1;
+            }
+         }
+
+         p {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 28px;
+            color: white;
+            margin-top: 6px;
+         }
+      }
+
+      .form {
+         display: flex;
+         gap: 20px;
+         align-items: center;
+
+         .label {
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #b0d2ff99;
+            background: #ffffff0a;
+            backdrop-filter: blur(22px);
+            width: 339px;
+            display: flex;
+            align-items: center;
+
+            input {
+               background: transparent;
+               border: none;
+               outline: none;
+               color: #ffffff99;
+            }
+
+            input::placeholder {
+               color: #ffffff99;
+            }
+         }
+
+         .submit {
+            padding: 12px 52px 12px 52px;
+            border-radius: 45px;
+            color: #0f0f0f;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 21px;
+            background: linear-gradient(
+               89.59deg,
+               #12fff1 14.83%,
+               #99fff9 85.17%
+            );
+         }
+      }
+   }
+
+   @media (max-width: 1280px) {
+      max-width: 854px;
+      padding: 1.64px;
+      border-radius: 8.5px;
+
+      .container {
+         padding: 25.6px;
+         border-radius: 8.5px;
+
+         .preview {
+            h2 {
+               font-size: 25px;
+               line-height: 28px;
+            }
+   
+            p {
+               font-size: 14px;
+               line-height: 20px;
+            }
+         }
+   
+         .form {
+            gap: 14px;
+
+            .label {
+               width: 241px;
+               padding: 11.4px;
+            }
+
+            .submit {
+               padding: 8.5px 40px 8.5px 40px;
+            }
+         }
+      }
+   }
+
+   @media (max-width: 960px) {
+      padding: 1.24px;
+      max-width: 744px;
+      border-radius: 7.45px;
+      margin: 60px 30px 70px 30px;
+
+      .container {
+         padding: 22px;
+         border-radius: 7.45px;
+
+         .preview {
+            h2 {
+               font-size: 22px;
+               line-height: 25px;
+            }
+   
+            p {
+               font-size: 12px;
+               line-height: 17.4px;
+            }
+         }
+   
+         .form {
+            gap: 12.4px;
+
+            .label {
+               width: 210px;
+               padding: 10px;
+            }
+
+            .submit {
+               padding: 7.45px 30px 7.45px 30px;
+            }
+         }
+      }
+   }
+
+   @media (max-width: 640px) {
+      max-width: 329px;
+      margin: 60px auto 70px auto;
+
+      .container {
+         padding: 27px 24px;
+         flex-direction: column;
+         gap: 32px;
+
+         background-image: url("../../public/images/mobile-chance-bg.png") !important;
+         background-position: center;
+
+         .preview {
+            h2, p {
+               text-align: center;
+            }
+
+            h2 {
+               max-width: 240px;
+               font-size: 34px;
+               line-height: 38px;
+            }
+
+            p {
+               max-width: 183px;
+               font-size: 12px;
+               line-height: 17.4px;
+               margin: 0 auto;
+               margin-top: 5px;
+            }
+         }
+
+         .form {
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+
+            .label {
+               width: 100%;
+            }
+
+            .submit {
+               width: 100%;
+            }
+         }
+      }
+   }
+}

@@ -124,20 +124,24 @@
 
       "faq": [
          {
-            "title": "¿Qué es un depósito?",
-            "content": "Un depósito asegura tu plaza en la Fase 1 de la venta de tokens, dándote acceso a los tokens ANTIX al mejor precio. Los tokens son limitados en esta fase y se ofrecen por orden de llegada."
+            "title": "¿Cuándo puedo comprar tokens?",
+            "content": "Puedes comprar tokens de inmediato en la actual Etapa 4. Utiliza <b>Ethereum</b>, <b>BNB Chain</b> <b>o Base</b> para completar tu compra."
          },
          {
-            "title": "¿Cuándo puedo comprar fichas?",
-            "content": "La compra de fichas se abrirá al comienzo de la Fase 1. Consulta el temporizador en la página principal y en el panel de control, y establece un recordatorio con nuestro bot de Telegram para asegurarte de que no te lo pierdes."
+            "title": "¿Cuándo recibiré mis tokens?",
+            "content": "Los tokens se distribuirán de acuerdo con el cronograma de adjudicación (vesting). Los desbloqueos iniciales ocurrirán durante <b>el Evento de Generación de Tokens (TGE)</b>, con desbloqueos adicionales siguiendo la línea de tiempo de vesting para evitar una presión repentina en la oferta de tokens."
          },
          {
-            "title": "¿Cuándo recibiré mis fichas?",
-            "content": "Los tokens ANTIX tienen un calendario de bloqueo y adquisición de derechos para gestionar la presión del suministro. Los desbloqueos iniciales del 5-10% (dependiendo de la fase de compra) se producirán en el Evento de Generación de Fichas (TGE).."
+            "title": "¿Por qué elegir los tokens ANTIX?",
+            "content": "Los tokens Antix son la clave para acceder <b>al futuro de los avatares digitales</b> y <b>la propiedad descentralizada</b>. Al poseer tokens Antix, participarás en el crecimiento de una plataforma que revolucionará el mercado de avatares digitales, <b>valorado en $178.5 mil millones</b>, permitiendo a los usuarios crear, personalizar y monetizar avatares. Cuanto más crezca la plataforma, mayor será la demanda de los tokens Antix."
+         },
+         {
+            "title": "¿El precio del token ANTIX aumentará?",
+            "content": "A medida que más usuarios se unan a la plataforma y aumente la demanda de avatares digitales, la utilidad de los tokens ANTIX crecerá. Los tokens serán necesarios para crear, personalizar y comerciar avatares, así como para acceder a funciones premium. Esta creciente demanda, junto con una oferta limitada de tokens, posiciona a los tokens Antix para una apreciación de su valor en el futuro."
          },
          {
             "title": "¿Más preguntas?",
-            "content": "Póngase en contacto con nosotros en cualquier momento a través de nuestro <a href=\"https://t.me/antixtoken_bot\" rel=\"noopener\" target=\"_blank\">Telegram support bot</a> para obtener más ayuda."
+            "content": "No dudes en ponerte en contacto con nuestro soporte a través del <a href=\"https://t.me/antixtoken_bot\" rel=\"noopener\" target=\"_blank\">bot de Telegram</a> para cualquier consulta o información adicional sobre la venta de tokens."
          }
       ]
    },
