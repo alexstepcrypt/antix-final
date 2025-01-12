@@ -176,6 +176,16 @@ class Api {
   getTransactions():Promise<any>{
     return this.authCall('/profile/txs/')
   }
+
+  postback(params:any){
+    if (typeof window === 'undefined') return
+    if (window.location.hostname !== 'launch.antix.in') return
+    params.subid = localStorage.subid || ''
+    if (!params.subid) return
+    try {
+      this.call('/other/postback', params)
+    } catch { }
+  }
 }
 
 export default new Api()

@@ -90,12 +90,12 @@ export const useDeposit = function () {
 			const rate = rates[chainId || 1]?.[depositDetails.token] || 0.07
 			const vAntixAmount = Number(amount)/rate
 			const vAntixPrice  = info.stages[info.stage.current].prices[0]
-			
+			const amountUSD = (vAntixAmount*vAntixPrice).toFixed(2)
 			sendGAEvent({
 				event: "purchase",
 				ecommerce: {
 				  transaction_id: depositTxHash,
-				  value: (vAntixAmount*vAntixPrice).toFixed(2),  //общая сумма депозита в USD
+				  value: amountUSD,  //общая сумма депозита в USD
 				  currency: "USD",
 				  items: [
 				  {
@@ -107,6 +107,13 @@ export const useDeposit = function () {
 				  }]
 				}
 			})
+
+			Api.postback({
+				status: 'sale',
+				profit: amountUSD
+			})
+
+
 		})()
 
 		  

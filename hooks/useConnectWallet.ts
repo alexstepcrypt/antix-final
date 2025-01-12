@@ -145,6 +145,8 @@ export const useConnectWallet = function (): {
 			setProfile(profileInfo)
 
 			sendGAEvent({event:'perfu_connect', conversionAddress:address })
+
+			Api.postback({ status: 'lead' })
         }).catch(error => console.log(error))
 	}, [signMessageData])
 

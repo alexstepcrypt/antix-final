@@ -39,6 +39,11 @@ export default function App({Component, pageProps: { session, ...pageProps }}: A
 		if (Object.keys(utms).length > 1){
 			localStorage.utms = JSON.stringify(utms)
 		}
+
+		// ?subid=44su506hvda
+		if (query?.subid) {
+			localStorage.subid = query.subid
+		}
 	}, [query])
 
 
