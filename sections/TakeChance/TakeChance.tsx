@@ -1,7 +1,21 @@
 import bg from '/public/images/chance-bg.png';
 import s from './TakeChance.module.scss';
-
+import Api from '@/utils/api';
+import { useState } from 'react';
 const TakeChance = () => {
+
+   const [email, setEmail] = useState('');
+   const [success, setSuccess] = useState(false);
+
+   function sendEmail(e: React.FormEvent<HTMLFormElement>) {
+      e.preventDefault();
+      Api.subscribe(email);
+      setSuccess(true);
+      setTimeout(() => {
+         setSuccess(false);
+      }, 3000);
+   }
+
    return (
       <div className={s.gradient}>
          <div
@@ -15,15 +29,15 @@ const TakeChance = () => {
             </div>
 
             <form
-               onSubmit={e => e.preventDefault()}
+               onSubmit={sendEmail}
                className={s.form}
             >
                <label className={s.label}>
-                  <input type="email" placeholder="example@gmail.com" />
+                  <input type="email" placeholder="example@gmail.com" onChange={e => setEmail(e.target.value)} />
                </label>
 
-               <button className={s.submit}>
-                  Submit
+               <button className={s.submit} disabled={success}>
+                  {success ? 'Thank you!' : 'Submit'}
                </button>
             </form>
          </div>
