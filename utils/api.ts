@@ -136,7 +136,7 @@ class Api {
   }
 
   subscribe(email:string){
-    return this.call('/subscribe', {email})
+    return this.call('/other/subscribe', {email})
   }
 
   async getUserRefcode():Promise<string> {

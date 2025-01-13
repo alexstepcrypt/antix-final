@@ -108,6 +108,7 @@ export const useConnectWallet = function (): {
 			close()
 			clearLocalStorage()
 			setTimeout(()=>{
+				sendGAEvent({event:'perfu_window_connect'})
 				sendGA4Event('click_connect_wallet')
 				setWeb3modalOpen(true)
 				open()
