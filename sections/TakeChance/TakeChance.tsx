@@ -2,6 +2,7 @@ import bg from '/public/images/chance-bg.png';
 import s from './TakeChance.module.scss';
 import Api from '@/utils/api';
 import { useState } from 'react';
+import { sendGAEvent } from '@/utils/utils';
 const TakeChance = () => {
 
    const [email, setEmail] = useState('');
@@ -10,6 +11,7 @@ const TakeChance = () => {
    function sendEmail(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
       Api.subscribe(email);
+      sendGAEvent({event:'email_submitted'})
       setSuccess(true);
       setTimeout(() => {
          setSuccess(false);
