@@ -492,16 +492,6 @@
     ],
     "list": [
       {
-        "role": "Ex-regional director at Disney",
-        "name": "Marina: Founder & President",
-        "socialLink": "https://www.linkedin.com/in/marina-jigalova/",
-        "image": "/images/team/command/marina.png",
-        "description": [
-           "An international investor and entrepreneur, visionary in business and tech startups, with deep expertise in media, entertainment, investment, and banking sectors.",
-           "Marina held top management roles for nearly 30 years, including management of the CIS office of Walt Disney, where she led business development across 11 countries for over 13 years."
-        ]
-      },
-      {
         "role": "Top-10 Global Talents",
         "name": "Roman: Founder & CEO",
         "socialLink": "https://www.linkedin.com/in/cyganovroman/",
@@ -509,6 +499,16 @@
         "description": [
            "Roman Cyganov, founder and CEO of Antix, is recognized as one of the Top 10 Global Talents, with a strong background in creative and tech industries.",
            "At Antix, Roman introduced Avagen technology, creating photorealistic AI Digital Humans that revolutionize customer interactions for global brands."
+        ]
+      },
+      {
+        "role": "Ex-regional director at Disney",
+        "name": "Marina: Founder & President",
+        "socialLink": "https://www.linkedin.com/in/marina-jigalova/",
+        "image": "/images/team/command/marina.png",
+        "description": [
+           "An international investor and entrepreneur, visionary in business and tech startups, with deep expertise in media, entertainment, investment, and banking sectors.",
+           "Marina held top management roles for nearly 30 years, including management of the CIS office of Walt Disney, where she led business development across 11 countries for over 13 years."
         ]
       },
       {

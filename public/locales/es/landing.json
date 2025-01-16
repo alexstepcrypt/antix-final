@@ -254,16 +254,6 @@
          ],
          "list": [
             {
-               "role": "Ex director regional de Disney",
-               "name": "Marina: Fundadora y Presidenta",
-               "socialLink": "https://www.linkedin.com/in/marina-jigalova/",
-               "image": "/images/team/command/marina.png",
-               "description": [
-                  "Inversor y emprendedor internacional, visionario en negocios y startups tecnológicas, con profunda experiencia en los sectores de los medios de comunicación, el entretenimiento, la inversión y la banca.",
-                  "Marina ocupó puestos de alta dirección durante casi 30 años, incluida la dirección de la oficina de la CEI de Walt Disney, donde dirigió el desarrollo empresarial en 11 países durante más de 13 años."
-               ]
-            },
-            {
                "role": "Los 10 mejores talentos mundiales",
                "name": "Roman: Fundador y CEO",
                "socialLink": "https://www.linkedin.com/in/cyganovroman/",
@@ -271,6 +261,16 @@
                "description": [
                   "Roman Cyganov, fundador y Consejero Delegado de Antix, está reconocido como uno de los 10 mejores talentos mundiales, con una sólida experiencia en las industrias creativa y tecnológica.",
                   "En Antix, Roman introdujo la tecnología Avagen, creando AI Digital Humans fotorrealistas que revolucionan las interacciones con los clientes para marcas globales."
+               ]
+            },
+            {
+               "role": "Ex director regional de Disney",
+               "name": "Marina: Fundadora y Presidenta",
+               "socialLink": "https://www.linkedin.com/in/marina-jigalova/",
+               "image": "/images/team/command/marina.png",
+               "description": [
+                  "Inversor y emprendedor internacional, visionario en negocios y startups tecnológicas, con profunda experiencia en los sectores de los medios de comunicación, el entretenimiento, la inversión y la banca.",
+                  "Marina ocupó puestos de alta dirección durante casi 30 años, incluida la dirección de la oficina de la CEI de Walt Disney, donde dirigió el desarrollo empresarial en 11 países durante más de 13 años."
                ]
             },
             {
