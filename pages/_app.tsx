@@ -28,7 +28,7 @@ export default function App({Component, pageProps: { session, ...pageProps }}: A
 	useEffect(()=>{
 		const refcode = query?.refcode
 		if (typeof window === 'undefined') return
-		if (refcode && !localStorage.refcode) {
+		if (refcode) {
 			localStorage.refcode = refcode
 		}
 

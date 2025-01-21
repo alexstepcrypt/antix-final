@@ -35,7 +35,7 @@ import { useTranslation } from "react-i18next";
 import Mastercard from "/public/dashboard/svg/mastercard-logo.svg";
 import Visa from "/public/dashboard/svg/visa-logo.svg";
 
-const minBuyAmount = 800
+const minBuyAmount = 1500
 const tokensByChains:any = {
 	1: {
         ETH  : '0x0000000000000000000000000000000000000000',
@@ -74,7 +74,7 @@ type AvailableCurrencies = "USDC" | "USDT" | "ETH" | "CBBTC" | "DEGEN" | "MANTRA
 
 // const errString = "Not enough funds to make the deposit";
 
-// const noMinAmount:any[] = ['0x9e4fb69158b48c2e97db674028ff3ec2414bb88c','0xcf7eec61170f0441cf4c13a2b1e85b9f39c602a9']
+const noMinAmount:any[] = ['0x9e4fb69158b48c2e97db674028ff3ec2414bb88c','0xcf7eec61170f0441cf4c13a2b1e85b9f39c602a9']
 
 const DepositForm = () => {
     const { chainId, address } = useConnectWallet();
@@ -85,6 +85,7 @@ const DepositForm = () => {
     const [openETH, setOpenETH] = useState(false);
     const [isBuyChecked, setIsBuyChecked] = useState(true); // условие для чекбокса
     const [error, setError] = useState<string | null>(null);
+    const [minError, setMinError] = useState<string | null>(null);
     const { network } = useNetwork();
     const [receiveValue, setReceiveValue] = useState("0");
 
@@ -141,9 +142,11 @@ const DepositForm = () => {
 
         setReceiveValue(updatedReceiveValue);
         
-        // if (Number(updatedReceiveValue) < minBuyAmount && !noMinAmount.includes(address?.toLowerCase())) {
-        //     setError(t('stage.form.minamount'));
-        // }
+        if (Number(updatedReceiveValue) < minBuyAmount && !noMinAmount.includes(address?.toLowerCase())) {
+            setMinError(t('stage.form.minamount'));
+        } else {
+            setMinError(null);
+        }
 
         // Ensure that entered value doesn't exceed balance
         if (Number(balance) > 0 && Number(cleanedValue) > Number(balance)) {
@@ -154,6 +157,8 @@ const DepositForm = () => {
     }
 
     function selectCurrency(symbol:AvailableCurrencies){
+        setError(null)
+        setMinError(null)
         setDisplayCurrency(symbol)
         setAmountAndRecive('0')
     }
@@ -353,10 +358,15 @@ const DepositForm = () => {
                 marginTop: 12
             }}
         />
+        {minError && (
+            <div className={styles.errWrapper}>
+                <DepositErrIcon />
+                <span className={styles.err}>{minError}</span>
+            </div>
+        )}
 
-{/* disabled={Number(receiveValue) < minBuyAmount && !noMinAmount.includes(address?.toLowerCase() || '')} */}
         <DepositButton 
-            disabled={false}
+            disabled={Number(receiveValue) < minBuyAmount && !noMinAmount.includes(address?.toLowerCase() || '')} 
             amount={amount}
             type={isBuyChecked ? 'BUY' : 'DEPOSIT'} 
             tokenAddress={tokens[displayCurrency]} 

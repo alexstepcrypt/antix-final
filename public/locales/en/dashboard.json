@@ -34,12 +34,12 @@
 
     "depositBtn": {
       "process": "Processing...",
-      "deposit": "Deposit Now",
+      "deposit": "Buy Now",
       "switch": "Switch Network",
       "connect": "Connect wallet",
       "buy": "Buy Now",
       "tx": "Please confirm TX...",
-      "approve": "Approve Deposit"
+      "approve": "Approve"
     },
 
     "form": {
@@ -47,11 +47,11 @@
       "send": "You send",
       "max": "Max",
       "enter": "Enter amount",
-      "error": "Not enough funds to make the deposit",
-      "minamount": "Minimum buy amount is 800 ANTIX ~ 50$",
+      "error": "Not enough funds",
+      "minamount": "Min buy 1500 ANTIX",
       "receive": "you receive",
       "disclaimer": {
-        "span": "By clicking \"Deposit Now\", you confirm that you are not a U.S. citizen or U.S. resident.",
+        "span": "By clicking \"Buy Now\", you confirm that you are not a U.S. citizen or U.S. resident.",
         "text": " This investment offer is exclusively intended for non-U.S. persons and is strictly not available to U.S. citizens, U.S. residents, or any entities organized or domiciled in the United States."
       }
     },

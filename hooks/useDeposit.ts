@@ -112,8 +112,6 @@ export const useDeposit = function () {
 				status: 'sale',
 				profit: amountUSD
 			})
-
-
 		})()
 
 		  
@@ -133,22 +131,25 @@ export const useDeposit = function () {
 	// Success transaction
 	useEffect(() => {
 		if (!depositSuccess) return
-
+		let timestrart = Date.now()
 		// Wait for transaction to be confirmed
 		waitForTransactionReceipt(wagmiConfig, {
-			confirmations: 4, 
+			confirmations: 9, 
 			hash: depositTxHash
 		}).then(() => {
-			setDepositInProgress(false)
+			let timediff = (11 * 60 * 1000) - (Date.now() - timestrart)
+			if (timediff < 0) timediff = 0
+			setTimeout(() => {
+				setDepositInProgress(false)
 
-			window.dispatchEvent(new CustomEvent('balance:changed', {
-				detail: {
-					token  : depositDetails.token,
-					amount : depositDetails.amount || depositDetails.value
-				}
-			}))
+				window.dispatchEvent(new CustomEvent('balance:changed', {
+					detail: {
+						token  : depositDetails.token,
+						amount : depositDetails.amount || depositDetails.value
+					}
+				}))
+			}, timediff)
 		})
-
 		Api.saveTx({
 			hash   : depositTxHash, 
 			status : 'SUCCESS'

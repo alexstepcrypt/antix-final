@@ -40,9 +40,11 @@ const useAccountStore = create<AccountState>((set) => ({
 function clearLocalStorage(){
 	const utms = localStorage.utms
 	const subid = localStorage.subid
+	const refcode = localStorage.refcode
 	localStorage.clear()
 	localStorage.utms = utms
 	localStorage.subid = subid
+	localStorage.refcode = refcode
 	sessionStorage.clear()
 }
 

@@ -39,7 +39,7 @@
          "connect": "Conectar monedero",
          "buy": "Comprar ahora",
          "tx": "Por favor, confirme TX...",
-         "approve": "Aprobar el depósito"
+         "approve": "Aprobar"
       },
 
       "form": {
@@ -47,8 +47,8 @@
          "send": "Usted envía",
          "max": "Max",
          "enter": "Introduzca el importe",
-         "error": "No hay fondos suficientes para realizar el ingreso",
-         "minamount": "El mínimo de compra es de 800 ANTIX ~ 50$",
+         "error": "No hay fondos suficientes",
+         "minamount": "El mínimo de compra es de 1500 ANTIX",
          "receive": "usted recibe",
          "disclaimer": {
             "span": "Al hacer clic en \"Depositar ahora\", confirma que no es ciudadano ni residente estadounidense.",

@@ -144,21 +144,20 @@
                 -moz-appearance: textfield;
             }
         }
+    }
 
-        
-        .errWrapper {
-            display: flex;
-            align-items: center;
-            gap: 4px;
+    .errWrapper {
+        display: flex;
+        align-items: center;
+        gap: 4px;
 
-            .err {
-                color: #BF3434;
-                font-size: 12px;
-                line-height: 21px;
-        
-                @media (max-width: 1042px) {
-                    line-height: 17px;
-                }
+        .err {
+            color: #BF3434;
+            font-size: 12px;
+            line-height: 21px;
+    
+            @media (max-width: 1042px) {
+                line-height: 17px;
             }
         }
     }
