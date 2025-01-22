@@ -315,9 +315,9 @@ const DepositForm = () => {
                     <span>
                     <TokenBalance tokenAddress={tokens[displayCurrency]} onChange={setMaxBalance} />
                     </span>
-                    <button onClick={handleMax} className={styles.sendingBalanceBtn}>
+                    {/* <button onClick={handleMax} className={styles.sendingBalanceBtn}>
                         {t('stage.form.max')}
-                    </button>
+                    </button> */}
                 </div>
             </div>
 

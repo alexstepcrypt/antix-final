@@ -81,7 +81,7 @@ export const explorerUrls: {[key: number]: string} = {
 
 export const sendGAEvent = (opts:any) => {
 	if (typeof window === 'undefined') return
-	if (!['tokensale.antix.in','token.antix.in'].includes(window.location.host)) return
+	if (!['presale.antix.in','tokensale.antix.in','token.antix.in'].includes(window.location.host)) return
 	window.dataLayer?.push(opts)
 }
 
