@@ -22,6 +22,7 @@ if (typeof window !== 'undefined' && isMobile() && !window.ethereum) {
 			: 'https://metamask.app.link/dapp/https://'+location.host+'\\/dashboard\\/'+location.search
 
 	})
+
 	customWallets.push({
 		id: 'mobilePhantom',
 		name: 'Open in Phantom App',

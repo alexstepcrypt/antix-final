@@ -142,7 +142,7 @@ const DepositForm = () => {
 
         setReceiveValue(updatedReceiveValue);
         
-        if (Number(updatedReceiveValue) < minBuyAmount && !noMinAmount.includes(address?.toLowerCase())) {
+        if (![56].includes(Number(chainId)) && Number(updatedReceiveValue) < minBuyAmount && !noMinAmount.includes(address?.toLowerCase())) {
             setMinError(t('stage.form.minamount'));
         } else {
             setMinError(null);
@@ -366,7 +366,7 @@ const DepositForm = () => {
         )}
 
         <DepositButton 
-            disabled={Number(receiveValue) < minBuyAmount && !noMinAmount.includes(address?.toLowerCase() || '')} 
+            disabled={Number(receiveValue) < minBuyAmount && ![56].includes(Number(chainId)) && !noMinAmount.includes(address?.toLowerCase() || '')} 
             amount={amount}
             type={isBuyChecked ? 'BUY' : 'DEPOSIT'} 
             tokenAddress={tokens[displayCurrency]} 

@@ -4,6 +4,7 @@ import { useSignMessage, useDisconnect } from "wagmi";
 import { useAppKit, useAppKitAccount, useAppKitNetwork, useWalletInfo} from '@reown/appkit/react'
 import Api from "@/utils/api";
 import { sendGAEvent, sendGA4Event } from "@/utils/utils";
+import router from "next/router";
 
 declare global {
 	interface Window {
@@ -84,6 +85,14 @@ export const useConnectWallet = function (): {
 				return
 			}
 			setProfile(profileInfo)
+			window.dataLayer.push({
+				event          : 'custom_event',
+				event_category : 'forms',
+				event_action   : 'success',
+				event_label    : 'wallet_connected',
+				event_content  : 'step_1',
+				event_context  : null
+			})
         }).catch(() => {
             signToLogin()
         })
@@ -151,7 +160,18 @@ export const useConnectWallet = function (): {
 
 			sendGAEvent({event:'perfu_connect', conversionAddress:address })
 
+			window.dataLayer.push({
+				event          : 'custom_event',
+				event_category : 'forms',
+				event_action   : 'success',
+				event_label    : 'wallet_connected',
+				event_content  : 'step_1',
+				event_context  : null
+			})
+
 			Api.postback({ status: 'lead' })
+
+			if (router.pathname === '/') router.push('/dashboard')
         }).catch(error => console.log(error))
 	}, [signMessageData])
 

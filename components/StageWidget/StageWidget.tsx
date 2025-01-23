@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import s from './StageWidget.module.scss';
 import { useTranslation } from 'react-i18next';
+import { useConnectWallet } from '@/hooks/useConnectWallet';
 
 
 export const StageWidget = () => {
@@ -16,6 +17,20 @@ export const StageWidget = () => {
    const [visible, setVisible] = useState(false);
    const lastScrollY = useRef(0);
    const { t } = useTranslation('landing');
+
+   const { connect } = useConnectWallet();
+
+   function clickBuyNow() {
+      window.dataLayer.push({
+         event          : 'custom_event',
+         event_category : 'button',
+         event_action   : 'click',
+         event_label    : 'buy_now',
+         event_content  : 'step_1',
+         event_context  : 'flying_widget'
+      })
+      connect()
+   }
 
    useEffect(() => {
       const updateTimeLeft = () => {
@@ -121,12 +136,7 @@ export const StageWidget = () => {
                </div>
             </div>
 
-            <button 
-               onClick={() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-               }}
-               className={s.buy}
-            >
+            <button onClick={clickBuyNow} className={s.buy}>
                {t('stageWidget.buyButton')}
             </button>
          </div>

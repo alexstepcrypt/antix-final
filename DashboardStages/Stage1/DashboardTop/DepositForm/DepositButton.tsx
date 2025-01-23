@@ -136,11 +136,30 @@ export default function DepositButton({amount, type, tokenAddress, disabled}:IDe
 		}
 	}, [isApproveConfirmed])
 
+	function clickApprove() {
+		approve()
+		window.dataLayer.push({
+			event          : 'custom_event',
+			event_category : 'button',
+			event_action   : 'click',
+			event_label    : 'approve',
+			event_content  : 'step_2',
+			event_context  : 'application_process'
+		})
+	}
 
-    const { depositTxHash, status, depositError, makeDeposit } = useDeposit()
-    function deposit(){
-        makeDeposit(type, String(amount), tokenAddress)
-    }
+	const { depositTxHash, status, depositError, makeDeposit } = useDeposit()
+	function deposit(){
+		makeDeposit(type, String(amount), tokenAddress)
+		window.dataLayer.push({
+			event          : 'custom_event',
+			event_category : 'button',
+			event_action   : 'click',
+			event_label    : 'buy_now',
+			event_content  : 'step_3',
+			event_context  : 'application_process'
+		})
+	}
 
 	// First connect wallet
 	if (!isConnected) {
@@ -159,7 +178,7 @@ export default function DepositButton({amount, type, tokenAddress, disabled}:IDe
 
 	// Approve amount
 	if (!isNativeCoin && (allowance < Number(amount) || Number(amount) === 0)) {
-		return <button onClick={() => approve()} disabled={apprveInProgress || Number(amount) <= 0 || disabled} className={styles.depositBtn}>
+		return <button onClick={clickApprove} disabled={apprveInProgress || Number(amount) <= 0 || disabled} className={styles.depositBtn}>
             {Number(amount) <= 0 
                 ? t('stage.depositBtn.buy')
                 : apprveInProgress ? t('stage.depositBtn.tx') : t('stage.depositBtn.approve')

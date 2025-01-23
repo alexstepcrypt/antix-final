@@ -78,7 +78,17 @@ export const useDeposit = function () {
 			amount  : String(depositDetails.amount || depositDetails.value), 
 			details : { extraInfo: "Transaction details here" },
 		})
+
 		sendGAEvent({event:'perfu_congrats', conversionValue:depositDetails.token })
+
+		window.dataLayer.push({
+			event          : 'custom_event',
+			event_category : 'forms',
+			event_action   : 'success',
+			event_label    : 'buy',
+			event_content  : 'step_3',
+			event_context  : 'application_process'
+		})
 
 		;(async ()=>{
 			const [info, rates] = await Promise.all([
@@ -114,7 +124,6 @@ export const useDeposit = function () {
 			})
 		})()
 
-		  
 	}, [depositTxHash])
 
 	// Error transaction
@@ -125,6 +134,14 @@ export const useDeposit = function () {
 		Api.saveTx({
 			hash   : depositTxHash, 
 			status : 'ERROR'
+		})
+		window.dataLayer.push({
+			event          : 'custom_event',
+			event_category : 'forms',
+			event_action   : 'rejected',
+			event_label    : 'buy',
+			event_content  : 'step_3',
+			event_context  : 'application_process'
 		})
 	}, [depositError])
 

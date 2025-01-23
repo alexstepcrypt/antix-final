@@ -44,6 +44,14 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
     async function buyHandler(e:React.MouseEvent<HTMLAnchorElement>){
         if (isConnected) return
         e.preventDefault()
+        window.dataLayer.push({
+            event          : 'custom_event',
+            event_category : 'button',
+            event_action   : 'click',
+            event_label    : 'connect_wallet_to_buy',
+            event_content  : 'step_1',
+            event_context  : 'main_form'
+        })
         return connect()
     }
 

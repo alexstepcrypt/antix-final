@@ -47,6 +47,18 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
 
     const {connect, isConnected, isReady, account} = useConnectWallet()
 
+    function headConnectWallet() {
+        window.dataLayer.push({
+            event          : 'custom_event',
+            event_category : 'button',
+            event_action   : 'click',
+            event_label    : 'buy_now',
+            event_content  : 'step_1',
+            event_context  : 'header'
+        })
+        connect()
+    }
+    
     const { setBlocked } = usePlaceholderStore();
     // const countryCode = useUserCountry();
     const { t } = useTranslation('landing');
@@ -220,7 +232,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
                         </button>
                     ) : (
                         <button
-                            onClick={connect}
+                            onClick={headConnectWallet}
                             className={styles.connectButton}
                         >
                             {t('header.connectWalletButton')}
