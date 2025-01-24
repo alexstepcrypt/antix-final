@@ -58,7 +58,6 @@ export default class MyDocument extends Document {
   render() {
     return <Html lang="en">
       <Head>
-        <title>Antix: Tokensale</title>
         <meta name="description" content="Antix: Tokensale platform for ICO and investment"/>
         <meta property="og:image" content="https://token.antix.in/og.png"/>
         <meta property="og:type" content="website" />

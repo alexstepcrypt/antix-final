@@ -19,7 +19,7 @@ interface IReferalModal {
 
 const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
     const router = useRouter()
-    const { account, profile } = useConnectWallet();
+    const { account, profile, connect } = useConnectWallet();
     const [stage, setStage] = useState<0 | 1 | 2>(0);
     const [isCopied, setIsCopied] = useState(false);
     const [refCode, setRefCode] = useState("");
@@ -61,7 +61,10 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
         if (!account) return
         router.push('/dashboard/referral')
     };
-
+    
+    const connectWallet = () => {
+        connect()
+    }
 
     if (stage === 0) {
         return (
@@ -97,7 +100,7 @@ const ReferalModal: React.FC<IReferalModal> = ({ onClose }) => {
                     ) : (
                         <button
                             className={styles.connectBtn}
-                            onClick={() => setStage(2)}
+                            onClick={connectWallet}
                         >
                             {t('referalModal.connectButton')}
                         </button>

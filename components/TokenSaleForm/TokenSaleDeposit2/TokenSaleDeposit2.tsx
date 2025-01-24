@@ -130,9 +130,10 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
         <StayUpdated />
 
         <div className={styles.referral}>
+            {/* onClick={() => setIsRefModal(true)} */}
             <button
-                onClick={() => setIsRefModal(true)}
                 className={styles.refBtn}
+                onClick={() => router.push('/dashboard/referral')}
             >
                 {t('tokenSaleDeposit2.referralButton')}
             </button>
