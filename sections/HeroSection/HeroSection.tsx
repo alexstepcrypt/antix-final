@@ -93,7 +93,7 @@ const HeroSection = () => {
                             <div className={styles.socialIcon}>
                                 <Image src={Xlogo} alt="X" />
                             </div>
-                            <span>44K</span>
+                            <span>46.2K</span>
                         </Link>
                         <Link
                             className={styles.socialLink}
@@ -104,7 +104,7 @@ const HeroSection = () => {
                             <div className={styles.socialIcon}>
                                 <Image src={Tglogo} alt="Telegram" />
                             </div>
-                            <span>53K</span>
+                            <span>49.8K</span>
                         </Link>
                         <Link
                             className={styles.socialLink}
@@ -115,7 +115,7 @@ const HeroSection = () => {
                             <div className={styles.socialIcon}>
                                 <Image src={Discordlogo} alt="Discord" />
                             </div>
-                            <span>7K</span>
+                            <span>9K</span>
                         </Link>
                     </div>
                     <div className={styles.awords}>
