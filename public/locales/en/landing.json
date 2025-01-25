@@ -73,9 +73,9 @@
   },
   "tokenSaleDeposit2": {
     "timerHead": "Token Sale",
-    "stageTitle": "Stage 5",
-    "discountText": "-50% to TGE Price",
-    "stageEndsIn": "Stage 5 ends in",
+    "stageTitle": "Stage 6",
+    "discountText": "-43% to TGE Price",
+    "stageEndsIn": "Stage 6 ends in",
     "currentPrice": "Current price",
     "listingPrice": "Listing(TGE) Price",
     "tokensSold": "Tokens Sold (USD):",
@@ -120,7 +120,7 @@
   "stageWidget": {
     "currentPrice": "Current price",
     "timer": {
-      "title": "Stage 5 ends in",
+      "title": "Stage 6 ends in",
       "days": "day",
       "hours": "hour",
       "minutes": "min",
@@ -393,7 +393,7 @@
   "antixToken": {
     "title": "ANTIX Token",
     "whitepaper": "Whitepaper",
-    "description": "ANTIX is central to the Antix ecosystem. Here’s how the token creates value and drives demand within the platform.",
+    "description": "ANTIX is central to the Antix ecosystem. Here's how the token creates value and drives demand within the platform.",
     "leftList": [
       {
         "title": "NFT Auction & Promos",
@@ -723,7 +723,7 @@
     "videoError": "Your browser does not support video."
   },
   "exclusiveOffer": {
-    "title": "Join Stage 5",
+    "title": "Join Stage 6",
     "desc": "Make deposit to secure the best price",
     "btn": "Join Now"
   },

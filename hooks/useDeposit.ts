@@ -97,7 +97,7 @@ export const useDeposit = function () {
 			])
 			
 			const amount = depositDetails.amount || depositDetails.value
-			const rate = rates[chainId || 1]?.[depositDetails.token] || 0.07
+			const rate = rates[chainId || 1]?.[depositDetails.token] || 0.08
 			const vAntixAmount = Number(amount)/rate
 			const vAntixPrice  = info.stages[info.stage.current].prices[0]
 			const amountUSD = (vAntixAmount*vAntixPrice).toFixed(2)

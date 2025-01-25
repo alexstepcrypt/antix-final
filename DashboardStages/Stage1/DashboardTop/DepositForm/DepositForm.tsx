@@ -351,7 +351,7 @@ const DepositForm = () => {
             title={`ANTIX ${t('stage.form.receive')}`}
             onChangeValue={() => {}}
             icon={TokenIcon}
-            price={"$0.07"}
+            price={"$0.08"}
             style={{
                 background: 'unset',
                 border: '1px solid rgba(255, 255, 255, .1)',

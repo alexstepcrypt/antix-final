@@ -99,7 +99,7 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
         <div className={styles.stagePrice}>
             <section className={styles.leftPart}>
                 <h3>{t('tokenSaleDeposit2.currentPrice')}</h3>
-                <p>0.07 USD</p>
+                <p>0.08 USD</p>
             </section>
 
             <div className={styles.prices}>

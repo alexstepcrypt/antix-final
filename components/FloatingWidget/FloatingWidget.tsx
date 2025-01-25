@@ -75,7 +75,7 @@ const FloatingWidget = () => {
             <div className={styles.sale}>
                 <p>Join Token Sale Now!</p>
                 <div>
-                    $0.07 <span>- 50% discount!</span>
+                    $0.08 <span>- 50% discount!</span>
                 </div>
             </div>
             <div className={styles.timer}>
