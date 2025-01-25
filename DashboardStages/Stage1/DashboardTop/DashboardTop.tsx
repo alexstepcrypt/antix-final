@@ -170,7 +170,7 @@ const DashboardTop = () => {
                 <div className={styles.stagePrice}>
                     <div className={styles.stage1Sold}>
                         <h5>{t('stage.currentPrice')}</h5>
-                        <h4>0.07 USD</h4>
+                        <h4>0.08 USD</h4>
                     </div>
                     <div className={styles.depositPriceWrapper}>
                         <h4>{t('stage.listing')}</h4>
