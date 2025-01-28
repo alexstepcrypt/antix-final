@@ -1,0 +1,146 @@
+.nymodal {
+  z-index: 999;
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  --bg-color: #0F0F0F;
+  
+  user-select: none;
+
+  margin: 10vh auto;
+  max-width: 660px;
+  width: 100%;
+  padding: 8px;
+  background-image: linear-gradient(130.19deg, #FFA600 4.21%, #FFF7A4 44.5%, #FFC400 95.79%);
+  border-radius: 12px;
+
+  button.close {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: url('./images/close.svg') no-repeat var(--bg-color) 70% 15px;
+    background-size: 24px;
+    width: 64px;
+    height: 64px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.1s linear;
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  section {
+    padding: 30px 10px 40px 10px;
+    position: relative;
+    &:before {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      border: 1px solid #272727;
+    }
+    background: 
+      url('./images/decor2.svg') no-repeat 8% 30%,
+      url('./images/decor1.svg') no-repeat 94% 24%,
+      url('./images/decor1.svg') no-repeat 11% 69%,
+      url('./images/decor2.svg') no-repeat 94% 74%;
+    background-size: 20px, 20px, 15px, 40px;
+    background-color: var(--bg-color);
+    border-radius: 6px;
+    color: #fff;
+    text-align: center;
+
+    h2 {
+      font-size: 36px;
+      font-weight: normal;
+      line-height: 32px;
+
+      &::before {
+        content: '';
+        margin: 10px auto 30px auto;
+        display: block;
+        background: url('./images/decor0.svg') no-repeat center center;
+        background-size: 100%;
+        width: 120px;
+        height: 50px;
+      }
+    }
+
+    &>p {
+      max-width: 350px;
+      margin: 20px auto 30px auto;
+      color: #AFAFAF;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0em;
+    }
+    &>.big {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0em;
+      b {
+        color: #FFC508;
+      }
+    }
+
+    button {
+      cursor: pointer;
+      background-color: #FFAD00;
+      max-width: 350px;
+      width: 100%;
+      color: #000;
+      border-radius: 50px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: opacity 0.3s ease, transform 0.1s linear;
+      &:hover {
+        opacity: 0.9;
+      }
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+
+
+  // corners
+  &::before, &::after, section::after {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    z-index: 1;
+    background: url('./images/corner.svg') var(--bg-color) no-repeat 10px 10px;
+    background-size: 60%;
+    top: 10px;
+    left: 10px;
+    width: 64px;
+    height: 64px;
+  }
+  &::after {
+    top: auto;
+    bottom: 10px;
+    left: auto;
+    right: 10px;
+    transform: rotate(180deg);
+  }
+  section::after {
+    top: auto;
+    bottom: 10px;
+    left: 10px;
+    right: auto;
+    transform: rotate(-90deg);
+  }
+}
