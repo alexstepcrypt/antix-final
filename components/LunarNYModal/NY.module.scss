@@ -10,7 +10,7 @@
 
   margin: 10vh auto;
   max-width: 660px;
-  width: 100%;
+  width: 95%;
   padding: 8px;
   background-image: linear-gradient(130.19deg, #FFA600 4.21%, #FFF7A4 44.5%, #FFC400 95.79%);
   border-radius: 12px;
@@ -36,7 +36,7 @@
   }
 
   section {
-    padding: 30px 10px 40px 10px;
+    padding: 30px 20px 40px 20px;
     position: relative;
     &:before {
       pointer-events: none;
@@ -50,7 +50,7 @@
     }
     background: 
       url('./images/decor2.svg') no-repeat 8% 30%,
-      url('./images/decor1.svg') no-repeat 94% 24%,
+      url('./images/decor1.svg') no-repeat 94% 18%,
       url('./images/decor1.svg') no-repeat 11% 69%,
       url('./images/decor2.svg') no-repeat 94% 74%;
     background-size: 20px, 20px, 15px, 40px;
@@ -60,9 +60,10 @@
     text-align: center;
 
     h2 {
+      text-wrap: balance;
       font-size: 36px;
       font-weight: normal;
-      line-height: 32px;
+      line-height: 38px;
 
       &::before {
         content: '';
@@ -85,6 +86,7 @@
       letter-spacing: 0em;
     }
     &>.big {
+      text-wrap: balance;
       color: #fff;
       font-size: 16px;
       font-weight: 500;
@@ -97,9 +99,11 @@
 
     button {
       cursor: pointer;
+      position: relative;
+      z-index: 2;
       background-color: #FFAD00;
       max-width: 350px;
-      width: 100%;
+      width: 80%;
       color: #000;
       border-radius: 50px;
       padding: 12px 24px;

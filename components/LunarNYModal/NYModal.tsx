@@ -19,6 +19,7 @@ export default function NYModal() {
     modalRef.current.close();
   }
 
+
   return <dialog ref={modalRef} className={styles.nymodal}><section>
     <button className={styles.close} onClick={handleClose}></button>
     <h2>Happy Lunar New Year!</h2>
