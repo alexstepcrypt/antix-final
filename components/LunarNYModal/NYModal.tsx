@@ -8,7 +8,7 @@ export default function NYModal() {
   const modalRef = useRef(null);
 
   useEffect(() => {
-    if (modalRef.current) {
+    if (modalRef.current && sessionStorage.getItem('lunarNYModalClosed') !== 'true') {
       // @ts-ignore
       modalRef.current.showModal();
     }
@@ -17,6 +17,7 @@ export default function NYModal() {
   function handleClose() {
     // @ts-ignore
     modalRef.current.close();
+    sessionStorage.setItem('lunarNYModalClosed', 'true');
   }
 
 

@@ -46,7 +46,12 @@ function clearLocalStorage(){
 	localStorage.utms = utms
 	localStorage.subid = subid
 	localStorage.refcode = refcode
+
+	const userCountry:string | null = sessionStorage.getItem('userCountry')
+	const lunarNYModalClosed:string | null = sessionStorage.getItem('lunarNYModalClosed')
 	sessionStorage.clear()
+	sessionStorage.setItem('userCountry', userCountry || '')
+	sessionStorage.setItem('lunarNYModalClosed', lunarNYModalClosed || '')
 }
 
 export const useConnectWallet = function (): {

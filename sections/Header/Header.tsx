@@ -27,7 +27,7 @@ import WalletIcon from "/public/svg/wallet-icon.svg";
 import { FadeInNew } from "../../components/FadeInNew/FadeInNew";
 import arrow from '/public/dashboard/svg/arrow-down.svg';
 import ChainsDropdown from '@/components/ChainsDropdown/ChainsDropdown';
-import { useUserCountry } from '@/hooks/useUserCountry';
+// import { useUserCountry } from '@/hooks/useUserCountry';
 import usePlaceholderStore from '@/stores/usePlaceholderStore';
 import { useTranslation } from 'react-i18next';
 import SelectLanguage from '@/components/SelectLanguage/SelectLanguage'
