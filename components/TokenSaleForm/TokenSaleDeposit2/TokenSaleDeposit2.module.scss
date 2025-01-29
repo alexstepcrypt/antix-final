@@ -1,9 +1,10 @@
 .container {
     width: 460px;
-
+    
     display: flex;
     flex-direction: column;
     gap: 4px;
+    margin: 0 auto;
 
     .timerHead {
         width: 100%;    
@@ -340,7 +341,6 @@
     }
     @media screen and (max-width: 480px) {
         width: 325px;
-
         .timer {
             padding: 28.45px;
 

@@ -1,12 +1,26 @@
 import styles from './Pays.module.scss';
 import Image from 'next/image';
+import { useConnectWallet } from '@/hooks/useConnectWallet';
+import { sendGA4Event } from '@/utils/utils';
 
 const Pays = () => {
+   const { isConnected, connect } = useConnectWallet();
+       async function buyHandler(e:React.MouseEvent<HTMLDivElement>){
+           e.preventDefault()
+           sendGA4Event('click_buy_now')
+           
+           if (!isConnected) {
+               return connect()
+           }
+           window.location.href = '/dashboard'
+       }
+
    return (
       <div className={styles.pays}>
          <h3 className={styles.paysTitle}>Pay with</h3>
          <div className={styles.paysCards}>
-            <div className={styles.paysCard}>
+            <div className={styles.paysCard}
+                  onClick={buyHandler}>
                <Image
                   src={'/svg/tether-icon.svg'}
                   alt="USDT"
@@ -33,7 +47,8 @@ const Pays = () => {
                   </div>
                </div>
             </div>
-            <div className={styles.paysCard}>
+            <div className={styles.paysCard}
+            onClick={buyHandler}>
                <Image
                   src={'/svg/usdc-icon.svg'}
                   alt="USDC"
@@ -67,7 +82,8 @@ const Pays = () => {
                   </div>
                </div>
             </div>
-            <div className={styles.paysCard}>
+            <div className={styles.paysCard}
+            onClick={buyHandler}>
                <Image
                   src={'/svg/bnb-icon.svg'}
                   alt="BNB"
@@ -95,14 +111,16 @@ const Pays = () => {
                gap: 7,
             }}
             className={styles.paysCards}>
-            <div className={styles.paysCard1}>
+            <div className={styles.paysCard1}
+            onClick={buyHandler}
+            style={{cursor:"pointer"}}>
                <Image
                   src={'/svg/ether-icon.svg'}
                   alt="USDC"
                   width={17}
                   height={17}
                />
-               <span>ETH</span>
+               <span onClick={buyHandler}>ETH</span>
             </div>
             <div className={styles.paysCard1}>
                <Image
@@ -118,8 +136,10 @@ const Pays = () => {
                   height={19}
                />
             </div>
-            <div className={styles.paysCard1}>
-               <p>+4 coins</p>
+            <div className={styles.paysCard1}
+            onClick={buyHandler}
+            style={{cursor:"pointer"}}>
+               <p onClick={buyHandler}>+4 coins</p>
             </div>
          </div>
       </div>

@@ -86,12 +86,14 @@
 .mobileVideo {
     display: none;
     transition: 0.3s;
+    margin: 0 auto;
     @media screen and (max-width: 960px) {
         display: block;
         margin-top: 50px;
         width: 420px;
         height: auto;
         border-radius: 15px;
+
 
         position: relative;
         object-fit: cover;
