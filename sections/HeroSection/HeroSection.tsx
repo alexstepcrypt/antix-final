@@ -90,10 +90,10 @@ const HeroSection = () => {
                             href="https://x.com/antix_in"
                             target="_blank"
                         >
-                            <div className={styles.socialIcon}>
+                          <div className={styles.socialIcon}>
                                 <Image src={Xlogo} alt="X" />
                             </div>
-                            <span>46.2K</span>
+                            <span>56.2K</span>
                         </Link>
                         <Link
                             className={styles.socialLink}

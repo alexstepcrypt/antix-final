@@ -185,7 +185,22 @@
             background: #00A1B2;
             transition: background .4s ease;
          }
+
+         position: relative; 
+         overflow-x: hidden; 
       }
+
+     .flare {
+         position: absolute;
+         top: 0;
+         height: 100%;
+         width: 45px;
+         transform: skewX(-45deg);
+         animation: flareAnimation;
+         left: 0%;
+         background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.6));
+         animation: flareAnimation 5s infinite linear;
+     }
    }
 
 
@@ -265,5 +280,14 @@
             font-weight: 700;
          }
       }
+   }
+}
+
+@keyframes flareAnimation {
+   0% {
+       left: -150%;
+   }
+   100% {
+       left: 150%;
    }
 }

@@ -136,8 +136,9 @@ export const StageWidget = () => {
                </div>
             </div>
 
-            <button onClick={clickBuyNow} className={s.buy}>
+            <button onClick={clickBuyNow} className={` ${s.buy}`}>
                {t('stageWidget.buyButton')}
+               <span className={s.flare}></span> 
             </button>
          </div>
       </div>
