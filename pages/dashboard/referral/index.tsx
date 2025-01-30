@@ -152,7 +152,7 @@ const Referral = () => {
                     <div className={styles.topInfo}>
                         <h3>{t('referral.promote.title')}</h3>
                         <p>
-                            {t('referral.promote.line_1')}<br />{t('referral.promote.line_2')}
+                            {t('referral.promote.line_1')}
                         </p>
                     </div>
                     <div
@@ -194,7 +194,7 @@ const Referral = () => {
                         <div className={styles.availableEarnings}>
                             <div className={styles.availableEarningsTitle}>
                                 <h4>{t('referral.earnings')}</h4>
-                                <span>{t('referral.stage')}</span>
+                                <span>Stage 1 / 2 / 3 / 4</span>
                             </div>
                             <Earnings
                                 icon={UsdtBnbIcon}
