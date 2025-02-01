@@ -4,6 +4,8 @@ import Image from 'next/image'
 import React, { useEffect } from 'react'
 import styles from "./TokenSaleDeposit2.module.scss"
 
+import GuideModal from '../../GuideModal/GuideModal'
+
 import LogoSmall from "/public/svg/logo-small.svg";
 import BgHead from "/public/images/hero-timer-bg-head.png";
 import { HeroTimer } from '@/sections/HeroSection/ui/HeroTimer/HeroTimer';
@@ -24,6 +26,7 @@ import BaseIcon from '@/public/svg/base-chain.svg';
 interface ITokenSaleDeposit2 {
     stage1DateStr: string;
     setIsRefModal: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface TokensSolded {
@@ -35,7 +38,7 @@ interface TokenApiResponse {
     stages: { cap: number, sold: number }[]
 }
 
-const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRefModal}) => {
+const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRefModal, setIsModalOpen}) => {
     const [tokens, setTokens] = useState<TokensSolded>({ current: 0, target: 0 });
     const { isConnected, connect } = useConnectWallet();
     const router = useRouter();
@@ -136,6 +139,18 @@ const TokenSaleDeposit2: React.FC<ITokenSaleDeposit2> = ({stage1DateStr, setIsRe
                 onClick={() => router.push('/dashboard/referral')}
             >
                 {t('tokenSaleDeposit2.referralButton')}
+            </button>
+            <button
+                className={styles.refBtn}
+                onClick={() => router.push('/dashboard/referral')}
+            >
+                {t('tokenSaleDeposit2.referralButton2')}
+            </button>
+            <button
+                className={styles.refBtn}
+                onClick={() => setIsModalOpen(true)}
+            >
+                {t('tokenSaleDeposit2.referralButton3')}
             </button>
         </div>
     </div>

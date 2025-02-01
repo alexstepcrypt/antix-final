@@ -2,7 +2,7 @@
     position: fixed;
     top: 28px;
     left: 50%;
-    z-index: 102;
+    z-index: 100;
 
     transform: translateX(-50%);
     max-width: 1200px;
@@ -464,3 +464,9 @@
         color: rgba(240, 240, 240, 0.2);
     }
 }
+
+.hidden {
+    opacity: 30%;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+  }

@@ -83,7 +83,9 @@
       "connected": "Buy Now",
       "disconnected": "Connect Wallet to Buy"
     },
-    "referralButton": "+ Get referral link"
+    "referralButton": "+ Get referral link",
+    "referralButton2": "How to Buy?",
+    "referralButton3": "Can't Connect Wallet"
   },
   "heroTimer": {
     "days": "days",
@@ -522,16 +524,6 @@
         ]
       },
       {
-        "role": "Ex-Big 4 Professional",
-        "name": "Anton: Chief Financial Officer",
-        "socialLink": "https://www.linkedin.com/in/anton-galkin-finance/",
-        "image": "/images/team/command/anton.png",
-        "description": [
-           "A finance professional with 15+ years of international experience in financial reporting, IFRS/GAAP, and financial controls, leading teams in tech, healthcare, and education.",
-           "As Finance Manager at Antix Interactive, Anton has optimized financial processes and supported key business decisions for multinational organizations."
-        ]
-      },
-      {
         "role": "Developed an AAA title",
         "name": "Dmitri: Chief Technology Officer",
         "socialLink": "https://il.linkedin.com/in/dima-tihonov-261b1466?trk=people-guest_people_search-card",
@@ -744,3 +736,6 @@
     "desc": "Domicile Province of Panama, district of Panama, Betania, Vía Ricardo J. Alfaro, PH The Century Tower, office 317"
   }
 }
+
+
+

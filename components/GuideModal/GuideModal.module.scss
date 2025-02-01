@@ -1,0 +1,104 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #0F0F0FE5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+ }
+
+ .guide{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    text-align: center;
+    color: #F0F0F066;
+
+ }
+ 
+ .modal {
+    background: #1e1e1e;
+    color: white;
+    width: 90%;
+    max-width: 720px;
+    height: auto;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+ }
+ 
+ .closeButton {
+    position: absolute;
+    top: 26px;
+    right: 27px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+ }
+ 
+ .modalTitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 4px;
+    margin-bottom: 24px;
+    text-align: center;
+    line-height: 26px;
+ }
+ 
+ .mobileSection {
+    text-align: left;
+    background: #2a2a2a;
+    padding: 32px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    gap:12px;
+ }
+ 
+ .mobileSection h3 {
+    
+    font-weight: 500;
+    line-height: 14px;
+    color: #F0F0F0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+ }
+ 
+ .mobileSection p {
+    margin-top: 12px;
+    line-height: 22px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 22px;
+    color: #AFAFAF;
+ }
+ 
+ .boldText {
+    font-weight: 600;
+ }
+ 
+ .connectButton {
+    font-size: 14px;
+    line-height: 21px;
+    width: 188px;
+    height: 45px;
+    padding: 12px 40px 12px 40px;
+    border: none;
+    border-radius: 44.72px;
+    background: white;
+    color: #0F0F0F;
+    cursor: pointer;
+    margin-top: 24px;
+    margin-bottom: 24px;
+ }

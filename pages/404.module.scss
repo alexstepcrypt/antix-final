@@ -1,0 +1,90 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+
+  /* Десктопный фон по умолчанию */
+  background-image: url("../public/svg/404/backgroundDesktop.svg");
+
+  .logo {
+    position: absolute;
+    top: 3.25rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    font-family: "Poppins", sans-serif;
+
+    .title {
+      font-size: 60px;
+      font-weight: 500;
+      line-height: 60px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 60px;
+    }
+
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 329px;
+      height: 45px;
+      border-radius: 50.62px;
+      background: linear-gradient(89.59deg, #12FFF1 14.83%, #99FFF9 85.17%);
+      box-shadow: 0px 0px 29.77px 0px #12FFF14D;
+      color: #000;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    background-image: url("../public/svg/404/backgroundPhone.svg");
+    .title {
+      font-size: 36px !important;
+      font-weight: 500 !important;
+      line-height: 54px !important;
+      letter-spacing: -0.04em !important;
+    }
+  
+    .subtitle {
+      width: 240px;
+      font-size: 16px !important;
+      line-height: 24px !important;
+      margin-top: 15px !important;
+      margin-bottom: 60px !important;
+    }
+  
+    .button {
+      width: 273px !important;
+      height: 45px !important;
+      font-size: 14px !important;
+    }
+  }
+}

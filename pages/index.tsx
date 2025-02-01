@@ -1,5 +1,6 @@
 // import type { Metadata } from 'next';
 
+import { useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import Header from "@/sections/Header/Header";
 import HeroSection from "@/sections/HeroSection/HeroSection";
@@ -30,6 +31,7 @@ import Placeholder from "@/components/Placeholder/Placeholder";
 import { StageWidget } from '@/components/StageWidget/StageWidget'
 import About from "@/sections/About/About";
 import TakeChance from '@/sections/TakeChance/TakeChance'
+import GuideModal from "@/components/GuideModal/GuideModal";
 // import FloatingWidget from "@/components/FloatingWidget/FloatingWidget";
 
 const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false });
@@ -45,16 +47,34 @@ const Footer = dynamic(() => import("@/sections/Footer/Footer"), { ssr: false })
 
 export default function Home() {
     const { isBlocked } = usePlaceholderStore();
-  
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const [showTakeChance, setShowTakeChance] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const width = window.innerWidth;
+            setShowTakeChance(width >= 320 && width <= 960);
+        };
+
+        handleResize(); 
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    if (isBlocked) {
+        return <Placeholder />;
+    }
+
     if (isBlocked) {
       return <Placeholder />;
     }
 
     return (
         <div className={styles.container}>
-            <Header />
+            <Header/>
             <HeroSection />
-            <TakeChance />
+            {showTakeChance && <TakeChance />}
             <FeaturedIn />
             <PlatformToReplace />
             {/* <FloatingWidget /> */}

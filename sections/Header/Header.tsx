@@ -151,8 +151,7 @@ const Header: React.FC<HeaderProps> = ({ isDashboard, isNews }) => {
             </div>
             <header
                 className={`${styles.wrapper} ${
-                    isOpen ? styles.openWrapper : ""
-                }`}
+                    isOpen ? styles.openWrapper : ""}`}
                 ref={headerRef}
             >
                 <div className={styles.logo}>

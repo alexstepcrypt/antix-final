@@ -3,9 +3,11 @@
 import styles from "./HeroSection.module.scss";
 import Image from "next/image";
 
-import Xlogo from "/public/svg/social-x.svg";
-import Tglogo from "/public/svg/social-telegram.svg";
-import Discordlogo from "/public/svg/social-discord.svg";
+import GuideModal from "@/components/GuideModal/GuideModal";
+
+import Xlogo from "/public/svg/social-grayx.svg";
+import Tglogo from "/public/svg/social-graytelegram.svg";
+import Discordlogo from "/public/svg/social-graydiscord.svg";
 
 import Awords1 from "/public/svg/team/ico1.svg";
 import Awords2 from "/public/svg/team/ico2.svg";
@@ -13,16 +15,19 @@ import Awords3 from "/public/svg/team/ico3.svg";
 import Awords4 from "/public/svg/team/ico4.svg";
 import Awords5 from "/public/svg/team/top10.svg";
 import Awords6 from "/public/svg/team/ico5.svg";
+import Awords7 from "/public/svg/team/Hackernoon.svg";
 
 // import BgHead from "/public/images/hero-timer-bg-head.png";
 import { FadeInNew } from "@/components/FadeInNew/FadeInNew";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReferalModal from "./ui/ReferalModal/ReferalModal";
 import TokenSaleDeposit from "@/components/TokenSaleForm/TokenSaleDeposit/TokenSaleDeposit";
 import TokenSaleDeposit2 from "@/components/TokenSaleForm/TokenSaleDeposit2/TokenSaleDeposit2";
+import TakeChance from "../TakeChance/TakeChance";
 import { useTranslation } from "react-i18next";
 import { sendSocialGAEvent } from "@/utils/utils";
+import { ImageResponse } from "next/server";
 // import TokenSaleStage1AS from "@/components/TokenSaleForm/TokenSaleStage1AS/TokenSaleStage1AS";
 // import TokenSaleStage1 from "@/components/TokenSaleForm/TokenSaleStage1/TokenSaleStage1";
 // import TokenSaleStage1SO from "@/components/TokenSaleForm/TokenSaleStage1SO/TokenSaleStage1SO";
@@ -30,6 +35,7 @@ import { sendSocialGAEvent } from "@/utils/utils";
 
 const HeroSection = () => {
     const [isRefModal, setIsRefModal] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     // const { account } = useConnectWallet();
 
     // DATES FOR CONDITIONS BETWEEN STAGES
@@ -40,6 +46,19 @@ const HeroSection = () => {
     const stage3DateStr = "2024-12-22T17:00:00Z";
     const stage4DateStr = "2025-02-08T13:00:00Z";
     const { t } = useTranslation('landing');
+
+
+    const [isHidden, setIsHidden] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+           const width = window.innerWidth;
+           setIsHidden(width >= 320 && width <= 960);
+        };
+  
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+     }, []);
 
     return (
         <section className={styles.wrapper} id="Hero">
@@ -122,6 +141,16 @@ const HeroSection = () => {
                         <Image
                             onClick={() =>
                                 window.open(
+                                    "https://hackernoon.com/startups/north-america/north-america-new-castle-de-usa?stup=671bf503680441f5b23312b6 ",
+                                    "_blank"
+                                )
+                            }
+                            src={Awords7}
+                            alt=""
+                        />
+                        <Image
+                            onClick={() =>
+                                window.open(
                                     "https://antix.in/about-company",
                                     "_blank"
                                 )
@@ -181,6 +210,7 @@ const HeroSection = () => {
                             alt=""
                         />
                     </div>
+                    {!isHidden && <TakeChance />}
                 </div>
                 <video
                     className={styles.mobileVideo}
@@ -206,8 +236,17 @@ const HeroSection = () => {
                 {/* Stage 1 Sold Out */}
                 {/* <TokenSaleStage1SO stage1DateStr={stage1DateStr} setIsRefModal={setIsRefModal} /> */}
 
-                <TokenSaleDeposit2 stage1DateStr={stage4DateStr} setIsRefModal={setIsRefModal} />
 
+
+                <div className={styles.spacer}></div>
+
+                <TokenSaleDeposit2 stage1DateStr={stage4DateStr} setIsRefModal={setIsRefModal}  setIsModalOpen={setIsModalOpen}/>
+                {isModalOpen && (
+                <GuideModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                    <h2>What to Do If Your Web3 Wallet Doesn't Connect?</h2>
+                    <p>Follow these steps to troubleshoot...</p>
+                </GuideModal>
+            )}
             </div>
         </section>
     );
