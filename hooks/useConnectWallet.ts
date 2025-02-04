@@ -75,6 +75,7 @@ export const useConnectWallet = function (): {
 	const { data: signMessageData, signMessage, variables, error: signError } = useSignMessage()
 	const [ ready, setReady ] = useState(isConnected || !!status || !!profile)
 
+	// console.log({ isConnected, status, address, walletInfo })
 
 	useEffect(()=>{
 		if (!walletInfo?.name) return

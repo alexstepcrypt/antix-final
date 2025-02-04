@@ -81,15 +81,6 @@ export const useDeposit = function () {
 
 		sendGAEvent({event:'perfu_congrats', conversionValue:depositDetails.token })
 
-		window.dataLayer.push({
-			event          : 'custom_event',
-			event_category : 'forms',
-			event_action   : 'success',
-			event_label    : 'buy',
-			event_content  : 'step_3',
-			event_context  : 'application_process'
-		})
-
 		;(async ()=>{
 			const [info, rates] = await Promise.all([
 				Api.stagesInfo(1),
@@ -116,6 +107,16 @@ export const useDeposit = function () {
 					quantity: vAntixAmount  //количество токенов
 				  }]
 				}
+			})
+
+			window.dataLayer.push({
+				event          : 'custom_event',
+				event_category : 'forms',
+				event_action   : 'success',
+				event_label    : 'buy',
+				event_content  : 'step_3',
+				event_context  : 'application_process',
+				bought_tokens  : vAntixAmount
 			})
 
 			Api.postback({

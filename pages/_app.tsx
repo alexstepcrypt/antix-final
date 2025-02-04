@@ -8,7 +8,6 @@ import { useIsomorphicLayoutEffect } from "react-use";
 import {useRouter} from "next/router";
 import { I18nextProvider } from "react-i18next";
 import i18n from "@/utils/i18n";
-import NYModal from "@/components/LunarNYModal/NYModal";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -55,7 +54,6 @@ export default function App({Component, pageProps: { session, ...pageProps }}: A
 		<Web3ModalProvider>
 			<I18nextProvider i18n={i18n}>
 				<Component {...pageProps} />
-				<NYModal />
 			</I18nextProvider>
 		</Web3ModalProvider>
 	</>
