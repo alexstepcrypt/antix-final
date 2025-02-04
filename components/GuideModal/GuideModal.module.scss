@@ -24,8 +24,8 @@
     background: #1e1e1e;
     color: white;
     width: 90%;
-    max-width: 720px;
-    height: auto;
+    max-width: 1030px;
+    height: 710px;
     padding: 24px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -60,29 +60,62 @@
     border-radius: 8px;
     margin-bottom: 20px;
     width: 90%;
-    height: auto;
+    height: 490px;
     margin: 0 auto;
     gap:12px;
- }
- 
- .mobileSection h3 {
+
+    h3 {
     
-    font-weight: 500;
-    line-height: 14px;
-    color: #F0F0F0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+      font-weight: 500;
+      line-height: 14px;
+      color: #F0F0F0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+   }
+
+   p {
+      margin-top: 12px;
+      line-height: 22px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      line-height: 22px;
+      color: #AFAFAF;
+   }
  }
+
+ .desktopSection {
+   text-align: left;
+   background: #2a2a2a;
+   padding: 32px;
+   border-radius: 8px;
+   margin-bottom: 20px;
+   width: 90%;
+   height: 490px;
+   margin: 0 auto;
+   gap:12px;
+
+   h3 {
+   
+     font-weight: 500;
+     line-height: 14px;
+     color: #F0F0F0;
+     display: flex;
+     flex-direction: column;
+     gap: 12px;
+  }
+
+  p {
+     margin-top: 12px;
+     line-height: 22px;
+     font-size: 14px;
+     margin-bottom: 10px;
+     line-height: 22px;
+     color: #AFAFAF;
+  }
+}
  
- .mobileSection p {
-    margin-top: 12px;
-    line-height: 22px;
-    font-size: 14px;
-    margin-bottom: 10px;
-    line-height: 22px;
-    color: #AFAFAF;
- }
+ 
  
  .boldText {
     font-weight: 600;
@@ -102,3 +135,46 @@
     margin-top: 24px;
     margin-bottom: 24px;
  }
+
+ .blocks{
+   display: flex;
+   flex-direction: row;
+   gap:16px;
+ }
+
+ .walletsType{
+   text-decoration: underline;
+   color:#12FFF1;
+ }
+
+
+ @media (max-width: 768px) and (min-width: 320px) {
+   .desktopSection {
+      display: none;
+   }
+
+   .mobileSection {
+      display: block;
+      height: auto;
+   }
+
+   .modal {
+      max-width: 90%; 
+      height: auto;
+   }
+}
+
+@media (max-width: 1280px) and (min-width: 769px) {
+   .modal {
+      max-width: 90%; 
+      height: auto;
+   }
+
+   .desktopSection {
+      height: auto;
+   }
+
+   .mobileSection {
+      height: auto;
+   }
+}
