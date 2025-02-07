@@ -57,9 +57,9 @@
    },
    "tokenSaleDeposit2": {
       "timerHead": "Venta de fichas",
-      "stageTitle": "Etapa 5",
+      "stageTitle": "Bono Etapa",
       "discountText": "-71% al precio TGE",
-      "stageEndsIn": "La etapa 5 termina en",
+      "stageEndsIn": "La bono etapa termina en",
       "currentPrice": "Precio actual",
       "listingPrice": "Cotización(TGE) Precio",
       "tokensSold": "Fichas vendidas:",
@@ -78,7 +78,7 @@
    "stageWidget": {
       "currentPrice": "Precio actual",
       "timer": {
-         "title": "La etapa 5 termina en",
+         "title": "La Bono Etapa termina en",
          "days": "día",
          "hours": "hora",
          "minutes": "min",
@@ -683,7 +683,7 @@
                ]
             },
             {
-               "stage": "Etapa 5",
+               "stage": "Bono Etapa",
                "event": "Desarrollo empresarial e integración",
                "list": [
                   {
@@ -713,7 +713,7 @@
          "videoError": "Su navegador no soporta vídeo."
       },
       "exclusiveOffer": {
-         "title": "Únete a la Etapa 5",
+         "title": "Únete a la Bono Etapa",
          "desc": "Haga un depósito para asegurarse el mejor precio",
          "btn": "Únete ahora"
       },

@@ -33,7 +33,7 @@ export default function NYModal() {
     <h2>Happy Lunar New Year!</h2>
     <p>Let’s make this Lunar New Year special!</p>
     <p className={styles.big}>
-      For a few days only, at the start of <b>Stage 6</b>, get <b>bonus tokens</b> with every purchase.
+      For a few days only, at the start of <b>Bonus Stage</b>, get <b>bonus tokens</b> with every purchase.
     </p>
     <p>How many? That’s a secret. Buy now and find out!</p>
 

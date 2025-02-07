@@ -2,7 +2,7 @@
   "stage": {
     "dashboard": "Dashboard",
     "steps": ["Confirmation", "Transaction (Deposits)", "Success"],
-    "whitelisted": "Buy Tokens in Stage 6",
+    "whitelisted": "Buy Tokens in Bonus Stage",
     "whitelisted_desc": {
       "text_1": "Purchase ANTIX tokens directly using multiple cryptocurrencies on three blockchains: Ethereum, BNB Chain, and Base.",
       "span": "-43% to TGE Price",
@@ -14,10 +14,10 @@
       "text": "tokens will be converted to ANTIX tokens according to the unlock and vesting schedule."
     },
     "depositBalance": "Deposit Balance",
-    "title": "Stage 6",
+    "title": "Bonus Stage",
     "referralBonus": "Referral Bonus",
     "timer": {
-      "title": "Stage 6 ends in",
+      "title": "Bonus Stage ends in",
       "days": "days",
       "hours": "hours",
       "minutes": "min",
@@ -175,7 +175,7 @@
     "total": "Total claimed",
     "stage": "Stage 1",
     "yourEarnings": "Your Referral Earnings",
-    "deposit": "Deposit / Stage 6",
+    "deposit": "Deposit / Bonus Stage",
     "referrals": "Referrals",
     "connected": "Users who connected their crypto wallet via your link.",
     "referralVested": "Vested Antix tokens purchased using your referral link.",

@@ -21,7 +21,7 @@ const nativeCoins = [
 
 export const useDeposit = function () {
 	const wagmiChainId = useChainId()
-	const { chainId, disconnect } = useConnectWallet()
+	const { chainId, address, disconnect } = useConnectWallet()
 	const { switchNetwork } = useNetwork()
 	const [depositDetails, setDepositDetails] = useState({ type:'DEPOSIT', amount: '0', token: '', value: 0 })
 	const [depositInProgress, setDepositInProgress] = useState(false)
@@ -116,7 +116,8 @@ export const useDeposit = function () {
 				event_label    : 'buy',
 				event_content  : 'step_3',
 				event_context  : 'application_process',
-				bought_tokens  : vAntixAmount
+				bought_tokens  : vAntixAmount,
+				transaction_id : address
 			})
 
 			Api.postback({

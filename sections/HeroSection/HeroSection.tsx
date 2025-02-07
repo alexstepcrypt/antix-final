@@ -44,7 +44,7 @@ const HeroSection = () => {
     const currentDate = new Date();
     const stage2DateStr = "2024-12-17T17:00:00Z";
     const stage3DateStr = "2024-12-22T17:00:00Z";
-    const stage4DateStr = "2025-02-08T13:00:00Z";
+    const stage4DateStr = "2025-02-22T13:00:00Z";
     const { t } = useTranslation('landing');
 
 

@@ -73,9 +73,9 @@
   },
   "tokenSaleDeposit2": {
     "timerHead": "Token Sale",
-    "stageTitle": "Stage 6",
+    "stageTitle": "Bonus Stage",
     "discountText": "-43% to TGE Price",
-    "stageEndsIn": "Stage 6 ends in",
+    "stageEndsIn": "Bonus Stage ends in",
     "currentPrice": "Current price",
     "listingPrice": "Listing(TGE) Price",
     "tokensSold": "Tokens Sold (USD):",
@@ -122,7 +122,7 @@
   "stageWidget": {
     "currentPrice": "Current price",
     "timer": {
-      "title": "Stage 6 ends in",
+      "title": "Bonus Stage ends in",
       "days": "day",
       "hours": "hour",
       "minutes": "min",
@@ -715,7 +715,7 @@
     "videoError": "Your browser does not support video."
   },
   "exclusiveOffer": {
-    "title": "Join Stage 6",
+    "title": "Join Bonus Stage",
     "desc": "Make deposit to secure the best price",
     "btn": "Join Now"
   },
