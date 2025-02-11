@@ -153,7 +153,7 @@ const DashboardTop = () => {
                     <h5 className={styles.timerTitle}>
                         {t('stage.timer.title')}
                     </h5>
-                    <Timer targetDate={new Date("2025-01-25T13:00:00Z")} />
+                    <Timer targetDate={new Date(process.env.STAGE_DATE || '')} />
                 </div> 
 
                 {/* <div className={styles.stagePrice}>

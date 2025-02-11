@@ -7,7 +7,7 @@ import { useConnectWallet } from '@/hooks/useConnectWallet';
 
 
 export const StageWidget = () => {
-   const targetDate = new Date('2025-02-22T13:00:00Z');
+   const targetDate = new Date(process.env.STAGE_DATE || '');
    const [timeLeft, setTimeLeft] = useState({
       days: 0,
       hours: 0,

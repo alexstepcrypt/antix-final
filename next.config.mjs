@@ -3,6 +3,7 @@ import withVideos from "next-videos";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     env: {
+        STAGE_DATE: '2025-02-22T13:00:00Z',
         API_URL: 'https://antix.cryptoindex.com',
         // API_URL: 'http://localhost:3001',
         TOKENSALE_ETH: '0x35b8f67107b7C04Cef5a3ab92170ac16Ca61BEd6',

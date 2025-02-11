@@ -126,7 +126,7 @@ const Referral = () => {
         return () => clearTimeout(fetchReferralsTimeout)
     }, [profile, chainId])
 
-    const curStageNum = 4
+    const curStageNum = 6
     const curStage = refStats?.stage?.[String(curStageNum)] || refStats?.stage?.[Number(curStageNum)] || {}
 
     return <>
