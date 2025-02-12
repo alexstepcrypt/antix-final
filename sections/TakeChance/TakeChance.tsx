@@ -29,7 +29,11 @@ const TakeChance = () => {
                <div className={s.infoСontainer}>
             <Image src={info} alt="info" className={s.info}/>
             <div className={s.modal}>
-            Subscribe to our email newsletter to get info about the tokensale, receive token unlock and listing notifications and get a chance to win from a 1,000,000 prize pool!
+               Stay ahead of the game! Get exclusive updates on the Antix token sale, special promotions, and upcoming events.
+                  <br />
+                  &bull; Secure the best token prices before the next stage. <br />
+                  &bull; Be the first to join community-exclusive competitions. <br />
+                  &bull; Win a chance to create your own digital twin with Antix!
             </div>
          </div>
             

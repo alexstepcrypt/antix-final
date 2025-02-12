@@ -65,6 +65,35 @@ export default class MyDocument extends Document {
         <link rel="canonical" href="https://token.antix.in" />
 
 
+        <Script src="https://unpkg.com/@kazm/client-sdk@latest"></Script>
+        <Script id="kazm-script" strategy="afterInteractive" dangerouslySetInnerHTML={{__html: `
+            const kazmSDK = new kazm.KazmSDK();
+            kazmSDK.initializeEmbed({
+              membershipId: "8a33ffd0-f9c9-414e-a577-bff99f1badf3",
+              elementId: "kazm-form",
+              options:       {
+                formOptions: {
+                  logo: true,
+                  headline: true,
+                  description: true,
+                  backgroundImage: true
+                },
+                profileOptions: {
+                  includeProfile: true,
+                  currentTier: true,
+                  nextTier: true,
+                  quests: true,
+                  linkToLeaderboard: true
+                },
+                leaderboardOptions: {
+                  includeLeaderboard: true,
+                  quests: true,
+                  header: true
+                }
+              }
+            });
+        `}}/>
+
         <Script id="yandex-metrika" strategy="afterInteractive" dangerouslySetInnerHTML={{__html: `
           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
           m[i].l=1*new Date();
