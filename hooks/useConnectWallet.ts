@@ -164,7 +164,7 @@ export const useConnectWallet = function (): {
 			}
 			setProfile(profileInfo)
 
-			sendGAEvent({event:'perfu_connect', conversionAddress:address })
+			sendGAEvent({event:'perfu_connect', conversionAddress:address.substring(3) })
 
 			window.dataLayer.push({
 				event          : 'custom_event',
