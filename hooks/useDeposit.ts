@@ -117,7 +117,7 @@ export const useDeposit = function () {
 				event_content  : 'step_3',
 				event_context  : 'application_process',
 				bought_tokens  : vAntixAmount,
-				transaction_id : address
+				transaction_id : address?.substring(3)
 			})
 
 			Api.postback({

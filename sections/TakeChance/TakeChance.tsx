@@ -39,10 +39,10 @@ const TakeChance = () => {
             
             <div className={s.preview}>
                <h2>
-                  Take your<br /><span>$1M Chance</span>
+                  Subscribe & Win Big!
                </h2>
                <div className={s.space}></div>
-               <p>Unlock your chance to earn from a $1,000,000 pool</p>
+               <p>Enter your email for early access</p>
             </div>
 
             <form
